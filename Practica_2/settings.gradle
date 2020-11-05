@@ -1,0 +1,2 @@
+include ':common', ':desktopGame', ':app'
+rootProject.name = "Hewwo World"
