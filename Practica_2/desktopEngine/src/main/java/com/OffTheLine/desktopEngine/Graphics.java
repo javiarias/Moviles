@@ -1,76 +1,96 @@
-package com.OffTheLine.desktop;
-
-import com.OffTheLine.common.Graphics;
-import com.OffTheLine.common.Font;
+package com.OffTheLine.desktopEngine;
 
 import java.awt.Color;
-//import java.awt.Font;
 import java.io.File;
 
-public class _Graphics implements com.OffTheLine.common.Graphics {
+public class Graphics implements com.OffTheLine.common.Graphics {
 
-    _Graphics() {
+    Graphics() {
 
     }
 
-    public Font newFont(File filename, int size, boolean isBold) { return null; } /*throws Exception {
-        Font ret = Font.createFont(Font.TRUETYPE_FONT, filename);
+    @Override
+    public Font newFont(File filename, int size, boolean isBold) throws Exception {
+        Font ret = (Font) Font.createFont(Font.TRUETYPE_FONT, filename);
 
-        return null;
+        return ret;
     };
-    */
 
+
+    @Override
     public void clear(Color color) {
 
     }
 
+
+    @Override
     public void translate(float x, float y) {
 
     }
 
+
+    @Override
     public void scale(float x, float y) {
 
     }
 
+
+    @Override
     public void rotate(float angle) {
 
     }
 
 
+
+    @Override
     public void save() {
 
     }
 
+
+    @Override
     public void restore() {
 
     }
 
 
+
+    @Override
     public void setColor(Color color) {
 
     }
 
 
+
+    @Override
     public void drawLine(float x1, float y1, float x2, float y2) {
 
     }
 
 
+
+    @Override
     public void fillRect(float x1, float y1, float x2, float y2) {
 
     }
 
 
+
+    @Override
     public void drawText(String text, float x, float y) {
 
     }
 
 
+
+    @Override
     public int getWidth() {
 
         return 0;
     }
 
+
+    @Override
     public int getHeight() {
 
         return 0;

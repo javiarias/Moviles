@@ -1,4 +1,4 @@
-package com.OffTheLine.desktop;
+package com.OffTheLine.desktopGame;
 
 import java.awt.Graphics;
 

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.io.File;
 
 public interface Graphics {
-    Font newFont(File filename, int size, boolean isBold);
+    Font newFont(File filename, int size, boolean isBold) throws Exception;
 
     void clear(Color color);
 

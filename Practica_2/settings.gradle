@@ -1,2 +1,4 @@
-include ':common', ':desktopGame', ':app'
+include ':appEngine'
+include ':desktopGame'
+include ':common', ':desktopEngine', ':app'
 rootProject.name = "Hewwo World"
