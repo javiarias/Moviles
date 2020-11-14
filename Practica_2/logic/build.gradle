@@ -8,7 +8,5 @@ java {
 }
 
 dependencies {
-    implementation project(path: ':logic')
-    implementation project(path: ':desktopEngine')
     implementation project(path: ':common')
 }

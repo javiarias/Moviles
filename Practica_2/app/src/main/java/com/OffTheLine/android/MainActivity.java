@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             long lastFrame = System.nanoTime();
 
-            while(_running){
+            while(_running) {
                 long currentTime = System.nanoTime();
                 long elapsed = currentTime - lastFrame;
                 lastFrame = currentTime;

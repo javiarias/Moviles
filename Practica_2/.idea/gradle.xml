@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/desktopEngine" />
             <option value="$PROJECT_DIR$/desktopGame" />
+            <option value="$PROJECT_DIR$/logic" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

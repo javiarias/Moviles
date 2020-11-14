@@ -1,3 +1,4 @@
+include ':logic'
 include ':appEngine'
 include ':desktopGame'
 include ':common', ':desktopEngine', ':app'

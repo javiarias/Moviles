@@ -2,9 +2,10 @@ package com.OffTheLine.common;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.InputStream;
 
 public interface Graphics {
-    Font newFont(File filename, int size, boolean isBold) throws Exception;
+    Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception;
 
     void clear(Color color);
 

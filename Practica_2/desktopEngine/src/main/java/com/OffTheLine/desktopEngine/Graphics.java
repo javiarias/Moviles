@@ -1,25 +1,95 @@
 package com.OffTheLine.desktopEngine;
 
-import java.awt.Color;
+import javax.swing.JFrame;
 import java.io.File;
 
-public class Graphics implements com.OffTheLine.common.Graphics {
+import java.awt.Color;
 
-    Graphics() {
+import java.io.InputStream;
+import java.io.FileInputStream;
 
+
+public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
+
+    public Graphics(String title) {
+        super(title);
+    }
+
+    Font _font;
+    java.awt.image.BufferStrategy _strategy;
+
+    int _width = 0;
+    int _height = 0;
+
+    public boolean init(int width, int height, String assetsPath) {
+
+        setSize(width, height);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Font baseFont;
+        try (InputStream is = new FileInputStream(assetsPath + "Bangers-Regular.ttf")) {
+            _font = newFont(is, 40, true, false);
+        }
+        catch (Exception e) {
+            // Ouch. No está.
+            System.err.println("Error cargando la fuente: " + e);
+            return false;
+        }
+
+        // Vamos a usar renderizado activo. No queremos que Swing llame al
+        // método repaint() porque el repintado es continuo en cualquier caso.
+        setIgnoreRepaint(true);
+
+        // Hacemos visible la ventana.
+        setVisible(true);
+
+        // Intentamos crear el buffer strategy con 2 buffers.
+        int intentos = 100;
+        while(intentos-- > 0) {
+            try {
+                createBufferStrategy(2);
+                break;
+            }
+            catch(Exception e) {
+            }
+        } // while pidiendo la creación de la buffeStrategy
+        if (intentos == 0) {
+            System.err.println("No pude crear la BufferStrategy");
+            return false;
+        }
+        else {
+            // En "modo debug" podríamos querer escribir esto.
+            //System.out.println("BufferStrategy tras " + (100 - intentos) + " intentos.");
+        }
+
+        // Obtenemos el Buffer Strategy que se supone que acaba de crearse.
+        _strategy = getBufferStrategy();
+        _width = width;
+        _height = height;
+
+        return true;
     }
 
     @Override
-    public Font newFont(File filename, int size, boolean isBold) throws Exception {
+    public Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception {
         Font ret = (Font) Font.createFont(Font.TRUETYPE_FONT, filename);
 
+        int s = Font.PLAIN;
+        if (isBold)
+            s = s | Font.BOLD;
+        if(isItalic)
+            s = s | Font.ITALIC;
+
+        ret = (Font) ret.deriveFont(s, size);
+
         return ret;
-    };
+    }
 
 
     @Override
     public void clear(Color color) {
-
+        setColor(color);
+        fillRect(0, 0, getWidth(), getHeight());
     }
 
 
@@ -86,14 +156,14 @@ public class Graphics implements com.OffTheLine.common.Graphics {
     @Override
     public int getWidth() {
 
-        return 0;
+        return _width;
     }
 
 
     @Override
     public int getHeight() {
 
-        return 0;
+        return _height;
     }
 
 }
