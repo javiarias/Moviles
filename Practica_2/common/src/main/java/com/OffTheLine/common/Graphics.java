@@ -3,6 +3,7 @@ package com.OffTheLine.common;
 import java.awt.Color;
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public interface Graphics {
     Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception;
@@ -26,4 +27,6 @@ public interface Graphics {
 
     int getWidth();
     int getHeight();
+
+    void render(ArrayList<GameObject> g);
 }

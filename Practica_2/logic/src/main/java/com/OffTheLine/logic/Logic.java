@@ -1,6 +1,9 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Engine;
+import com.OffTheLine.common.GameObject;
+
+import java.util.ArrayList;
 
 public class Logic implements com.OffTheLine.common.Logic {
 
@@ -12,6 +15,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     int _x = 0;
     int _incX = 10;
     Engine _engine;
+
+    ArrayList<GameObject> _objects;
 
 
     @Override
@@ -27,9 +32,9 @@ public class Logic implements com.OffTheLine.common.Logic {
             long currentTime = System.nanoTime();
             long nanoElapsedTime = currentTime - lastFrameTime;
             lastFrameTime = currentTime;
-            double elapsedTime = (double) nanoElapsedTime / 1.0E9;
+            double delta = (double) nanoElapsedTime / 1.0E9;
 
-            updateLogic(elapsedTime);
+            updateLogic(delta);
 
             // Informe de FPS
             if (currentTime - informePrevio > 1000000000l) {
@@ -41,21 +46,7 @@ public class Logic implements com.OffTheLine.common.Logic {
 
             ++frames;
 
-            // Pintamos el frame con el BufferStrategy
-            do {
-                do {
-                    java.awt.Graphics graphics = strategy.getDrawGraphics();
-                    try {
-                        //pasarle una lista de cosas a pintar en pantalla?
-                        //cada gameobject con un DrawSelf?
-                        ventana.render(graphics);
-                    }
-                    finally {
-                        graphics.dispose();
-                    }
-                } while(strategy.contentsRestored());
-                strategy.show();
-            } while(strategy.contentsLost());
+            _engine.getGraphics().render(_objects);
         }
 
     }

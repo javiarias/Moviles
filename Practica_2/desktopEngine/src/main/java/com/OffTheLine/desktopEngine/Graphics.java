@@ -1,5 +1,7 @@
 package com.OffTheLine.desktopEngine;
 
+import com.OffTheLine.common.GameObject;
+
 import javax.swing.JFrame;
 import java.io.File;
 
@@ -7,6 +9,7 @@ import java.awt.Color;
 
 import java.io.InputStream;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 
 public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
@@ -20,6 +23,9 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
 
     int _width = 0;
     int _height = 0;
+
+    Color _color;
+    java.awt.Graphics _graphics;
 
     public boolean init(int width, int height, String assetsPath) {
 
@@ -67,7 +73,31 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
         _width = width;
         _height = height;
 
+        _color = Color.BLUE;
+
         return true;
+    }
+
+    @Override
+    public void render(ArrayList<GameObject> g){
+        // Pintamos el frame con el BufferStrategy
+        do {
+            do {
+                _graphics = _strategy.getDrawGraphics();
+                try {
+                    for(GameObject o : g) {
+                        o.render(this);
+
+                        //y ahora cómo coño renderizo yo esto
+                        //porque tendríamos que meternos en el GameObject, y dentro tener un render que llame de nuevo a esto y suena bastante mal pero no se?
+                    }
+                }
+                finally {
+                    _graphics.dispose();
+                }
+            } while(_strategy.contentsRestored());
+            _strategy.show();
+        } while(_strategy.contentsLost());
     }
 
     @Override
@@ -127,7 +157,7 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
 
     @Override
     public void setColor(Color color) {
-
+        _color = color;
     }
 
 
