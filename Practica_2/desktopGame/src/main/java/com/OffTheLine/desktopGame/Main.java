@@ -1,6 +1,6 @@
 package com.OffTheLine.desktopGame;
 
-import com.OffTheLine.desktopEngine.Graphics;
+import com.OffTheLine.desktopEngine.Engine;
 import com.OffTheLine.logic.Logic;
 
 public class Main {
@@ -20,17 +20,18 @@ public class Main {
      */
     public static void main(String[] args) {
 
-
-        String path = "desktopGame/assets/";
+        String path = "assets/";
 
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
-        Graphics ventana = new Graphics("Paint");
-        if (!ventana.init(640, 480, path))
-            // Ooops. Ha fallado la inicialización.
-            return;
+        Engine _engine = new Engine(path);
 
-        Logic logic;
+        _engine.init();
+        _engine.update();
+
+        //Logic logic = new Logic(_engine);
+
+        //logic.update();
 
         // Si tuvieramos un mecanismo para acabar limpiamente, tendríamos
         // que liberar el BufferStrategy.

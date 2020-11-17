@@ -12,48 +12,38 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 
-public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
+public class Graphics implements com.OffTheLine.common.Graphics {
+
+    JFrame _window;
 
     public Graphics(String title) {
-        super(title);
+        _window = new JFrame(title);
     }
 
     Font _font;
     java.awt.image.BufferStrategy _strategy;
 
-    int _width = 0;
-    int _height = 0;
-
-    Color _color;
+    Color _bgColor;
     java.awt.Graphics _graphics;
 
     public boolean init(int width, int height, String assetsPath) {
 
-        setSize(width, height);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Font baseFont;
-        try (InputStream is = new FileInputStream(assetsPath + "Bangers-Regular.ttf")) {
-            _font = newFont(is, 40, true, false);
-        }
-        catch (Exception e) {
-            // Ouch. No está.
-            System.err.println("Error cargando la fuente: " + e);
-            return false;
-        }
+        _window.setSize(width, height);
 
         // Vamos a usar renderizado activo. No queremos que Swing llame al
         // método repaint() porque el repintado es continuo en cualquier caso.
-        setIgnoreRepaint(true);
+        _window.setIgnoreRepaint(true);
 
         // Hacemos visible la ventana.
-        setVisible(true);
+        _window.setVisible(true);
 
         // Intentamos crear el buffer strategy con 2 buffers.
         int intentos = 100;
         while(intentos-- > 0) {
             try {
-                createBufferStrategy(2);
+                _window.createBufferStrategy(2);
                 break;
             }
             catch(Exception e) {
@@ -69,40 +59,63 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
         }
 
         // Obtenemos el Buffer Strategy que se supone que acaba de crearse.
-        _strategy = getBufferStrategy();
-        _width = width;
-        _height = height;
+        _strategy = _window.getBufferStrategy();
+        //_width = width;
+        //_height = height;
 
-        _color = Color.BLUE;
+        _bgColor = Color.BLUE;
 
         return true;
     }
 
-    @Override
-    public void render(ArrayList<GameObject> g){
-        // Pintamos el frame con el BufferStrategy
-        do {
-            do {
-                _graphics = _strategy.getDrawGraphics();
-                try {
-                    for(GameObject o : g) {
-                        o.render(this);
+    public java.awt.Graphics getDrawGraphics() {
+        return _strategy.getDrawGraphics();
+    }
 
-                        //y ahora cómo coño renderizo yo esto
-                        //porque tendríamos que meternos en el GameObject, y dentro tener un render que llame de nuevo a esto y suena bastante mal pero no se?
-                    }
-                }
-                finally {
-                    _graphics.dispose();
-                }
-            } while(_strategy.contentsRestored());
-            _strategy.show();
-        } while(_strategy.contentsLost());
+    public boolean contentsRestored() {
+       return  _strategy.contentsRestored();
+    }
+
+    public boolean contentsLost(){
+        return _strategy.contentsLost();
+    }
+
+    public void present(){
+        _strategy.show();
+    }
+
+    @Override
+    public void render(ArrayList<GameObject> objects){
+        _graphics = _strategy.getDrawGraphics();
+
+        clear(_bgColor);
+
+        try {
+            clear(Color.BLUE);
+            //getGraphics().render(getLogic().getObjects());
+            fillRect(0, 0, getWidth(), getHeight());
+
+            setColor(Color.RED);
+            drawLine(20, 0, 100, 100);
+
+            // Ponemos el rótulo (si conseguimos cargar la fuente)
+            if (_font != null) {
+                //setColor(Color.WHITE);
+                //setFont(_font);
+                //drawString("RENDERIZADO ACTIVO", (int)_x, 100);
+            }
+        }
+        finally {
+            _graphics.dispose();
+        }
     }
 
     @Override
     public Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception {
-        Font ret = (Font) Font.createFont(Font.TRUETYPE_FONT, filename);
+        return null;
+
+        /*
+        Font ret = new Font(Font.createFont(Font.TRUETYPE_FONT, filename));
 
         int s = Font.PLAIN;
         if (isBold)
@@ -113,6 +126,7 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
         ret = (Font) ret.deriveFont(s, size);
 
         return ret;
+        */
     }
 
 
@@ -125,19 +139,19 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
 
     @Override
     public void translate(float x, float y) {
-
+        _graphics.translate((int)x, (int)y);
     }
 
 
     @Override
     public void scale(float x, float y) {
-
+        //_graphics.scale((int)x, (int)y);
     }
 
 
     @Override
     public void rotate(float angle) {
-
+        //_graphics.rotate((int)angle);
     }
 
 
@@ -157,21 +171,22 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
 
     @Override
     public void setColor(Color color) {
-        _color = color;
+        //_color = color;
+        _graphics.setColor(color);
     }
 
 
 
     @Override
     public void drawLine(float x1, float y1, float x2, float y2) {
-
+        _graphics.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
     }
 
 
 
     @Override
     public void fillRect(float x1, float y1, float x2, float y2) {
-
+        _graphics.fillRect((int)x1, (int)y1, (int)x2, (int)y2);
     }
 
 
@@ -186,14 +201,14 @@ public class Graphics extends JFrame implements com.OffTheLine.common.Graphics {
     @Override
     public int getWidth() {
 
-        return _width;
+        return _window.getWidth();
     }
 
 
     @Override
     public int getHeight() {
 
-        return _height;
+        return _window.getHeight();
     }
 
 }

@@ -3,11 +3,11 @@ package com.OffTheLine.common;
 import java.io.InputStream;
 
 public interface Engine {
-    Graphics getGraphics();
+    public Graphics getGraphics();
 
-    Input getInput();
+    public Input getInput();
 
-    InputStream openInputStream(String filename);
+    public InputStream openInputStream(String filename);
 
-    Logic getLogic();
+    public Logic getLogic();
 }
