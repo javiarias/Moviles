@@ -9,6 +9,4 @@ java {
 
 dependencies {
     implementation project(path: ':common')
-    implementation 'com.github.cliftonlabs:json-simple:3.1.0'
-    compile group: 'net.sf.dozer', name: 'dozer', version: '5.4.0'
 }
