@@ -26,7 +26,9 @@ public class Main {
 
         Engine _engine = new Engine(path);
 
-        _engine.init();
+        Logic logic = new Logic();
+
+        _engine.init(logic);
         _engine.update();
 
         //Logic logic = new Logic(_engine);

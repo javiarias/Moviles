@@ -3,6 +3,8 @@ package com.OffTheLine.desktopEngine;
 import com.OffTheLine.common.GameObject;
 
 import javax.swing.JFrame;
+
+import java.awt.Dimension;
 import java.io.File;
 
 import java.awt.Color;
@@ -20,7 +22,7 @@ public class Graphics implements com.OffTheLine.common.Graphics {
         _window = new JFrame(title);
     }
 
-    Font _font;
+    Font _font = null;
     java.awt.image.BufferStrategy _strategy;
 
     Color _bgColor;
@@ -43,7 +45,7 @@ public class Graphics implements com.OffTheLine.common.Graphics {
         int intentos = 100;
         while(intentos-- > 0) {
             try {
-                _window.createBufferStrategy(2);
+                _window.createBufferStrategy(4);
                 break;
             }
             catch(Exception e) {
@@ -65,10 +67,19 @@ public class Graphics implements com.OffTheLine.common.Graphics {
 
         _bgColor = Color.BLUE;
 
+        try
+        {
+            _font = newFont(assetsPath + "Bangers-Regular.ttf", 100, false);
+        }
+        catch(Exception e)
+        {
+
+        }
+
         return true;
     }
 
-    public java.awt.Graphics getDrawGraphics() {
+    java.awt.Graphics getDrawGraphics() {
         return _strategy.getDrawGraphics();
     }
 
@@ -76,57 +87,52 @@ public class Graphics implements com.OffTheLine.common.Graphics {
        return  _strategy.contentsRestored();
     }
 
-    public boolean contentsLost(){
+    public boolean contentsLost() {
         return _strategy.contentsLost();
     }
 
-    public void present(){
+    public void present() {
         _strategy.show();
     }
 
+    public void updateDrawGraphics() { _graphics = _strategy.getDrawGraphics(); }
+
+    public void dispose() { _graphics.dispose(); }
+
     @Override
     public void render(ArrayList<GameObject> objects){
-        _graphics = _strategy.getDrawGraphics();
 
         clear(_bgColor);
 
-        try {
-            clear(Color.BLUE);
-            //getGraphics().render(getLogic().getObjects());
-            fillRect(0, 0, getWidth(), getHeight());
+        clear(Color.BLUE);
+        //getGraphics().render(getLogic().getObjects());
+        fillRect(0, 0, getWidth(), getHeight());
 
-            setColor(Color.RED);
-            drawLine(20, 0, 100, 100);
+        setColor(Color.RED);
+        fillRect(0, 0, getWidth(), getHeight() / 3.0f);
 
-            // Ponemos el rótulo (si conseguimos cargar la fuente)
-            if (_font != null) {
-                //setColor(Color.WHITE);
-                //setFont(_font);
-                //drawString("RENDERIZADO ACTIVO", (int)_x, 100);
-            }
+        setColor(Color.YELLOW);
+        fillRect(0, getHeight() / 3.0f, getWidth(), 2 * getHeight() / 3.0f);
+
+        setColor(Color.MAGENTA);
+        fillRect(0, 2 * getHeight() / 3.0f, getWidth(), 3 * getHeight() / 3.0f);
+
+        // Ponemos el rótulo (si conseguimos cargar la fuente)
+        if (_font != null) {
+            setColor(Color.WHITE);
+            _graphics.setFont(_font.getFont());
+            _graphics.drawString("Ignacio Hijo De Puta", 40, 100);
         }
-        finally {
-            _graphics.dispose();
-        }
+
+        Dimension actualSize = _window.getContentPane().getSize();
+
+        translate(getWidth() - actualSize.width, getHeight() - actualSize.height);
     }
 
     @Override
-    public Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception {
-        return null;
-
-        /*
-        Font ret = new Font(Font.createFont(Font.TRUETYPE_FONT, filename));
-
-        int s = Font.PLAIN;
-        if (isBold)
-            s = s | Font.BOLD;
-        if(isItalic)
-            s = s | Font.ITALIC;
-
-        ret = (Font) ret.deriveFont(s, size);
-
+    public Font newFont(String filename, int size, boolean isBold) throws Exception {
+        Font ret = new Font(filename, size, isBold);
         return ret;
-        */
     }
 
 
@@ -200,15 +206,17 @@ public class Graphics implements com.OffTheLine.common.Graphics {
 
     @Override
     public int getWidth() {
-
-        return _window.getWidth();
+        int ret;
+        ret = _window.getWidth();
+        return ret;
     }
 
 
     @Override
     public int getHeight() {
-
-        return _window.getHeight();
+        int ret;
+        ret = _window.getHeight();
+        return ret;
     }
 
 }

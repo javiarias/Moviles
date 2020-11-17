@@ -6,7 +6,7 @@ public interface Logic {
 
     ArrayList<GameObject> _objects = null;
 
-    public void update(double deltaTime);
+    public void update(double deltaTime, Engine e);
 
     public ArrayList<GameObject> getObjects();
 }

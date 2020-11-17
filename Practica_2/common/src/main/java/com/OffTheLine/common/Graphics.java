@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public interface Graphics {
-    Font newFont(InputStream filename, int size, boolean isBold, boolean isItalic) throws Exception;
+    Font newFont(String filename, int size, boolean isBold) throws Exception;
 
     void clear(Color color);
 
