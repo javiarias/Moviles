@@ -5,11 +5,11 @@ import java.io.InputStream;
 
 public class Font implements com.OffTheLine.common.Font
 {
-    public Font(String path, float size, boolean isBold) throws Exception
+    public Font(InputStream is, float size, boolean isBold) throws Exception
     {
         java.awt.Font baseFont;
 
-        try (InputStream is = new FileInputStream(path)) {
+        try {
             baseFont = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, is);
         }
         catch(Exception e){

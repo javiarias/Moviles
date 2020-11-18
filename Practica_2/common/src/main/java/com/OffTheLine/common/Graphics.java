@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public interface Graphics {
-    Font newFont(String filename, int size, boolean isBold) throws Exception;
+    Font newFont(InputStream is, int size, boolean isBold) throws Exception;
 
     void clear(Color color);
 
@@ -29,4 +29,6 @@ public interface Graphics {
     int getHeight();
 
     void render(ArrayList<GameObject> g);
+
+    void release();
 }

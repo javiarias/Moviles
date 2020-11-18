@@ -3,7 +3,8 @@ package com.OffTheLine.common;
 import java.util.List;
 
 public interface Input {
-    class TouchEvent {}
 
-    List<TouchEvent> getTouchEvents();
+    public interface TouchEvent {}
+
+    public List<TouchEvent> getTouchEvents();
 }

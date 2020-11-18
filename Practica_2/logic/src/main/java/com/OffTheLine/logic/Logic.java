@@ -12,9 +12,11 @@ public class Logic implements com.OffTheLine.common.Logic {
     int _incX = 10;
 
     ArrayList<GameObject> _objects = null;
+    Engine _e;
 
-    public Logic() {
+    public Logic(Engine e) {
         _objects = new ArrayList<GameObject>();
+        _e = e;
     }
 
     @Override
@@ -23,11 +25,11 @@ public class Logic implements com.OffTheLine.common.Logic {
     }
 
     @Override
-    public void update(double deltaTime, Engine e) {
+    public void update(double deltaTime) {
 
-        Graphics g = e.getGraphics();
+        Graphics g = _e.getGraphics();
 
-        int maxX = 300;//g.getWidth() - 300; // 300 : longitud estimada en píxeles del rótulo
+        int maxX = g.getWidth() - 300; // 300 : longitud estimada en píxeles del rótulo
 
         _x += _incX * deltaTime;
         while(_x < 0 || _x > maxX) {

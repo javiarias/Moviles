@@ -1,0 +1,5 @@
+
+
+1- Como en PC se dibuja la ventana detrás de la barra de título, hacemos translate() y getWidth/getHeight devuelve el "tamaño visible",
+	mientras que getTrueWidth/getTrueHeight devuelve el verdadero tamaño de la ventana.
+

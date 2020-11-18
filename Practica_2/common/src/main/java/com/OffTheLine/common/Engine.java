@@ -7,7 +7,9 @@ public interface Engine {
 
     public Input getInput();
 
-    public InputStream openInputStream(String filename);
+    public InputStream openInputStream(String path);
 
     public Logic getLogic();
+
+    public void release();
 }

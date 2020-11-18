@@ -26,18 +26,11 @@ public class Main {
 
         Engine _engine = new Engine(path);
 
-        Logic logic = new Logic();
+        Logic logic = new Logic(_engine);
 
         _engine.init(logic);
         _engine.update();
 
-        //Logic logic = new Logic(_engine);
-
-        //logic.update();
-
-        // Si tuvieramos un mecanismo para acabar limpiamente, tendríamos
-        // que liberar el BufferStrategy.
-        // strategy.dispose();
-
+        _engine.release();
     } // main
 }

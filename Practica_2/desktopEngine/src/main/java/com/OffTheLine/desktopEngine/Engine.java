@@ -1,6 +1,7 @@
 package com.OffTheLine.desktopEngine;
 
 import java.awt.Color;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class Engine implements com.OffTheLine.common.Engine {
     public void init(Logic l)
     {
         _graphics = new Graphics("Paint");
-        if (!_graphics.init(640, 480, _path))
+        if (!_graphics.init(640, 480, _path, this))
             // Ooops. Ha fallado la inicialización.
             return;
 
@@ -41,7 +42,7 @@ public class Engine implements com.OffTheLine.common.Engine {
             lastFrameTime = currentTime;
             double delta = (double) nanoElapsedTime / 1.0E9;
 
-            _logic.update(delta, this);
+            _logic.update(delta);
 
             // Pintamos el frame con el BufferStrategy
             do {
@@ -62,9 +63,7 @@ public class Engine implements com.OffTheLine.common.Engine {
     }
 
     @Override
-    public Graphics getGraphics() {
-       return null;
-    }
+    public Graphics getGraphics() { return _graphics; }
 
     @Override
     public Input getInput() {
@@ -72,12 +71,27 @@ public class Engine implements com.OffTheLine.common.Engine {
     }
 
     @Override
-    public InputStream openInputStream(String filename) {
-        return null;
+    public InputStream openInputStream(String path) {
+        InputStream is;
+
+        try {
+            is = new FileInputStream(path);
+        }
+        catch (Exception e) {
+            System.err.println("Error cargando " + path + " : " + e);
+            return null;
+        }
+
+        return is;
     }
 
     @Override
     public Logic getLogic() {
         return null;
+    }
+
+    @Override
+    public void release(){
+        _graphics.release();
     }
 }

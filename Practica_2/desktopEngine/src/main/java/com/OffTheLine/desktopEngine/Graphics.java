@@ -5,12 +5,12 @@ import com.OffTheLine.common.GameObject;
 import javax.swing.JFrame;
 
 import java.awt.Dimension;
-import java.io.File;
 
 import java.awt.Color;
 
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.io.InputStream;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 
 
@@ -25,14 +25,40 @@ public class Graphics implements com.OffTheLine.common.Graphics {
     Font _font = null;
     java.awt.image.BufferStrategy _strategy;
 
-    Color _bgColor;
+    Color _bgColor = Color.BLACK;
     java.awt.Graphics _graphics;
 
-    public boolean init(int width, int height, String assetsPath) {
+    Engine _engine;
+
+    int _initWidth = 0;
+    int _initHeight = 0;
+
+    int _xOffset = 0;
+    int _yOffset = 0;
+    int _logicWidth = 0;
+    int _logicHeight = 0;
+    float _scaleW = 1.0f;
+    float _scaleH = 1.0f;
+
+    AffineTransform _savedTransform;
+
+    public boolean init(int width, int height, String assetsPath, Engine engine) {
+
+        _initWidth = _logicWidth = width;
+        _initHeight = _logicHeight = height;
+
+        _engine = engine;
 
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         _window.setSize(width, height);
+
+        /*
+        Dimension d = new Dimension(width,height);
+        _window.getContentPane().setPreferredSize(d);
+        _window.pack();
+
+         */
 
         // Vamos a usar renderizado activo. No queremos que Swing llame al
         // método repaint() porque el repintado es continuo en cualquier caso.
@@ -65,15 +91,13 @@ public class Graphics implements com.OffTheLine.common.Graphics {
         //_width = width;
         //_height = height;
 
-        _bgColor = Color.BLUE;
-
         try
         {
-            _font = newFont(assetsPath + "Bangers-Regular.ttf", 100, false);
+            _font = newFont(_engine.openInputStream(assetsPath + "Bangers-Regular.ttf"), 40, false);
         }
         catch(Exception e)
         {
-
+            return false;
         }
 
         return true;
@@ -102,36 +126,92 @@ public class Graphics implements com.OffTheLine.common.Graphics {
     @Override
     public void render(ArrayList<GameObject> objects){
 
+        //con tal de que al menos el contenido se vea dentro de la ventana,
+        //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
+        //translate(0, _bar);
+
+        fixAspectRatio();
+
+        //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
 
-        clear(Color.BLUE);
-        //getGraphics().render(getLogic().getObjects());
-        fillRect(0, 0, getWidth(), getHeight());
+        translate(_xOffset, _yOffset);
+        //System.out.println("xOffset: " + _xOffset + ", yOffset: " + _yOffset);
 
+        scale(_scaleW, _scaleH);
+        //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
+
+        //getGraphics().render(getLogic().getObjects());
+
+        setColor(Color.RED);
+        fillRect(0, 0, getWidth(),getHeight());
+
+
+        setColor(Color.CYAN);
+        drawLine(0, 1, getWidth(), 1);
+
+        /*
         setColor(Color.RED);
         fillRect(0, 0, getWidth(), getHeight() / 3.0f);
 
         setColor(Color.YELLOW);
-        fillRect(0, getHeight() / 3.0f, getWidth(), 2 * getHeight() / 3.0f);
+        fillRect(0, (getHeight()) / 3.0f, getWidth(), (2 * getHeight()) / 3.0f);
 
         setColor(Color.MAGENTA);
-        fillRect(0, 2 * getHeight() / 3.0f, getWidth(), 3 * getHeight() / 3.0f);
+        fillRect(0, (2 * getHeight()) / 3.0f, getWidth(), (3 * getHeight()) / 3.0f);
+
+         */
 
         // Ponemos el rótulo (si conseguimos cargar la fuente)
         if (_font != null) {
+            save();
+
+            translate(getWidth() / 2, getHeight() / 2);
             setColor(Color.WHITE);
             _graphics.setFont(_font.getFont());
-            _graphics.drawString("Ignacio Hijo De Puta", 40, 100);
+            _graphics.drawString("arriba", 0, 0);
+
+            restore();
         }
 
-        Dimension actualSize = _window.getContentPane().getSize();
+        //setColor(Color.RED);
+        //drawLine(0, 0, getWidth(), getHeight());
 
-        translate(getWidth() - actualSize.width, getHeight() - actualSize.height);
+        translate(-_xOffset, -_yOffset);
+    }
+
+    public void fixAspectRatio() {
+
+        int trueW = getTrueWidth();
+        int trueH = getTrueHeight();
+
+        double tryW = ((getTrueHeight() * _initWidth) / (double)_initHeight);
+
+        double tryH = ((getTrueWidth() * _initHeight) / (double)_initWidth);
+
+        if(tryW > trueW) {
+            _xOffset = 0;
+            _logicWidth = getTrueWidth();
+
+            double newH = ((tryW * _initHeight) / (double)_initWidth);
+            _yOffset = (getTrueHeight() - (int)tryH) / 2;
+            _logicHeight = (int)tryH;
+        }
+        else {
+            _yOffset = 0;
+            _logicHeight = getTrueHeight();
+
+            _xOffset = (getTrueWidth() - (int)tryW) / 2;
+            _logicWidth = (int)tryW;
+        }
+
+        _scaleW = _logicWidth / (float)_initWidth;
+        _scaleH = _logicHeight / (float)_initHeight;
     }
 
     @Override
-    public Font newFont(String filename, int size, boolean isBold) throws Exception {
-        Font ret = new Font(filename, size, isBold);
+    public Font newFont(InputStream is, int size, boolean isBold) throws Exception {
+        Font ret = new Font(is, size, isBold);
         return ret;
     }
 
@@ -139,7 +219,7 @@ public class Graphics implements com.OffTheLine.common.Graphics {
     @Override
     public void clear(Color color) {
         setColor(color);
-        fillRect(0, 0, getWidth(), getHeight());
+        fillRect(0, 0, getTrueWidth(), getTrueHeight());
     }
 
 
@@ -151,36 +231,37 @@ public class Graphics implements com.OffTheLine.common.Graphics {
 
     @Override
     public void scale(float x, float y) {
-        //_graphics.scale((int)x, (int)y);
+        Graphics2D g2d = (Graphics2D)_graphics;
+        g2d.scale(x, y);
     }
 
 
     @Override
     public void rotate(float angle) {
-        //_graphics.rotate((int)angle);
+        Graphics2D g2d = (Graphics2D)_graphics;
+        g2d.rotate(Math.toRadians(angle));
     }
 
 
 
     @Override
     public void save() {
-
+        Graphics2D g2d = (Graphics2D)_graphics;
+        _savedTransform = g2d.getTransform();
     }
 
 
     @Override
     public void restore() {
-
+        Graphics2D g2d = (Graphics2D)_graphics;
+        g2d.setTransform(_savedTransform);
     }
-
 
 
     @Override
     public void setColor(Color color) {
-        //_color = color;
         _graphics.setColor(color);
     }
-
 
 
     @Override
@@ -202,21 +283,26 @@ public class Graphics implements com.OffTheLine.common.Graphics {
 
     }
 
-
-
     @Override
     public int getWidth() {
-        int ret;
-        ret = _window.getWidth();
-        return ret;
+        return _initWidth;
     }
-
 
     @Override
     public int getHeight() {
-        int ret;
-        ret = _window.getHeight();
-        return ret;
+        return _initHeight;
     }
 
+    public int getTrueWidth() {
+        return _window.getWidth();
+    }
+
+    public int getTrueHeight() {
+        return _window.getHeight();
+    }
+
+    @Override
+    public void release(){
+        _strategy.dispose();
+    }
 }
