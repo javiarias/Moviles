@@ -2,6 +2,7 @@ package com.OffTheLine.desktopGame;
 
 import com.OffTheLine.desktopEngine.Engine;
 import com.OffTheLine.logic.Logic;
+import com.OffTheLine.logic.Staff;
 
 public class Main {
 
@@ -32,5 +33,17 @@ public class Main {
         _engine.update();
 
         _engine.release();
-    } // main
+
+        /*
+        Staff s = new Staff();
+
+        try {
+            s.dameJsonPrimo();
+        }
+        catch (Exception E)
+        {
+
+        }
+        */
+    }
 }
