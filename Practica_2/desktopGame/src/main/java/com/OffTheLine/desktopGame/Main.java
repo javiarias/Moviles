@@ -2,6 +2,7 @@ package com.OffTheLine.desktopGame;
 
 import com.OffTheLine.desktopEngine.Engine;
 import com.OffTheLine.logic.Logic;
+import com.OffTheLine.logic.Staff;
 
 public class Main {
 
@@ -24,14 +25,24 @@ public class Main {
 
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
-        Engine _engine = new Engine(path);
+        /*Engine _engine = new Engine(path);
 
         Logic logic = new Logic();
 
         _engine.init(logic);
-        _engine.update();
+        _engine.update();*/
 
         //Logic logic = new Logic(_engine);
+
+        Staff s = new Staff();
+
+        try {
+            s.dameJsonPrimo();
+        }
+        catch (Exception E)
+        {
+
+        }
 
         //logic.update();
 
