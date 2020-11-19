@@ -12,6 +12,8 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 
 
 public class Graphics extends com.OffTheLine.common.CommonGraphics {
@@ -28,11 +30,13 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     Color _bgColor = Color.BLACK;
     java.awt.Graphics _graphics;
 
-    AffineTransform _savedTransform;
+    Deque<AffineTransform> _savedTransform;
 
     public boolean init(int width, int height, String assetsPath, Engine engine) {
 
         super.init(width, height, assetsPath, engine);
+
+        _savedTransform = new LinkedList<>();
 
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -113,7 +117,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         //con tal de que al menos el contenido se vea dentro de la ventana,
         //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
-        //translate(0, _bar);
 
         fixAspectRatio(getTrueWidth(), getTrueHeight());
 
@@ -133,7 +136,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
 
         setColor(Color.CYAN);
-        drawLine(0, 1, getWidth(), 1);
+        //drawLine(0, 1, getWidth(), 1);
 
         /*
         setColor(Color.RED);
@@ -154,9 +157,21 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
             translate(getWidth() / 2, getHeight() / 2);
             setColor(Color.WHITE);
             _graphics.setFont(_font.getFont());
+            _graphics.drawString("no voy a quitar la\n Lupa, ignacio", 0, 0);
+
+            save();
+
+            translate(-getWidth() / 2, 0);
+            rotate(45);
+            setColor(Color.BLUE);
+            _graphics.setFont(_font.getFont());
             _graphics.drawString("arriba", 0, 0);
 
+            restoreAll();
             restore();
+            setColor(Color.MAGENTA);
+            _graphics.setFont(_font.getFont());
+            _graphics.drawString("abajo", 0, 0);
         }
 
         //setColor(Color.RED);
@@ -203,14 +218,29 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     @Override
     public void save() {
         Graphics2D g2d = (Graphics2D)_graphics;
-        _savedTransform = g2d.getTransform();
+        AffineTransform a = g2d.getTransform();
+        _savedTransform.addFirst(a);
     }
 
 
     @Override
     public void restore() {
+        if(!_savedTransform.isEmpty()) {
+            Graphics2D g2d = (Graphics2D)_graphics;
+
+            AffineTransform a = _savedTransform.removeLast();
+            g2d.setTransform(a);
+        }
+    }
+
+    @Override
+    public void restoreAll() {
         Graphics2D g2d = (Graphics2D)_graphics;
-        g2d.setTransform(_savedTransform);
+
+        while(!_savedTransform.isEmpty()) {
+            AffineTransform a = _savedTransform.removeLast();
+            g2d.setTransform(a);
+        }
     }
 
 

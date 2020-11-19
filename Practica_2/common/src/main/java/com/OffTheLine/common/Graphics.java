@@ -16,6 +16,7 @@ public interface Graphics {
 
     void save();
     void restore();
+    void restoreAll();
 
     void setColor(Color color);
 
