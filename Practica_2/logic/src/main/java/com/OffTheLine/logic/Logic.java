@@ -1,6 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Engine;
+import com.OffTheLine.common.Font;
 import com.OffTheLine.common.GameObject;
 import com.OffTheLine.common.Graphics;
 

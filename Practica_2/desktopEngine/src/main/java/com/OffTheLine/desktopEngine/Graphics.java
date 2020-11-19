@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 
-public class Graphics implements com.OffTheLine.common.Graphics {
+public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     JFrame _window;
 
@@ -28,26 +28,11 @@ public class Graphics implements com.OffTheLine.common.Graphics {
     Color _bgColor = Color.BLACK;
     java.awt.Graphics _graphics;
 
-    Engine _engine;
-
-    int _initWidth = 0;
-    int _initHeight = 0;
-
-    int _xOffset = 0;
-    int _yOffset = 0;
-    int _logicWidth = 0;
-    int _logicHeight = 0;
-    float _scaleW = 1.0f;
-    float _scaleH = 1.0f;
-
     AffineTransform _savedTransform;
 
     public boolean init(int width, int height, String assetsPath, Engine engine) {
 
-        _initWidth = _logicWidth = width;
-        _initHeight = _logicHeight = height;
-
-        _engine = engine;
+        super.init(width, height, assetsPath, engine);
 
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -93,7 +78,7 @@ public class Graphics implements com.OffTheLine.common.Graphics {
 
         try
         {
-            _font = newFont(_engine.openInputStream(assetsPath + "Bangers-Regular.ttf"), 40, false);
+            _font = newFont(_engine.openInputStream(_assetsPath + "Bangers-Regular.ttf"), 40, false);
         }
         catch(Exception e)
         {
@@ -130,7 +115,7 @@ public class Graphics implements com.OffTheLine.common.Graphics {
         //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
         //translate(0, _bar);
 
-        fixAspectRatio();
+        fixAspectRatio(getTrueWidth(), getTrueHeight());
 
         //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
@@ -178,35 +163,6 @@ public class Graphics implements com.OffTheLine.common.Graphics {
         //drawLine(0, 0, getWidth(), getHeight());
 
         translate(-_xOffset, -_yOffset);
-    }
-
-    public void fixAspectRatio() {
-
-        int trueW = getTrueWidth();
-        int trueH = getTrueHeight();
-
-        double tryW = ((getTrueHeight() * _initWidth) / (double)_initHeight);
-
-        double tryH = ((getTrueWidth() * _initHeight) / (double)_initWidth);
-
-        if(tryW > trueW) {
-            _xOffset = 0;
-            _logicWidth = getTrueWidth();
-
-            double newH = ((tryW * _initHeight) / (double)_initWidth);
-            _yOffset = (getTrueHeight() - (int)tryH) / 2;
-            _logicHeight = (int)tryH;
-        }
-        else {
-            _yOffset = 0;
-            _logicHeight = getTrueHeight();
-
-            _xOffset = (getTrueWidth() - (int)tryW) / 2;
-            _logicWidth = (int)tryW;
-        }
-
-        _scaleW = _logicWidth / (float)_initWidth;
-        _scaleH = _logicHeight / (float)_initHeight;
     }
 
     @Override
