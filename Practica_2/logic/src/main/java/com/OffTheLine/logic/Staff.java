@@ -51,7 +51,6 @@ public class Staff implements Jsonable {
         json.put("name", this.getName());
         json.put("age", this.getAge());
         json.toJson(writer);
-
     }
 
     public void dameJsonPrimo() throws IOException {

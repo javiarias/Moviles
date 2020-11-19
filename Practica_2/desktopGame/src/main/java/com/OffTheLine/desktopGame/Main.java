@@ -2,6 +2,7 @@ package com.OffTheLine.desktopGame;
 
 import com.OffTheLine.desktopEngine.Engine;
 import com.OffTheLine.logic.Logic;
+import com.OffTheLine.logic.Level;
 import com.OffTheLine.logic.Staff;
 
 public class Main {
@@ -21,7 +22,17 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        String path = "assets/";
+        Level level = new Level();
+
+        try {
+            level.loadLevel();
+        }
+        catch ( Exception E)
+        {
+
+        }
+
+        /*String path = "assets/";
 
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
@@ -32,18 +43,6 @@ public class Main {
         _engine.init(logic);
         _engine.update();
 
-        _engine.release();
-
-        /*
-        Staff s = new Staff();
-
-        try {
-            s.dameJsonPrimo();
-        }
-        catch (Exception E)
-        {
-
-        }
-        */
+        _engine.release();*/
     }
 }
