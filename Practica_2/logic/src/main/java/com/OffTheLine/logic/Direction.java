@@ -2,13 +2,12 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
 
-public class Vertice extends GameObject{
+public class Direction extends GameObject{
 
-    Vertice(float x, float y)
+    Direction(float x, float y)
     {
         super(x,y);
     }
-
 
     @Override
     public void update(double delta) {

@@ -1,9 +1,6 @@
 package com.OffTheLine.desktopGame;
 
-import com.OffTheLine.desktopEngine.Engine;
-import com.OffTheLine.logic.Logic;
 import com.OffTheLine.logic.Level;
-import com.OffTheLine.logic.Staff;
 
 public class Main {
 
@@ -25,7 +22,7 @@ public class Main {
         Level level = new Level();
 
         try {
-            level.loadLevel();
+            level.loadThisLevel(9);
         }
         catch ( Exception E)
         {
