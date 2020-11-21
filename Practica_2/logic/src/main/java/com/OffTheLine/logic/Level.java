@@ -9,23 +9,14 @@ import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
-import org.dozer.DozerBeanMapper;
-import org.dozer.Mapper;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
-
 import com.github.cliftonlabs.json_simple.Jsonable;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 public class Level implements Jsonable {
 
@@ -59,11 +50,23 @@ public class Level implements Jsonable {
 
     public JsonArray loadLevelFile() throws IOException, JsonException
     {
-        try (FileReader fileReader = new FileReader("levels.json"))
-        {
-            JsonArray deserialize = (JsonArray) Jsoner.deserialize(fileReader);
+        //Test InputStream
+        try {
+            InputStream is = new FileInputStream("levels.json");
 
-            return  deserialize;
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            String jsonString = new String(buffer, "UTF-8");
+
+            JsonArray a = (JsonArray) Jsoner.deserialize(jsonString);
+
+            return  a;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
