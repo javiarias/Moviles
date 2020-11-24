@@ -35,7 +35,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         super.init(width, height, assetsPath, engine);
 
-        _surface.getHolder().setFixedSize(width, height);
+        //_surface.getHolder().setFixedSize(width, height);
 
         //_savedTransform = new LinkedList<>();
 
@@ -76,7 +76,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         //con tal de que al menos el contenido se vea dentro de la ventana,
         //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
 
-        //fixAspectRatio(getTrueWidth(), getTrueHeight());
+        fixAspectRatio(getTrueWidth(), getTrueHeight());
 
         //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
@@ -239,7 +239,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     }
 
     public int getTrueHeight() {
-        return _surface.getWidth();
+        return _surface.getHeight();
     }
 
     @Override
