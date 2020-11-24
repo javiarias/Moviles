@@ -15,6 +15,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.OffTheLine.appEngine.Engine;
+import com.OffTheLine.appEngine.Graphics;
+import com.OffTheLine.logic.Logic;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -60,143 +64,27 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        InputStream inputStream = null;
-        AssetManager assetManager = this.getAssets();
-        try {
-            inputStream = assetManager.open("babie.png");
-            _sprite = BitmapFactory.decodeStream(inputStream);
-        } catch (IOException e) {
-            android.util.Log.e("MainActivity", "Error leyendo");
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                inputStream.close();
-            } catch (IOException e) {}
-        }
+        _engine = new Engine("", this.getAssets(), this);
 
-        _surfaceView = new SurfaceView(this);
+        _logic = new Logic(_engine);
 
-        _surfaceView.getHolder().setFixedSize(640, 480);
+        _engine.init(_logic);
 
-        _myView = new MyView(this, _surfaceView);
-
-        setContentView(_surfaceView);
+        setContentView(_engine.getGraphics().getSurface());
     }
 
-    MyView _myView;
-    SurfaceView _surfaceView;
+    Engine _engine;
+    Logic _logic;
 
     @Override
     protected void onResume() {
         super.onResume();
-        _myView.resume();
+        _engine.resume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        _myView.pause();
-    }
-
-    Bitmap _sprite;
-
-    class MyView implements Runnable {
-
-        protected void update(double delta) {
-
-            _x += ((double)_incX) * delta;
-            _y += ((double)_incY) * delta;
-
-            if(_x < 0) {
-                _x = -_x;
-                _incX *= -1;
-            }
-            else if (_x >= (_surface.getWidth() - _imageWidth)) {
-                _x = 2*(_surface.getWidth() - _imageWidth) - _x;
-                _incX *= -1;
-            }
-
-            if(_y < 0) {
-                _y = -_y;
-                _incY *= -1;
-            }
-            else if (_y >= (_surface.getHeight() - _imageHeight)) {
-                _y = 2*(_surface.getHeight() - _imageHeight) - _y;
-                _incY *= -1;
-            }
-        }
-
-        protected void render(Canvas c) {
-            c.drawColor(0xFFAAEEFF); //ARGB
-
-            if(_sprite != null) {
-                c.drawBitmap(_sprite, (int)_x, (int)_y, null);
-            }
-        }
-
-        public void run() {
-            long lastFrame = System.nanoTime();
-
-            while(_running) {
-                long currentTime = System.nanoTime();
-                long elapsed = currentTime - lastFrame;
-                lastFrame = currentTime;
-                double delta = (double) elapsed / 1.0e9;
-
-                update(delta);
-
-                while(!_surface.getHolder().getSurface().isValid())
-                    ;
-
-                Canvas c = _surface.getHolder().lockCanvas();
-
-                render(c);
-
-                _surface.getHolder().unlockCanvasAndPost(c);
-            }
-        }
-
-        public void resume() {
-            if(!_running) {
-               _running = true;
-
-                _renderThread = new Thread(this);
-                _renderThread.start();
-            }
-        }
-
-        public void pause() {
-            _running = false;
-
-            while(true) {
-                try {
-                    _renderThread.join();
-                    break;
-                } catch (InterruptedException ie) {
-                }
-            }
-        }
-
-        volatile boolean _running = false;
-        Thread _renderThread;
-
-        public MyView(Context context, SurfaceView surfaceView) {
-            _surface = surfaceView;
-
-            if(_sprite != null){
-                _imageWidth = _sprite.getWidth();
-                _imageHeight = _sprite.getHeight();
-            }
-        }
-
-        double _x = 0;
-        double _y = 0;
-        int _incX = 2500;
-        int _incY = 3405;
-        int _imageWidth;
-        int _imageHeight;
-
-        SurfaceView _surface;
+        _engine.pause();
     }
 }

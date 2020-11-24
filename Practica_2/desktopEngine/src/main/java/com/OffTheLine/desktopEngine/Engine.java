@@ -7,14 +7,13 @@ import java.util.ArrayList;
 
 import com.OffTheLine.common.GameObject;
 import com.OffTheLine.common.Logic;
-import com.OffTheLine.desktopEngine.Graphics;
-import com.OffTheLine.common.Input;
 
 public class Engine implements com.OffTheLine.common.Engine {
 
     String _path;
     Graphics _graphics;
     Logic _logic;
+    Input _input;
 
     public Engine(String path) {
         _path = path;
@@ -67,7 +66,7 @@ public class Engine implements com.OffTheLine.common.Engine {
 
     @Override
     public Input getInput() {
-        return null;
+        return _input;
     }
 
     @Override
@@ -87,7 +86,7 @@ public class Engine implements com.OffTheLine.common.Engine {
 
     @Override
     public Logic getLogic() {
-        return null;
+        return _logic;
     }
 
     @Override

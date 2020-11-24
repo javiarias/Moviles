@@ -1,6 +1,8 @@
 package com.OffTheLine.desktopGame;
 
 import com.OffTheLine.logic.Level;
+import com.OffTheLine.desktopEngine.Engine;
+import com.OffTheLine.logic.Logic;
 
 public class Main {
 
@@ -19,6 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        /*
         Level level = new Level();
 
         try {
@@ -28,8 +31,9 @@ public class Main {
         {
 
         }
+        */
 
-        /*String path = "assets/";
+        String path = "assets/";
 
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
@@ -40,6 +44,6 @@ public class Main {
         _engine.init(logic);
         _engine.update();
 
-        _engine.release();*/
+        _engine.release();
     }
 }

@@ -82,7 +82,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         try
         {
-            _font = newFont(_engine.openInputStream(_assetsPath + "Bangers-Regular.ttf"), 40, false);
+            _font = newFont(_assetsPath + "Bangers-Regular.ttf", 40, false);
         }
         catch(Exception e)
         {
@@ -129,11 +129,15 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
 
+        //save();
+
         //getGraphics().render(getLogic().getObjects());
 
         setColor(Color.RED);
         fillRect(0, 0, getWidth(),getHeight());
 
+        //para que todo se pinte con 0, 0 en el centro de la ventana
+        translate(getWidth()/2, getHeight()/2);
 
         setColor(Color.CYAN);
         //drawLine(0, 1, getWidth(), 1);
@@ -154,7 +158,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         if (_font != null) {
             save();
 
-            translate(getWidth() / 2, getHeight() / 2);
             setColor(Color.WHITE);
             _graphics.setFont(_font.getFont());
             _graphics.drawString("no voy a quitar la\n Lupa, ignacio", 0, 0);
@@ -167,8 +170,8 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
             _graphics.setFont(_font.getFont());
             _graphics.drawString("arriba", 0, 0);
 
-            restoreAll();
             restore();
+
             setColor(Color.MAGENTA);
             _graphics.setFont(_font.getFont());
             _graphics.drawString("abajo", 0, 0);
@@ -177,20 +180,25 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         //setColor(Color.RED);
         //drawLine(0, 0, getWidth(), getHeight());
 
-        translate(-_xOffset, -_yOffset);
+        restoreAll();
     }
 
     @Override
-    public Font newFont(InputStream is, int size, boolean isBold) throws Exception {
+    public Font newFont(String path, int size, boolean isBold) throws Exception {
+        InputStream is = _engine.openInputStream(path);
         Font ret = new Font(is, size, isBold);
         return ret;
     }
 
 
     @Override
-    public void clear(Color color) {
+    public void clear(int color) {
         setColor(color);
         fillRect(0, 0, getTrueWidth(), getTrueHeight());
+    }
+
+    void clear(Color color) {
+        clear(color.getRGB());
     }
 
 
@@ -245,8 +253,12 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
 
     @Override
-    public void setColor(Color color) {
-        _graphics.setColor(color);
+    public void setColor(int color) {
+        _graphics.setColor(new Color(color));
+    }
+
+    void setColor(Color color) {
+        setColor(color.getRGB());
     }
 
 

@@ -1,14 +1,13 @@
 package com.OffTheLine.common;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 public interface Graphics {
-    Font newFont(InputStream is, int size, boolean isBold) throws Exception;
+    Font newFont(String path, int size, boolean isBold) throws Exception;
 
-    void clear(Color color);
+    void clear(int color);
 
     void translate(float x, float y);
     void scale(float x, float y);
@@ -18,7 +17,7 @@ public interface Graphics {
     void restore();
     void restoreAll();
 
-    void setColor(Color color);
+    void setColor(int color);
 
     void drawLine(float x1, float y1, float x2, float y2);
 
