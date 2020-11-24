@@ -2,6 +2,7 @@ package com.OffTheLine.appEngine;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -70,9 +71,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     @Override
     public void render(ArrayList<GameObject> objects){
-
-
-
         //con tal de que al menos el contenido se vea dentro de la ventana,
         //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
 

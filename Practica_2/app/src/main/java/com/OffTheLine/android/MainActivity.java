@@ -2,21 +2,10 @@ package com.OffTheLine.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.OffTheLine.appEngine.Engine;
-import com.OffTheLine.appEngine.Graphics;
 import com.OffTheLine.logic.Logic;
 
 import java.io.IOException;

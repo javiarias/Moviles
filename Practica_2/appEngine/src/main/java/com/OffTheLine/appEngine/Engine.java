@@ -47,14 +47,9 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
         // Antes de saltar a la simulación, confirmamos que tenemos
         // un tamaño mayor que 0. Si la hebra se pone en marcha
         // muy rápido, la vista podría todavía no estar inicializada.
-        while (_running && _graphics.getTrueWidth() == 0)
+        while (_running && _graphics.getSurface().getWidth() == 0)
             // Espera activa. Sería más elegante al menos dormir un poco.
             ;
-
-        long lastFrameTime = System.nanoTime();
-
-        long informePrevio = lastFrameTime; // Informes de FPS
-        int frames = 0;
 
         // Bucle principal.
         while (_running) {
@@ -64,24 +59,21 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
 
     public void update()
     {
-        boolean _running = true;
 
         long lastFrameTime = System.nanoTime();
 
-        while(_running){
-            long currentTime = System.nanoTime();
-            long nanoElapsedTime = currentTime - lastFrameTime;
-            lastFrameTime = currentTime;
-            double delta = (double) nanoElapsedTime / 1.0E9;
+        long currentTime = System.nanoTime();
+        long nanoElapsedTime = currentTime - lastFrameTime;
+        lastFrameTime = currentTime;
+        double delta = (double) nanoElapsedTime / 1.0E9;
 
-            _logic.update(delta);
+        _logic.update(delta);
 
-            _graphics.updateCanvas();
+        _graphics.updateCanvas();
 
-            _graphics.render(_logic.getObjects());
+        _graphics.render(_logic.getObjects());
 
-            _graphics.present();
-        }
+        _graphics.present();
     }
 
     /**
