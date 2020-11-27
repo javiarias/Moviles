@@ -2,95 +2,181 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toRadians;
+
 public class Enemy extends GameObject {
 
-    protected float angle;
-    protected float length;
+    protected float _angle;
+    protected float _length;
 
     //No todos lo tienen
-    protected float speed;
-    protected float offset;
-    protected float time1;
-    protected float time2;
+    protected float _rotSpeed = 0;
+    protected Vector2D _offset;
+    protected Vector2D _originalPos;
+    protected float _travelTime = -1;
+    protected float _waitTime = 0;
+
+    protected Vector2D _travelSpeed = null;
+
+    protected Vector2D _vertice1;
+    protected Vector2D _vertice2;
+
+    boolean _waiting = false;
+    float _waitStart = 0;
+    float _travelDir = 1;
 
     //Getters
     public float getAngle()
     {
-        return angle;
+        return _angle;
     }
 
     public float getLength()
     {
-        return length;
+        return _length;
     }
 
     public float getSpeed()
     {
-        return speed;
+        return _rotSpeed;
     }
 
-    public float getOffset()
+    public float getOffsetX()
     {
-        return offset;
+        return _offset.x;
+    }
+    public float getOffsetY()
+    {
+        return _offset.y;
     }
 
     public float getTime1()
     {
-        return time1;
+        return _travelTime;
     }
 
     public float getTime2()
     {
-        return time2;
+        return _waitTime;
     }
 
     //Setters
     public void setAngle(float angle_)
     {
-        angle = angle_;
+        _angle = angle_;
     }
 
     public void setLength(float length_)
     {
-        length = length_;
+        _length = length_;
     }
 
     public void setSpeed (float speed_)
     {
-        speed = speed_;
+        _rotSpeed = speed_;
     }
 
-    public void setOffset (float offset_)
+    public void setOffset (float x_, float y_)
     {
-        offset = offset_;
+        _offset = new Vector2D(x_, y_ * -1);
+
+        if(_travelTime > 0){
+            calculateTravelSpeed();
+        }
     }
 
     public void setTime1 (float time1_)
     {
-        time1 = time1_;
+        _travelTime = time1_;
+        
+        if(_offset != null){
+            calculateTravelSpeed();
+        }
     }
 
     public void setTime2 (float time2_)
     {
-        time2 = time2_;
+        _waitTime = time2_;
+    }
+
+    void calculateTravelSpeed()
+    {
+        float speedX = _offset.x / _travelTime;
+        float speedY = _offset.y / _travelTime;
+
+        _travelSpeed = new Vector2D(speedX, speedY);
+        _originalPos = pos;
     }
 
     //Constructora
     Enemy(float posX, float posY, float angle_, float length_)
     {
-        super(posX, posY); //Constructora de gameObject
-        this.angle = angle_;
-        this.length = length_;
+        super(posX, posY * -1); //Constructora de gameObject
+        _angle = angle_;
+        _length = length_;
+
+        _vertice1 = new Vector2D(0, 0);
+        _vertice2 = new Vector2D(0, 0);
+        _offset = new Vector2D(0, 0);
     }
 
     @Override
     public void update(double delta) {
+        _angle += _rotSpeed * delta;
 
+        _angle = (_angle % 360);
+
+        _vertice1.x = -(_length / 2.0f) * (float)cos(toRadians(_angle));
+        _vertice1.y = -(_length / 2.0f) * (float)sin(toRadians(_angle));
+        _vertice2.x = (_length / 2.0f) * (float)cos(toRadians(_angle));
+        _vertice2.y = (_length / 2.0f) * (float)sin(toRadians(_angle));
+
+        if(_travelSpeed != null)
+        {
+            if(_waiting)
+            {
+                _waitStart += delta;
+                _waiting = (_waitStart < _waitTime);
+                if(!_waiting){
+                    _travelDir *= -1;
+                }
+            }
+            else {
+                Vector2D temp = pos.add(_travelSpeed.multiply(_travelDir * (float)delta));
+                Vector2D _offsetPos = _originalPos.add(_offset);
+
+                boolean awayFromOriginal = (_originalPos.distance(_offsetPos) <= _originalPos.distance(temp));
+                boolean awayFromOffset = (_offsetPos.distance(_originalPos) <= _offsetPos.distance(temp));
+
+                if((_travelDir > 0 && awayFromOriginal) ||
+                    (_travelDir < 0 && awayFromOffset))
+                {
+                    if(_travelDir < 0)
+                        pos = _originalPos;
+                    else
+                        pos = _offsetPos;
+
+                    _waiting = true;
+                    _waitStart = 0;
+                }
+                else {
+                    pos = temp;
+                }
+            }
+        }
     }
 
+    //SAVE & RESTORE DONE OUTSIDE
     @Override
-    public void render(Graphics g) {
+    public void render(Graphics g)
+    {
+        g.setColor(0xFFFF0000);
 
+        g.translate(pos.x, pos.y);
+
+        g.drawLine(_vertice1.x, _vertice1.y, _vertice2.x, _vertice2.y);
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import com.OffTheLine.common.Logic;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class Engine implements com.OffTheLine.common.Engine, Runnable {
@@ -16,6 +17,8 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
     Input _input;
     AssetManager _manager;
     Context _context;
+
+    long _lastFrameTime;
 
     public Engine(String path, AssetManager manager, Context context) {
         _path = path;
@@ -42,8 +45,6 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
             throw new RuntimeException("run() should not be called directly");
         }
 
-        System.out.println("me cago en ppp");
-
         // Antes de saltar a la simulación, confirmamos que tenemos
         // un tamaño mayor que 0. Si la hebra se pone en marcha
         // muy rápido, la vista podría todavía no estar inicializada.
@@ -52,6 +53,11 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
             ;
 
         // Bucle principal.
+        _lastFrameTime = System.nanoTime();
+
+        //hace falta hacerlo al menos una vez antes de ejecutar el juego, luego ya se encarga el listener
+        _graphics.fixAspectRatio();
+
         while (_running) {
             update();
         }
@@ -60,18 +66,18 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
     public void update()
     {
 
-        long lastFrameTime = System.nanoTime();
-
         long currentTime = System.nanoTime();
-        long nanoElapsedTime = currentTime - lastFrameTime;
-        lastFrameTime = currentTime;
+        long nanoElapsedTime = currentTime - _lastFrameTime;
+        _lastFrameTime = currentTime;
         double delta = (double) nanoElapsedTime / 1.0E9;
 
         _logic.update(delta);
 
         _graphics.updateCanvas();
 
-        _graphics.render(_logic.getObjects());
+        _graphics.render();
+
+        _logic.render(_graphics);
 
         _graphics.present();
     }
@@ -161,4 +167,19 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
 
     Thread _renderThread;
     volatile boolean _running = false;
+
+    @Override
+    public InputStream getFile(String path) throws Exception
+    {
+        InputStream is;
+
+        try {
+            is = _manager.open(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return is;
+    }
 }

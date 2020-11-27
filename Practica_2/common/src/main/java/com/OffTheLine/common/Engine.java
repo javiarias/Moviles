@@ -12,4 +12,6 @@ public interface Engine {
     public Logic getLogic();
 
     public void release();
+
+    public InputStream getFile(String path)  throws Exception;
 }

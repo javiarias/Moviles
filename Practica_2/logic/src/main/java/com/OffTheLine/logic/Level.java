@@ -1,10 +1,7 @@
 package com.OffTheLine.logic;
 
-import com.OffTheLine.logic.Path;
-import com.OffTheLine.logic.Item;
-import com.OffTheLine.logic.Enemy;
-import com.OffTheLine.logic.Vertice;
-
+import com.OffTheLine.common.Engine;
+import com.OffTheLine.common.Graphics;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
@@ -17,17 +14,79 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class Level implements Jsonable {
 
-    public String name;
-    public Path paths[];
-    public Item items[];
-    public Enemy enemies[];
-    public int time;
+    String _name;
 
-    public Level()
+    public String getName() {
+        return _name;
+    }
+
+    public ArrayList<Path> getPaths() {
+        return _paths;
+    }
+
+    public ArrayList<Item> getItems() {
+        return _items;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return _enemies;
+    }
+
+    public int getTime() {
+        return _time;
+    }
+
+    ArrayList<Path> _paths;
+    ArrayList<Item> _items;
+    ArrayList<Enemy> _enemies;
+    int _time;
+
+    String _path;
+    Engine _e;
+
+    public Level(String path, Engine e)
     {
+        _path = path;
+        _e = e;
+
+        _paths = new ArrayList<Path>();
+
+        _items = new ArrayList<Item>();
+
+        _enemies = new ArrayList<Enemy>();
+    }
+
+    public void update(double delta)
+    {
+        for (Item i : _items) {
+            i.update(delta);
+        }
+        for (Enemy e : _enemies) {
+            e.update(delta);
+        }
+    }
+
+    public void render(Graphics g)
+    {
+        for (Path p : _paths) {
+            g.save();
+            p.render(g);
+            g.restore();
+        }
+        for (Item i : _items) {
+            g.save();
+            i.render(g);
+            g.restore();
+        }
+        for (Enemy e : _enemies) {
+            g.save();
+            e.render(g);
+            g.restore();
+        }
     }
 
     @Override
@@ -44,15 +103,15 @@ public class Level implements Jsonable {
     public void toJson(Writer writer) throws IOException {
 
         final JsonObject json = new JsonObject();
-        //json.put("name", "Antonio con camiseta del hacktoberfest saliendo de tu pantalla");
+
         json.toJson(writer);
     }
 
-    public JsonArray loadLevelFile() throws IOException, JsonException
+    private JsonArray loadLevelFile(String path) throws Exception
     {
         //Test InputStream
         try {
-            InputStream is = new FileInputStream("levels.json");
+            InputStream is = _e.getFile(path);
 
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -64,50 +123,42 @@ public class Level implements Jsonable {
             JsonArray a = (JsonArray) Jsoner.deserialize(jsonString);
 
             return  a;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public Level loadThisLevel (int this_) throws IOException, JsonException
+    public void loadLevel(int lvl) throws Exception
     {
-        Level l_ = new Level();
+        JsonArray a = loadLevelFile(_path);
 
-        JsonArray a = loadLevelFile();
+        JsonObject JsonLevel = (JsonObject) a.get(lvl);
 
-        JsonObject JsonLevel = (JsonObject) a.get(this_);
-
-        l_ = loadLevel(JsonLevel);
-
-        return l_;
+        loadLevel(JsonLevel);
     }
 
-    public Level loadLevel(JsonObject JsonLevel)
+    private void loadLevel(JsonObject JsonLevel)
     {
-        Level level = new Level();
-
         //Carga de name y time
-        level.name = (String) JsonLevel.get("name");
-        level.time = Integer.parseInt((String) JsonLevel.get("time"));
+        _name = (String) JsonLevel.get("name");
+        _time = Integer.parseInt((String) JsonLevel.get("time"));
 
         //Carga de paths
-        JsonArray paths = (JsonArray) JsonLevel.get("paths");
+        JsonArray pathsJson = (JsonArray) JsonLevel.get("paths");
 
-        if (paths != null)
+        if (pathsJson != null)
         {
-            int paths_size = paths.size();
-
-            level.paths = new Path[paths_size];
+            int paths_size = pathsJson.size();
 
             for (int i = 0; i < paths_size; i++)
             {
                 //Vertices
-                JsonObject aux = (JsonObject) paths.get(i);
+                JsonObject aux = (JsonObject) pathsJson.get(i);
                 JsonArray vertices = (JsonArray) aux.get("vertices");
                 int vertices_size = vertices.size();
 
-                level.paths[i] = new Path(vertices_size);
+                Path tempPath = new Path();
 
                 for (int j = 0; j < vertices_size; j++)
                 {
@@ -119,7 +170,7 @@ public class Level implements Jsonable {
                     float x_ = x.floatValue();
                     float y_ = y.floatValue();
 
-                    level.paths[i].vertices[j] = new Vertice(x_, y_);
+                    tempPath.addVertice(x_, y_);
                 }
 
                 //Directions (Opcional)
@@ -127,9 +178,9 @@ public class Level implements Jsonable {
                 JsonArray directions = (JsonArray) aux.get("directions");
 
                 if (directions != null) {
-                    int directions_size = directions.size();
+                    tempPath.useDirections();
 
-                    level.paths[i].directions = new Direction[directions_size];
+                    int directions_size = directions.size();
 
                     for (int j = 0; j < directions_size; j++) {
                         JsonObject direction = (JsonObject) directions.get(j);
@@ -140,9 +191,11 @@ public class Level implements Jsonable {
                         float x_ = x.floatValue();
                         float y_ = y.floatValue();
 
-                        level.paths[i].directions[j] = new Direction(x_, y_);
+                        tempPath.addDirection(x_, y_);
                     }
                 }
+
+                _paths.add(tempPath);
             }
         }
 
@@ -152,8 +205,6 @@ public class Level implements Jsonable {
         if (items != null)
         {
             int items_size = items.size();
-
-            level.items = new Item[items_size];
 
             for (int i = 0; i < items_size; i++)
             {
@@ -165,7 +216,7 @@ public class Level implements Jsonable {
                 float x_ = x.floatValue();
                 float y_ = y.floatValue();
 
-                level.items[i] = new Item(x_, y_);
+                Item tempItem = new Item(x_, y_);
 
                 //Parte opcional
 
@@ -173,22 +224,24 @@ public class Level implements Jsonable {
                 {
                     BigDecimal r = (BigDecimal) aux.get("radius");
                     float radius = r.floatValue();
-                    level.items[i].setRadius(radius);
+                    tempItem.setRadius(radius);
                 }
 
                 if (aux.get("speed") != null)
                 {
                     BigDecimal s = (BigDecimal) aux.get("speed");
                     float speed = s.floatValue();
-                    level.items[i].setSpeed(speed);
+                    tempItem.setSpeed(speed);
                 }
 
                 if (aux.get("angle") != null)
                 {
                     BigDecimal a = (BigDecimal) aux.get("angle");
                     float angle = a.floatValue();
-                    level.items[i].setAngle(angle);
+                    tempItem.setAngle(angle);
                 }
+
+                _items.add(tempItem);
             }
         }
 
@@ -198,8 +251,6 @@ public class Level implements Jsonable {
         if (enemies != null)
         {
             int enemies_size = enemies.size();
-
-            level.enemies = new Enemy[enemies_size];
 
             for (int i = 0; i < enemies_size; i++)
             {
@@ -215,33 +266,46 @@ public class Level implements Jsonable {
                 float length_ = length.floatValue();
                 float angle_ = angle.floatValue();
 
-                level.enemies[i] = new Enemy(x_, y_, angle_, length_);
+                Enemy tempEnemy = new Enemy(x_, y_, angle_, length_);
 
                 //Parte opcional
 
                 if (aux.get("offset") != null)
                 {
-                    BigDecimal o = (BigDecimal) aux.get("offset");
-                    float offset = o.floatValue();
-                    level.enemies[i].setOffset(offset);
+                    JsonObject o = (JsonObject) aux.get("offset");
+
+                    BigDecimal o_x = (BigDecimal) o.get("x");
+                    BigDecimal o_y = (BigDecimal) o.get("y");
+
+                    float offset_x = o_x.floatValue();
+                    float offset_y = o_y.floatValue();
+
+                    tempEnemy.setOffset(offset_x, offset_y);
                 }
 
                 if (aux.get("time1") != null)
                 {
                     BigDecimal t1 = (BigDecimal) aux.get("time1");
                     float time1 = t1.floatValue();
-                    level.enemies[i].setTime1(time1);
+                    tempEnemy.setTime1(time1);
                 }
 
                 if (aux.get("time2") != null)
                 {
                     BigDecimal t2 = (BigDecimal) aux.get("time2");
                     float time2 = t2.floatValue();
-                    level.enemies[i].setAngle(time2);
+                    tempEnemy.setTime2(time2);
                 }
+
+                if (aux.get("speed") != null)
+                {
+                    BigDecimal speed = (BigDecimal) aux.get("speed");
+                    float speed_ = speed.floatValue();
+                    tempEnemy.setSpeed(speed_);
+                }
+
+                _enemies.add(tempEnemy);
             }
         }
-
-     return  level;
     }
 }

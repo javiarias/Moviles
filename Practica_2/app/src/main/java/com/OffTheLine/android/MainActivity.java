@@ -2,6 +2,7 @@ package com.OffTheLine.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
@@ -49,21 +50,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            if(_engine != null && _engine.getGraphics() != null)
+                _engine.getGraphics().fixAspectRatio();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
         _engine = new Engine("", this.getAssets(), this);
 
-        _logic = new Logic(_engine);
+        _logic = new Logic(_engine, "levels.json");
 
         _engine.init(_logic);
 
         setContentView(_engine.getGraphics().getSurface());
+
+        if(savedInstanceState != null){
+            _logic.setX(savedInstanceState.getInt("x"));
+        }
     }
 
-    Engine _engine;
-    Logic _logic;
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt("x", _logic.getX());
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    private Engine _engine;
+    private Logic _logic;
 
     @Override
     protected void onResume() {

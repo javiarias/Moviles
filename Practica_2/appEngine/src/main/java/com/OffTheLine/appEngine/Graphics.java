@@ -2,7 +2,6 @@ package com.OffTheLine.appEngine;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,10 +9,7 @@ import android.view.SurfaceView;
 
 import com.OffTheLine.common.GameObject;
 
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
 
 public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
@@ -31,6 +27,12 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     Paint _paint;
 
     int _savedTransform = 1;
+
+    public void fixAspectRatio(){
+
+        fixAspectRatio(getTrueWidth(), getTrueHeight());
+
+    }
 
     public boolean init(int width, int height, String assetsPath, Engine engine) {
 
@@ -70,11 +72,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     }
 
     @Override
-    public void render(ArrayList<GameObject> objects){
-        //con tal de que al menos el contenido se vea dentro de la ventana,
-        //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
-
-        fixAspectRatio(getTrueWidth(), getTrueHeight());
+    public void render(){
 
         //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
@@ -85,52 +83,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
 
-        //getGraphics().render(getLogic().getObjects());
-
-        setColor(Color.RED);
-        fillRect(0, 0, getWidth(),getHeight());
-
-
-        setColor(Color.CYAN);
-        //drawLine(0, 1, getWidth(), 1);
-
-        /*
-        setColor(Color.RED);
-        fillRect(0, 0, getWidth(), getHeight() / 3.0f);
-
-        setColor(Color.YELLOW);
-        fillRect(0, (getHeight()) / 3.0f, getWidth(), (2 * getHeight()) / 3.0f);
-
-        setColor(Color.MAGENTA);
-        fillRect(0, (2 * getHeight()) / 3.0f, getWidth(), (3 * getHeight()) / 3.0f);
-
-         */
-
-        // Ponemos el rótulo (si conseguimos cargar la fuente)
-        if (_font != null) {
-            save();
-
-            translate(getWidth() / 2, getHeight() / 2);
-            setColor(Color.WHITE);
-            drawString(_font,"no voy a quitar la\n Lupa, ignacio", 0, 0);
-
-            save();
-
-            translate(-getWidth() / 2, 0);
-            rotate(45);
-            setColor(Color.BLUE);
-            drawString(_font,"arriba", 0, 0);
-
-            //restoreAll();
-            restore();
-            setColor(Color.MAGENTA);
-            drawString(_font,"abajo", 0, 0);
-        }
-
-        //setColor(Color.RED);
-        //drawLine(0, 0, getWidth(), getHeight());
-
-        translate(-_xOffset, -_yOffset);
+        translate(getWidth()/2, getHeight()/2);
     }
 
     public void drawString(Font font, String text, int x, int y){
@@ -220,16 +173,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     @Override
     public void drawText(String text, float x, float y) {
 
-    }
-
-    @Override
-    public int getWidth() {
-        return _initWidth;
-    }
-
-    @Override
-    public int getHeight() {
-        return _initHeight;
     }
 
     public int getTrueWidth() {

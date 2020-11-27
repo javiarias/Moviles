@@ -2,6 +2,7 @@ package com.OffTheLine.desktopEngine;
 
 import java.awt.Color;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -49,7 +50,8 @@ public class Engine implements com.OffTheLine.common.Engine {
                     _graphics.updateDrawGraphics();
 
                     try {
-                        _graphics.render(null);
+                        _graphics.render();
+                        _logic.render(_graphics);
                     }
                     finally
                     {
@@ -92,5 +94,20 @@ public class Engine implements com.OffTheLine.common.Engine {
     @Override
     public void release(){
         _graphics.release();
+    }
+
+    @Override
+    public InputStream getFile(String path) throws Exception
+    {
+        InputStream is;
+
+        try {
+            is = new FileInputStream(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return is;
     }
 }

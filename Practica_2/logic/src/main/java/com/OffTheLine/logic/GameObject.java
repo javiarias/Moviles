@@ -2,19 +2,18 @@ package com.OffTheLine.logic;
 
 public abstract class GameObject implements com.OffTheLine.common.GameObject {
 
-    protected float _X;
-    protected float _Y;
+    protected Vector2D pos;
     protected float _scale;
 
     //Getters
     public float getX()
     {
-       return  _X;
+       return  pos.x;
     }
 
     public float getY()
     {
-        return  _Y;
+        return  pos.y;
     }
 
     public float getScale()
@@ -26,23 +25,28 @@ public abstract class GameObject implements com.OffTheLine.common.GameObject {
 
     public void setX(float X)
     {
-        this._X = X;
+        pos.x = X;
     }
 
     public void setY(float Y)
     {
-        this._Y = Y;
+        pos.y = Y;
     }
 
     public void setScale(float scale)
     {
-        this._scale = scale;
+        _scale = scale;
     }
 
     //Constructora
     GameObject(float posX, float posY)
     {
-        this._X = posX;
-        this._Y = posY;
+        pos = new Vector2D(posX, posY);
+    }
+
+    //Constructora
+    GameObject(Vector2D pos_)
+    {
+        pos = pos_;
     }
 }

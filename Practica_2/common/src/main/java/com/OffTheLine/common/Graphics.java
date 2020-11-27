@@ -27,8 +27,10 @@ public interface Graphics {
 
     int getWidth();
     int getHeight();
+    void setWidth(int w);
+    void setHeight(int h);
 
-    void render(ArrayList<GameObject> g);
+    void render();
 
     void release();
 }

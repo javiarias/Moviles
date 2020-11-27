@@ -1,28 +1,18 @@
 package com.OffTheLine.common;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.io.InputStream;
-import java.util.ArrayList;
-
 public abstract class CommonGraphics implements Graphics {
 
-    protected int _initWidth = 0;
-    protected int _initHeight = 0;
     protected Engine _engine;
     protected String _assetsPath;
 
-    protected int _xOffset = 0;
-    protected int _yOffset = 0;
-    protected int _logicWidth = 0;
-    protected int _logicHeight = 0;
+    protected float _xOffset = 0;
+    protected float _yOffset = 0;
+    protected float _logicWidth = 0;
+    protected float _logicHeight = 0;
     protected float _scaleW = 1.0f;
     protected float _scaleH = 1.0f;
 
     public void init(int width, int height, String assetsPath, Engine engine) {
-
-        _initWidth = width;
-        _initHeight = height;
 
         _logicWidth = width;
         _logicHeight = height;
@@ -34,38 +24,43 @@ public abstract class CommonGraphics implements Graphics {
 
     protected void fixAspectRatio(int trueW, int trueH) {
 
-        double tryW = ((trueH * _initWidth) / (double)_initHeight);
+        float tryW = ((trueH * _logicWidth) / _logicHeight);
 
-        double tryH = ((trueW * _initHeight) / (double)_initWidth);
+        float tryH = ((trueW * _logicHeight) / _logicWidth);
+
+        float trueWidth = trueW;
+        float trueHeight = trueH;
 
         if(tryW > trueW) {
             _xOffset = 0;
-            _logicWidth = trueW;
 
-            double newH = ((tryW * _initHeight) / (double)_initWidth);
-            _yOffset = (trueH - (int)tryH) / 2;
-            _logicHeight = (int)tryH;
+            _yOffset = (trueHeight - tryH) / 2.0f;
+            trueHeight = tryH;
         }
         else {
             _yOffset = 0;
-            _logicHeight = trueH;
 
-            _xOffset = (trueW - (int)tryW) / 2;
-            _logicWidth = (int)tryW;
+            _xOffset = (trueWidth - tryW) / 2.0f;
+            trueWidth = tryW;
         }
 
-        _scaleW = _logicWidth / (float)_initWidth;
-        _scaleH = _logicHeight / (float)_initHeight;
+        _scaleW = trueWidth / _logicWidth;
+        _scaleH = trueHeight / _logicHeight;
     }
 
     @Override
     public int getWidth() {
-        return _initWidth;
+        return (int)_logicWidth;
     }
 
     @Override
     public int getHeight() {
-        return _initHeight;
+        return (int)_logicHeight;
     }
 
+    @Override
+    public void setWidth(int w) { _logicWidth = w; }
+
+    @Override
+    public void setHeight(int h) { _logicHeight = h; }
 }

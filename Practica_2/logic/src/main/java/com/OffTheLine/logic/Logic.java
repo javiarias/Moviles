@@ -12,39 +12,43 @@ public class Logic implements com.OffTheLine.common.Logic {
     int _x = 0;
     int _incX = 10;
 
-    ArrayList<GameObject> _objects = null;
     Engine _e;
+    Level _level;
+    //int currentLvl = 3;
+    int currentLvl = 16;
+    int lives = 3;
+    Player _player;
 
-    public Logic(Engine e) {
-        _objects = new ArrayList<GameObject>();
+    public Logic(Engine e, String path) {
         _e = e;
+
+        _level = new Level(path, _e);
+
+        try {
+            _level.loadLevel(currentLvl - 1);
+        }
+        catch ( Exception E)
+        {
+
+        }
+
+        _player = new Player(_level.getPaths());
     }
 
     @Override
-    public ArrayList<GameObject> getObjects() {
-        return _objects;
+    public void update(double deltaTime)
+    {
+        _level.update(deltaTime);
+        _player.update(deltaTime);
     }
 
     @Override
-    public void update(double deltaTime) {
-
-        Graphics g = _e.getGraphics();
-
-        int maxX = g.getWidth() - 300; // 300 : longitud estimada en píxeles del rótulo
-
-        _x += _incX * deltaTime;
-        while(_x < 0 || _x > maxX) {
-            // Vamos a pintar fuera de la pantalla. Rectificamos.
-            if (_x < 0) {
-                // Nos salimos por la izquierda. Rebotamos.
-                _x = -_x;
-                _incX *= -1;
-            }
-            else if (_x > maxX) {
-                // Nos salimos por la derecha. Rebotamos
-                _x = 2*maxX - _x;
-                _incX *= -1;
-            }
-        } // while
+    public void render(Graphics g)
+    {
+        _level.render(g);
+        _player.render(g);
     }
+
+    public int getX() { return _x; }
+    public void setX(int x) { _x = x; }
 }

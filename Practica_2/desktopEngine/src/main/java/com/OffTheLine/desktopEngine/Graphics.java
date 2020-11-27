@@ -1,17 +1,15 @@
 package com.OffTheLine.desktopEngine;
 
-import com.OffTheLine.common.GameObject;
-
 import javax.swing.JFrame;
-
-import java.awt.Dimension;
 
 import java.awt.Color;
 
+import java.awt.Component;
 import java.awt.Graphics2D;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.geom.AffineTransform;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -21,7 +19,17 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     JFrame _window;
 
     public Graphics(String title) {
+
         _window = new JFrame(title);
+
+        //así se llama al fixaspectratio solo cuando se cambia la ventana de tamaño
+        _window.addComponentListener(new ComponentAdapter()
+        {
+            public void componentResized(ComponentEvent evt) {
+                Component c = (Component)evt.getSource();
+                fixAspectRatio(getTrueWidth(), getTrueHeight());
+            }
+        });
     }
 
     Font _font = null;
@@ -34,20 +42,14 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     public boolean init(int width, int height, String assetsPath, Engine engine) {
 
-        super.init(width, height, assetsPath, engine);
+        //sumo a height para que se vea toda la pantalla. un poco sucio pero bueno
+        super.init(width, height + 100, assetsPath, engine);
 
         _savedTransform = new LinkedList<>();
 
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         _window.setSize(width, height);
-
-        /*
-        Dimension d = new Dimension(width,height);
-        _window.getContentPane().setPreferredSize(d);
-        _window.pack();
-
-         */
 
         // Vamos a usar renderizado activo. No queremos que Swing llame al
         // método repaint() porque el repintado es continuo en cualquier caso.
@@ -113,12 +115,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     public void dispose() { _graphics.dispose(); }
 
     @Override
-    public void render(ArrayList<GameObject> objects){
-
-        //con tal de que al menos el contenido se vea dentro de la ventana,
-        //trasladamos lo suficiente para que (0, 0) se halle dentro de la ventana visible
-
-        fixAspectRatio(getTrueWidth(), getTrueHeight());
+    public void render(){
 
         //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
@@ -129,58 +126,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
 
-        //save();
-
-        //getGraphics().render(getLogic().getObjects());
-
-        setColor(Color.RED);
-        fillRect(0, 0, getWidth(),getHeight());
-
-        //para que todo se pinte con 0, 0 en el centro de la ventana
         translate(getWidth()/2, getHeight()/2);
-
-        setColor(Color.CYAN);
-        //drawLine(0, 1, getWidth(), 1);
-
-        /*
-        setColor(Color.RED);
-        fillRect(0, 0, getWidth(), getHeight() / 3.0f);
-
-        setColor(Color.YELLOW);
-        fillRect(0, (getHeight()) / 3.0f, getWidth(), (2 * getHeight()) / 3.0f);
-
-        setColor(Color.MAGENTA);
-        fillRect(0, (2 * getHeight()) / 3.0f, getWidth(), (3 * getHeight()) / 3.0f);
-
-         */
-
-        // Ponemos el rótulo (si conseguimos cargar la fuente)
-        if (_font != null) {
-            save();
-
-            setColor(Color.WHITE);
-            _graphics.setFont(_font.getFont());
-            _graphics.drawString("no voy a quitar la\n Lupa, ignacio", 0, 0);
-
-            save();
-
-            translate(-getWidth() / 2, 0);
-            rotate(45);
-            setColor(Color.BLUE);
-            _graphics.setFont(_font.getFont());
-            _graphics.drawString("arriba", 0, 0);
-
-            restore();
-
-            setColor(Color.MAGENTA);
-            _graphics.setFont(_font.getFont());
-            _graphics.drawString("abajo", 0, 0);
-        }
-
-        //setColor(Color.RED);
-        //drawLine(0, 0, getWidth(), getHeight());
-
-        restoreAll();
     }
 
     @Override
@@ -279,16 +225,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     @Override
     public void drawText(String text, float x, float y) {
 
-    }
-
-    @Override
-    public int getWidth() {
-        return _initWidth;
-    }
-
-    @Override
-    public int getHeight() {
-        return _initHeight;
     }
 
     public int getTrueWidth() {

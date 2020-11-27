@@ -21,25 +21,13 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        /*
-        Level level = new Level();
-
-        try {
-            level.loadThisLevel(9);
-        }
-        catch ( Exception E)
-        {
-
-        }
-        */
-
         String path = "assets/";
 
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         Engine _engine = new Engine(path);
 
-        Logic logic = new Logic(_engine);
+        Logic logic = new Logic(_engine, "assets/levels.json");
 
         _engine.init(logic);
         _engine.update();
