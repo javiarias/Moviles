@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
 import java.io.InputStream;
 import java.util.Deque;
@@ -125,8 +126,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
-
-        translate(getWidth()/2, getHeight()/2);
     }
 
     @Override
@@ -238,5 +237,17 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     @Override
     public void release(){
         _strategy.dispose();
+    }
+
+    //public JFrame getWindow() { return _window; }
+
+    public void addMouseListener(MouseListener listener)
+    {
+        _window.addMouseListener(listener);
+    }
+
+    public void addMouseMotionListener(MouseMotionListener listener)
+    {
+        _window.addMouseMotionListener(listener);
     }
 }

@@ -1,6 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Vector2D;
 
 public abstract class Square extends GameObject {
 

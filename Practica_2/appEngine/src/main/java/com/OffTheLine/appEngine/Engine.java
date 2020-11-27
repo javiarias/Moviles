@@ -34,6 +34,10 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
             return;
 
         _logic = l;
+
+        _input = new Input();
+
+        _graphics.setTouchListener(_input.getTouchListener());
     }
 
     public void run() {

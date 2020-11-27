@@ -1,6 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Vector2D;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;

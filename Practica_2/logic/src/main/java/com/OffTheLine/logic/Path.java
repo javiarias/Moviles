@@ -1,7 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
-import com.OffTheLine.logic.GameObject;
+import com.OffTheLine.common.Vector2D;
 
 import java.util.ArrayList;
 

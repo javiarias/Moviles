@@ -1,5 +1,7 @@
 package com.OffTheLine.logic;
 
+import com.OffTheLine.common.Vector2D;
+
 import java.util.ArrayList;
 
 public class Player extends Square {

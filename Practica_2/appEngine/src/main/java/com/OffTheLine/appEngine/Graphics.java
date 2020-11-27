@@ -18,6 +18,10 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _manager = manager;
     }
 
+    public void setTouchListener(TouchListener listener) {
+        _surface.setOnTouchListener(listener);
+    }
+
     Font _font = null;
 
     int _bgColor = Color.BLACK;
@@ -82,8 +86,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
-
-        translate(getWidth()/2, getHeight()/2);
     }
 
     public void drawString(Font font, String text, int x, int y){

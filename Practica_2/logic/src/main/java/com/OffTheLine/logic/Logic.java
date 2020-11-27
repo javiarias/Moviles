@@ -19,6 +19,10 @@ public class Logic implements com.OffTheLine.common.Logic {
     int lives = 3;
     Player _player;
 
+    public boolean _centerScreen = false;
+
+    //public void centerScreen(boolean bool) { _centerScreen = bool; }
+
     public Logic(Engine e, String path) {
         _e = e;
 
@@ -45,6 +49,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void render(Graphics g)
     {
+        g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
+
         _level.render(g);
         _player.render(g);
     }

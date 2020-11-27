@@ -28,6 +28,11 @@ public class Engine implements com.OffTheLine.common.Engine {
             return;
 
         _logic = l;
+
+        _input = new Input();
+
+        _graphics.addMouseListener(_input.getMouseListener());
+        _graphics.addMouseMotionListener(_input.getMouseMotionListener());
     }
 
     public void update()

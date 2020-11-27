@@ -1,15 +1,40 @@
 package com.OffTheLine.desktopEngine;
 
-import java.util.List;
+import com.OffTheLine.common.Vector2D;
 
-public class Input implements com.OffTheLine.common.Input {
+import java.util.ArrayList;
 
-    public class TouchEvent implements com.OffTheLine.common.Input.TouchEvent {
+public class Input implements com.OffTheLine.common.Input
+{
+    ArrayList<TouchEvent> _events;
 
+    MouseListener _mouse;
+    MouseMotionListener _mouseMotion;
+
+    Input()
+    {
+        _mouse = new MouseListener(this);
+        _mouseMotion = new MouseMotionListener(this);
+        _events = new ArrayList<TouchEvent>();
+    }
+
+    public MouseListener getMouseListener() {
+        return _mouse;
+    }
+    public MouseMotionListener getMouseMotionListener() {
+        return _mouseMotion;
     }
 
     @Override
-    public List<com.OffTheLine.common.Input.TouchEvent> getTouchEvents() {
-        return null;
+    synchronized public ArrayList<TouchEvent> getTouchEvents()
+    {
+        ArrayList<TouchEvent> tmp = _events;
+        _events.clear();
+        return tmp;
+    }
+
+    @Override
+    synchronized public void addEvent(TouchEvent e) {
+        _events.add(e);
     }
 }

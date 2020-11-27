@@ -1,5 +1,7 @@
 package com.OffTheLine.logic;
 
+import com.OffTheLine.common.Vector2D;
+
 public abstract class GameObject implements com.OffTheLine.common.GameObject {
 
     protected Vector2D pos;
