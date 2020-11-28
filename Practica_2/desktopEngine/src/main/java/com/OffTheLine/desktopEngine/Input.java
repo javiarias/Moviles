@@ -28,8 +28,9 @@ public class Input implements com.OffTheLine.common.Input
     @Override
     synchronized public ArrayList<TouchEvent> getTouchEvents()
     {
-        ArrayList<TouchEvent> tmp = _events;
+        ArrayList<TouchEvent> tmp = new ArrayList<TouchEvent>(_events);
         _events.clear();
+
         return tmp;
     }
 

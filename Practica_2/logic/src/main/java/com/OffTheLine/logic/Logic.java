@@ -4,6 +4,7 @@ import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Font;
 import com.OffTheLine.common.GameObject;
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Input;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
+        ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+
         _level.update(deltaTime);
         _player.update(deltaTime);
     }
