@@ -2,6 +2,7 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Input;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
@@ -60,13 +61,13 @@ public class Level implements Jsonable {
         _enemies = new ArrayList<Enemy>();
     }
 
-    public void update(double delta)
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList)
     {
         for (Item i : _items) {
-            i.update(delta);
+            i.update(delta, inputList);
         }
         for (Enemy e : _enemies) {
-            e.update(delta);
+            e.update(delta, inputList);
         }
     }
 

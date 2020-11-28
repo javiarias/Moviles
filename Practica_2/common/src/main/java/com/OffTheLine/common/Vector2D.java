@@ -36,6 +36,16 @@ public class Vector2D {
         return (x == v.x)  && (y == v.y);
     }
 
+    public Vector2D normalize(Vector2D v)
+    {
+        Vector2D r;
+
+        float modulo = (float) Math.sqrt((v.x * v.x) + (v.y * v.y));
+        r = v.divide(modulo);
+
+        return r;
+    }
+
     public float distance(Vector2D v)
     {
         return (float)Math.sqrt(Math.pow(v.x - x, 2) + Math.pow(v.y - y, 2));
@@ -45,5 +55,15 @@ public class Vector2D {
     {
         float dist = distance(v);
         return (dist <= distance);
+    }
+
+    public Vector2D PerpendicularClockwise(Vector2D v)
+    {
+        return new Vector2D(v.y, -v.x);
+    }
+
+    public Vector2D PerpendicularCounterClockwise(Vector2D v)
+    {
+        return new Vector2D(-v.y, v.x);
     }
 };

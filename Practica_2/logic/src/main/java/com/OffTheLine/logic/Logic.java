@@ -16,7 +16,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     Engine _e;
     Level _level;
     //int currentLvl = 3;
-    int currentLvl = 16;
+    int currentLvl = 1;
     int lives = 3;
     Player _player;
 
@@ -45,8 +45,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
 
-        _level.update(deltaTime);
-        _player.update(deltaTime);
+        _level.update(deltaTime, ls);
+        _player.update(deltaTime, ls);
     }
 
     @Override

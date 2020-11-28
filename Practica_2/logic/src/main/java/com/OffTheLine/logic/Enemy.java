@@ -1,7 +1,10 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
+
+import java.util.ArrayList;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
@@ -124,7 +127,7 @@ public class Enemy extends GameObject {
     }
 
     @Override
-    public void update(double delta) {
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
         _angle += _rotSpeed * delta;
 
         _angle = (_angle % 360);

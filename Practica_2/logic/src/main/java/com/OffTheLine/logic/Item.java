@@ -1,6 +1,9 @@
 package com.OffTheLine.logic;
 
+import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
+
+import java.util.ArrayList;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
@@ -54,7 +57,7 @@ public class Item extends Square{
     }
 
     @Override
-    public void update(double delta) {
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
         if(_radius != 0)
         {
             pos.x = _radius * (float)cos(toRadians(_angle));

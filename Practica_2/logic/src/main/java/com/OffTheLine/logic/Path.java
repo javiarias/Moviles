@@ -1,6 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Path extends GameObject {
     }
 
     @Override
-    public void update(double delta) {
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
 
     }
 
