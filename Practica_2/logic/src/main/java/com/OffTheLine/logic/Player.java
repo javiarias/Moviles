@@ -11,12 +11,27 @@ import java.util.Vector;
 
 public class Player extends Square {
 
+    class Collision{
+
+        Collision(Vector2D p, int _curr, int _next)
+        {
+            collisionPoint = p;
+            _currentVert = _curr;
+            _nextVert = _next;
+        }
+
+        public Vector2D collisionPoint;
+        public int _currentVert;
+        public int _nextVert;
+    }
+
     ArrayList<Path> _paths;
+    ArrayList<Collision> possibleCollisions = new ArrayList<Collision>();
 
     int _currentVert = 0;
-    int _nextVert = 1;
+    int _nextVert = 3;
     int _currentPath = 0;
-    boolean invert = false;
+    boolean invert = true;
     boolean jumping = false;
 
     //THIS IS FOR MOVEMENT!!!!!
@@ -39,10 +54,8 @@ public class Player extends Square {
     Player(ArrayList<Path> paths)
     {
         super(paths.get(0)._vertices.get(0),0xFF0088FF); //Constructora de gameObject
-
         _size = 12;
         _speed = 0.01f;
-
         _paths = paths;
     }
 
@@ -52,34 +65,27 @@ public class Player extends Square {
         Vector2D temp;
         boolean past;
 
+        //Siempre se hace
+        _rotAngle += _rotSpeed * delta;
+        _rotAngle = (_rotAngle % 360);
+
         if (jumping) {
-            /*
-            //Comprobar colision
-            for (int i = 0; i < _paths.size() ; i++) {
-                for (int j = 0; j < _paths.get(i)._vertices.size(); j++) {
+            for (Collision c : possibleCollisions)
+            {
+                if (Utils.distancePointPoint(pos, c.collisionPoint) == 0) //Valor de comprobación
+                {
+                    jumping = false;
 
-                    if (j != _currentVert || j != _nextVert) {
+                    if (!invert)
+                        direction = direction.PerpendicularCounterClockwise(direction);
+                    else
+                        direction = direction.PerpendicularClockwise(direction);
 
-                        if (j == _paths.get(i)._vertices.size() - 1) //Primero y ultimo
-                        {
-                            if (Utils.distancePointSegment(_paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(0), pos) <= 5) {
-                                jumping = false;
-                                direction = direction.PerpendicularCounterClockwise(direction);
-                            }
-                        }
-
-                        if (Utils.distancePointSegment(_paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(j + 1), pos) <= 5) //Normal
-
-                        {
-                            jumping = false;
-                            direction = direction.PerpendicularCounterClockwise(direction);
-
-                            //check de next y current?
-                        }
-                    }
+                    _currentVert = c._currentVert;
+                    _nextVert = c._nextVert;
+                    //current y next
                 }
-            }*/
-
+            }
 
             //Comprobar que no se sale de los márgenes
 
@@ -89,14 +95,12 @@ public class Player extends Square {
             pos = pos.add(add_);
         }
 
-        else {
-            _rotAngle += _rotSpeed * delta;
-
-            _rotAngle = (_rotAngle % 360);
-
-            if (!inputList.isEmpty() && !jumping) {
-
-                for (Input.TouchEvent tE : inputList) {
+        else
+        {
+            if (!inputList.isEmpty() && !jumping)
+            {
+                for (Input.TouchEvent tE : inputList)
+                {
                     if (tE.type == Input.TouchEvent.TouchType.CLICK || tE.type == Input.TouchEvent.TouchType.PRESS) //el que sea
                     {
                         Jump();
@@ -106,7 +110,6 @@ public class Player extends Square {
             }
 
             Path path = _paths.get(_currentPath);
-
             Vector2D current = path._vertices.get(_currentVert);
             Vector2D next = path._vertices.get(_nextVert);
 
@@ -116,14 +119,16 @@ public class Player extends Square {
 
             add_ = add_.add(direction);
             add_.multiply(_speed * (float) delta); //Hay que mirarlo porque va a todo ojete
-            if (!invert) {
+
+            if (!invert)
+            {
                 temp = pos.add(add_);
                 float d1 = current.distance(next);
                 float d2 = current.distance(temp);
-
                 past = (d1 <= d2);
-            } else {
-                //No funciona???
+            }
+            else //Sigue fallando aqui
+            {
                 temp = pos.add(add_);
                 float d1 = current.distance(next);
                 float d2 = current.distance(temp);
@@ -134,10 +139,13 @@ public class Player extends Square {
             if (past) {
                 pos = next;
 
-                if (!invert) {
+                if (!invert)
+                {
                     _currentVert = (_currentVert + 1) % path._vertices.size();
                     _nextVert = (_nextVert + 1) % path._vertices.size();
-                } else {
+                }
+                else
+                {
                     _currentVert = (_currentVert - 1) % path._vertices.size();
                     _nextVert = (_nextVert - 1) % path._vertices.size();
 
@@ -164,7 +172,12 @@ public class Player extends Square {
     public void Jump()
     {
         if (_paths.get(_currentPath)._directions.size() == 0) {
-            direction = direction.PerpendicularCounterClockwise(direction);
+
+            if (!invert)
+                direction = direction.PerpendicularCounterClockwise(direction);
+            else
+                direction = direction.PerpendicularClockwise(direction);
+
             jumping = true;
         }
         else //To test
@@ -185,6 +198,44 @@ public class Player extends Square {
         }
 
         //Check possible collisions
+        Vector2D aux = new Vector2D(pos.x, pos.y);
+        Vector2D aux2 = direction.multiply(1000);
+        aux = aux.add(aux2);
 
+        invert = !invert;
+
+        for (int i = 0; i < _paths.size() ; i++)
+        {
+            for (int j = 0; j < _paths.get(i)._vertices.size(); j++)
+            {
+                Vector2D point = null;
+                int k;
+
+                if (j == _paths.get(i)._vertices.size() - 1) //Primero y ultimo
+                {
+                    k = 0;
+                    point = Utils.pointIntersectionSegmentSegment(pos, aux, _paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(k));
+                }
+
+                else
+                {
+                    k = j + 1;
+                    point = Utils.pointIntersectionSegmentSegment(pos, aux, _paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(k));
+                }
+
+                if (point != null)
+                {
+                    //Para no añadir el propio punto en el que está al saltar
+                    boolean xEqual = point.x == pos.x;
+                    boolean yEqual = point.y == pos.y;
+
+                    if (!(xEqual && yEqual))
+                    {
+                        Collision col_ = new Collision(point, j, k);
+                        possibleCollisions.add(col_);
+                    }
+                }
+            }
+        }
     }
 }

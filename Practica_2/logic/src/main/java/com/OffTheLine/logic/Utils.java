@@ -3,6 +3,10 @@ package com.OffTheLine.logic;
 //PP la sugiere en el enunciado, asi que se hace
 
 import com.OffTheLine.common.Vector2D;
+import java.lang.*;
+
+import static java.lang.Float.NEGATIVE_INFINITY;
+import static java.lang.Float.POSITIVE_INFINITY;
 
 public class Utils {
 
@@ -42,25 +46,94 @@ public class Utils {
 
 
     //recibe dos pares de vertices y devuelve el punto donde se cruzan (si lo hacen).
-    public Vector2D pointIntersectionSegmentSegment(Vector2D S1P1, Vector2D S1P2, Vector2D S2P1, Vector2D S2P2)
+    public static Vector2D pointIntersectionSegmentSegment(Vector2D S1P1, Vector2D S1P2, Vector2D S2P1, Vector2D S2P2)
     {
         Vector2D ret = null; //Por si no hay interseccion
 
-        /*float s1_x, s1_y, s2_x, s2_y;
-        s1_x = s1.p2.x - s1.p1.x;     s1_y = s1.p2.y - s1.p1.y;
-        s2_x = s2.p2.x - s2.p1.x;     s2_y = s2.p2.y - s2.p1.y;
+        float Ax;         float Ay;
+        float Bx;         float By;
+        float Cx;         float Cy;
+        float Dx;         float Dy;
 
-        float s, t;
-        s = (-s1_y * (s1.p1.x - s2.p1.x) + s1_x * (s1.p1.y - s2.p1.y)) / (-s2_x * s1_y + s1_x * s2_y);
-        t = ( s2_x * (s1.p1.y - s2.p1.y) - s2_y * (s1.p1.y - s2.p1.y)) / (-s2_x * s1_y + s1_x * s2_y);
+        float m1 = 0;
+        float m2 = 0;
+        float x = 0;
+        float y = 0;
 
-        if (s >= 0 && s <= 1 && t >= 0 && t <= 1)
+        //Comprobación de valores menores que otros
+        if (S1P1.x <= S1P2.x)
         {
-            // Collision detected
-            p.x = s1.p1.x + (t * s1_x);
-            p.y = s1.p1.y + (t * s1_y);
+            Ax = S1P1.x;
+            Ay = S1P1.y;
+            Bx = S1P2.x;
+            By = S1P2.y;
         }
-        return p;*/
+        else
+        {
+            Ax = S1P2.x;
+            Ay = S1P2.y;
+            Bx = S1P1.x;
+            By = S1P1.y;
+        }
+
+        if (S2P1.x <= S2P2.x)
+        {
+            Cx = S2P1.x;
+            Cy = S2P1.y;
+            Dx = S2P2.x;
+            Dy = S2P2.y;
+        }
+        else
+        {
+            Cx = S2P2.x;
+            Cy = S2P2.y;
+            Dx = S2P1.x;
+            Dy = S2P1.y;
+        }
+
+        if ((Ax - Bx) != 0)
+        {
+            m1 = ((Ay - By)/(Ax - Bx));
+        }
+
+        if ((Cx - Dx) != 0)
+        {
+            m2 = ((Cy - Dy)/(Cx - Dx));
+        }
+
+        if (Ax != Bx && Cx != Dx && m1 != m2)
+        {
+            x = (Cy - Cx*((Cy-Dy)/(Cx-Dx)) - (Ay - Ax*((Ay-By)/(Ax-Bx))))/((Ay-By)/(Ax-Bx)-(Cy-Dy)/(Cx-Dx));
+            y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
+            ret = new Vector2D(x,y);
+        }
+
+        else if (Ax == Bx && Cx != Dx)
+        {
+            x = Ax;
+            y = ((Cy-Dy)/(Cx-Dx)) * x + (Cy - Cx * ((Cy-Dy)/(Cx-Dx)));
+            ret = new Vector2D(x,y);
+        }
+
+        else if (Ax != Bx && Cx == Dx)
+        {
+            x = Cx;
+            y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
+            ret = new Vector2D(x,y);
+        }
+
+        //Comprobacion de que el punto esta en los segmentos
+        /*
+        if (Ax - Bx != 0 && Cx - Dx != 0)
+        {
+            if (m1!= m2)
+            {
+                if (Ax < x && x < Bx && Cx < x && x < Dx)
+                {
+                    ret = new Vector2D(x,y);
+                }
+            }
+        }*/
 
         return ret;
     }

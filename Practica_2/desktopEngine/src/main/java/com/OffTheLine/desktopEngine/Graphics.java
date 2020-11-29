@@ -223,7 +223,9 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     @Override
     public void drawText(String text, float x, float y) {
-
+        setColor(Color.WHITE);
+        _graphics.setFont(_font.getFont());
+        _graphics.drawString(text, (int) x, (int) y); //me obliga a castear a int, si no, llora
     }
 
     public int getTrueWidth() {
