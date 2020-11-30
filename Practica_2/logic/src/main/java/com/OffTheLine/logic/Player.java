@@ -14,15 +14,17 @@ public class Player extends Square {
 
     class Collision{
 
-        Collision(Vector2D p, int _curr, int _next)
+        Collision(Vector2D p, int _currP, int _currV, int _nextV)
         {
             collisionPoint = p;
-            _currentVert = _curr;
-            _nextVert = _next;
+            _currentPath = _currP;
+            _currentVert = _currV;
+            _nextVert = _nextV;
         }
 
         public Vector2D collisionPoint;
         public int _currentVert;
+        public int _currentPath;
         public int _nextVert;
     }
 
@@ -73,15 +75,18 @@ public class Player extends Square {
         if (jumping) {
             for (Collision c : possibleCollisions)
             {
-                if (Utils.distancePointPoint(pos, c.collisionPoint) == 0) //Valor de comprobación
+                if (Utils.distancePointPoint(pos, c.collisionPoint) <= 1) //Sin este margen, en la circunferencia explota
                 {
                     jumping = false;
+
+                    //changeDirection();
 
                     if (!invert)
                         direction = direction.PerpendicularCounterClockwise(direction);
                     else
                         direction = direction.PerpendicularClockwise(direction);
 
+                    _currentPath = c._currentPath;
                     _currentVert = c._currentVert;
                     _nextVert = c._nextVert;
                 }
@@ -170,16 +175,13 @@ public class Player extends Square {
 
     }
 
-    public void Jump()
+    public void changeDirection()
     {
         if (_paths.get(_currentPath)._directions.size() == 0) {
-
             if (!invert)
                 direction = direction.PerpendicularCounterClockwise(direction);
             else
                 direction = direction.PerpendicularClockwise(direction);
-
-            jumping = true;
         }
         else //To test
         {
@@ -187,23 +189,30 @@ public class Player extends Square {
             float y = 0;
             if (_paths.get(_currentPath)._directions.get(_currentPath).x != 0)
             {
-                x = direction.x * _paths.get(_currentPath)._directions.get(_currentPath).x;
+                x = _paths.get(_currentPath)._directions.get(_currentPath).x;
             }
             if (_paths.get(_currentPath)._directions.get(_currentPath).y != 0)
             {
-                y = direction.y * _paths.get(_currentPath)._directions.get(_currentPath).y;
+                y = _paths.get(_currentPath)._directions.get(_currentPath).y;
             }
 
             direction.x = x;
             direction.y = y;
         }
+    }
+
+    public void Jump()
+    {
+        jumping = true;
+
+        changeDirection();
 
         //Check possible collisions
         Vector2D aux = new Vector2D(pos.x, pos.y);
         Vector2D aux2 = direction.multiply(1000);
         aux = aux.add(aux2);
 
-        invert = !invert;
+        //invert = !invert;
 
         for (int i = 0; i < _paths.size() ; i++)
         {
@@ -227,12 +236,10 @@ public class Player extends Square {
                 if (point != null)
                 {
                     //Para no añadir el propio punto en el que está al saltar
-                    boolean xEqual = point.x == pos.x;
-                    boolean yEqual = point.y == pos.y;
 
-                    if (!(xEqual && yEqual))
+                    if (!(point.x == pos.x && point.y == pos.y) && !(j == _currentVert && k == _nextVert))
                     {
-                        Collision col_ = new Collision(point, j, k);
+                        Collision col_ = new Collision(point, i, j, k);
                         possibleCollisions.add(col_);
                     }
                 }
@@ -246,9 +253,9 @@ public class Player extends Square {
         {
             Random r = new Random();
 
-            //Crear linea
+            //Crear lineas de 6 de longitud
 
-            //Offset
+            //Mover y rotar aleatoriamente
         }
     }
 }

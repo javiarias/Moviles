@@ -16,7 +16,7 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     Engine _e;
     Level _level;
-    int currentLvl = 1;
+    int currentLvl = 7;
     int lives;
     int maxLives = 3;
     Player _player;
@@ -39,6 +39,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     boolean lost = false;
 
     float delayChangeLevel = 1.0f;
+    float delayDeath = 1.0f;
 
     //public void centerScreen(boolean bool) { _centerScreen = bool; }
 
@@ -105,7 +106,7 @@ public class Logic implements com.OffTheLine.common.Logic {
             destroyItems();
 
             if (lost)
-                destroyPlayer();
+                destroyPlayer(deltaTime);
         }
         else
         {
@@ -161,7 +162,7 @@ public class Logic implements com.OffTheLine.common.Logic {
             {
                 //Marcar item para destruirlo cuando acabe el update
                 if (!i.toDie) {
-                    score++; //Esto va regular tirando a mal
+                    score++;
                     i.toDie = true;
                     itemsToDestroy.add(i);
                 }
@@ -174,6 +175,7 @@ public class Logic implements com.OffTheLine.common.Logic {
             if (Utils.distancePointPoint(_player.pos, e.pos) < umbralDistancia)
             {
                 lost = true;
+                //_player.die(); //Crear las lineas, sustituyendo al cuadrado en el render?
             }
         }
     }
@@ -189,15 +191,19 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
     }
 
-    void destroyPlayer()
+    void destroyPlayer(double deltaTime)
     {
-        //Destruir player
+        if (delayDeath >= 0)
+        {
+            delayDeath -= deltaTime;
+        }
+        else
+        {
 
-        //Particulas de player
+            lostLife();
 
-        lostLife();
-
-        //Reiniciar nivel
+            //Reiniciar nivel
+        }
     }
 
     public void changeLevel()
@@ -216,6 +222,9 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
         maxScore = _level._items.size();
         score = 0;
+        _player = new Player(_level.getPaths());
+        delayChangeLevel = 1.0f;
+        delayDeath = 1.0f;
     }
 
     boolean checkLevelCompleted(double deltaTime)
@@ -229,7 +238,6 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
         return false;
     }
-
 
     public int getX() { return _x; }
     public void setX(int x) { _x = x; }
