@@ -44,7 +44,6 @@ public class Utils {
         return  r;
     }
 
-
     //recibe dos pares de vertices y devuelve el punto donde se cruzan (si lo hacen).
     public static Vector2D pointIntersectionSegmentSegment(Vector2D S1P1, Vector2D S1P2, Vector2D S2P1, Vector2D S2P2)
     {
@@ -54,11 +53,8 @@ public class Utils {
         float Bx;         float By;
         float Cx;         float Cy;
         float Dx;         float Dy;
-
-        float m1 = 0;
-        float m2 = 0;
-        float x = 0;
-        float y = 0;
+        float m1 = 0;     float m2 = 0;
+        float x = 0;      float y = 0;
 
         //Comprobación de valores menores que otros
         if (S1P1.x <= S1P2.x)

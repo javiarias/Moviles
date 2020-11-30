@@ -18,7 +18,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     Level _level;
     //int currentLvl = 3;
     int currentLvl = 1;
-    int lives = 3;
+    int lives = 2;
+    int maxLives = 3;
     Player _player;
 
     public boolean _centerScreen = false;
@@ -57,32 +58,60 @@ public class Logic implements com.OffTheLine.common.Logic {
 
         paintUI(g);
 
+        //checkPlayerCollision
+
         _level.render(g);
         _player.render(g);
     }
 
     public void paintUI(Graphics g)
     {
+        g.save();
         g.drawText(_level._name, -300,-200);
         //Valores arbitrarios de momento, ya que no puedo sacar el tamaño del texto para ajustarlo
         //Elegir fuente (la del menu y la UI no es la misma)
         //PD: Se reescala regular
 
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < maxLives; i++)
         {
-            g.setColor(0xFF0000FF); //AZUL
-
             //Valores a toquetear
-            float _size = 20;
+            float _size = 10;
             float _distance = 25;
             float baseX = 100;
             float baseY = -200;
+            float xLength = 15;
 
-            g.drawLine(baseX - _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-            g.drawLine(baseX + _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY -_size / 2.0f);
-            g.drawLine(baseX + _size / 2.0f + _distance*i, baseY -_size / 2.0f,  baseX -_size / 2.0f + _distance*i, baseY -_size / 2.0f);
-            g.drawLine(baseX - _size / 2.0f + _distance*i, baseY -_size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+            if (i < lives) //Vidas restantes
+            {
+                g.setColor(0xFF0000FF); //AZUL
+                g.drawLine(baseX - _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+                g.drawLine(baseX + _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY -_size / 2.0f);
+                g.drawLine(baseX + _size / 2.0f + _distance*i, baseY -_size / 2.0f,  baseX -_size / 2.0f + _distance*i, baseY -_size / 2.0f);
+                g.drawLine(baseX - _size / 2.0f + _distance*i, baseY -_size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+            }
+            else //Gastadas
+            {
+                //Pintar la X loca
+
+                g.setColor(0xFFFF0000); //ROJO
+                g.rotate(45);
+
+                g.drawLine(baseX - xLength - _size/2 + _distance*i, baseY - _size / 2.0f, baseX - xLength - _size/2 + _distance*i, baseY + _size / 2.0f);
+                g.drawLine(baseX - xLength - _size/2 + _distance*i, baseY + _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f);
+                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f);
+                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX + xLength +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
+                g.drawLine(baseX + xLength +_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX + xLength +_size / 2.0f + _distance*i, baseY - _size / 2.0f);
+                g.drawLine(baseX + xLength +_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY - _size / 2.0f);
+                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f);
+                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f);
+                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY - _size / 2.0f);
+                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX - xLength - _size/2 + _distance*i, baseY - _size / 2.0f);
+            }
         }
+
+        g.restore();
     }
 
     public int getX() { return _x; }
