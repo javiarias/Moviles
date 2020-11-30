@@ -12,6 +12,7 @@ public class Square extends GameObject {
     protected float _size = 8; //pixels
     protected float _rotSpeed = 180; //per second!!
     protected float _rotAngle = 0;
+    protected float _thicc = 1;
 
     protected int _color;
 
@@ -33,6 +34,7 @@ public class Square extends GameObject {
     @Override
     public void render(Graphics g) {
         g.translate(pos.x, pos.y);
+        g.scale(_thicc, _thicc);
         g.rotate(_rotAngle);
 
         g.setColor(_color);

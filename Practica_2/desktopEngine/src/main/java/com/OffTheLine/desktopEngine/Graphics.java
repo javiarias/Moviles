@@ -2,6 +2,7 @@ package com.OffTheLine.desktopEngine;
 
 import javax.swing.JFrame;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 
 import java.awt.Component;
@@ -38,7 +39,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     java.awt.image.BufferStrategy _strategy;
 
     Color _bgColor = Color.BLACK;
-    java.awt.Graphics _graphics;
+    Graphics2D _graphics;
 
     ArrayDeque<AffineTransform> _savedTransform;
 
@@ -112,12 +113,13 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _strategy.show();
     }
 
-    public void updateDrawGraphics() { _graphics = _strategy.getDrawGraphics(); }
+    public void updateDrawGraphics() { _graphics = (Graphics2D)_strategy.getDrawGraphics(); }
 
     public void dispose()
     {
-        _graphics.dispose();
         restoreAll();
+        _graphics.dispose();
+        _graphics = null;
     }
 
     @Override
@@ -131,6 +133,8 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
+
+        _graphics.setStroke(new BasicStroke(1));
     }
 
     @Override
@@ -160,34 +164,29 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     @Override
     public void scale(float x, float y) {
-        Graphics2D g2d = (Graphics2D)_graphics;
-        g2d.scale(x, y);
+        _graphics.scale(x, y);
     }
 
 
     @Override
     public void rotate(float angle) {
-        Graphics2D g2d = (Graphics2D)_graphics;
-        g2d.rotate(Math.toRadians(angle));
+        _graphics.rotate(Math.toRadians(angle));
     }
 
 
 
     @Override
     public void save() {
-        Graphics2D g2d = (Graphics2D)_graphics;
-        AffineTransform a = g2d.getTransform();
-        _savedTransform.push(a);
+        _savedTransform.push(_graphics.getTransform());
     }
 
 
     @Override
     public void restore() {
-        if(_savedTransform.size() > 0) {
-            Graphics2D g2d = (Graphics2D)_graphics;
-
+        if(_savedTransform.size() > 0)
+        {
             AffineTransform a = _savedTransform.removeLast();
-            g2d.setTransform(a);
+            _graphics.setTransform(a);
         }
         else
             System.out.println("Empty!");
@@ -195,11 +194,9 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     @Override
     public void restoreAll() {
-        Graphics2D g2d = (Graphics2D)_graphics;
-
         while(!_savedTransform.isEmpty()) {
             AffineTransform a = _savedTransform.removeLast();
-            g2d.setTransform(a);
+            _graphics.setTransform(a);
         }
     }
 
@@ -218,7 +215,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     public void drawLine(float x1, float y1, float x2, float y2) {
         _graphics.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
     }
-
 
 
     @Override

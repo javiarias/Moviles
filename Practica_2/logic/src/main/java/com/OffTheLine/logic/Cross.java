@@ -1,5 +1,6 @@
 package com.OffTheLine.logic;
 
+import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Vector2D;
 
 public class Cross extends Square
@@ -19,5 +20,19 @@ public class Cross extends Square
     {
         super(s.pos, color);
         _size = s._size;
+        _thicc = s._thicc;
+    }
+
+    @Override
+    public void render(Graphics g)
+    {
+        g.translate(pos.x, pos.y);
+        g.scale(_thicc, _thicc);
+        g.rotate(_rotAngle);
+
+        g.setColor(_color);
+
+        g.drawLine(-_size/2, -_size/2, _size/2, _size/2);
+        g.drawLine(-_size/2, _size/2, _size/2, -_size/2);
     }
 }
