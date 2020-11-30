@@ -48,6 +48,7 @@ public class Item extends Square{
     Item(float posX, float posY)
     {
         super(posX, posY * -1,0xFFFFFF00); //Constructora de gameObject
+        setScale(1);
     }
 
     //Constructora

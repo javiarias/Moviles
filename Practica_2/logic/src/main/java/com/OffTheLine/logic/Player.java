@@ -55,7 +55,7 @@ public class Player extends Square {
     {
         super(paths.get(0)._vertices.get(0),0xFF0088FF); //Constructora de gameObject
         _size = 12;
-        _speed = 0.01f;
+        _speed = 0.02f;
         _paths = paths;
     }
 

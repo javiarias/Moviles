@@ -44,11 +44,13 @@ public abstract class GameObject implements com.OffTheLine.common.GameObject {
     GameObject(float posX, float posY)
     {
         pos = new Vector2D(posX, posY);
+        _scale = 1;
     }
 
     //Constructora
     GameObject(Vector2D pos_)
     {
         pos = pos_;
+        _scale = 1;
     }
 }

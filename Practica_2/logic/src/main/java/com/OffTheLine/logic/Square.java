@@ -37,10 +37,10 @@ public class Square extends GameObject {
 
         g.setColor(_color);
 
-        g.drawLine(-_size / 2.0f, _size / 2.0f, _size / 2.0f, _size / 2.0f);
-        g.drawLine(_size / 2.0f, _size / 2.0f, _size / 2.0f, -_size / 2.0f);
-        g.drawLine(_size / 2.0f, -_size / 2.0f, -_size / 2.0f, -_size / 2.0f);
-        g.drawLine(-_size / 2.0f, -_size / 2.0f, -_size / 2.0f, _size / 2.0f);
+        g.drawLine(_scale * -_size / 2.0f, _scale * _size / 2.0f, _scale * _size / 2.0f, _scale * _size / 2.0f);
+        g.drawLine(_scale * _size / 2.0f, _scale * _size / 2.0f, _scale * _size / 2.0f, _scale * -_size / 2.0f);
+        g.drawLine(_scale * _size / 2.0f, _scale * -_size / 2.0f, _scale * -_size / 2.0f, _scale * -_size / 2.0f);
+        g.drawLine(_scale * -_size / 2.0f, _scale * -_size / 2.0f, _scale * -_size / 2.0f, _scale * _size / 2.0f);
     }
 
     @Override

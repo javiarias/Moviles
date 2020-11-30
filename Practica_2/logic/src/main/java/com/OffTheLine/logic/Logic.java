@@ -22,14 +22,22 @@ public class Logic implements com.OffTheLine.common.Logic {
     int maxLives = 3;
     Player _player;
 
+    float score = 0;
+    float maxScore;
+
     Vector2D UI_LivesPosRight;
     float UI_LivesPadding = 5;
-
     float UI_Y = 40;
+
+    float umbralDistancia = 20;
 
     ArrayList<Square> UI_Lives;
 
     public boolean _centerScreen = false;
+
+    ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
+
+    boolean lost = false;
 
     //public void centerScreen(boolean bool) { _centerScreen = bool; }
 
@@ -45,6 +53,8 @@ public class Logic implements com.OffTheLine.common.Logic {
         {
 
         }
+
+        maxScore = _level._items.size();
 
         _player = new Player(_level.getPaths());
 
@@ -80,10 +90,26 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
-        ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+        if (!checkLevelCompleted())
+        {
+            //System.out.println(score);
 
-        _level.update(deltaTime, ls);
-        _player.update(deltaTime, ls);
+            ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+
+            checkPlayerCollision();
+
+            _level.update(deltaTime, ls);
+            _player.update(deltaTime, ls);
+
+            destroyItems();
+
+            if (lost)
+                destroyPlayer();
+        }
+        else
+        {
+            System.out.println("eee");
+        }
     }
 
     @Override
@@ -93,7 +119,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         //paintUI(g);
         g.restore();
 
-        //checkPlayerCollision
+        checkPlayerCollision();
 
         g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
 
@@ -112,7 +138,6 @@ public class Logic implements com.OffTheLine.common.Logic {
         //Elegir fuente (la del menu y la UI no es la misma)
         //PD: Se reescala regular
 
-
         g.save();
         //La UI de vidas está dibujada desde la dcha
         g.translate(g.getWidth(), 0);
@@ -126,6 +151,52 @@ public class Logic implements com.OffTheLine.common.Logic {
         g.restore();
     }
 
+    void checkPlayerCollision()
+    {
+        //Items
+        for (Item i : _level.getItems())
+        {
+            if (Utils.distancePointPoint(_player.pos, i.pos) < umbralDistancia)
+            {
+                //Marcar item para destruirlo cuando acabe el update
+                i.setScale(i._scale * 2);
+                itemsToDestroy.add(i);
+
+                score++; //Esto va regular tirando a mal
+            }
+        }
+
+        //Enemies
+        for (Enemy e : _level.getEnemies())
+        {
+            if (Utils.distancePointPoint(_player.pos, e.pos) < umbralDistancia)
+            {
+                lost = true;
+            }
+        }
+    }
+
+    void destroyItems()
+    {
+        if (!itemsToDestroy.isEmpty()) {
+            for (Item i : itemsToDestroy) {
+                _level.getItems().remove(i);
+            }
+        }
+    }
+
+    void destroyPlayer()
+    {
+        //Destruir player
+
+        //Particulas de player
+
+        lostLife();
+
+        //Reiniciar nivel
+    }
+
+    boolean checkLevelCompleted() { return (score == maxScore); }
     public int getX() { return _x; }
     public void setX(int x) { _x = x; }
 }
