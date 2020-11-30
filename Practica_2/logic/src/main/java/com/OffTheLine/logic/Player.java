@@ -7,6 +7,7 @@ import com.OffTheLine.logic.Utils;
 
 import java.awt.MouseInfo;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 
 public class Player extends Square {
@@ -29,9 +30,9 @@ public class Player extends Square {
     ArrayList<Collision> possibleCollisions = new ArrayList<Collision>();
 
     int _currentVert = 0;
-    int _nextVert = 3;
+    int _nextVert = 1;
     int _currentPath = 0;
-    boolean invert = true;
+    boolean invert = false;
     boolean jumping = false;
 
     //THIS IS FOR MOVEMENT!!!!!
@@ -83,11 +84,11 @@ public class Player extends Square {
 
                     _currentVert = c._currentVert;
                     _nextVert = c._nextVert;
-                    //current y next
                 }
             }
 
             //Comprobar que no se sale de los márgenes
+
 
             //Movimiento
             add_ = add_.add(direction);
@@ -236,6 +237,18 @@ public class Player extends Square {
                     }
                 }
             }
+        }
+    }
+
+    public void die()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Random r = new Random();
+
+            //Crear linea
+
+            //Offset
         }
     }
 }

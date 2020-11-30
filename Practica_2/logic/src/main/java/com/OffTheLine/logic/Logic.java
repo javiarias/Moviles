@@ -16,7 +16,6 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     Engine _e;
     Level _level;
-    //int currentLvl = 3;
     int currentLvl = 1;
     int lives;
     int maxLives = 3;
@@ -38,6 +37,8 @@ public class Logic implements com.OffTheLine.common.Logic {
     ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
 
     boolean lost = false;
+
+    float delayChangeLevel = 1.0f;
 
     //public void centerScreen(boolean bool) { _centerScreen = bool; }
 
@@ -90,7 +91,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
-        if (!checkLevelCompleted())
+        if (!checkLevelCompleted(deltaTime))
         {
             //System.out.println(score);
 
@@ -108,7 +109,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
         else
         {
-            System.out.println("eee");
+            changeLevel();
         }
     }
 
@@ -159,10 +160,11 @@ public class Logic implements com.OffTheLine.common.Logic {
             if (Utils.distancePointPoint(_player.pos, i.pos) < umbralDistancia)
             {
                 //Marcar item para destruirlo cuando acabe el update
-                i.setScale(i._scale * 2);
-                itemsToDestroy.add(i);
-
-                score++; //Esto va regular tirando a mal
+                if (!i.toDie) {
+                    score++; //Esto va regular tirando a mal
+                    i.toDie = true;
+                    itemsToDestroy.add(i);
+                }
             }
         }
 
@@ -178,8 +180,10 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     void destroyItems()
     {
-        if (!itemsToDestroy.isEmpty()) {
-            for (Item i : itemsToDestroy) {
+        for (Item i : itemsToDestroy)
+        {
+            if (i.dead)
+            {
                 _level.getItems().remove(i);
             }
         }
@@ -196,7 +200,37 @@ public class Logic implements com.OffTheLine.common.Logic {
         //Reiniciar nivel
     }
 
-    boolean checkLevelCompleted() { return (score == maxScore); }
+    public void changeLevel()
+    {
+        _level.getItems().clear();
+        _level.getEnemies().clear();
+        _level.getPaths().clear();
+
+        currentLvl++;
+        try {
+            _level.loadLevel(currentLvl - 1);
+        }
+        catch ( Exception E)
+        {
+
+        }
+        maxScore = _level._items.size();
+        score = 0;
+    }
+
+    boolean checkLevelCompleted(double deltaTime)
+    {
+        if (score == maxScore)
+        {
+            if (delayChangeLevel >= 0)
+                delayChangeLevel -= deltaTime;
+            else
+                return true;
+        }
+        return false;
+    }
+
+
     public int getX() { return _x; }
     public void setX(int x) { _x = x; }
 }
