@@ -8,6 +8,10 @@ public class Vector2D {
         x = _x; y = _y;
     }
 
+    public Vector2D(Vector2D v){
+        x = v.x; y = v.y;
+    }
+
     public Vector2D add(Vector2D v){
         return new Vector2D(x + v.x, y + v.y);
     }

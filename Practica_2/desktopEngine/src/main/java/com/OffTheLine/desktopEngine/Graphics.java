@@ -11,6 +11,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
 import java.io.InputStream;
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -39,14 +40,14 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     Color _bgColor = Color.BLACK;
     java.awt.Graphics _graphics;
 
-    Deque<AffineTransform> _savedTransform;
+    ArrayDeque<AffineTransform> _savedTransform;
 
     public boolean init(int width, int height, String assetsPath, Engine engine) {
 
         //sumo a height para que se vea toda la pantalla. un poco sucio pero bueno
         super.init(width, height + 100, assetsPath, engine);
 
-        _savedTransform = new LinkedList<>();
+        _savedTransform = new ArrayDeque<AffineTransform>();
 
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -113,7 +114,11 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     public void updateDrawGraphics() { _graphics = _strategy.getDrawGraphics(); }
 
-    public void dispose() { _graphics.dispose(); }
+    public void dispose()
+    {
+        _graphics.dispose();
+        restoreAll();
+    }
 
     @Override
     public void render(){
@@ -172,18 +177,20 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     public void save() {
         Graphics2D g2d = (Graphics2D)_graphics;
         AffineTransform a = g2d.getTransform();
-        _savedTransform.addFirst(a);
+        _savedTransform.push(a);
     }
 
 
     @Override
     public void restore() {
-        if(!_savedTransform.isEmpty()) {
+        if(_savedTransform.size() > 0) {
             Graphics2D g2d = (Graphics2D)_graphics;
 
             AffineTransform a = _savedTransform.removeLast();
             g2d.setTransform(a);
         }
+        else
+            System.out.println("Empty!");
     }
 
     @Override

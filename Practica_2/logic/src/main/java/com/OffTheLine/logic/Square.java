@@ -1,9 +1,12 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Graphics;
+import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 
-public abstract class Square extends GameObject {
+import java.util.ArrayList;
+
+public class Square extends GameObject {
 
     //THIS IS FOR RENDERING
     protected float _size = 8; //pixels
@@ -38,5 +41,15 @@ public abstract class Square extends GameObject {
         g.drawLine(_size / 2.0f, _size / 2.0f, _size / 2.0f, -_size / 2.0f);
         g.drawLine(_size / 2.0f, -_size / 2.0f, -_size / 2.0f, -_size / 2.0f);
         g.drawLine(-_size / 2.0f, -_size / 2.0f, -_size / 2.0f, _size / 2.0f);
+    }
+
+    @Override
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
+
+    }
+
+    @Override
+    public void lateUpdate(double delta) {
+
     }
 }

@@ -2,9 +2,9 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Font;
-import com.OffTheLine.common.GameObject;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
+import com.OffTheLine.common.Vector2D;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -18,9 +18,16 @@ public class Logic implements com.OffTheLine.common.Logic {
     Level _level;
     //int currentLvl = 3;
     int currentLvl = 1;
-    int lives = 2;
+    int lives;
     int maxLives = 3;
     Player _player;
+
+    Vector2D UI_LivesPosRight;
+    float UI_LivesPadding = 5;
+
+    float UI_Y = 40;
+
+    ArrayList<Square> UI_Lives;
 
     public boolean _centerScreen = false;
 
@@ -40,6 +47,34 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
 
         _player = new Player(_level.getPaths());
+
+        lives = maxLives;
+
+        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
+
+        Vector2D pos = UI_LivesPosRight;
+
+        UI_Lives = new ArrayList<Square>();
+        for (int i = 0; i < maxLives; i++) {
+            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
+            s._size = 12;
+            UI_Lives.add(s);
+
+            pos.x -= (UI_LivesPadding + s._size);
+        }
+
+        lostLife();
+    }
+
+    public void lostLife()
+    {
+        lives--;
+        if(lives > 0)
+        {
+            Cross x = new Cross(UI_Lives.get(lives), 0x00FF0000);
+
+            UI_Lives.set(lives, x);
+        }
     }
 
     @Override
@@ -54,63 +89,40 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void render(Graphics g)
     {
-        g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
-
-        paintUI(g);
+        g.save();
+        //paintUI(g);
+        g.restore();
 
         //checkPlayerCollision
 
+        g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
+
+        g.save();
         _level.render(g);
         _player.render(g);
+        g.restore();
     }
 
     public void paintUI(Graphics g)
     {
         g.save();
-        g.drawText(_level._name, -300,-200);
+        g.drawText(_level._name, UI_LivesPadding*3,UI_Y);
+        g.restore();
         //Valores arbitrarios de momento, ya que no puedo sacar el tamaño del texto para ajustarlo
         //Elegir fuente (la del menu y la UI no es la misma)
         //PD: Se reescala regular
 
-        for (int i = 0; i < maxLives; i++)
+
+        g.save();
+        //La UI de vidas está dibujada desde la dcha
+        g.translate(g.getWidth(), 0);
+
+        for (Square s : UI_Lives)
         {
-            //Valores a toquetear
-            float _size = 10;
-            float _distance = 25;
-            float baseX = 100;
-            float baseY = -200;
-            float xLength = 15;
-
-            if (i < lives) //Vidas restantes
-            {
-                g.setColor(0xFF0000FF); //AZUL
-                g.drawLine(baseX - _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-                g.drawLine(baseX + _size / 2.0f + _distance*i, baseY +_size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY -_size / 2.0f);
-                g.drawLine(baseX + _size / 2.0f + _distance*i, baseY -_size / 2.0f,  baseX -_size / 2.0f + _distance*i, baseY -_size / 2.0f);
-                g.drawLine(baseX - _size / 2.0f + _distance*i, baseY -_size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-            }
-            else //Gastadas
-            {
-                //Pintar la X loca
-
-                g.setColor(0xFFFF0000); //ROJO
-                g.rotate(45);
-
-                g.drawLine(baseX - xLength - _size/2 + _distance*i, baseY - _size / 2.0f, baseX - xLength - _size/2 + _distance*i, baseY + _size / 2.0f);
-                g.drawLine(baseX - xLength - _size/2 + _distance*i, baseY + _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f);
-                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f);
-                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY + xLength + _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX + xLength +_size / 2.0f + _distance*i, baseY + _size / 2.0f);
-                g.drawLine(baseX + xLength +_size / 2.0f + _distance*i, baseY + _size / 2.0f, baseX + xLength +_size / 2.0f + _distance*i, baseY - _size / 2.0f);
-                g.drawLine(baseX + xLength +_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY - _size / 2.0f);
-                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX +_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f);
-                g.drawLine(baseX +_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f);
-                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY - xLength - _size / 2.0f, baseX -_size / 2.0f + _distance*i, baseY - _size / 2.0f);
-                g.drawLine(baseX -_size / 2.0f + _distance*i, baseY - _size / 2.0f, baseX - xLength - _size/2 + _distance*i, baseY - _size / 2.0f);
-            }
+            g.save();
+            s.render(g);
+            g.restore();
         }
-
         g.restore();
     }
 
