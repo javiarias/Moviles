@@ -31,6 +31,7 @@ public class Player extends Square {
 
     ArrayList<Path> _paths;
     ArrayList<Collision> possibleCollisions = new ArrayList<Collision>();
+    ArrayList<Line> deadLines = new ArrayList<Line>();
 
     int _currentVert = 0;
     int _nextVert = 1;
@@ -38,6 +39,7 @@ public class Player extends Square {
     boolean invert = false;
     boolean jumping = false;
     Vector2D direction; //direccion normalizada
+    boolean dead;
 
     protected float _speed;
 
@@ -57,6 +59,21 @@ public class Player extends Square {
         _size = 12;
         _speed = 0.02f;
         _paths = paths;
+        dead = false;
+    }
+
+    @Override
+    public void render(Graphics g)
+    {
+        if (!dead)
+            super.render(g);
+        else
+        {
+            for (Line l: deadLines)
+            {
+
+            }
+        }
     }
 
     @Override
@@ -251,7 +268,8 @@ public class Player extends Square {
         {
             Random r = new Random();
 
-            //Crear lineas de 6 de longitud
+            //Crear lineas
+            deadLines.add(new Line(pos.x, pos.y));
 
             //Mover y rotar aleatoriamente
         }

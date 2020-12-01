@@ -14,16 +14,42 @@ public class Utils {
     //SP1, primer punto del segmento (origen), SP2 segundo punto del segmento (final), p el punto
     public static float distancePointSegment(Vector2D SP1, Vector2D SP2, Vector2D p)
     {
-        float r = 0.0f;
+        float a = p.x - SP1.x;
+        float b = p.y - SP1.y;
+        float c = SP2.x - p.x;
+        float d = SP2.y - p.y;
 
-        //Numerador
-        float num = (SP2.x - SP1.x) * (p.y-SP1.y) - (SP2.y - SP1.y)*(p.x - SP1.x);
+        float dot = a * c + b * d;
+        float length = c * c + d * d;
+        float parameter = -1;
 
-        //Denominador
-        float den = distancePointPoint(SP1, SP2);
+        if (length != 0)
+            parameter = dot/length;
 
-        r = (num/den);
-        return  r;
+        float auxX, auxY;
+
+        if (parameter < 0)
+        {
+            auxX = SP1.x;
+            auxY = SP1.y;
+        }
+        else if (parameter > 1)
+        {
+            auxX = SP2.x;
+            auxY = SP2.y;
+        }
+        else
+        {
+            auxX = SP1.x + parameter * c;
+            auxY = SP1.y + parameter * d;
+        }
+
+        float dx = p.x - auxX;
+        float dy = p.y - auxY;
+
+        float ret = (float) Math.sqrt(dx * dx + dy * dy);
+
+        return  ret;
     }
 
     //Distancia de un punto a un punto (igual hace falta)

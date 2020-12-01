@@ -32,7 +32,7 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     //Otros
     float umbralDistancia = 20;
-    int currentLvl = 1;
+    int currentLvl = 5;
     boolean lost = false;
     float delayChangeLevel = 1.0f;
     float delayDeath = 1.0f;
@@ -72,6 +72,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
 
         lostLife();
+
     }
 
     public void lostLife()
@@ -88,6 +89,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
+
         if (!checkLevelCompleted(deltaTime))
         {
             ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
@@ -113,6 +115,9 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         g.save();
         paintUI(g);
+        g.restore();
+
+        g.save();
         g.restore();
 
         checkPlayerCollision();
@@ -165,7 +170,8 @@ public class Logic implements com.OffTheLine.common.Logic {
             {
 
             }*/
-            if (Utils.distancePointSegment(e._vertice1, e._vertice2, _player.pos) < 1)
+            float d = Utils.distancePointSegment(e._vertice1, e._vertice2, _player.pos);
+            if (d < 10)
             {
                 lost = true;
                 //_player.die(); //Crear las lineas, sustituyendo al cuadrado en el render?
@@ -196,7 +202,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         else
         {
             lostLife();
-            //_player.die(); //Animación
+            _player.die(); //Animación
             changeLevel();
         }
     }
