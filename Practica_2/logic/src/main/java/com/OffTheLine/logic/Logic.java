@@ -11,37 +11,35 @@ import java.util.ArrayList;
 
 public class Logic implements com.OffTheLine.common.Logic {
 
-    int _x = 0;
-    int _incX = 10;
-
+    //Elementos
     Engine _e;
     Level _level;
-    int currentLvl = 7;
-    int lives;
-    int maxLives = 3;
     Player _player;
 
+    //Lives
+    int lives;
+    int maxLives = 3;
+
+    //Score
     float score = 0;
     float maxScore;
 
+    //UI
     Vector2D UI_LivesPosRight;
     float UI_LivesPadding = 25;
     float UI_Y = 60;
-
-    float umbralDistancia = 20;
-
     ArrayList<Square> UI_Lives;
 
-    public boolean _centerScreen = false;
-
-    ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
-
+    //Otros
+    float umbralDistancia = 20;
+    int currentLvl = 1;
     boolean lost = false;
-
     float delayChangeLevel = 1.0f;
     float delayDeath = 1.0f;
-
-    //public void centerScreen(boolean bool) { _centerScreen = bool; }
+    public boolean _centerScreen = false;
+    ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
+    int _x = 0;
+    int _incX = 10;
 
     public Logic(Engine e, String path) {
         _e = e;
@@ -57,11 +55,8 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
 
         maxScore = _level._items.size();
-
         _player = new Player(_level.getPaths());
-
         lives = maxLives;
-
         UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
 
         Vector2D pos = UI_LivesPosRight;
@@ -95,8 +90,6 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         if (!checkLevelCompleted(deltaTime))
         {
-            //System.out.println(score);
-
             ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
 
             checkPlayerCollision();
@@ -118,7 +111,6 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void render(Graphics g)
     {
-
         g.save();
         paintUI(g);
         g.restore();
@@ -155,12 +147,10 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     void checkPlayerCollision()
     {
-        //Items
         for (Item i : _level.getItems())
         {
             if (Utils.distancePointPoint(_player.pos, i.pos) < umbralDistancia)
             {
-                //Marcar item para destruirlo cuando acabe el update
                 if (!i.toDie) {
                     score++;
                     i.toDie = true;
@@ -169,15 +159,21 @@ public class Logic implements com.OffTheLine.common.Logic {
             }
         }
 
-        //Enemies
         for (Enemy e : _level.getEnemies())
         {
-            if (Utils.distancePointPoint(_player.pos, e.pos) < umbralDistancia)
+            /*if (e._length != null)
+            {
+
+            }*/
+            if (Utils.distancePointSegment(e._vertice1, e._vertice2, _player.pos) < 1)
             {
                 lost = true;
                 //_player.die(); //Crear las lineas, sustituyendo al cuadrado en el render?
             }
         }
+
+        if (_player.outOfBounds(_e.getGraphics().getHeight(), _e.getGraphics().getWidth()))
+            lost = true;
     }
 
     void destroyItems()
@@ -199,10 +195,9 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
         else
         {
-
             lostLife();
-
-            //Reiniciar nivel
+            //_player.die(); //Animación
+            changeLevel();
         }
     }
 
@@ -212,7 +207,11 @@ public class Logic implements com.OffTheLine.common.Logic {
         _level.getEnemies().clear();
         _level.getPaths().clear();
 
-        currentLvl++;
+        score = 0;
+        delayChangeLevel = 1.0f;
+        delayDeath = 1.0f;
+        lost = false;
+
         try {
             _level.loadLevel(currentLvl - 1);
         }
@@ -220,11 +219,9 @@ public class Logic implements com.OffTheLine.common.Logic {
         {
 
         }
+
         maxScore = _level._items.size();
-        score = 0;
         _player = new Player(_level.getPaths());
-        delayChangeLevel = 1.0f;
-        delayDeath = 1.0f;
     }
 
     boolean checkLevelCompleted(double deltaTime)
@@ -234,7 +231,10 @@ public class Logic implements com.OffTheLine.common.Logic {
             if (delayChangeLevel >= 0)
                 delayChangeLevel -= deltaTime;
             else
+            {
+                currentLvl++;
                 return true;
+            }
         }
         return false;
     }

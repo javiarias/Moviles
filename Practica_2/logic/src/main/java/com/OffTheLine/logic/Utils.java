@@ -101,32 +101,21 @@ public class Utils {
         {
             x = (Cy - Cx*((Cy-Dy)/(Cx-Dx)) - (Ay - Ax*((Ay-By)/(Ax-Bx))))/((Ay-By)/(Ax-Bx)-(Cy-Dy)/(Cx-Dx));
             y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
-            //ret = new Vector2D(x,y);
         }
 
         else if (Ax == Bx && Cx != Dx)
         {
             x = Ax;
             y = ((Cy-Dy)/(Cx-Dx)) * x + (Cy - Cx * ((Cy-Dy)/(Cx-Dx)));
-            //ret = new Vector2D(x,y);
         }
 
         else if (Ax != Bx && Cx == Dx)
         {
             x = Cx;
             y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
-            //ret = new Vector2D(x,y);
         }
 
         //Comprobacion de que el punto esta en los segmentos
-        /*
-        if (Ax - Bx != 0 && Cx - Dx != 0)
-        {
-            if (m1!= m2)
-            {
-
-            }
-        }*/
         if (Ax <= x && x <= Bx && Cx <= x && x <= Dx)
         {
             ret = new Vector2D(x,y);

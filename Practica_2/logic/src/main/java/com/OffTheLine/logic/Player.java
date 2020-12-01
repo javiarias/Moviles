@@ -1,6 +1,7 @@
 package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Engine;
+import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 import com.OffTheLine.logic.Utils;
@@ -36,18 +37,14 @@ public class Player extends Square {
     int _currentPath = 0;
     boolean invert = false;
     boolean jumping = false;
-
-    //THIS IS FOR MOVEMENT!!!!!
-    protected float _speed;
-
     Vector2D direction; //direccion normalizada
+
+    protected float _speed;
 
     public float getSpeed()
     {
         return _speed;
     }
-
-    //Setters
     public void setSpeed(float speed_)
     {
         _speed = speed_;
@@ -79,21 +76,24 @@ public class Player extends Square {
                 {
                     jumping = false;
 
-                    //changeDirection();
+                    //changeDirection(); //Esto en vez del if siguiente
 
                     if (!invert)
+                    {
                         direction = direction.PerpendicularCounterClockwise(direction);
+                        _currentVert = c._currentVert;
+                        _nextVert = c._nextVert;
+                    }
                     else
-                        direction = direction.PerpendicularClockwise(direction);
+                    {
+                        direction = direction.PerpendicularCounterClockwise(direction);
+                        _currentVert = c._nextVert;
+                        _nextVert = c._currentVert;
+                    }
 
                     _currentPath = c._currentPath;
-                    _currentVert = c._currentVert;
-                    _nextVert = c._nextVert;
                 }
             }
-
-            //Comprobar que no se sale de los márgenes
-
 
             //Movimiento
             add_ = add_.add(direction);
@@ -126,21 +126,10 @@ public class Player extends Square {
             add_ = add_.add(direction);
             add_.multiply(_speed * (float) delta); //Hay que mirarlo porque va a todo ojete
 
-            if (!invert)
-            {
-                temp = pos.add(add_);
-                float d1 = current.distance(next);
-                float d2 = current.distance(temp);
-                past = (d1 <= d2);
-            }
-            else //Sigue fallando aqui
-            {
-                temp = pos.add(add_);
-                float d1 = current.distance(next);
-                float d2 = current.distance(temp);
-
-                past = (d1 <= d2);
-            }
+            temp = pos.add(add_);
+            float d1 = next.distance(current);
+            float d2 = temp.distance(current);
+            past = (d1 <= d2);
 
             if (past) {
                 pos = next;
@@ -158,12 +147,12 @@ public class Player extends Square {
                     if (_currentVert == -1) //Evitar valores negativos
                     {
                         _currentVert += path._vertices.size();
-                    } else if (_nextVert == -1) //No pueden ser los dos negativos, de ahi el else if
+                    }
+                    else if (_nextVert == -1) //No pueden ser los dos negativos, de ahi el else if
                     {
                         _nextVert += path._vertices.size();
                     }
                 }
-                //_rotSpeed *= -1;
             } else {
                 pos = temp;
             }
@@ -183,17 +172,17 @@ public class Player extends Square {
             else
                 direction = direction.PerpendicularClockwise(direction);
         }
-        else //To test
+        else //LOS 0 HAY QUE MIRARLOS
         {
             float x = 0;
             float y = 0;
-            if (_paths.get(_currentPath)._directions.get(_currentPath).x != 0)
+            if (_paths.get(_currentPath)._directions.get(0).x != 0)
             {
-                x = _paths.get(_currentPath)._directions.get(_currentPath).x;
+                x = _paths.get(_currentPath)._directions.get(0).x;
             }
-            if (_paths.get(_currentPath)._directions.get(_currentPath).y != 0)
+            if (_paths.get(_currentPath)._directions.get(0).y != 0)
             {
-                y = _paths.get(_currentPath)._directions.get(_currentPath).y;
+                y = _paths.get(_currentPath)._directions.get(0).y;
             }
 
             direction.x = x;
@@ -212,7 +201,7 @@ public class Player extends Square {
         Vector2D aux2 = direction.multiply(1000);
         aux = aux.add(aux2);
 
-        //invert = !invert;
+        invert = !invert;
 
         for (int i = 0; i < _paths.size() ; i++)
         {
@@ -236,7 +225,6 @@ public class Player extends Square {
                 if (point != null)
                 {
                     //Para no añadir el propio punto en el que está al saltar
-
                     if (!(point.x == pos.x && point.y == pos.y) && !(j == _currentVert && k == _nextVert))
                     {
                         Collision col_ = new Collision(point, i, j, k);
@@ -245,6 +233,16 @@ public class Player extends Square {
                 }
             }
         }
+    }
+
+    public boolean outOfBounds(float Height, float Width)
+    {
+        boolean topY = (pos.y > Height/2);
+        boolean botY = (pos.y < - (Height/2));
+        boolean leftX = (pos.x < - (Width/2));
+        boolean rightX = (pos.x > (Width/2));
+
+        return (topY || botY || leftX || rightX);
     }
 
     public void die()
