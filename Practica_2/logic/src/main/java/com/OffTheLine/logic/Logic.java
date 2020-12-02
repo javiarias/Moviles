@@ -13,8 +13,9 @@ public class Logic implements com.OffTheLine.common.Logic {
 
     //Elementos
     Engine _e;
-    Level _level;
+    Level _level = null;
     Player _player;
+    Menu _menu = null;
 
     //Lives
     int lives;
@@ -40,10 +41,14 @@ public class Logic implements com.OffTheLine.common.Logic {
     ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
     int _x = 0;
     int _incX = 10;
-
+    String _path;
     public Logic(Engine e, String path) {
         _e = e;
+        _path = path;
 
+        _menu = new Menu();
+        _menu.addButton(100, 100, "PPP",50, 50);
+        /*
         _level = new Level(path, _e);
 
         try {
@@ -72,7 +77,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
 
         lostLife();
-
+        */
     }
 
     public void lostLife()
@@ -90,46 +95,57 @@ public class Logic implements com.OffTheLine.common.Logic {
     public void update(double deltaTime)
     {
 
-        if (!checkLevelCompleted(deltaTime))
+        if (_menu != null)
         {
             ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
 
-            checkPlayerCollision();
-
-            _level.update(deltaTime, ls);
-            _player.update(deltaTime, ls);
-
-            destroyItems();
-
-            if (lost)
-                destroyPlayer(deltaTime);
+            _menu.update(deltaTime, ls);
         }
-        else
-        {
-            changeLevel();
+        else {
+            if (!checkLevelCompleted(deltaTime)) {
+                ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+
+                checkPlayerCollision();
+
+                _level.update(deltaTime, ls);
+                _player.update(deltaTime, ls);
+
+                destroyItems();
+
+                if (lost)
+                    destroyPlayer(deltaTime);
+            } else {
+                changeLevel();
+            }
         }
     }
 
     @Override
     public void render(Graphics g)
     {
-        g.save();
-        paintUI(g);
-        g.restore();
+        if (_menu != null)
+        {
+            _menu.render(g);
+        }
+        else {
+            g.save();
+            paintUI(g);
+            g.restore();
 
-        g.save();
-        g.restore();
+            g.save();
+            g.restore();
 
-        checkPlayerCollision();
+            checkPlayerCollision();
 
-        g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
+            g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
 
-        g.save();
-        _level.render(g);
-        g.restore();
-        g.save();
-        _player.render(g);
-        g.restore();
+            g.save();
+            _level.render(g);
+            g.restore();
+            g.save();
+            _player.render(g);
+            g.restore();
+        }
     }
 
     public void paintUI(Graphics g)
