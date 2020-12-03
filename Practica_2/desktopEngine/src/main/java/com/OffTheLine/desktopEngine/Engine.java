@@ -115,4 +115,19 @@ public class Engine implements com.OffTheLine.common.Engine {
 
         return is;
     }
+
+    public Font loadFont(String path)
+    {
+        Font r = null;
+        try {
+            InputStream is = getFile(path);
+            r = new Font(is, 10, false);
+        }
+        catch (Exception E)
+        {
+
+        }
+
+        return r;
+    }
 }

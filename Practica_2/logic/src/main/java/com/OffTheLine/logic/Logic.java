@@ -32,6 +32,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     ArrayList<Square> UI_Lives;
 
     //Otros
+    state _state;
     float umbralDistancia = 20;
     int currentLvl = 5;
     boolean lost = false;
@@ -42,42 +43,18 @@ public class Logic implements com.OffTheLine.common.Logic {
     int _x = 0;
     int _incX = 10;
     String _path;
+
     public Logic(Engine e, String path) {
         _e = e;
         _path = path;
+        _state = state.GAME;
 
-        _menu = new Menu();
-        _menu.addButton(100, 100, "PPP",50, 50);
-        /*
-        _level = new Level(path, _e);
 
-        try {
-            _level.loadLevel(currentLvl - 1);
-        }
-        catch ( Exception E)
-        {
+        loadEasyMode();
 
-        }
-
-        maxScore = _level._items.size();
-        _player = new Player(_level.getPaths());
-        lives = maxLives;
-        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
-
-        Vector2D pos = UI_LivesPosRight;
-
-        UI_Lives = new ArrayList<Square>();
-        for (int i = 0; i < maxLives; i++) {
-            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
-            s._size = 12;
-            s._thicc = 2;
-            UI_Lives.add(s);
-
-            pos.x -= (UI_LivesPadding + s._size);
-        }
-
-        lostLife();
-        */
+        /*_menu = new Menu(true, this);
+        _menu.addButton(0, 100, "Easy",70, 30);
+        _menu.addButton(0, 180, "Hard",75, 30);*/
     }
 
     public void lostLife()
@@ -94,14 +71,14 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
-
-        if (_menu != null)
+        if (_state == state.MAINMENU)
         {
             ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
 
             _menu.update(deltaTime, ls);
         }
-        else {
+        else if (_state == state.GAME)
+        {
             if (!checkLevelCompleted(deltaTime)) {
                 ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
 
@@ -118,6 +95,7 @@ public class Logic implements com.OffTheLine.common.Logic {
                 changeLevel();
             }
         }
+        //else //if (_state == state.LOST)
     }
 
     @Override
@@ -125,7 +103,9 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         if (_menu != null)
         {
+            g.save();
             _menu.render(g);
+            g.restore();
         }
         else {
             g.save();
@@ -234,16 +214,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         delayDeath = 1.0f;
         lost = false;
 
-        try {
-            _level.loadLevel(currentLvl - 1);
-        }
-        catch ( Exception E)
-        {
-
-        }
-
-        maxScore = _level._items.size();
-        _player = new Player(_level.getPaths());
+        setLevel();
     }
 
     boolean checkLevelCompleted(double deltaTime)
@@ -259,6 +230,66 @@ public class Logic implements com.OffTheLine.common.Logic {
             }
         }
         return false;
+    }
+
+    public void setLevel()
+    {
+        try {
+            _level.loadLevel(currentLvl - 1);
+        }
+        catch ( Exception E)
+        {
+
+        }
+
+        maxScore = _level._items.size();
+        _player = new Player(_level.getPaths());
+    }
+
+    public void loadEasyMode()
+    {
+        _level = new Level(_path, _e);
+        setLevel();
+
+        lives = maxLives;
+        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
+
+        Vector2D pos = UI_LivesPosRight;
+
+        UI_Lives = new ArrayList<Square>();
+        for (int i = 0; i < maxLives; i++) {
+            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
+            s._size = 12;
+            s._thicc = 2;
+            UI_Lives.add(s);
+
+            pos.x -= (UI_LivesPadding + s._size);
+        }
+
+        lostLife();
+    }
+
+    public void loadHardMode()
+    {
+        _level = new Level(_path, _e);
+        setLevel();
+
+        lives = maxLives;
+        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
+
+        Vector2D pos = UI_LivesPosRight;
+
+        UI_Lives = new ArrayList<Square>();
+        for (int i = 0; i < maxLives; i++) {
+            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
+            s._size = 12;
+            s._thicc = 2;
+            UI_Lives.add(s);
+
+            pos.x -= (UI_LivesPadding + s._size);
+        }
+
+        lostLife();
     }
 
     public int getX() { return _x; }
