@@ -36,18 +36,22 @@ public class Vector2D {
         return new Vector2D(x / v, y / v);
     }
 
+    public float module()
+    {
+        return (float) Math.sqrt((x * x) + (y * y));
+    }
+
     public boolean equals(Vector2D v){
         return (x == v.x)  && (y == v.y);
     }
 
-    public Vector2D normalize(Vector2D v)
+    public void normalize()
     {
-        Vector2D r;
+        float modulo = this.module();
+        Vector2D aux = this.divide(modulo);
 
-        float modulo = (float) Math.sqrt((v.x * v.x) + (v.y * v.y));
-        r = v.divide(modulo);
-
-        return r;
+        x = aux.x;
+        y = aux.y;
     }
 
     public float distance(Vector2D v)
@@ -59,6 +63,11 @@ public class Vector2D {
     {
         float dist = distance(v);
         return (dist <= distance);
+    }
+
+    public float dot(Vector2D v)
+    {
+        return (x * v.y) - (y * v.x);
     }
 
     public Vector2D PerpendicularClockwise(Vector2D v)

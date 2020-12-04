@@ -11,6 +11,8 @@ public abstract class GameObject implements com.OffTheLine.common.GameObject {
     protected float _scale;
     boolean _dead = false;
 
+    boolean isDead() { return _dead; }
+
     //Getters
     public float getX()
     {

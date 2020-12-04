@@ -20,14 +20,12 @@ public class Cross extends Square
     {
         super(s.pos, color);
         _size = s._size;
-        _thickness = s._thickness;
     }
 
     @Override
     public void render(Graphics g)
     {
         g.translate(pos.x, pos.y);
-        g.scale(_thickness, _thickness);
         g.rotate(_rotAngle);
 
         g.setColor(_color);

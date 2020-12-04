@@ -46,7 +46,7 @@ public class Item extends Square{
 
     //Death
     float pendingDeathTime = 0.5f;
-    float sizeGrow = 0.005f;
+    float sizeGrow = 15f;
     boolean toDie = false;
 
     //Constructora
@@ -78,7 +78,7 @@ public class Item extends Square{
 
         if (toDie && pendingDeathTime >= 0) {
             pendingDeathTime -= delta;
-            setScale(getScale() + sizeGrow);
+            setScale(getScale() + (sizeGrow * (float) delta));
         }
         else if (pendingDeathTime <= 0){
             _dead = true;

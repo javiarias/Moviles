@@ -32,6 +32,11 @@ public interface Graphics {
     void setWidth(int w);
     void setHeight(int h);
 
+    float getWidthScale();
+    float getHeightScale();
+    float getXOffset();
+    float getYOffset();
+
     void render();
 
     void release();

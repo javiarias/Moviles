@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Logic implements com.OffTheLine.common.Logic
 {
 
-
     public enum GameState
     {
         MAINMENU,
@@ -29,8 +28,8 @@ public class Logic implements com.OffTheLine.common.Logic
     int maxLives;
 
     //Score
-    float score = 0;
-    float maxScore;
+    int score = 0;
+    int maxScore;
 
     //UI
     float UI_LivesPadding = 15;
@@ -39,9 +38,8 @@ public class Logic implements com.OffTheLine.common.Logic
     ArrayList<Square> UI_Lives;
 
     //Otros
-    GameState _state;
-    float deathThreshold = 20;
-    int currentLvl = 1;
+    GameState _state = GameState.MAINMENU;
+    int currentLvl = 9;
     boolean lost = false;
     float delayChangeLevel = 1.0f;
     float delayDeath = 1.0f;
@@ -56,10 +54,6 @@ public class Logic implements com.OffTheLine.common.Logic
     {
         _e = e;
         _path = path;
-
-        /*_menu = new Menu(true, this);
-        _menu.addButton(0, 100, "Easy",70, 30);
-        _menu.addButton(0, 180, "Hard",75, 30);*/
     }
 
     @Override
@@ -70,14 +64,24 @@ public class Logic implements com.OffTheLine.common.Logic
             _gameFont = _e.getGraphics().newFont(_path + "BungeeHairline-Regular.ttf", 20, false);
             _menuFont = _e.getGraphics().newFont(_path + "Bungee-Regular.ttf", 20, false);
         }
-        catch (Exception e) {}
+        catch (Exception e)
+        {
+            System.err.println(e);
+        }
 
-        gameStart(true);
+        _menu = new Menu(true, this);
+        _menu.addButton( 80, 100, "Easy",70, 30, _menuFont);
+        _menu.addButton(80, 180, "Hard",75, 30, _menuFont);
+
+        //gameStart(true);
     }
 
     public void gameStart(boolean easyMode)
     {
-        setEasyMode();
+        if(easyMode)
+            setEasyMode();
+        else
+            setHardMode();
 
         _player = new Player(playerSpeed);
 
@@ -85,7 +89,7 @@ public class Logic implements com.OffTheLine.common.Logic
         _state = GameState.GAME;
         _level = new Level(_path + "levels.json", _e);
 
-        //currentLvl = 0;
+        currentLvl = 1;
 
         loadCurrentLevel();
     }
@@ -97,8 +101,7 @@ public class Logic implements com.OffTheLine.common.Logic
         UI_Lives = new ArrayList<Square>();
         for (int i = 0; i < maxLives; i++) {
             Square s = new Square(new Vector2D(pos), 0xFF0088FF);
-            s._size = 6;
-            s._thickness = 2;
+            s._size = 12;
             UI_Lives.add(s);
 
             pos.x -= (UI_LivesPadding + s._size);
@@ -127,10 +130,18 @@ public class Logic implements com.OffTheLine.common.Logic
         }
         else if (_state == GameState.GAME)
         {
-            if (!checkLevelCompleted(deltaTime)) {
+            if (!checkLevelCompleted(deltaTime))
+            {
                 ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
-                checkPlayerCollision();
+                int i = itemsToDestroy.size();
+                _player.checkPlayerCollisions(_level, itemsToDestroy, deltaTime);
+                score += (itemsToDestroy.size() - i);
+
+                lost = _player.isDead();
+
+                if (_player.outOfBounds(_e.getGraphics().getHeight(), _e.getGraphics().getWidth()))
+                    lost = true;
 
                 _level.update(deltaTime, ls);
                 _player.update(deltaTime, ls);
@@ -149,13 +160,7 @@ public class Logic implements com.OffTheLine.common.Logic
     @Override
     public void render(Graphics g)
     {
-        if (_menu != null)
-        {
-            g.save();
-            _menu.render(g);
-            g.restore();
-        }
-        else
+        if (_state == GameState.GAME)
         {
             g.save();
             paintGameUI(g);
@@ -164,15 +169,15 @@ public class Logic implements com.OffTheLine.common.Logic
             g.save();
             g.restore();
 
-            checkPlayerCollision();
-
             g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
 
-            g.save();
             _level.render(g);
-            g.restore();
-            g.save();
             _player.render(g);
+        }
+        else
+        {
+            g.save();
+            _menu.render(g);
             g.restore();
         }
     }
@@ -192,38 +197,6 @@ public class Logic implements com.OffTheLine.common.Logic
             s.render(g);
             g.restore();
         }
-    }
-
-    void checkPlayerCollision()
-    {
-        for (Item i : _level.getItems())
-        {
-            if (Utils.distancePointPoint(_player.pos, i.pos) < deathThreshold)
-            {
-                if (!i.toDie) {
-                    score++;
-                    i.toDie = true;
-                    itemsToDestroy.add(i);
-                }
-            }
-        }
-
-        for (Enemy e : _level.getEnemies())
-        {
-            /*if (e._length != null)
-            {
-
-            }*/
-            float d = Utils.distancePointSegment(e._vertice1, e._vertice2, _player.pos);
-            if (d < 10)
-            {
-                lost = true;
-                //_player.die(); //Crear las lineas, sustituyendo al cuadrado en el render?
-            }
-        }
-
-        if (_player.outOfBounds(_e.getGraphics().getHeight(), _e.getGraphics().getWidth()))
-            lost = true;
     }
 
     void destroyItems()
@@ -246,7 +219,6 @@ public class Logic implements com.OffTheLine.common.Logic
         else
         {
             lostLife();
-            _player.die(); //Animación
             changeLevel();
         }
     }
@@ -274,9 +246,12 @@ public class Logic implements com.OffTheLine.common.Logic
             else
             {
                 currentLvl++;
+                if(currentLvl >= 20)
+                    currentLvl = 1;
                 return true;
             }
         }
+
         return false;
     }
 

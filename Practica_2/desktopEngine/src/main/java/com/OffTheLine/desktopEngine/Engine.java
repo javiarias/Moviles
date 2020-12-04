@@ -49,7 +49,7 @@ public class Engine implements com.OffTheLine.common.Engine {
             lastFrameTime = currentTime;
             double delta = (double) nanoElapsedTime / 1.0E9;
 
-            _logic.update(delta);
+        _logic.update(delta);
 
             // Pintamos el frame con el BufferStrategy
             do {

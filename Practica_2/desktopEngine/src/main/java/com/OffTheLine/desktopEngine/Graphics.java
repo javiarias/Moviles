@@ -113,8 +113,8 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
     }
 
     @Override
-    public void render(){
-
+    public void render()
+    {
         //CLEAR SIEMPRE ANTES DE TRANSLATE
         clear(_bgColor);
 
@@ -124,7 +124,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         scale(_scaleW, _scaleH);
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
 
-        _graphics.setStroke(new BasicStroke(1));
+        _graphics.setStroke(new BasicStroke(2));
     }
 
     @Override

@@ -63,4 +63,24 @@ public abstract class CommonGraphics implements Graphics {
 
     @Override
     public void setHeight(int h) { _logicHeight = h; }
+
+    @Override
+    public float getWidthScale() {
+        return _scaleW;
+    }
+
+    @Override
+    public float getHeightScale() {
+        return _scaleH;
+    }
+
+    @Override
+    public float getXOffset() {
+        return _xOffset;
+    }
+
+    @Override
+    public float getYOffset() {
+        return _yOffset;
+    }
 }

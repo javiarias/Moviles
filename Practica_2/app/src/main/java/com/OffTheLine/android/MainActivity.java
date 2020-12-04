@@ -65,16 +65,21 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        _engine = new Engine("", this.getAssets(), this);
-
-        _logic = new Logic(_engine, "");
-
-        _engine.init(_logic);
-
-        setContentView(_engine.getGraphics().getSurface());
-
-        if(savedInstanceState != null){
+        if(savedInstanceState != null)
+        {
             //_logic.setX(savedInstanceState.getInt("x"));
+        }
+        else
+        {
+
+            _engine = new Engine("", this.getAssets(), this);
+
+            _logic = new Logic(_engine, "");
+
+            _engine.init(_logic);
+
+            setContentView(_engine.getGraphics().getSurface());
+
         }
     }
 

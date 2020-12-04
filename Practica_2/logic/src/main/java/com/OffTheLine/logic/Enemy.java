@@ -79,7 +79,7 @@ public class Enemy extends GameObject {
 
     public void setSpeed (float speed_)
     {
-        _rotSpeed = speed_;
+        _rotSpeed = -speed_;
     }
 
     public void setOffset (float x_, float y_)
@@ -117,8 +117,9 @@ public class Enemy extends GameObject {
     //Constructora
     Enemy(float posX, float posY, float angle_, float length_)
     {
+        //en el json las y están al revés, y el ángulo/velocidad igual
         super(posX, posY * -1); //Constructora de gameObject
-        _angle = angle_;
+        _angle = -angle_;
         _length = length_;
 
         _vertice1 = new Vector2D(0, 0);
@@ -132,6 +133,7 @@ public class Enemy extends GameObject {
 
         _angle = (_angle % 360);
 
+        //se calculan los vértices directamente en vez de usar rotate, puesto que si no no sirve de nada que estén girados.
         _vertice1.x = -(_length / 2.0f) * (float)cos(toRadians(_angle));
         _vertice1.y = -(_length / 2.0f) * (float)sin(toRadians(_angle));
         _vertice2.x = (_length / 2.0f) * (float)cos(toRadians(_angle));

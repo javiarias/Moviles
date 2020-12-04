@@ -10,6 +10,9 @@ public class MouseListener implements java.awt.event.MouseListener
 
     MouseListener(Input i) { _i = i; }
 
+
+    //click es pulsar y soltar, press es solo pulsar
+
     @Override
     public void mouseClicked(MouseEvent e)
     {

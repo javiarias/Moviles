@@ -4,6 +4,9 @@ import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 
+import java.awt.Point;
+import java.sql.Array;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -35,6 +38,9 @@ public class Player extends Square {
     boolean _invert = false;
     boolean _jumping = false;
     Vector2D _direction; //direccion normalizada
+    Vector2D _preJumpDir; //direccion normalizada
+
+    public float colRange = 20;
 
     protected float _speed;
     protected float _jumpSpeed;
@@ -64,110 +70,165 @@ public class Player extends Square {
         pos = paths.get(0)._vertices.get(0);
 
         _currentVert = 0;
+        _currentPath = 0;
         _nextVert = 1;
         _jumping = false;
+        _invert = false;
+        _dead = false;
+        updateDirection();
     }
 
     @Override
     public void render(Graphics g)
     {
         if (!_dead)
+        {
+            g.save();
             super.render(g);
+            g.restore();
+        }
         else
         {
             for (Line l: deadLines)
             {
-
+                g.save();
+                l.render(g);
+                g.restore();
             }
+        }
+    }
+
+    public void checkPlayerCollisions(Level level, ArrayList<Item> itemsToDestroy, double delta)
+    {
+        if(_dead)
+            return;
+
+        //Movimiento
+        Vector2D add_ = new Vector2D(_direction);
+        add_ = add_.multiply(_jumpSpeed * (float) delta);
+        Vector2D nuPos = pos.add(add_);
+
+        for (Item i : level.getItems())
+        {
+            if (Utils.distancePointPoint(pos, i.pos) < colRange * colRange)
+            {
+                if (!i.toDie) {
+                    i.toDie = true;
+                    itemsToDestroy.add(i);
+                }
+            }
+        }
+
+        for (Enemy e : level.getEnemies())
+        {
+            Vector2D intersect = Utils.pointIntersectionSegmentSegment(pos, nuPos, e._vertice1.add(e.pos), e._vertice2.add(e.pos));
+            Vector2D intersect2 = Utils.pointIntersectionSegmentSegment(pos, nuPos, e._vertice2.add(e.pos), e._vertice1.add(e.pos));
+
+            if (intersect != null && intersect2 != null)
+                die(); //Crear las lineas, sustituyendo al cuadrado en el render?
         }
     }
 
     @Override
     public void update(double delta, ArrayList<Input.TouchEvent> inputList)
     {
-        if(!_jumping)
-            checkInputs(inputList);
-
-        //Siempre se hace
-        _rotAngle += _rotSpeed * delta;
-        _rotAngle = (_rotAngle % 360);
-
-        if (_jumping) {
-            for (Collision c : possibleCollisions)
+        if(_dead)
+        {
+            for (Line l : deadLines)
             {
-                if (Utils.distancePointPoint(pos, c.collisionPoint) <= 1) //Sin este margen, en la circunferencia explota
-                {
-                    _jumping = false;
+                l.update(delta, inputList);
+            }
+        }
+        else
+        {
+            if(!_jumping)
+                checkInputs(inputList);
 
-                    //changeDirection(); //Esto en vez del if siguiente
+            //Siempre se hace
+            _rotAngle += _rotSpeed * delta;
+            _rotAngle = (_rotAngle % 360);
+
+            if (_jumping) {
+
+                //Movimiento
+                Vector2D add_ = new Vector2D(_direction);
+                add_ = add_.multiply(_jumpSpeed * (float) delta);
+                Vector2D nuPos = pos.add(add_);
+
+                for (Collision c : possibleCollisions)
+                {
+                    float colDist = Utils.distancePointPoint(pos, c.collisionPoint);
+                    float colDistPast = Utils.distancePointPoint(pos, nuPos);
+
+                    if (colDistPast >= colDist) //Sin este margen, en la circunferencia explota
+                    {
+                        _jumping = false;
+
+                        _currentPath = c._currentPath;
+                        invertMovement(c);
+
+                        nuPos = c.collisionPoint;
+                        updateDirection();
+                    }
+                }
+
+                pos = nuPos;
+            }
+
+            else
+            {
+                updateDirection();
+
+                Path path = _paths.get(_currentPath);
+                Vector2D current = path._vertices.get(_currentVert);
+                Vector2D next = path._vertices.get(_nextVert);
+
+                Vector2D add_ = new Vector2D(_direction);
+                add_ = add_.multiply(_speed * (float) delta);
+                Vector2D nuPos = pos.add(add_);
+
+                float d1 = next.distance(current);
+                float d2 = nuPos.distance(current);
+                boolean past = (d1 <= d2);
+
+                if (past) {
+                    pos = next;
 
                     if (!_invert)
                     {
-                        _direction = _direction.PerpendicularCounterClockwise(_direction);
-                        _currentVert = c._currentVert;
-                        _nextVert = c._nextVert;
+                        _currentVert = (_currentVert + 1) % path._vertices.size();
+                        _nextVert = (_nextVert + 1) % path._vertices.size();
                     }
                     else
                     {
-                        _direction = _direction.PerpendicularCounterClockwise(_direction);
-                        _currentVert = c._nextVert;
-                        _nextVert = c._currentVert;
-                    }
+                        _currentVert = (_currentVert - 1) % path._vertices.size();
+                        _nextVert = (_nextVert - 1) % path._vertices.size();
 
-                    _currentPath = c._currentPath;
+                        if (_currentVert == -1) //Evitar valores negativos
+                        {
+                            _currentVert += path._vertices.size();
+                        }
+                        else if (_nextVert == -1) //No pueden ser los dos negativos, de ahi el else if
+                        {
+                            _nextVert += path._vertices.size();
+                        }
+                    }
+                } else {
+                    pos = nuPos;
                 }
             }
-
-            //Movimiento
-            Vector2D add_ = new Vector2D(_direction);
-            add_ = add_.multiply(_jumpSpeed * (float) delta);
-            pos = pos.add(add_);
         }
+    }
 
-        else
-        {
-            Path path = _paths.get(_currentPath);
-            Vector2D current = path._vertices.get(_currentVert);
-            Vector2D next = path._vertices.get(_nextVert);
+    private void updateDirection()
+    {
+        Path path = _paths.get(_currentPath);
+        Vector2D current = path._vertices.get(_currentVert);
+        Vector2D next = path._vertices.get(_nextVert);
 
-            Vector2D aux = next.subtract(current);
-            aux = aux.normalize(aux);
-            _direction = aux;
-
-            Vector2D add_ = new Vector2D(_direction);
-            add_ = add_.multiply(_speed * (float) delta);
-            Vector2D nuPos = pos.add(add_);
-
-            float d1 = next.distance(current);
-            float d2 = nuPos.distance(current);
-            boolean past = (d1 <= d2);
-
-            if (past) {
-                pos = next;
-
-                if (!_invert)
-                {
-                    _currentVert = (_currentVert + 1) % path._vertices.size();
-                    _nextVert = (_nextVert + 1) % path._vertices.size();
-                }
-                else
-                {
-                    _currentVert = (_currentVert - 1) % path._vertices.size();
-                    _nextVert = (_nextVert - 1) % path._vertices.size();
-
-                    if (_currentVert == -1) //Evitar valores negativos
-                    {
-                        _currentVert += path._vertices.size();
-                    }
-                    else if (_nextVert == -1) //No pueden ser los dos negativos, de ahi el else if
-                    {
-                        _nextVert += path._vertices.size();
-                    }
-                }
-            } else {
-                pos = nuPos;
-            }
-        }
+        Vector2D aux = next.subtract(current);
+        aux.normalize();
+        _direction = aux;
     }
 
     @Override
@@ -177,17 +238,18 @@ public class Player extends Square {
     public void checkInputs(ArrayList<Input.TouchEvent> inputs)
     {
         if (!inputs.isEmpty())
-            for (Input.TouchEvent tE : inputs)
-                if (tE.type == Input.TouchEvent.TouchType.CLICK || tE.type == Input.TouchEvent.TouchType.PRESS) //el que sea
-                {
+            for (Input.TouchEvent tE : inputs) {
+                if (tE.type == Input.TouchEvent.TouchType.PRESS) {
                     jump();
-                    return;
+                    break;
                 }
+            }
     }
 
-    public void changeDirection()
+    public void setJumpDirection()
     {
-        if (_paths.get(_currentPath)._directions.size() == 0) {
+        if (_paths.get(_currentPath)._directions.size() == 0)
+        {
             if (!_invert)
                 _direction = _direction.PerpendicularCounterClockwise(_direction);
             else
@@ -209,48 +271,73 @@ public class Player extends Square {
             _direction.x = x;
             _direction.y = y;
         }
+
+        _direction.normalize();
+    }
+
+    private void invertMovement()
+    {
+        _invert = !_invert;
+
+        int tmp = _currentVert;
+        _currentVert = _nextVert;
+        _nextVert = tmp;
+    }
+
+    private void invertMovement(Collision c)
+    {
+        boolean shouldInvert = null == Utils.pointIntersectionSegmentSegment(c.collisionPoint, c.collisionPoint, pos, pos.add(_preJumpDir.multiply(1000)));
+
+        if(shouldInvert)
+            _invert = !_invert;
+
+        arrangeVerts(c);
+    }
+
+    private void arrangeVerts(Collision c)
+    {
+        if(_invert)
+        {
+            _currentVert = c._nextVert;
+            _nextVert = c._currentVert;
+        }
+        else
+        {
+            _currentVert = c._currentVert;
+            _nextVert = c._nextVert;
+        }
     }
 
     public void jump()
     {
+        _preJumpDir = _direction;
+
+        possibleCollisions.clear();
+
         _jumping = true;
 
-        changeDirection();
+        setJumpDirection();
 
-        //Check possible collisions
-        Vector2D aux = new Vector2D(pos.x, pos.y);
-        Vector2D aux2 = _direction.multiply(1000);
-        aux = aux.add(aux2);
+        Vector2D checkStart = pos.add(_direction);
+        Vector2D checkEnd = pos.add(_direction.multiply(1000));
 
-        _invert = !_invert;
-
-        for (int i = 0; i < _paths.size() ; i++)
+        for (int path = 0; path < _paths.size() ; path++)
         {
-            for (int j = 0; j < _paths.get(i)._vertices.size(); j++)
+            for (int vert = 0; vert < _paths.get(path)._vertices.size(); vert++)
             {
                 Vector2D point = null;
-                int k;
 
-                if (j == _paths.get(i)._vertices.size() - 1) //Primero y ultimo
-                {
-                    k = 0;
-                    point = Utils.pointIntersectionSegmentSegment(pos, aux, _paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(k));
-                }
+                int followingVert = (vert + 1) % _paths.get(path)._vertices.size();
 
-                else
-                {
-                    k = j + 1;
-                    point = Utils.pointIntersectionSegmentSegment(pos, aux, _paths.get(i)._vertices.get(j), _paths.get(i)._vertices.get(k));
-                }
+                point = Utils.pointIntersectionSegmentSegment(checkStart, checkEnd, _paths.get(path)._vertices.get(vert), _paths.get(path)._vertices.get(followingVert));
 
                 if (point != null)
                 {
-                    //Para no añadir el propio punto en el que está al saltar
-                    if (!(point.x == pos.x && point.y == pos.y) && !(j == _currentVert && k == _nextVert))
-                    {
-                        Collision col_ = new Collision(point, i, j, k);
-                        possibleCollisions.add(col_);
-                    }
+                    System.out.print("point: " + point.x + ", " + point.y);
+                    System.out.println(" -- pos: " + pos.x + ", " + pos.y);
+
+                    Collision col_ = new Collision(point, path, vert, followingVert);
+                    possibleCollisions.add(col_);
                 }
             }
         }
@@ -268,14 +355,27 @@ public class Player extends Square {
 
     public void die()
     {
+        _dead = true;
+
+        deadLines.clear();
+
+        Random r = new Random(System.currentTimeMillis());
+
         for (int i = 0; i < 10; i++)
         {
-            Random r = new Random();
+            Vector2D randPos = new Vector2D(pos.x,pos.y);
+
+            Vector2D randDir = new Vector2D(r.nextFloat() * 50,r.nextFloat() * 50);
+            float angle = r.nextFloat() * 360;
+            boolean rotDir = r.nextFloat() >= 0.5f;
+
+            if (r.nextFloat() >= 0.5f)
+                randDir.x *= -1;
+            if (r.nextFloat() >= 0.5f)
+                randDir.y *= -1;
 
             //Crear lineas
-            deadLines.add(new Line(pos.x, pos.y));
-
-            //Mover y rotar aleatoriamente
+            deadLines.add(new Line(randPos, _color, randDir, angle, rotDir));
         }
     }
 }

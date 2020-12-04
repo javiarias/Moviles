@@ -3,10 +3,6 @@ package com.OffTheLine.logic;
 //PP la sugiere en el enunciado, asi que se hace
 
 import com.OffTheLine.common.Vector2D;
-import java.lang.*;
-
-import static java.lang.Float.NEGATIVE_INFINITY;
-import static java.lang.Float.POSITIVE_INFINITY;
 
 public class Utils {
 
@@ -47,9 +43,9 @@ public class Utils {
         float dx = p.x - auxX;
         float dy = p.y - auxY;
 
-        float ret = (float) Math.sqrt(dx * dx + dy * dy);
+        float ret = dx * dx + dy * dy;
 
-        return  ret;
+        return ret;
     }
 
     //Distancia de un punto a un punto (igual hace falta)
@@ -66,14 +62,25 @@ public class Utils {
         float yD = p2.y - p1.y;
         yD = yD * yD; //Al cuadrado
 
-        r = (float) Math.sqrt(xD + yD);
+        r = xD + yD;
         return  r;
+    }
+
+
+    static boolean isInSegment(Vector2D p, Vector2D a, Vector2D b){
+        Vector2D v1 = new Vector2D(b.x - a.x, b.y- a.y);
+        Vector2D v2 = new Vector2D(b.x - p.x, b.y- p.y);
+
+        //si el segmento es mayor que la distancia al pto de colisión, y ningún valor es negativo
+        return v1.module() > v2.module() && v1.x * v2.x >= 0 && v1.y * v2.y >= 0;
     }
 
     //recibe dos pares de vertices y devuelve el punto donde se cruzan (si lo hacen).
     public static Vector2D pointIntersectionSegmentSegment(Vector2D S1P1, Vector2D S1P2, Vector2D S2P1, Vector2D S2P2)
     {
+
         Vector2D ret = null; //Por si no hay interseccion
+        Vector2D tmp = null;
 
         float Ax;         float Ay;
         float Bx;         float By;
@@ -127,27 +134,32 @@ public class Utils {
         {
             x = (Cy - Cx*((Cy-Dy)/(Cx-Dx)) - (Ay - Ax*((Ay-By)/(Ax-Bx))))/((Ay-By)/(Ax-Bx)-(Cy-Dy)/(Cx-Dx));
             y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
+
+            tmp = new Vector2D(x,y);
         }
 
         else if (Ax == Bx && Cx != Dx)
         {
             x = Ax;
             y = ((Cy-Dy)/(Cx-Dx)) * x + (Cy - Cx * ((Cy-Dy)/(Cx-Dx)));
+
+            tmp = new Vector2D(x,y);
         }
 
         else if (Ax != Bx && Cx == Dx)
         {
             x = Cx;
-            y = ((Ay-By)/(Ax-Bx)) * x + (Ay - Ax * ((Ay-By)/(Ax-Bx)));
+            y = ((Ay - By) / (Ax - Bx)) * x + (Ay - Ax * ((Ay - By) / (Ax - Bx)));
+
+            tmp = new Vector2D(x,y);
         }
 
-        //Comprobacion de que el punto esta en los segmentos
-        if (Ax <= x && x <= Bx && Cx <= x && x <= Dx)
-        {
-            ret = new Vector2D(x,y);
-        }
+        //Comprobacion de que el punto esta en los segmentos y que las pendientes sean distintas
+        if (tmp != null && isInSegment(tmp, S1P1, S1P2) && isInSegment(tmp, S2P1, S2P2))
+            ret = tmp;
 
         return ret;
+
     }
 
     //sqrDistancePointSegment(...): recibe un segmento y un punto y devuelve
