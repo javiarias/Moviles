@@ -1,4 +1,6 @@
 package com.OffTheLine.common;
 
-public interface Font {
+public interface Font
+{
+
 }

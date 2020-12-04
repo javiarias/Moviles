@@ -52,7 +52,7 @@ public class Vector2D {
 
     public float distance(Vector2D v)
     {
-        return (float)Math.sqrt(Math.pow(v.x - x, 2) + Math.pow(v.y - y, 2));
+        return (float)(Math.pow(v.x - x, 2) + Math.pow(v.y - y, 2));
     }
 
     public boolean isCloseTo(Vector2D v, float distance)

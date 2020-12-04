@@ -22,8 +22,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _surface.setOnTouchListener(listener);
     }
 
-    Font _font = null;
-
     int _bgColor = Color.BLACK;
     Canvas _canvas;
     SurfaceView _surface;
@@ -46,15 +44,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
         //_savedTransform = new LinkedList<>();
 
-        try
-        {
-            _font = newFont(_assetsPath + "Bangers-Regular.ttf", 40, false);
-        }
-        catch(Exception e)
-        {
-            return false;
-        }
-
         _paint = new Paint();
 
         return true;
@@ -68,7 +57,8 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _surface.getHolder().unlockCanvasAndPost(_canvas);
     }
 
-    public void updateCanvas() {
+    public void updateCanvas()
+    {
         while(!_surface.getHolder().getSurface().isValid())
         ;
 
@@ -88,11 +78,8 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         //System.out.println("xScale: " + _scaleW + ", yScale: " + _scaleH);
     }
 
-    public void drawString(Font font, String text, int x, int y){
-        _paint.setTypeface(_font.getFont());
-        _paint.setFakeBoldText(_font.isBold());
-        _paint.setTextSize(_font.getSize());
-
+    public void drawString(Font font, String text, int x, int y)
+    {
         _canvas.drawText(text, x, y, _paint);
     }
 
@@ -115,6 +102,15 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _canvas.translate((int)x, (int)y);
     }
 
+    @Override
+    public void setFont(com.OffTheLine.common.Font font)
+    {
+        Font f = (Font)font;
+
+        _paint.setTypeface(f.getFont());
+        _paint.setFakeBoldText(f.isBold());
+        _paint.setTextSize(f.getSize());
+    }
 
     @Override
     public void scale(float x, float y) {
@@ -173,8 +169,9 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
 
     @Override
-    public void drawText(String text, float x, float y) {
-
+    public void drawText(String text, float x, float y)
+    {
+        _canvas.drawText(text, x, y, _paint);
     }
 
     public int getTrueWidth() {

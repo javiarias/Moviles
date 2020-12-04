@@ -35,7 +35,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         });
     }
 
-    Font _font = null;
     java.awt.image.BufferStrategy _strategy;
 
     Color _bgColor = Color.BLACK;
@@ -84,15 +83,6 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _strategy = _window.getBufferStrategy();
         //_width = width;
         //_height = height;
-
-        try
-        {
-            _font = newFont(_assetsPath + "Bangers-Regular.ttf", 40, false);
-        }
-        catch(Exception e)
-        {
-            return false;
-        }
 
         return true;
     }
@@ -222,12 +212,16 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
         _graphics.fillRect((int)x1, (int)y1, (int)x2, (int)y2);
     }
 
-
+    @Override
+    public void setFont(com.OffTheLine.common.Font font)
+    {
+        Font f = (Font)font;
+        _graphics.setFont(f.getFont());
+    }
 
     @Override
-    public void drawText(String text, float x, float y) {
-        setColor(Color.WHITE);
-        _graphics.setFont(_font.getFont());
+    public void drawText(String text, float x, float y)
+    {
         _graphics.drawString(text, (int) x, (int) y); //me obliga a castear a int, si no, llora
     }
 

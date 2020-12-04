@@ -33,6 +33,8 @@ public class Engine implements com.OffTheLine.common.Engine {
 
         _graphics.addMouseListener(_input.getMouseListener());
         _graphics.addMouseMotionListener(_input.getMouseMotionListener());
+
+        l.init();
     }
 
     public void update()

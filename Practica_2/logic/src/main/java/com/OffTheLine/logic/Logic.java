@@ -6,55 +6,103 @@ import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
-public class Logic implements com.OffTheLine.common.Logic {
+public class Logic implements com.OffTheLine.common.Logic
+{
+
+
+    public enum GameState
+    {
+        MAINMENU,
+        GAME
+    }
 
     //Elementos
     Engine _e;
     Level _level = null;
-    Player _player;
+    Player _player = null;
     Menu _menu = null;
 
     //Lives
     int lives;
-    int maxLives = 3;
+    int maxLives;
 
     //Score
     float score = 0;
     float maxScore;
 
     //UI
-    Vector2D UI_LivesPosRight;
-    float UI_LivesPadding = 25;
+    float UI_LivesPadding = 15;
     float UI_Y = 60;
+    Vector2D UI_LivesPosRight = new Vector2D(0, UI_Y);
     ArrayList<Square> UI_Lives;
 
     //Otros
-    state _state;
-    float umbralDistancia = 20;
-    int currentLvl = 5;
+    GameState _state;
+    float deathThreshold = 20;
+    int currentLvl = 1;
     boolean lost = false;
     float delayChangeLevel = 1.0f;
     float delayDeath = 1.0f;
-    public boolean _centerScreen = false;
     ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
-    int _x = 0;
-    int _incX = 10;
     String _path;
+    float playerSpeed;
 
-    public Logic(Engine e, String path) {
+    Font _gameFont = null;
+    Font _menuFont = null;
+
+    public Logic(Engine e, String path)
+    {
         _e = e;
         _path = path;
-        _state = state.GAME;
-
-
-        loadEasyMode();
 
         /*_menu = new Menu(true, this);
         _menu.addButton(0, 100, "Easy",70, 30);
         _menu.addButton(0, 180, "Hard",75, 30);*/
+    }
+
+    @Override
+    public void init()
+    {
+        try
+        {
+            _gameFont = _e.getGraphics().newFont(_path + "BungeeHairline-Regular.ttf", 20, false);
+            _menuFont = _e.getGraphics().newFont(_path + "Bungee-Regular.ttf", 20, false);
+        }
+        catch (Exception e) {}
+
+        gameStart(true);
+    }
+
+    public void gameStart(boolean easyMode)
+    {
+        setEasyMode();
+
+        _player = new Player(playerSpeed);
+
+        readyGameUI();
+        _state = GameState.GAME;
+        _level = new Level(_path + "levels.json", _e);
+
+        //currentLvl = 0;
+
+        loadCurrentLevel();
+    }
+
+    private void readyGameUI()
+    {
+        Vector2D pos = UI_LivesPosRight;
+
+        UI_Lives = new ArrayList<Square>();
+        for (int i = 0; i < maxLives; i++) {
+            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
+            s._size = 6;
+            s._thickness = 2;
+            UI_Lives.add(s);
+
+            pos.x -= (UI_LivesPadding + s._size);
+        }
     }
 
     public void lostLife()
@@ -71,16 +119,16 @@ public class Logic implements com.OffTheLine.common.Logic {
     @Override
     public void update(double deltaTime)
     {
-        if (_state == state.MAINMENU)
+        if (_state == GameState.MAINMENU)
         {
-            ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+            ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
             _menu.update(deltaTime, ls);
         }
-        else if (_state == state.GAME)
+        else if (_state == GameState.GAME)
         {
             if (!checkLevelCompleted(deltaTime)) {
-                ArrayList<Input.TouchEvent> ls = new ArrayList(_e.getInput().getTouchEvents());
+                ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
                 checkPlayerCollision();
 
@@ -107,9 +155,10 @@ public class Logic implements com.OffTheLine.common.Logic {
             _menu.render(g);
             g.restore();
         }
-        else {
+        else
+        {
             g.save();
-            paintUI(g);
+            paintGameUI(g);
             g.restore();
 
             g.save();
@@ -128,12 +177,11 @@ public class Logic implements com.OffTheLine.common.Logic {
         }
     }
 
-    public void paintUI(Graphics g)
+    public void paintGameUI(Graphics g)
     {
-        g.drawText(_level._name, UI_LivesPadding*3,UI_Y);
-        //Valores arbitrarios de momento, ya que no puedo sacar el tamaño del texto para ajustarlo
-        //Elegir fuente (la del menu y la UI no es la misma)
-        //PD: Se reescala regular
+        g.setFont(_gameFont);
+        g.setColor(0xFFFFFFFF);
+        g.drawText("Level " + currentLvl + " - " + _level._name, 0, UI_Y * 1.2f);
 
         //La UI de vidas está dibujada desde la dcha
 
@@ -150,7 +198,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         for (Item i : _level.getItems())
         {
-            if (Utils.distancePointPoint(_player.pos, i.pos) < umbralDistancia)
+            if (Utils.distancePointPoint(_player.pos, i.pos) < deathThreshold)
             {
                 if (!i.toDie) {
                     score++;
@@ -182,7 +230,7 @@ public class Logic implements com.OffTheLine.common.Logic {
     {
         for (Item i : itemsToDestroy)
         {
-            if (i.dead)
+            if (i._dead)
             {
                 _level.getItems().remove(i);
             }
@@ -214,7 +262,7 @@ public class Logic implements com.OffTheLine.common.Logic {
         delayDeath = 1.0f;
         lost = false;
 
-        setLevel();
+        loadCurrentLevel();
     }
 
     boolean checkLevelCompleted(double deltaTime)
@@ -232,66 +280,24 @@ public class Logic implements com.OffTheLine.common.Logic {
         return false;
     }
 
-    public void setLevel()
+    public void loadCurrentLevel()
     {
-        try {
-            _level.loadLevel(currentLvl - 1);
-        }
-        catch ( Exception E)
-        {
-
-        }
+        try { _level.loadLevel(currentLvl - 1); }
+        catch (Exception E) {}
 
         maxScore = _level._items.size();
-        _player = new Player(_level.getPaths());
+        _player.newLevel(_level.getPaths());
     }
 
-    public void loadEasyMode()
+    public void setEasyMode()
     {
-        _level = new Level(_path, _e);
-        setLevel();
-
-        lives = maxLives;
-        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
-
-        Vector2D pos = UI_LivesPosRight;
-
-        UI_Lives = new ArrayList<Square>();
-        for (int i = 0; i < maxLives; i++) {
-            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
-            s._size = 12;
-            s._thicc = 2;
-            UI_Lives.add(s);
-
-            pos.x -= (UI_LivesPadding + s._size);
-        }
-
-        lostLife();
+        lives = maxLives = 10;
+        playerSpeed = 250;
     }
 
-    public void loadHardMode()
+    public void setHardMode()
     {
-        _level = new Level(_path, _e);
-        setLevel();
-
-        lives = maxLives;
-        UI_LivesPosRight = new Vector2D(-(UI_LivesPadding * 3), UI_Y);
-
-        Vector2D pos = UI_LivesPosRight;
-
-        UI_Lives = new ArrayList<Square>();
-        for (int i = 0; i < maxLives; i++) {
-            Square s = new Square(new Vector2D(pos), 0xFF0088FF);
-            s._size = 12;
-            s._thicc = 2;
-            UI_Lives.add(s);
-
-            pos.x -= (UI_LivesPadding + s._size);
-        }
-
-        lostLife();
+        lives = maxLives = 5;
+        playerSpeed = 400;
     }
-
-    public int getX() { return _x; }
-    public void setX(int x) { _x = x; }
 }

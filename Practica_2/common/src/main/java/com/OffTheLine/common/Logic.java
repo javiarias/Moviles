@@ -7,4 +7,6 @@ public interface Logic {
     public void update(double deltaTime);
 
     public void render(Graphics g);
+
+    void init();
 }

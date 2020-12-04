@@ -67,21 +67,21 @@ public class MainActivity extends AppCompatActivity {
 
         _engine = new Engine("", this.getAssets(), this);
 
-        _logic = new Logic(_engine, "levels.json");
+        _logic = new Logic(_engine, "");
 
         _engine.init(_logic);
 
         setContentView(_engine.getGraphics().getSurface());
 
         if(savedInstanceState != null){
-            _logic.setX(savedInstanceState.getInt("x"));
+            //_logic.setX(savedInstanceState.getInt("x"));
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current game state
-        savedInstanceState.putInt("x", _logic.getX());
+        //savedInstanceState.putInt("x", _logic.getX());
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);

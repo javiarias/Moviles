@@ -1,9 +1,8 @@
 package com.OffTheLine.logic;
 
-import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
-import com.OffTheLine.logic.Button;
+
 import java.util.ArrayList;
 
 public class Menu {
@@ -50,12 +49,12 @@ public class Menu {
 
     void easyMode()
     {
-        _logic.loadEasyMode();
+        _logic.setEasyMode();
     }
 
     void hardMode()
     {
-        _logic.loadHardMode();
+        _logic.setHardMode();
     }
 
     void render(Graphics g)

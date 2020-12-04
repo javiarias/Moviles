@@ -11,4 +11,6 @@ public interface GameObject {
 
     void render(Graphics g);
 
+    void checkInputs(ArrayList<Input.TouchEvent> inputs);
+
 }

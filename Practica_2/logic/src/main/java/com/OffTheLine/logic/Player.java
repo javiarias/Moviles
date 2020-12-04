@@ -1,15 +1,11 @@
 package com.OffTheLine.logic;
 
-import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-import com.OffTheLine.logic.Utils;
 
-import java.awt.MouseInfo;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Vector;
 
 public class Player extends Square {
 
@@ -36,12 +32,12 @@ public class Player extends Square {
     int _currentVert = 0;
     int _nextVert = 1;
     int _currentPath = 0;
-    boolean invert = false;
-    boolean jumping = false;
-    Vector2D direction; //direccion normalizada
-    boolean dead;
+    boolean _invert = false;
+    boolean _jumping = false;
+    Vector2D _direction; //direccion normalizada
 
     protected float _speed;
+    protected float _jumpSpeed;
 
     public float getSpeed()
     {
@@ -53,19 +49,29 @@ public class Player extends Square {
     }
 
     //Constructora
-    Player(ArrayList<Path> paths)
+    Player(float speed)
     {
-        super(paths.get(0)._vertices.get(0),0xFF0088FF); //Constructora de gameObject
+        super(new Vector2D(0, 0),0xFF0088FF); //Constructora de gameObject
         _size = 12;
-        _speed = 0.02f;
+        _speed = speed;
+        _jumpSpeed = 1500f;
+        _dead = false;
+    }
+
+    public void newLevel(ArrayList<Path> paths)
+    {
         _paths = paths;
-        dead = false;
+        pos = paths.get(0)._vertices.get(0);
+
+        _currentVert = 0;
+        _nextVert = 1;
+        _jumping = false;
     }
 
     @Override
     public void render(Graphics g)
     {
-        if (!dead)
+        if (!_dead)
             super.render(g);
         else
         {
@@ -77,33 +83,33 @@ public class Player extends Square {
     }
 
     @Override
-    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
-        Vector2D add_ = new Vector2D(0, 0);
-        Vector2D temp;
-        boolean past;
+    public void update(double delta, ArrayList<Input.TouchEvent> inputList)
+    {
+        if(!_jumping)
+            checkInputs(inputList);
 
         //Siempre se hace
         _rotAngle += _rotSpeed * delta;
         _rotAngle = (_rotAngle % 360);
 
-        if (jumping) {
+        if (_jumping) {
             for (Collision c : possibleCollisions)
             {
                 if (Utils.distancePointPoint(pos, c.collisionPoint) <= 1) //Sin este margen, en la circunferencia explota
                 {
-                    jumping = false;
+                    _jumping = false;
 
                     //changeDirection(); //Esto en vez del if siguiente
 
-                    if (!invert)
+                    if (!_invert)
                     {
-                        direction = direction.PerpendicularCounterClockwise(direction);
+                        _direction = _direction.PerpendicularCounterClockwise(_direction);
                         _currentVert = c._currentVert;
                         _nextVert = c._nextVert;
                     }
                     else
                     {
-                        direction = direction.PerpendicularCounterClockwise(direction);
+                        _direction = _direction.PerpendicularCounterClockwise(_direction);
                         _currentVert = c._nextVert;
                         _nextVert = c._currentVert;
                     }
@@ -113,45 +119,33 @@ public class Player extends Square {
             }
 
             //Movimiento
-            add_ = add_.add(direction);
-            add_.multiply(_speed * (float) delta); //Hay que mirarlo porque va a todo ojete
+            Vector2D add_ = new Vector2D(_direction);
+            add_ = add_.multiply(_jumpSpeed * (float) delta);
             pos = pos.add(add_);
         }
 
         else
         {
-            if (!inputList.isEmpty() && !jumping)
-            {
-                for (Input.TouchEvent tE : inputList)
-                {
-                    if (tE.type == Input.TouchEvent.TouchType.CLICK || tE.type == Input.TouchEvent.TouchType.PRESS) //el que sea
-                    {
-                        Jump();
-                        return;
-                    }
-                }
-            }
-
             Path path = _paths.get(_currentPath);
             Vector2D current = path._vertices.get(_currentVert);
             Vector2D next = path._vertices.get(_nextVert);
 
             Vector2D aux = next.subtract(current);
             aux = aux.normalize(aux);
-            direction = aux;
+            _direction = aux;
 
-            add_ = add_.add(direction);
-            add_.multiply(_speed * (float) delta); //Hay que mirarlo porque va a todo ojete
+            Vector2D add_ = new Vector2D(_direction);
+            add_ = add_.multiply(_speed * (float) delta);
+            Vector2D nuPos = pos.add(add_);
 
-            temp = pos.add(add_);
             float d1 = next.distance(current);
-            float d2 = temp.distance(current);
-            past = (d1 <= d2);
+            float d2 = nuPos.distance(current);
+            boolean past = (d1 <= d2);
 
             if (past) {
                 pos = next;
 
-                if (!invert)
+                if (!_invert)
                 {
                     _currentVert = (_currentVert + 1) % path._vertices.size();
                     _nextVert = (_nextVert + 1) % path._vertices.size();
@@ -171,23 +165,33 @@ public class Player extends Square {
                     }
                 }
             } else {
-                pos = temp;
+                pos = nuPos;
             }
         }
     }
 
     @Override
-    public void lateUpdate(double delta) {
+    public void lateUpdate(double delta) {}
 
+    @Override
+    public void checkInputs(ArrayList<Input.TouchEvent> inputs)
+    {
+        if (!inputs.isEmpty())
+            for (Input.TouchEvent tE : inputs)
+                if (tE.type == Input.TouchEvent.TouchType.CLICK || tE.type == Input.TouchEvent.TouchType.PRESS) //el que sea
+                {
+                    jump();
+                    return;
+                }
     }
 
     public void changeDirection()
     {
         if (_paths.get(_currentPath)._directions.size() == 0) {
-            if (!invert)
-                direction = direction.PerpendicularCounterClockwise(direction);
+            if (!_invert)
+                _direction = _direction.PerpendicularCounterClockwise(_direction);
             else
-                direction = direction.PerpendicularClockwise(direction);
+                _direction = _direction.PerpendicularClockwise(_direction);
         }
         else //LOS 0 HAY QUE MIRARLOS
         {
@@ -202,23 +206,23 @@ public class Player extends Square {
                 y = _paths.get(_currentPath)._directions.get(0).y;
             }
 
-            direction.x = x;
-            direction.y = y;
+            _direction.x = x;
+            _direction.y = y;
         }
     }
 
-    public void Jump()
+    public void jump()
     {
-        jumping = true;
+        _jumping = true;
 
         changeDirection();
 
         //Check possible collisions
         Vector2D aux = new Vector2D(pos.x, pos.y);
-        Vector2D aux2 = direction.multiply(1000);
+        Vector2D aux2 = _direction.multiply(1000);
         aux = aux.add(aux2);
 
-        invert = !invert;
+        _invert = !_invert;
 
         for (int i = 0; i < _paths.size() ; i++)
         {

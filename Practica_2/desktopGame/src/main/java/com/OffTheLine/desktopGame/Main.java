@@ -27,9 +27,10 @@ public class Main {
 
         Engine _engine = new Engine(path);
 
-        Logic logic = new Logic(_engine, "assets/levels.json");
+        Logic logic = new Logic(_engine, "assets/");
 
         _engine.init(logic);
+
         _engine.update();
 
         _engine.release();

@@ -19,6 +19,8 @@ public interface Graphics {
 
     void setColor(int color);
 
+    void setFont(Font font);
+
     void drawLine(float x1, float y1, float x2, float y2);
 
     void fillRect(float x1, float y1, float x2, float y2);

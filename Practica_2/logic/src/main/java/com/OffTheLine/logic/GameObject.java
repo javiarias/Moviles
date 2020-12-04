@@ -1,11 +1,15 @@
 package com.OffTheLine.logic;
 
+import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
+
+import java.util.ArrayList;
 
 public abstract class GameObject implements com.OffTheLine.common.GameObject {
 
     protected Vector2D pos;
     protected float _scale;
+    boolean _dead = false;
 
     //Getters
     public float getX()
@@ -52,5 +56,11 @@ public abstract class GameObject implements com.OffTheLine.common.GameObject {
     {
         pos = pos_;
         _scale = 1;
+    }
+
+    @Override
+    public void checkInputs(ArrayList<Input.TouchEvent> inputs)
+    {
+
     }
 }
