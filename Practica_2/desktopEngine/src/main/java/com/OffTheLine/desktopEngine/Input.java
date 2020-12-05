@@ -1,7 +1,5 @@
 package com.OffTheLine.desktopEngine;
 
-import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
 
 public class Input implements com.OffTheLine.common.Input

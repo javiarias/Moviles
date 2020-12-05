@@ -2,46 +2,59 @@ package com.OffTheLine.appEngine;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-
 import com.OffTheLine.common.Logic;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class Engine implements com.OffTheLine.common.Engine, Runnable {
 
+    /*Variables*/
     String _path;
     Graphics _graphics;
     Logic _logic;
     Input _input;
     AssetManager _manager;
     Context _context;
-
     long _lastFrameTime;
+    Thread _renderThread;
+    volatile boolean _running = false;
 
+    /*Funciones*/
+
+    /*Getters*/
+    //Para obtener gráficos
+    @Override public Graphics getGraphics() { return _graphics; }
+
+    //Para obtener input
+    @Override public Input getInput() {
+        return _input;
+    }
+
+    //Para obtener lógica
+    @Override public Logic getLogic() { return _logic; }
+
+    //Constructora
     public Engine(String path, AssetManager manager, Context context) {
         _path = path;
         _manager = manager;
         _context = context;
     }
 
+    //Inicialización
     public void init(Logic l)
     {
         _graphics = new Graphics(_context, _manager);
         if (!_graphics.init(640, 480, _path, this))
-            // Ooops. Ha fallado la inicialización.
-            return;
+            return; // Ooops. Ha fallado la inicialización.
 
         _logic = l;
-
         _input = new Input();
-
         _graphics.setTouchListener(_input.getTouchListener());
-
         l.init();
     }
 
+    //Para iniciar la ejecución
     public void run() {
 
         if (_renderThread != Thread.currentThread()) {
@@ -69,22 +82,20 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
         }
     }
 
+    //Update
     public void update()
     {
-
+        //Temas de tiempo (para el delta time)
         long currentTime = System.nanoTime();
         long nanoElapsedTime = currentTime - _lastFrameTime;
         _lastFrameTime = currentTime;
         double delta = (double) nanoElapsedTime / 1.0E9;
 
+        //Updates y renders
         _logic.update(delta);
-
         _graphics.updateCanvas();
-
         _graphics.render();
-
         _logic.render(_graphics);
-
         _graphics.present();
     }
 
@@ -137,55 +148,42 @@ public class Engine implements com.OffTheLine.common.Engine, Runnable {
 
     } // pause
 
-    @Override
-    public Graphics getGraphics() { return _graphics; }
-
-    @Override
-    public Input getInput() {
-        return _input;
-    }
-
-    @Override
-    public InputStream openInputStream(String path) {
-        InputStream is;
-
-        try {
-            is = new FileInputStream(path);
-        }
-        catch (Exception e) {
-            System.err.println("Error cargando " + path + " : " + e);
-            return null;
-        }
-
-        return is;
-    }
-
-    @Override
-    public Logic getLogic() {
-        return _logic;
-    }
-
-    @Override
-    public void release(){
+    //Para liberar los gráficos
+    @Override public void release(){
         _graphics.release();
     }
 
+    /*Para lectura de archivos*/
 
-    Thread _renderThread;
-    volatile boolean _running = false;
-
-    @Override
-    public InputStream getFile(String path) throws Exception
+    @Override public InputStream openInputStream(String path)
     {
         InputStream is;
 
-        try {
+        try
+        {
+            is = new FileInputStream(path);
+        }
+        catch (Exception e)
+        {
+            System.err.println("Error cargando " + path + " : " + e);
+            return null;
+        }
+        return is;
+    }
+
+    @Override public InputStream getFile(String path) throws Exception
+    {
+        InputStream is;
+
+        try
+        {
             is = _manager.open(path);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
             return null;
         }
-
         return is;
     }
 }

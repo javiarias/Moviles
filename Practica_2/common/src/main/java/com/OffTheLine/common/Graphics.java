@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public interface Graphics {
+
+    /*Funciones a sobreescribir en las implementaciones*/
+
     Font newFont(String path, int size, boolean isBold) throws Exception;
 
     void clear(int color);

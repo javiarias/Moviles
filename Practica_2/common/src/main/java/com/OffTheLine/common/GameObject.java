@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 public interface GameObject {
 
+    /*Funciones a sobreescribir en las implementaciones*/
+
     void update(double delta, ArrayList<Input.TouchEvent> inputList);
-
-    //idk why not
-    void lateUpdate(double delta);
-
     void render(Graphics g);
-
     void checkInputs(ArrayList<Input.TouchEvent> inputs);
-
+    void lateUpdate(double delta);
 }

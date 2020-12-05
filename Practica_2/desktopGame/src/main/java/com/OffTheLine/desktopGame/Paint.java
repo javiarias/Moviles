@@ -1,22 +1,12 @@
 package com.OffTheLine.desktopGame;
 
 import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-
 import java.io.InputStream;
 import java.io.FileInputStream;
 
-/**
- * Prueba de concepto de renderizado activo con Java.
- *
- * La clase incluye el main y hereda de JFrame, incluyendo toda
- * la funcionalidad de la "aplicación". En condiciones normales
- * (una aplicación más compleja) la implementación se distribuiría
- * en más clases y se haría más versátil.
- */
 public class Paint extends JFrame {
 
     /**
@@ -127,20 +117,15 @@ public class Paint extends JFrame {
      * Fuente usada para escribir el texto que se muestra moviéndose de lado a lado.
      */
     protected Font _font;
-
     /**
      * Posición x actual del texto (lado izquierdo). Es importante
      * que sea un número real, para acumular cambios por debajo del píxel si
      * la velocidad de actualización es mayor que la del desplazamiento.
      */
     protected double _x = 0;
-
     /**
      * Velocidad de desplazamiento en píxeles por segundo.
      */
     protected int _incX = 50;
-
     protected String _assetsPath;
-
-
-} // class Paint
+}

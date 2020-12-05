@@ -3,15 +3,17 @@ package com.OffTheLine.common;
 import java.io.InputStream;
 
 public interface Engine {
-    public Graphics getGraphics();
 
-    public Input getInput();
+    /*Funciones a sobreescribir en las implementaciones*/
 
-    public InputStream openInputStream(String path);
+    void release();
 
-    public Logic getLogic();
+    /*Getters*/
+    Graphics getGraphics();
+    Input getInput();
+    Logic getLogic();
 
-    public void release();
-
-    public InputStream getFile(String path)  throws Exception;
+    /*Para tratar archivos*/
+    InputStream openInputStream(String path);
+    InputStream getFile(String path)  throws Exception;
 }

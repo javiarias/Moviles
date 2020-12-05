@@ -2,8 +2,8 @@ package com.OffTheLine.desktopEngine;
 
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.awt.event.MouseEvent;
+
 public class MouseListener implements java.awt.event.MouseListener
 {
     Input _i;

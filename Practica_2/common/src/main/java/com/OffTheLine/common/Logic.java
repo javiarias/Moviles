@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public interface Logic {
 
-    public void update(double deltaTime);
+    /*Funciones a sobreescribir en las implementaciones*/
 
-    public void render(Graphics g);
-
+    void update(double deltaTime);
+    void render(Graphics g);
     void init();
 }

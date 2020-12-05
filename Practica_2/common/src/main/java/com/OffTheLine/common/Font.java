@@ -1,6 +1,4 @@
 package com.OffTheLine.common;
 
-public interface Font
-{
-
-}
+//Esta para redefinir
+public interface Font {}
