@@ -259,22 +259,8 @@ public class Player extends Square {
             else
                 _direction = _direction.PerpendicularClockwise(_direction);
         }
-        else //LOS 0 HAY QUE MIRARLOS
-        {
-            float x = 0;
-            float y = 0;
-            if (_paths.get(_currentPath)._directions.get(0).x != 0)
-            {
-                x = _paths.get(_currentPath)._directions.get(0).x;
-            }
-            if (_paths.get(_currentPath)._directions.get(0).y != 0)
-            {
-                y = _paths.get(_currentPath)._directions.get(0).y;
-            }
-
-            _direction.x = x;
-            _direction.y = y;
-        }
+        else
+            _direction = new Vector2D(_paths.get(_currentPath)._directions.get(0));
 
         _direction.normalize();
     }
