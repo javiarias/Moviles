@@ -1,9 +1,8 @@
 package com.OffTheLine.logic;
 
-//PP la sugiere en el enunciado, asi que se hace
-
 import com.OffTheLine.common.Vector2D;
 
+//Sugerida en el enunciado
 public class Utils {
 
     //Distancia de un punto a un segmento
@@ -66,7 +65,6 @@ public class Utils {
         return  r;
     }
 
-
     static boolean isInSegment(Vector2D p, Vector2D a, Vector2D b){
         Vector2D v1 = new Vector2D(b.x - a.x, b.y- a.y);
         Vector2D v2 = new Vector2D(b.x - p.x, b.y- p.y);
@@ -78,7 +76,6 @@ public class Utils {
     //recibe dos pares de vertices y devuelve el punto donde se cruzan (si lo hacen).
     public static Vector2D pointIntersectionSegmentSegment(Vector2D S1P1, Vector2D S1P2, Vector2D S2P1, Vector2D S2P2)
     {
-
         Vector2D ret = null; //Por si no hay interseccion
         Vector2D tmp = null;
 
@@ -159,9 +156,5 @@ public class Utils {
             ret = tmp;
 
         return ret;
-
     }
-
-    //sqrDistancePointSegment(...): recibe un segmento y un punto y devuelve
-    //el cuadrado de la distancia del punto al segmento. Tened en cuenta que esto no es lo mismo que la distancia del punto a la recta definida por el segmento.
 }

@@ -12,15 +12,10 @@ import java.util.Random;
 public class Logic implements com.OffTheLine.common.Logic
 {
 
-    public enum GameState
-    {
-        MAINMENU,
-        GAME,
-        LOST,
-        WON
-    }
+    //Enum para estado del juego
+    public enum GameState { MAINMENU, GAME, LOST, WON }
 
-    int MAX_LEVEL = 20;
+    /*Variables*/
 
     //Elementos
     Engine _e;
@@ -45,7 +40,8 @@ public class Logic implements com.OffTheLine.common.Logic
 
     //Otros
     GameState _state = GameState.MAINMENU;
-    int currentLvl = 9;
+    int MAX_LEVEL = 20;
+    int currentLvl = 1;
     boolean lost = false;
     float delayChangeLevel = 1.0f;
     float delayDeath = 1.0f;
@@ -53,20 +49,24 @@ public class Logic implements com.OffTheLine.common.Logic
     String _path;
     float playerSpeed;
 
+    //Para screenshake
     float shakeTime = 0;
     int shakeX, shakeY;
 
+    //Fuentes
     Font _gameFont = null;
     Font _menuFont = null;
 
+    /*Funciones*/
+
+    //Constructora
     public Logic(Engine e, String path)
     {
         _e = e;
         _path = path;
     }
 
-    @Override
-    public void init()
+    @Override public void init()
     {
         try
         {
@@ -80,11 +80,9 @@ public class Logic implements com.OffTheLine.common.Logic
 
         _menu = new Menu(this, _menuFont);
         UI_Lives = new ArrayList<Square>();
-
-
-        //gameStart(true);
     }
 
+    //Inicio del juego
     public void gameStart(boolean easyMode)
     {
         if(easyMode)
@@ -93,46 +91,41 @@ public class Logic implements com.OffTheLine.common.Logic
             setHardMode();
 
         _player = new Player(playerSpeed);
-
         readyGameUI();
         _state = GameState.GAME;
         _level = new Level(_path + "levels.json", _e);
-
         currentLvl = 1;
-        //currentLvl = 5;
-
         loadCurrentLevel();
     }
 
+    //Para construir la interfaz
     private void readyGameUI()
     {
         UI_Lives.clear();
-
         Vector2D pos = new Vector2D(UI_LivesPosRight);
 
-        for (int i = 0; i < maxLives; i++) {
+        for (int i = 0; i < maxLives; i++)
+        {
             Square s = new Square(new Vector2D(pos), 0xFF0088FF);
             s._size = 12;
             UI_Lives.add(s);
-
             pos.x -= (UI_LivesPadding + s._size);
         }
     }
 
+    //Vida perdida
     public void lostLife()
     {
         if(lives > 0)
         {
             lives--;
-
             Cross x = new Cross(UI_Lives.get(maxLives - lives - 1), 0xFFFF1111);
-
             UI_Lives.set(maxLives - lives - 1, x);
         }
     }
 
-    @Override
-    public void update(double deltaTime)
+    //Update
+    @Override public void update(double deltaTime)
     {
         ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
@@ -146,11 +139,12 @@ public class Logic implements com.OffTheLine.common.Logic
             if (_state != GameState.GAME)
             {
                 for (Input.TouchEvent e : ls)
-                    if(e.type == Input.TouchEvent.TouchType.PRESS)
-                    {
+                {
+                    if (e.type == Input.TouchEvent.TouchType.PRESS) {
                         _state = GameState.MAINMENU;
                         return;
                     }
+                }
             }
 
             boolean levelComplete = checkLevelCompleted(deltaTime);
@@ -164,7 +158,7 @@ public class Logic implements com.OffTheLine.common.Logic
                 _player.checkPlayerCollisions(_level, itemsToDestroy, deltaTime);
                 score += (itemsToDestroy.size() - i);
 
-                lost = _player.isDead();
+                lost = _player.getDead();
 
                 if (_player.outOfBounds(_e.getGraphics().getHeight(), _e.getGraphics().getWidth()))
                     lost = true;
@@ -187,15 +181,18 @@ public class Logic implements com.OffTheLine.common.Logic
 
                 if (lost)
                     destroyPlayer(deltaTime);
-            } else if(_state == GameState.GAME && levelComplete) {
+
+            }
+            else if(_state == GameState.GAME && levelComplete)
+            {
                 totalScore += score;
                 changeLevel();
             }
         }
     }
 
-    @Override
-    public void render(Graphics g)
+    //Render
+    @Override public void render(Graphics g)
     {
         if (_state == GameState.MAINMENU)
         {
@@ -227,6 +224,7 @@ public class Logic implements com.OffTheLine.common.Logic
         }
     }
 
+    //Para renderizar pantalla de derrota
     private void drawGameOver(Graphics g)
     {
         g.setColor(0xFF444444);
@@ -248,12 +246,11 @@ public class Logic implements com.OffTheLine.common.Logic
             txt = "HARD MODE";
 
         g.drawText(txt, -60, -70);
-
         g.drawText("SCORE: " + totalScore, -50, -40);
-
         g.drawText("CLICK TO QUIT TO MAIN MENU", -160, -10);
     }
 
+    //Para renderizar pantalla de victoria
     private void drawGameWon(Graphics g)
     {
         g.setColor(0xFF444444);
@@ -275,18 +272,17 @@ public class Logic implements com.OffTheLine.common.Logic
             txt = "HARD MODE";
 
         g.drawText(txt + " COMPLETE", -120, -70);
-
         g.drawText("CLICK TO QUIT TO MAIN MENU", -160, -40);
     }
 
-
+    //Para renderizar la interfaz
     public void paintGameUI(Graphics g)
     {
         g.setFont(_gameFont);
         g.setColor(0xFFFFFFFF);
         g.drawText("Level " + currentLvl + " - " + _level._name, 0, UI_Y * 1.2f);
 
-        //La UI de vidas está dibujada desde la dcha
+        //La UI de vidas se dibuja desde la derecha
 
         for (Square s : UI_Lives)
         {
@@ -297,40 +293,43 @@ public class Logic implements com.OffTheLine.common.Logic
         }
     }
 
+    //Destruccion de monedas, se utiliza una lista adicional (itemsToDestroy) para evitar problemas de borrado en medio de un bucle
     void destroyItems()
     {
         for (Item i : itemsToDestroy)
         {
-            if (i._dead)
+            if (i._dead) //Si está marcado como muerto (se utiliza para la animacion de ampliar su tamaño)
             {
                 _level.getItems().remove(i);
             }
         }
     }
 
+    //Destruccion del jugador (a nivel lógico)
     void destroyPlayer(double deltaTime)
     {
         if (delayDeath >= 0)
-        {
             delayDeath -= deltaTime;
-        }
         else
         {
             lostLife();
 
-            if(lives == 0)
+            if (lives == 0)
                 _state = GameState.LOST;
             else
                 changeLevel();
         }
     }
 
+    //Cambio de nivel
     public void changeLevel()
     {
+        //Limpieza de los elementos del nivel que se quita
         _level.getItems().clear();
         _level.getEnemies().clear();
         _level.getPaths().clear();
 
+        //Se restauran las variables del nivel
         score = 0;
         delayChangeLevel = 1.0f;
         delayDeath = 1.0f;
@@ -339,11 +338,12 @@ public class Logic implements com.OffTheLine.common.Logic
         loadCurrentLevel();
     }
 
+    //Comprobación de que se ha completado el nivel
     boolean checkLevelCompleted(double deltaTime)
     {
         if (!lost && score == maxScore)
         {
-            if (delayChangeLevel >= 0)
+            if (delayChangeLevel >= 0) //Margen de paso de un nivel a otro
                 delayChangeLevel -= deltaTime;
             else
             {
@@ -358,6 +358,7 @@ public class Logic implements com.OffTheLine.common.Logic
         return false;
     }
 
+    //Carga de nivel
     public void loadCurrentLevel()
     {
         try { _level.loadLevel(currentLvl - 1); }
@@ -367,12 +368,14 @@ public class Logic implements com.OffTheLine.common.Logic
         _player.newLevel(_level.getPaths());
     }
 
+    //Variables para el modo fácil
     public void setEasyMode()
     {
         lives = maxLives = 10;
         playerSpeed = 250;
     }
 
+    //Variables para el modo difícil
     public void setHardMode()
     {
         lives = maxLives = 5;

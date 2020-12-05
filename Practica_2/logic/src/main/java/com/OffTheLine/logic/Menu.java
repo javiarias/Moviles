@@ -5,43 +5,48 @@ import com.OffTheLine.common.Font;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
 
 public class Menu {
 
+    /*Variables*/
     ArrayList<Button> buttons = new ArrayList<Button>();
     Logic _logic;
     Engine _e;
     Font _font;
 
+    /*Funciones*/
+
+    //Constructora
     Menu(Logic l, Font font)
     {
         _logic = l;
         _e = l._e;
-
         _font = font;
 
         addButton( 10, 350, "EASY MODE",130, 30, font, 2);
         addButton(10, 410, "HARD MODE",135, 30, font, 2);
     }
 
+    //Update
     void update(double delta, ArrayList<Input.TouchEvent> inputList)
     {
         if (!inputList.isEmpty())
         {
-            for (Input.TouchEvent tE : inputList) {
-                for (Button b : buttons) {
-                    if (tE.type == Input.TouchEvent.TouchType.PRESS) {
+            for (Input.TouchEvent tE : inputList)
+            {
+                for (Button b : buttons)
+                {
+                    if (tE.type == Input.TouchEvent.TouchType.PRESS)
+                    {
                         Vector2D transPos = new Vector2D(tE.pos);
                         transPos.x -= _e.getGraphics().getXOffset();
                         transPos.y -= _e.getGraphics().getYOffset();
                         transPos.x /= _e.getGraphics().getWidthScale();
                         transPos.y /= _e.getGraphics().getHeightScale();
 
-                        //System.out.println(transPos.x + " " + transPos.y);
-
-                        if (b.clicked(transPos.x, transPos.y)) {
+                        if (b.clicked(transPos.x, transPos.y))
+                        {
                             if (b == buttons.get(0))
                                 easyMode();
                             else if (b == buttons.get(1))
@@ -53,13 +58,16 @@ public class Menu {
         }
     }
 
+    //Accion para boton de modo fácil
     void easyMode() { _logic.gameStart(true); }
 
+    //Accion para boton de modo difícil
     void hardMode()
     {
         _logic.gameStart(false);
     }
 
+    //Render
     void render(Graphics g)
     {
         g.setFont(_font);
@@ -81,7 +89,6 @@ public class Menu {
         g.drawText("(Fast speed, 5 lives)", 275, 454);
         g.restore();
 
-
         for (Button b: buttons)
         {
             g.save();
@@ -90,6 +97,7 @@ public class Menu {
         }
     }
 
+    //Crear y añadir boton al menu
     void addButton(float x, float y, String text, float width, float height, Font font, float scale)
     {
         Button b = new Button(x, y, text, width, height, font, scale);

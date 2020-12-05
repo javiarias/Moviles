@@ -3,17 +3,21 @@ package com.OffTheLine.logic;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
-import java.awt.Point;
-import java.sql.Array;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Player extends Square {
 
-    class Collision{
+    //Clase colision
+    class Collision
+    {
+        /*Variables*/
+        public Vector2D collisionPoint;
+        public int _currentVert;
+        public int _currentPath;
+        public int _nextVert;
 
+        //Constructora
         Collision(Vector2D p, int _currP, int _currV, int _nextV)
         {
             collisionPoint = p;
@@ -21,36 +25,43 @@ public class Player extends Square {
             _currentVert = _currV;
             _nextVert = _nextV;
         }
-
-        public Vector2D collisionPoint;
-        public int _currentVert;
-        public int _currentPath;
-        public int _nextVert;
     }
 
+    /*Variables*/
+
+    //Arrays
     ArrayList<Path> _paths;
     ArrayList<Collision> possibleCollisions = new ArrayList<Collision>();
     ArrayList<Line> deadLines = new ArrayList<Line>();
 
+    //Para vertices y segmentos
     int _currentVert = 0;
     int _nextVert = 1;
     int _currentPath = 0;
+
+    //Para movimientos
     boolean _invert = false;
     boolean _jumping = false;
-    Vector2D _direction; //direccion normalizada
-    Vector2D _preJumpDir; //direccion normalizada
-
-    public boolean _shake = false;
-
-    public float colRange = 20;
-
+    Vector2D _direction; //Normalizada
+    Vector2D _preJumpDir; //Normalizada
     protected float _speed;
     protected float _jumpSpeed;
+
+    //Para screenshake
+    public boolean _shake = false;
+
+    //Umbral para colision
+    public float colRange = 20;
+
+    /*Getters*/
 
     public float getSpeed()
     {
         return _speed;
     }
+
+    /*Setters*/
+
     public void setSpeed(float speed_)
     {
         _speed = speed_;
@@ -66,11 +77,11 @@ public class Player extends Square {
         _dead = false;
     }
 
+    //Actualizacion de parámetros relativos al nivel
     public void newLevel(ArrayList<Path> paths)
     {
         _paths = paths;
         pos = paths.get(0)._vertices.get(0);
-
         _currentVert = 0;
         _currentPath = 0;
         _nextVert = 1;
@@ -80,8 +91,8 @@ public class Player extends Square {
         updateDirection();
     }
 
-    @Override
-    public void render(Graphics g)
+    //Render
+    @Override public void render(Graphics g)
     {
         if (!_dead)
         {
@@ -100,6 +111,7 @@ public class Player extends Square {
         }
     }
 
+    //Comprobacion de colisiones del jugador
     public void checkPlayerCollisions(Level level, ArrayList<Item> itemsToDestroy, double delta)
     {
         if(_dead)
@@ -127,12 +139,12 @@ public class Player extends Square {
             Vector2D intersect2 = Utils.pointIntersectionSegmentSegment(pos, nuPos, e._vertice2.add(e.pos), e._vertice1.add(e.pos));
 
             if (intersect != null && intersect2 != null)
-                die(); //Crear las lineas, sustituyendo al cuadrado en el render?
+                die();
         }
     }
 
-    @Override
-    public void update(double delta, ArrayList<Input.TouchEvent> inputList)
+    //Update
+    @Override public void update(double delta, ArrayList<Input.TouchEvent> inputList)
     {
         if(_dead)
         {
@@ -175,10 +187,8 @@ public class Player extends Square {
                         _shake = true;
                     }
                 }
-
                 pos = nuPos;
             }
-
             else
             {
                 updateDirection();
@@ -197,7 +207,6 @@ public class Player extends Square {
 
                 if (past) {
                     pos = next;
-
                     if (!_invert)
                     {
                         _currentVert = (_currentVert + 1) % path._vertices.size();
@@ -217,13 +226,16 @@ public class Player extends Square {
                             _nextVert += path._vertices.size();
                         }
                     }
-                } else {
+                }
+                else
+                {
                     pos = nuPos;
                 }
             }
         }
     }
 
+    //Actualizar la direccion
     private void updateDirection()
     {
         Path path = _paths.get(_currentPath);
@@ -235,21 +247,23 @@ public class Player extends Square {
         _direction = aux;
     }
 
-    @Override
-    public void lateUpdate(double delta) {}
+    @Override public void lateUpdate(double delta) {}
 
-    @Override
-    public void checkInputs(ArrayList<Input.TouchEvent> inputs)
+    //Comprobación del input
+    @Override public void checkInputs(ArrayList<Input.TouchEvent> inputs)
     {
         if (!inputs.isEmpty())
-            for (Input.TouchEvent tE : inputs) {
-                if (tE.type == Input.TouchEvent.TouchType.PRESS) {
+            for (Input.TouchEvent tE : inputs)
+            {
+                if (tE.type == Input.TouchEvent.TouchType.PRESS)
+                {
                     jump();
                     break;
                 }
             }
     }
 
+    //Fijar direccion cuando va a saltar
     public void setJumpDirection()
     {
         if (_paths.get(_currentPath)._directions.size() == 0)
@@ -265,15 +279,16 @@ public class Player extends Square {
         _direction.normalize();
     }
 
+    //Inversion del movimiento
     private void invertMovement()
     {
         _invert = !_invert;
-
         int tmp = _currentVert;
         _currentVert = _nextVert;
         _nextVert = tmp;
     }
 
+    //Inversion del movimiento
     private void invertMovement(Collision c)
     {
         boolean shouldInvert = null == Utils.pointIntersectionSegmentSegment(c.collisionPoint, c.collisionPoint, pos, pos.add(_preJumpDir.multiply(1000)));
@@ -284,6 +299,7 @@ public class Player extends Square {
         arrangeVerts(c);
     }
 
+    //Cambio de vertices
     private void arrangeVerts(Collision c)
     {
         if(_invert)
@@ -298,12 +314,11 @@ public class Player extends Square {
         }
     }
 
+    //Salto
     public void jump()
     {
         _preJumpDir = _direction;
-
         possibleCollisions.clear();
-
         _jumping = true;
 
         setJumpDirection();
@@ -323,9 +338,6 @@ public class Player extends Square {
 
                 if (point != null)
                 {
-                    //System.out.print("point: " + point.x + ", " + point.y);
-                    //System.out.println(" -- pos: " + pos.x + ", " + pos.y);
-
                     Collision col_ = new Collision(point, path, vert, followingVert);
                     possibleCollisions.add(col_);
                 }
@@ -333,6 +345,7 @@ public class Player extends Square {
         }
     }
 
+    //Comprobacion de si esta fuera de los limites de la pantalla
     public boolean outOfBounds(float Height, float Width)
     {
         boolean topY = (pos.y > Height/2);
@@ -343,10 +356,10 @@ public class Player extends Square {
         return (topY || botY || leftX || rightX);
     }
 
+    //Muerte
     public void die()
     {
         _dead = true;
-
         deadLines.clear();
 
         Random r = new Random(System.currentTimeMillis());
@@ -354,8 +367,8 @@ public class Player extends Square {
         for (int i = 0; i < 10; i++)
         {
             Vector2D randPos = new Vector2D(pos.x,pos.y);
-
             Vector2D randDir = new Vector2D(r.nextFloat() * 50,r.nextFloat() * 50);
+
             float angle = r.nextFloat() * 360;
             boolean rotDir = r.nextFloat() >= 0.5f;
 
@@ -364,7 +377,6 @@ public class Player extends Square {
             if (r.nextFloat() >= 0.5f)
                 randDir.y *= -1;
 
-            //Crear lineas
             deadLines.add(new Line(randPos, _color, randDir, angle, rotDir));
         }
     }

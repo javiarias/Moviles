@@ -7,44 +7,37 @@ import java.util.ArrayList;
 
 public abstract class GameObject implements com.OffTheLine.common.GameObject {
 
+    /*Variables*/
+
     protected Vector2D pos;
     protected float _scale;
     boolean _dead = false;
 
-    boolean isDead() { return _dead; }
+    /*Funciones*/
 
-    //Getters
-    public float getX()
-    {
-       return  pos.x;
-    }
+    /*Getters*/
+    //Obtener componente x de la posicion
+    public float getX() { return  pos.x; }
 
-    public float getY()
-    {
-        return  pos.y;
-    }
+    //Obtener componente y de la posicion
+    public float getY() { return  pos.y; }
 
-    public float getScale()
-    {
-        return  _scale;
-    }
+    //Obtener la escala
+    public float getScale() { return  _scale; }
 
-    //Setters
+    //Obtener si esta muerto
+    boolean getDead() { return _dead; }
 
-    public void setX(float X)
-    {
-        pos.x = X;
-    }
+    /*Setters*/
 
-    public void setY(float Y)
-    {
-        pos.y = Y;
-    }
+    //Fijar componente x de la posicion
+    public void setX(float X) { pos.x = X; }
 
-    public void setScale(float scale)
-    {
-        _scale = scale;
-    }
+    //Fijar componente y de la posicion
+    public void setY(float Y) { pos.y = Y; }
+
+    //Fijar escala
+    public void setScale(float scale) { _scale = scale; }
 
     //Constructora
     GameObject(float posX, float posY)
@@ -60,9 +53,5 @@ public abstract class GameObject implements com.OffTheLine.common.GameObject {
         _scale = 1;
     }
 
-    @Override
-    public void checkInputs(ArrayList<Input.TouchEvent> inputs)
-    {
-
-    }
+    @Override public void checkInputs(ArrayList<Input.TouchEvent> inputs) { }
 }

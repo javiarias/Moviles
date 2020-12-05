@@ -4,114 +4,100 @@ import com.OffTheLine.common.Engine;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.github.cliftonlabs.json_simple.JsonArray;
-import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
-import com.github.cliftonlabs.json_simple.Jsonable;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Level implements Jsonable {
+public class Level {
 
+    /*Variables*/
     String _name;
-
-    public String getName() {
-        return _name;
-    }
-
-    public ArrayList<Path> getPaths() {
-        return _paths;
-    }
-
-    public ArrayList<Item> getItems() {
-        return _items;
-    }
-
-    public ArrayList<Enemy> getEnemies() {
-        return _enemies;
-    }
-
-    public int getTime() {
-        return _time;
-    }
-
     ArrayList<Path> _paths;
     ArrayList<Item> _items;
     ArrayList<Enemy> _enemies;
     int _time;
-
     String _path;
     Engine _e;
 
+    /*Funciones*/
+
+    /*Getters*/
+
+    //Obtener nombre del nivel
+    public String getName() { return _name; }
+
+    //Obtener paths del nivel
+    public ArrayList<Path> getPaths() { return _paths; }
+
+    //Obtener items (monedas) del nivel
+    public ArrayList<Item> getItems() { return _items; }
+
+    //Obtener enemigos del nivel
+    public ArrayList<Enemy> getEnemies() { return _enemies; }
+
+    //Time al final no se usa, pero por si acaso
+    public int getTime() { return _time; }
+
+    //Constructoras
     public Level(String path, Engine e)
     {
         _path = path;
         _e = e;
 
+        //Nuevas listas
         _paths = new ArrayList<Path>();
-
         _items = new ArrayList<Item>();
-
         _enemies = new ArrayList<Enemy>();
     }
 
+    //Update
     public void update(double delta, ArrayList<Input.TouchEvent> inputList)
     {
-        for (Item i : _items) {
+        //Actualizacion de las monedas
+        for (Item i : _items)
+        {
             i.update(delta, inputList);
         }
-        for (Enemy e : _enemies) {
+        //Actualizacion de los enemigos
+        for (Enemy e : _enemies)
+        {
             e.update(delta, inputList);
         }
     }
 
+    //Render (save antes y restore despues del render)
     public void render(Graphics g)
     {
-        for (Path p : _paths) {
+        //Render de paths
+        for (Path p : _paths)
+        {
             g.save();
             p.render(g);
             g.restore();
         }
-        for (Item i : _items) {
+        //Render de items (monedas)
+        for (Item i : _items)
+        {
             g.save();
             i.render(g);
             g.restore();
         }
-        for (Enemy e : _enemies) {
+        //Render de enemigos
+        for (Enemy e : _enemies)
+        {
             g.save();
             e.render(g);
             g.restore();
         }
     }
 
-    @Override
-    public String toJson() {
-        final StringWriter writable = new StringWriter();
-        try {
-            this.toJson(writable);
-        } catch (final IOException e) {
-        }
-        return writable.toString();
-    }
-
-    @Override
-    public void toJson(Writer writer) throws IOException {
-
-        final JsonObject json = new JsonObject();
-
-        json.toJson(writer);
-    }
-
+    //Para cargar el nivel, devolviendo el Array de todos los objetos
     private JsonArray loadLevelFile(String path) throws Exception
     {
-        //Test InputStream
-        try {
+        try
+        {
             InputStream is = _e.getFile(path);
 
             int size = is.available();
@@ -120,25 +106,25 @@ public class Level implements Jsonable {
             is.close();
 
             String jsonString = new String(buffer, "UTF-8");
-
             JsonArray a = (JsonArray) Jsoner.deserialize(jsonString);
-
             return  a;
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
             return null;
         }
     }
 
+    //Carga de un nivel, dado el numero
     public void loadLevel(int lvl) throws Exception
     {
         JsonArray a = loadLevelFile(_path);
-
         JsonObject JsonLevel = (JsonObject) a.get(lvl);
-
         loadLevel(JsonLevel);
     }
 
+    //Dado el objeto JSON, construcción del nivel
     private void loadLevel(JsonObject JsonLevel)
     {
         //Carga de name y time
@@ -148,7 +134,7 @@ public class Level implements Jsonable {
         //Carga de paths
         JsonArray pathsJson = (JsonArray) JsonLevel.get("paths");
 
-        if (pathsJson != null)
+        if (pathsJson != null) //Comprobación de que existe
         {
             int paths_size = pathsJson.size();
 
@@ -175,15 +161,16 @@ public class Level implements Jsonable {
                 }
 
                 //Directions (Opcional)
-
                 JsonArray directions = (JsonArray) aux.get("directions");
 
-                if (directions != null) {
+                if (directions != null) //Comprobación de que existe
+                {
                     tempPath.useDirections();
 
                     int directions_size = directions.size();
 
-                    for (int j = 0; j < directions_size; j++) {
+                    for (int j = 0; j < directions_size; j++)
+                    {
                         JsonObject direction = (JsonObject) directions.get(j);
 
                         BigDecimal x = (BigDecimal) direction.get("x");
@@ -195,7 +182,6 @@ public class Level implements Jsonable {
                         tempPath.addDirection(x_, y_);
                     }
                 }
-
                 _paths.add(tempPath);
             }
         }
@@ -203,7 +189,7 @@ public class Level implements Jsonable {
         //Carga de items
         JsonArray items = (JsonArray) JsonLevel.get("items");
 
-        if (items != null)
+        if (items != null) //Comprobación de que existe
         {
             int items_size = items.size();
 
@@ -221,27 +207,26 @@ public class Level implements Jsonable {
 
                 //Parte opcional
 
-                if (aux.get("radius") != null)
+                if (aux.get("radius") != null) //Comprobación de que existe
                 {
                     BigDecimal r = (BigDecimal) aux.get("radius");
                     float radius = r.floatValue();
                     tempItem.setRadius(radius);
                 }
 
-                if (aux.get("speed") != null)
+                if (aux.get("speed") != null) //Comprobación de que existe
                 {
                     BigDecimal s = (BigDecimal) aux.get("speed");
                     float speed = s.floatValue();
                     tempItem.setSpeed(speed);
                 }
 
-                if (aux.get("angle") != null)
+                if (aux.get("angle") != null) //Comprobación de que existe
                 {
                     BigDecimal a = (BigDecimal) aux.get("angle");
                     float angle = a.floatValue();
                     tempItem.setAngle(angle);
                 }
-
                 _items.add(tempItem);
             }
         }
@@ -249,7 +234,7 @@ public class Level implements Jsonable {
         //Carga de enemies
         JsonArray enemies = (JsonArray) JsonLevel.get("enemies");
 
-        if (enemies != null)
+        if (enemies != null) //Comprobación de que existe
         {
             int enemies_size = enemies.size();
 
@@ -271,7 +256,7 @@ public class Level implements Jsonable {
 
                 //Parte opcional
 
-                if (aux.get("offset") != null)
+                if (aux.get("offset") != null) //Comprobación de que existe
                 {
                     JsonObject o = (JsonObject) aux.get("offset");
 
@@ -284,27 +269,26 @@ public class Level implements Jsonable {
                     tempEnemy.setOffset(offset_x, offset_y);
                 }
 
-                if (aux.get("time1") != null)
+                if (aux.get("time1") != null) //Comprobación de que existe
                 {
                     BigDecimal t1 = (BigDecimal) aux.get("time1");
                     float time1 = t1.floatValue();
                     tempEnemy.setTime1(time1);
                 }
 
-                if (aux.get("time2") != null)
+                if (aux.get("time2") != null) //Comprobación de que existe
                 {
                     BigDecimal t2 = (BigDecimal) aux.get("time2");
                     float time2 = t2.floatValue();
                     tempEnemy.setTime2(time2);
                 }
 
-                if (aux.get("speed") != null)
+                if (aux.get("speed") != null) //Comprobación de que existe
                 {
                     BigDecimal speed = (BigDecimal) aux.get("speed");
                     float speed_ = speed.floatValue();
                     tempEnemy.setSpeed(speed_);
                 }
-
                 _enemies.add(tempEnemy);
             }
         }

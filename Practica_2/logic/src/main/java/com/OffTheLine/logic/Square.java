@@ -3,17 +3,18 @@ package com.OffTheLine.logic;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
 
 public class Square extends GameObject {
 
-    //THIS IS FOR RENDERING
+    /*Variables*/
+
     protected float _size = 8; //pixels
     protected float _rotSpeed = 180; //per second!!
     protected float _rotAngle = 0;
-
     protected int _color;
+
+    /*Funciones*/
 
     //Constructora
     Square(float posX, float posY, int color)
@@ -29,9 +30,8 @@ public class Square extends GameObject {
         _color = color;
     }
 
-    //SAVE & RESTORE DONE OUTSIDE
-    @Override
-    public void render(Graphics g)
+    //Render, Save y restore hechos fuera
+    @Override public void render(Graphics g)
     {
         g.translate(pos.x, pos.y);
         g.rotate(_rotAngle);
@@ -44,13 +44,8 @@ public class Square extends GameObject {
         g.drawLine(_scale * -_size / 2.0f, _scale * -_size / 2.0f, _scale * -_size / 2.0f, _scale * _size / 2.0f);
     }
 
-    @Override
-    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
+    //Update
+    @Override public void update(double delta, ArrayList<Input.TouchEvent> inputList) { }
 
-    }
-
-    @Override
-    public void lateUpdate(double delta) {
-
-    }
+    @Override public void lateUpdate(double delta) { }
 }

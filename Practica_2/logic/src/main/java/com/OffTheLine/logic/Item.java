@@ -2,52 +2,44 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
-
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.toRadians;
 
 public class Item extends Square{
 
-    //THIS IS FOR MOVEMENT!!!!!
+    /*Variables*/
+
+    //For movement
     protected float _radius = 0;
     protected float _speed = 0;
     protected float _angle = 0;
 
-    //Getters
-    public float getRadius()
-    {
-        return _radius;
-    }
-    public float getSpeed()
-    {
-        return _speed;
-    }
-    public float getAngle()
-    {
-        return _angle;
-    }
-
-    //Setters
-    public void setRadius(float radius_)
-    {
-        _radius = radius_;
-    }
-    public void setAngle(float angle_)
-    {
-        _angle = angle_;
-    }
-    public void setSpeed(float speed_)
-    {
-        _speed = speed_;
-    }
-
-    //Death
+    // For death
     float pendingDeathTime = 0.5f;
     float sizeGrow = 15f;
     boolean toDie = false;
+
+    /*Funciones*/
+
+    //Getters
+
+    //Aunque no se usen, estan por si acaso
+    public float getRadius() { return _radius; }
+    public float getSpeed() { return _speed; }
+    public float getAngle() { return _angle; }
+
+    //Setters
+
+    //Para el radio de movimiento
+    public void setRadius(float radius_) { _radius = radius_; }
+
+    //Para el ángulo de giro
+    public void setAngle(float angle_) { _angle = angle_; }
+
+    //Para la velocidad de movimiento
+    public void setSpeed(float speed_) { _speed = speed_; }
 
     //Constructora
     Item(float posX, float posY)
@@ -62,8 +54,9 @@ public class Item extends Square{
         super(pos_, 0xFFFFFF00); //Constructora de gameObject
     }
 
-    @Override
-    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
+    //Update
+    @Override public void update(double delta, ArrayList<Input.TouchEvent> inputList)
+    {
         if(_radius != 0)
         {
             pos.x = _radius * (float)cos(toRadians(_angle));
@@ -76,18 +69,15 @@ public class Item extends Square{
         _rotAngle += _rotSpeed * delta;
         _rotAngle = (_rotAngle % 360);
 
-        if (toDie && pendingDeathTime >= 0) {
+        if (toDie && pendingDeathTime >= 0)
+        {
             pendingDeathTime -= delta;
             setScale(getScale() + (sizeGrow * (float) delta));
         }
-        else if (pendingDeathTime <= 0){
+        else if (pendingDeathTime <= 0)
             _dead = true;
-        }
     }
 
-    @Override
-    public void lateUpdate(double delta) {
-
-    }
+    @Override public void lateUpdate(double delta) { }
 
 }
