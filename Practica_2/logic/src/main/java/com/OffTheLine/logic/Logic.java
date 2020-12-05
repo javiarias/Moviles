@@ -7,6 +7,7 @@ import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Logic implements com.OffTheLine.common.Logic
 {
@@ -14,8 +15,12 @@ public class Logic implements com.OffTheLine.common.Logic
     public enum GameState
     {
         MAINMENU,
-        GAME
+        GAME,
+        LOST,
+        WON
     }
+
+    int MAX_LEVEL = 20;
 
     //Elementos
     Engine _e;
@@ -29,6 +34,7 @@ public class Logic implements com.OffTheLine.common.Logic
 
     //Score
     int score = 0;
+    int totalScore = 0;
     int maxScore;
 
     //UI
@@ -46,6 +52,9 @@ public class Logic implements com.OffTheLine.common.Logic
     ArrayList<Item> itemsToDestroy = new ArrayList<Item>();
     String _path;
     float playerSpeed;
+
+    float shakeTime = 0;
+    int shakeX, shakeY;
 
     Font _gameFont = null;
     Font _menuFont = null;
@@ -69,9 +78,9 @@ public class Logic implements com.OffTheLine.common.Logic
             System.err.println(e);
         }
 
-        _menu = new Menu(true, this);
-        _menu.addButton( 80, 100, "Easy",70, 30, _menuFont);
-        _menu.addButton(80, 180, "Hard",75, 30, _menuFont);
+        _menu = new Menu(this, _menuFont);
+        UI_Lives = new ArrayList<Square>();
+
 
         //gameStart(true);
     }
@@ -90,15 +99,17 @@ public class Logic implements com.OffTheLine.common.Logic
         _level = new Level(_path + "levels.json", _e);
 
         currentLvl = 1;
+        //currentLvl = 5;
 
         loadCurrentLevel();
     }
 
     private void readyGameUI()
     {
-        Vector2D pos = UI_LivesPosRight;
+        UI_Lives.clear();
 
-        UI_Lives = new ArrayList<Square>();
+        Vector2D pos = new Vector2D(UI_LivesPosRight);
+
         for (int i = 0; i < maxLives; i++) {
             Square s = new Square(new Vector2D(pos), 0xFF0088FF);
             s._size = 12;
@@ -110,9 +121,10 @@ public class Logic implements com.OffTheLine.common.Logic
 
     public void lostLife()
     {
-        lives--;
-        if(lives >= 0)
+        if(lives > 0)
         {
+            lives--;
+
             Cross x = new Cross(UI_Lives.get(maxLives - lives - 1), 0xFFFF1111);
 
             UI_Lives.set(maxLives - lives - 1, x);
@@ -122,17 +134,31 @@ public class Logic implements com.OffTheLine.common.Logic
     @Override
     public void update(double deltaTime)
     {
-        if (_state == GameState.MAINMENU)
-        {
-            ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
+        ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
+        if (_state == GameState.MAINMENU)
             _menu.update(deltaTime, ls);
-        }
-        else if (_state == GameState.GAME)
+
+        else
         {
-            if (!checkLevelCompleted(deltaTime))
+            //Si estamos en la pantalla de victoria o la de derrota, comprobar si se hace click
+            // Pero, seguimos queriendo que se actualice y renderice el nivel por debajo
+            if (_state != GameState.GAME)
             {
-                ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
+                for (Input.TouchEvent e : ls)
+                    if(e.type == Input.TouchEvent.TouchType.PRESS)
+                    {
+                        _state = GameState.MAINMENU;
+                        return;
+                    }
+            }
+
+            boolean levelComplete = checkLevelCompleted(deltaTime);
+
+            if (_state != GameState.GAME || !levelComplete)
+            {
+                if(shakeTime > 0)
+                    shakeTime -= deltaTime;
 
                 int i = itemsToDestroy.size();
                 _player.checkPlayerCollisions(_level, itemsToDestroy, deltaTime);
@@ -146,41 +172,113 @@ public class Logic implements com.OffTheLine.common.Logic
                 _level.update(deltaTime, ls);
                 _player.update(deltaTime, ls);
 
+                if(_player._shake || (_player._dead && delayDeath >= 1))
+                {
+                    _player._shake = false;
+                    shakeTime = 0.03F;
+
+                    Random r = new Random(System.currentTimeMillis());
+
+                    shakeX = (r.nextFloat() >= 0.5) ? 1 : -1;
+                    shakeY = (r.nextFloat() >= 0.5) ? -1 : 1;
+                }
+
                 destroyItems();
 
                 if (lost)
                     destroyPlayer(deltaTime);
-            } else {
+            } else if(_state == GameState.GAME && levelComplete) {
+                totalScore += score;
                 changeLevel();
             }
         }
-        //else //if (_state == state.LOST)
     }
 
     @Override
     public void render(Graphics g)
     {
-        if (_state == GameState.GAME)
-        {
-            g.save();
-            paintGameUI(g);
-            g.restore();
-
-            g.save();
-            g.restore();
-
-            g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
-
-            _level.render(g);
-            _player.render(g);
-        }
-        else
+        if (_state == GameState.MAINMENU)
         {
             g.save();
             _menu.render(g);
             g.restore();
         }
+        else
+        {
+            g.save();
+            paintGameUI(g);
+            g.restore();
+
+            if(shakeTime > 0)
+                g.translate(4 * shakeX, 4 * shakeY);
+
+            g.translate(g.getWidth() / 2.0f, g.getHeight() / 2.0f);
+
+            _level.render(g);
+            _player.render(g);
+
+            //queremos que se renderice el nivel debajo de la pantalla de victoria
+            g.save();
+            if(_state == GameState.LOST)
+                drawGameOver(g);
+            else if(_state == GameState.WON)
+                drawGameWon(g);
+            g.restore();
+        }
     }
+
+    private void drawGameOver(Graphics g)
+    {
+        g.setColor(0xFF444444);
+        g.fillRect(-g.getWidth() / 2.0f, -160, g.getWidth() / 2.0f, 0);
+
+        g.setFont(_menuFont);
+        g.setColor(0xFFFF0000);
+
+        g.save();
+        g.scale(2, 2);
+        g.drawText("GAME OVER", -60, -60);
+        g.restore();
+
+        g.scale(1, 1);
+        g.setColor(0xFFFFFFFF);
+
+        String txt = "EASY MODE";
+        if(maxLives == 5)
+            txt = "HARD MODE";
+
+        g.drawText(txt, -60, -70);
+
+        g.drawText("SCORE: " + totalScore, -50, -40);
+
+        g.drawText("CLICK TO QUIT TO MAIN MENU", -160, -10);
+    }
+
+    private void drawGameWon(Graphics g)
+    {
+        g.setColor(0xFF444444);
+        g.fillRect(-g.getWidth() / 2.0f, -160, g.getWidth() / 2.0f, -20);
+
+        g.setFont(_menuFont);
+        g.setColor(0xFF0088FF);
+
+        g.save();
+        g.scale(2, 2);
+        g.drawText("CONGRATULATIONS", -110, -60);
+        g.restore();
+
+        g.scale(1, 1);
+        g.setColor(0xFFFFFFFF);
+
+        String txt = "EASY MODE";
+        if(maxLives == 5)
+            txt = "HARD MODE";
+
+        g.drawText(txt + " COMPLETE", -120, -70);
+
+        g.drawText("CLICK TO QUIT TO MAIN MENU", -160, -40);
+    }
+
 
     public void paintGameUI(Graphics g)
     {
@@ -219,7 +317,11 @@ public class Logic implements com.OffTheLine.common.Logic
         else
         {
             lostLife();
-            changeLevel();
+
+            if(lives == 0)
+                _state = GameState.LOST;
+            else
+                changeLevel();
         }
     }
 
@@ -239,15 +341,16 @@ public class Logic implements com.OffTheLine.common.Logic
 
     boolean checkLevelCompleted(double deltaTime)
     {
-        if (score == maxScore)
+        if (!lost && score == maxScore)
         {
             if (delayChangeLevel >= 0)
                 delayChangeLevel -= deltaTime;
             else
             {
-                currentLvl++;
-                if(currentLvl >= 20)
-                    currentLvl = 1;
+                if(currentLvl >= MAX_LEVEL)
+                    _state = GameState.WON;
+                else
+                    currentLvl++;
                 return true;
             }
         }

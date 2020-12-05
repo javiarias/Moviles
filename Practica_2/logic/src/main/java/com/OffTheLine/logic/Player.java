@@ -40,6 +40,8 @@ public class Player extends Square {
     Vector2D _direction; //direccion normalizada
     Vector2D _preJumpDir; //direccion normalizada
 
+    public boolean _shake = false;
+
     public float colRange = 20;
 
     protected float _speed;
@@ -169,6 +171,8 @@ public class Player extends Square {
 
                         nuPos = c.collisionPoint;
                         updateDirection();
+
+                        _shake = true;
                     }
                 }
 
@@ -333,8 +337,8 @@ public class Player extends Square {
 
                 if (point != null)
                 {
-                    System.out.print("point: " + point.x + ", " + point.y);
-                    System.out.println(" -- pos: " + pos.x + ", " + pos.y);
+                    //System.out.print("point: " + point.x + ", " + point.y);
+                    //System.out.println(" -- pos: " + pos.x + ", " + pos.y);
 
                     Collision col_ = new Collision(point, path, vert, followingVert);
                     possibleCollisions.add(col_);

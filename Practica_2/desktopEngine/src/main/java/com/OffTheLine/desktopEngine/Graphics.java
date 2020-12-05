@@ -209,7 +209,7 @@ public class Graphics extends com.OffTheLine.common.CommonGraphics {
 
     @Override
     public void fillRect(float x1, float y1, float x2, float y2) {
-        _graphics.fillRect((int)x1, (int)y1, (int)x2, (int)y2);
+        _graphics.fillRect((int)x1, (int)y1, (int)x2 - (int)x1, (int)y2 - (int)y1);
     }
 
     @Override
