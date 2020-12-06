@@ -274,7 +274,7 @@ public class Player extends Square {
                 _direction = _direction.PerpendicularClockwise(_direction);
         }
         else
-            _direction = new Vector2D(_paths.get(_currentPath)._directions.get(0));
+            _direction = new Vector2D(_paths.get(_currentPath)._directions.get(_currentVert));
 
         _direction.normalize();
     }
