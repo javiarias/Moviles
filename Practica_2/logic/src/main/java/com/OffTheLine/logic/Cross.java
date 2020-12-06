@@ -3,6 +3,8 @@ package com.OffTheLine.logic;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Vector2D;
 
+//Para vidas gastadas en la UI
+
 public class Cross extends Square
 {
     //Constructora

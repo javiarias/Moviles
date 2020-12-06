@@ -69,7 +69,7 @@ public class Item extends Square{
         _rotAngle += _rotSpeed * delta;
         _rotAngle = (_rotAngle % 360);
 
-        if (toDie && pendingDeathTime >= 0)
+        if (toDie && pendingDeathTime >= 0) //Para la animacion de ampliar tamaño al ser recogida
         {
             pendingDeathTime -= delta;
             setScale(getScale() + (sizeGrow * (float) delta));

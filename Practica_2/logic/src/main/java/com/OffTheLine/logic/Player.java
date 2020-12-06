@@ -47,7 +47,7 @@ public class Player extends Square {
     protected float _speed;
     protected float _jumpSpeed;
 
-    //Para screenshake
+    //Para el efecto de screenshake
     public boolean _shake = false;
 
     //Umbral para colision
@@ -114,17 +114,17 @@ public class Player extends Square {
     //Comprobacion de colisiones del jugador
     public void checkPlayerCollisions(Level level, ArrayList<Item> itemsToDestroy, double delta)
     {
-        if(_dead)
+        if(_dead) //Si muere, no hace falta comprobar nada
             return;
 
-        //Movimiento
+        //Nueva posicion para comprobar colisiones
         Vector2D add_ = new Vector2D(_direction);
         add_ = add_.multiply(_jumpSpeed * (float) delta);
         Vector2D nuPos = pos.add(add_);
 
         for (Item i : level.getItems())
         {
-            if (Utils.distancePointPoint(pos, i.pos) < colRange * colRange)
+            if (Utils.distancePointPoint(pos, i.pos) < colRange * colRange) //ColRange^2 para evitar raíces cuadradas
             {
                 if (!i.toDie) {
                     i.toDie = true;
@@ -135,6 +135,7 @@ public class Player extends Square {
 
         for (Enemy e : level.getEnemies())
         {
+            //2 diferentes, para evitar que si los vértices se invierten en el movimiento haya problemas
             Vector2D intersect = Utils.pointIntersectionSegmentSegment(pos, nuPos, e._vertice1.add(e.pos), e._vertice2.add(e.pos));
             Vector2D intersect2 = Utils.pointIntersectionSegmentSegment(pos, nuPos, e._vertice2.add(e.pos), e._vertice1.add(e.pos));
 
@@ -148,14 +149,14 @@ public class Player extends Square {
     {
         if(_dead)
         {
-            for (Line l : deadLines)
+            for (Line l : deadLines) //Animacion al morir
             {
                 l.update(delta, inputList);
             }
         }
         else
         {
-            if(!_jumping)
+            if(!_jumping) //Si ya está saltando, no se comprueban los inputs
                 checkInputs(inputList);
 
             //Siempre se hace
@@ -164,7 +165,7 @@ public class Player extends Square {
 
             if (_jumping) {
 
-                //Movimiento
+                //Nueva posicion
                 Vector2D add_ = new Vector2D(_direction);
                 add_ = add_.multiply(_jumpSpeed * (float) delta);
                 Vector2D nuPos = pos.add(add_);
@@ -174,7 +175,7 @@ public class Player extends Square {
                     float colDist = Utils.distancePointPoint(pos, c.collisionPoint);
                     float colDistPast = Utils.distancePointPoint(pos, nuPos);
 
-                    if (colDistPast >= colDist) //Sin este margen, en la circunferencia explota
+                    if (colDistPast >= colDist) //Sin este margen, en el nivel de la circunferencia explota todo
                     {
                         _jumping = false;
 
@@ -189,7 +190,7 @@ public class Player extends Square {
                 }
                 pos = nuPos;
             }
-            else
+            else //Si no está en salto, se hace el movimiento "normal"
             {
                 updateDirection();
 
@@ -197,6 +198,7 @@ public class Player extends Square {
                 Vector2D current = path._vertices.get(_currentVert);
                 Vector2D next = path._vertices.get(_nextVert);
 
+                //No se saca fuera porque _speed y _jumpSpeed son diferentes
                 Vector2D add_ = new Vector2D(_direction);
                 add_ = add_.multiply(_speed * (float) delta);
                 Vector2D nuPos = pos.add(add_);
@@ -205,9 +207,10 @@ public class Player extends Square {
                 float d2 = nuPos.distance(current);
                 boolean past = (d1 <= d2);
 
-                if (past) {
+                if (past) //Comprobación de si se ha pasado del vertice y toca cambiar el sentido del movimiento
+                {
                     pos = next;
-                    if (!_invert)
+                    if (!_invert) //Si esta en sentido inverso al habitual
                     {
                         _currentVert = (_currentVert + 1) % path._vertices.size();
                         _nextVert = (_nextVert + 1) % path._vertices.size();
@@ -326,6 +329,7 @@ public class Player extends Square {
         Vector2D checkStart = pos.add(_direction);
         Vector2D checkEnd = pos.add(_direction.multiply(1000));
 
+        //Se comprueban todos los posibles, y las posibles colisiones se añaden a un vector para ahorrar comprobaciones más tarde
         for (int path = 0; path < _paths.size() ; path++)
         {
             for (int vert = 0; vert < _paths.get(path)._vertices.size(); vert++)

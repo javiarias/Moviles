@@ -3,14 +3,14 @@ package com.OffTheLine.logic;
 import com.OffTheLine.common.Graphics;
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
-
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.toRadians;
 
 public class Enemy extends GameObject {
+
+    /*Variables*/
 
     protected float _angle;
     protected float _length;
@@ -23,30 +23,35 @@ public class Enemy extends GameObject {
     protected float _waitTime = 0;
 
     protected Vector2D _travelSpeed = null;
-
     protected Vector2D _vertice1;
     protected Vector2D _vertice2;
-
     boolean _waiting = false;
     float _waitStart = 0;
     float _travelDir = 1;
 
+    /*Funciones*/
+
     //Getters
+
+    //Obtener ángulo
     public float getAngle()
     {
         return _angle;
     }
 
+    //Obtener longitud
     public float getLength()
     {
         return _length;
     }
 
+    //Obtener velocidad
     public float getSpeed()
     {
         return _rotSpeed;
     }
 
+    //Obtener offsets en X, Y
     public float getOffsetX()
     {
         return _offset.x;
@@ -56,32 +61,37 @@ public class Enemy extends GameObject {
         return _offset.y;
     }
 
+    //Obtener tiempos
     public float getTime1()
     {
         return _travelTime;
     }
-
     public float getTime2()
     {
         return _waitTime;
     }
 
     //Setters
+
+    //Fijar ángulo
     public void setAngle(float angle_)
     {
         _angle = angle_;
     }
 
+    //Fijar longitud
     public void setLength(float length_)
     {
         _length = length_;
     }
 
+    //Fijar velocidad
     public void setSpeed (float speed_)
     {
         _rotSpeed = -speed_;
     }
 
+    //Fijar offsets
     public void setOffset (float x_, float y_)
     {
         _offset = new Vector2D(x_, y_ * -1);
@@ -91,6 +101,7 @@ public class Enemy extends GameObject {
         }
     }
 
+    //Fijar tiempo1
     public void setTime1 (float time1_)
     {
         _travelTime = time1_;
@@ -100,11 +111,13 @@ public class Enemy extends GameObject {
         }
     }
 
+    //Fijar tiempo2
     public void setTime2 (float time2_)
     {
         _waitTime = time2_;
     }
 
+    //Para calcular la velocidad de movimiento
     void calculateTravelSpeed()
     {
         float speedX = _offset.x / _travelTime;
@@ -117,7 +130,7 @@ public class Enemy extends GameObject {
     //Constructora
     Enemy(float posX, float posY, float angle_, float length_)
     {
-        //en el json las y están al revés, y el ángulo/velocidad igual
+        //En la lectura de nivel, Y está al revés, y el ángulo/velocidad igual
         super(posX, posY * -1); //Constructora de gameObject
         _angle = -angle_;
         _length = length_;
@@ -127,13 +140,14 @@ public class Enemy extends GameObject {
         _offset = new Vector2D(0, 0);
     }
 
-    @Override
-    public void update(double delta, ArrayList<Input.TouchEvent> inputList) {
+    //Update
+    @Override public void update(double delta, ArrayList<Input.TouchEvent> inputList)
+    {
         _angle += _rotSpeed * delta;
 
         _angle = (_angle % 360);
 
-        //se calculan los vértices directamente en vez de usar rotate, puesto que si no no sirve de nada que estén girados.
+        //Se calculan los vértices directamente en vez de usar rotate, si no, no sirve de nada que estén girados.
         _vertice1.x = -(_length / 2.0f) * (float)cos(toRadians(_angle));
         _vertice1.y = -(_length / 2.0f) * (float)sin(toRadians(_angle));
         _vertice2.x = (_length / 2.0f) * (float)cos(toRadians(_angle));
@@ -145,19 +159,20 @@ public class Enemy extends GameObject {
             {
                 _waitStart += delta;
                 _waiting = (_waitStart < _waitTime);
-                if(!_waiting){
+                if(!_waiting)
+                {
                     _travelDir *= -1;
                 }
             }
-            else {
+            else
+            {
                 Vector2D temp = pos.add(_travelSpeed.multiply(_travelDir * (float)delta));
                 Vector2D _offsetPos = _originalPos.add(_offset);
 
                 boolean awayFromOriginal = (_originalPos.distance(_offsetPos) <= _originalPos.distance(temp));
                 boolean awayFromOffset = (_offsetPos.distance(_originalPos) <= _offsetPos.distance(temp));
 
-                if((_travelDir > 0 && awayFromOriginal) ||
-                    (_travelDir < 0 && awayFromOffset))
+                if((_travelDir > 0 && awayFromOriginal) || (_travelDir < 0 && awayFromOffset))
                 {
                     if(_travelDir < 0)
                         pos = _originalPos;
@@ -167,26 +182,21 @@ public class Enemy extends GameObject {
                     _waiting = true;
                     _waitStart = 0;
                 }
-                else {
+                else
+                {
                     pos = temp;
                 }
             }
         }
     }
 
-    //SAVE & RESTORE DONE OUTSIDE
-    @Override
-    public void render(Graphics g)
+    //Render, Save y restore hechos fuera
+    @Override public void render(Graphics g)
     {
         g.setColor(0xFFFF0000);
-
         g.translate(pos.x, pos.y);
-
         g.drawLine(_vertice1.x, _vertice1.y, _vertice2.x, _vertice2.y);
     }
 
-    @Override
-    public void lateUpdate(double delta) {
-
-    }
+    @Override public void lateUpdate(double delta) { }
 }

@@ -39,6 +39,7 @@ public class Menu {
                 {
                     if (tE.type == Input.TouchEvent.TouchType.PRESS)
                     {
+                        //Para trasladar las coordenadas del input al sistema lógico
                         Vector2D transPos = new Vector2D(tE.pos);
                         transPos.x -= _e.getGraphics().getXOffset();
                         transPos.y -= _e.getGraphics().getYOffset();

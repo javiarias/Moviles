@@ -2,7 +2,6 @@ package com.OffTheLine.logic;
 
 import com.OffTheLine.common.Input;
 import com.OffTheLine.common.Vector2D;
-
 import java.util.ArrayList;
 
 public abstract class GameObject implements com.OffTheLine.common.GameObject {

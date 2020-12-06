@@ -129,7 +129,7 @@ public class Logic implements com.OffTheLine.common.Logic
     {
         ArrayList<Input.TouchEvent> ls = new ArrayList<Input.TouchEvent>(_e.getInput().getTouchEvents());
 
-        if (_state == GameState.MAINMENU)
+        if (_state == GameState.MAINMENU) //Para menu
             _menu.update(deltaTime, ls);
 
         else
@@ -149,7 +149,7 @@ public class Logic implements com.OffTheLine.common.Logic
 
             boolean levelComplete = checkLevelCompleted(deltaTime);
 
-            if (_state != GameState.GAME || !levelComplete)
+            if (_state != GameState.GAME || !levelComplete) //Solo cuando se está jugando y no se ha completado el nivel
             {
                 if(shakeTime > 0)
                     shakeTime -= deltaTime;
@@ -177,7 +177,7 @@ public class Logic implements com.OffTheLine.common.Logic
                     shakeY = (r.nextFloat() >= 0.5) ? -1 : 1;
                 }
 
-                destroyItems();
+                destroyItems(); //Borrado de monedas
 
                 if (lost)
                     destroyPlayer(deltaTime);
@@ -214,7 +214,7 @@ public class Logic implements com.OffTheLine.common.Logic
             _level.render(g);
             _player.render(g);
 
-            //queremos que se renderice el nivel debajo de la pantalla de victoria
+            //Queremos que se renderice el nivel debajo de la pantalla de victoria
             g.save();
             if(_state == GameState.LOST)
                 drawGameOver(g);
@@ -282,12 +282,10 @@ public class Logic implements com.OffTheLine.common.Logic
         g.setColor(0xFFFFFFFF);
         g.drawText("Level " + currentLvl + " - " + _level._name, 0, UI_Y * 1.2f);
 
-        //La UI de vidas se dibuja desde la derecha
-
         for (Square s : UI_Lives)
         {
             g.save();
-            g.translate(g.getWidth(), 0);
+            g.translate(g.getWidth(), 0); //La UI de vidas se dibuja desde la derecha
             s.render(g);
             g.restore();
         }
