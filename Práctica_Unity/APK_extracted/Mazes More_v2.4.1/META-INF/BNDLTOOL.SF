@@ -1,0 +1,3834 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: FPckRXMyu9PikJEMJIMg1MD+lkM=
+X-Android-APK-Signed: 2
+
+Name: AndroidManifest.xml
+SHA1-Digest: R5O0SK4W15JwbxdoNMbTg/39fXw=
+
+Name: META-INF/androidx.activity_activity.version
+SHA1-Digest: RkNW8YDqxBjvnU/8M+42MoBO998=
+
+Name: META-INF/androidx.appcompat_appcompat-resources.version
+SHA1-Digest: L1WSnCxLg4cpL9uEb+hKu7Q2iL0=
+
+Name: META-INF/androidx.appcompat_appcompat.version
+SHA1-Digest: Sibj0VVmL7B67oBCzlyitRpAkSE=
+
+Name: META-INF/androidx.arch.core_core-runtime.version
+SHA1-Digest: e1tut2kK2rB7RpspgrtY2fhXIus=
+
+Name: META-INF/androidx.asynclayoutinflater_asynclayoutinflater.versio
+ n
+SHA1-Digest: WqoBXdmwOawnG6g3OVRUCF+8KCo=
+
+Name: META-INF/androidx.browser_browser.version
+SHA1-Digest: FTb+ZX6+djXv7/7siMJ643ige9M=
+
+Name: META-INF/androidx.cardview_cardview.version
+SHA1-Digest: 5cRY2CqSCgH34xYdDfmWIOX0uBo=
+
+Name: META-INF/androidx.coordinatorlayout_coordinatorlayout.version
+SHA1-Digest: ERHZEzpSAkP4u0Q4r4kuzOm6fRQ=
+
+Name: META-INF/androidx.core_core-ktx.version
+SHA1-Digest: 4Cp+5KgIPwRimfuiMfmLMJriyj0=
+
+Name: META-INF/androidx.core_core.version
+SHA1-Digest: txeaIiQkOxzdlNfDETRdv5OawXU=
+
+Name: META-INF/androidx.cursoradapter_cursoradapter.version
+SHA1-Digest: 52+fw7GKKOOmtXCrnrPrtGPTVjM=
+
+Name: META-INF/androidx.customview_customview.version
+SHA1-Digest: t8mdcbiD7qQRZMP1YzJ04kSRnf4=
+
+Name: META-INF/androidx.documentfile_documentfile.version
+SHA1-Digest: fg9F24pvtMEcEkkm7xqpxkHESyw=
+
+Name: META-INF/androidx.drawerlayout_drawerlayout.version
+SHA1-Digest: bWeoZCU9ATEAfis5P+TKeyLQFwM=
+
+Name: META-INF/androidx.fragment_fragment.version
+SHA1-Digest: YCTFcfu3Lr1U8TE6qJKf40UZNmY=
+
+Name: META-INF/androidx.interpolator_interpolator.version
+SHA1-Digest: N1oXzTddmYqikyO12TzdUpHmrRc=
+
+Name: META-INF/androidx.legacy_legacy-support-core-ui.version
+SHA1-Digest: BrovuIvOpCRJZm5b7BNdTwe8ekM=
+
+Name: META-INF/androidx.legacy_legacy-support-core-utils.version
+SHA1-Digest: 4ZsGLz3iepmiYLfcQVIkoR0gpQU=
+
+Name: META-INF/androidx.legacy_legacy-support-v4.version
+SHA1-Digest: e9wci7bIIXJTAFibxq9OhTmVMtI=
+
+Name: META-INF/androidx.lifecycle_lifecycle-livedata-core.version
+SHA1-Digest: U63/Ctq+AUtHFU5Ia4vA7Ym34KQ=
+
+Name: META-INF/androidx.lifecycle_lifecycle-livedata.version
+SHA1-Digest: poGZm7IDwUnkQwl7MPyRqH6B9RE=
+
+Name: META-INF/androidx.lifecycle_lifecycle-runtime.version
+SHA1-Digest: BKBNd1fv9nhDoBMVu5Q6eKRd1cA=
+
+Name: META-INF/androidx.lifecycle_lifecycle-viewmodel.version
+SHA1-Digest: 5rJbuh2iNVSvJuUQ/FpsQuQ/WdQ=
+
+Name: META-INF/androidx.loader_loader.version
+SHA1-Digest: TbDlvpg++ycbvKZlifqI5Y5JpVQ=
+
+Name: META-INF/androidx.localbroadcastmanager_localbroadcastmanager.ve
+ rsion
+SHA1-Digest: SzB8yvROSPFYg6e27pVrAARBspc=
+
+Name: META-INF/androidx.media2_media2-common.version
+SHA1-Digest: 5Ru3mhJIZYrZVmXWUVUYV0TF/9o=
+
+Name: META-INF/androidx.media2_media2-exoplayer.version
+SHA1-Digest: MlXSOxreKRIF0sdaZ5fqad3n/h8=
+
+Name: META-INF/androidx.media2_media2-player.version
+SHA1-Digest: 7SmtHwLqUSXidNIyGSiji2NmFiI=
+
+Name: META-INF/androidx.media2_media2-session.version
+SHA1-Digest: w0fg/YRSW8edDbatPZ4pfjSQZbg=
+
+Name: META-INF/androidx.media2_media2-widget.version
+SHA1-Digest: 4T9sJ37Ju5ntMqBsIycgJBGU9tQ=
+
+Name: META-INF/androidx.media_media.version
+SHA1-Digest: p06NeBQ2DjZBiy1YAHueCER7tXU=
+
+Name: META-INF/androidx.palette_palette.version
+SHA1-Digest: uY4JQFnUbj2ZMec8qT03XZsmAuY=
+
+Name: META-INF/androidx.print_print.version
+SHA1-Digest: U1duTbm/CadP1xfBHfRRB+Eul/Y=
+
+Name: META-INF/androidx.recyclerview_recyclerview.version
+SHA1-Digest: doiPbfv9hzPuMW2rwouKFSjCkn4=
+
+Name: META-INF/androidx.savedstate_savedstate.version
+SHA1-Digest: xC4vk1bYtZevNUbqkQuqonsnBaY=
+
+Name: META-INF/androidx.slidingpanelayout_slidingpanelayout.version
+SHA1-Digest: 8XqSeewL8jyWeo+bFTBl26J7vD0=
+
+Name: META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version
+SHA1-Digest: vISue0XyGeEFMixEq2S9gO/P19s=
+
+Name: META-INF/androidx.vectordrawable_vectordrawable-animated.version
+SHA1-Digest: w0A+K7tYuUJdUvY44ht+xnjq19Q=
+
+Name: META-INF/androidx.vectordrawable_vectordrawable.version
+SHA1-Digest: 34KpDjBzdkt0mOT6lWJ1Fv3YmF0=
+
+Name: META-INF/androidx.versionedparcelable_versionedparcelable.versio
+ n
+SHA1-Digest: 9fe0ekwsnzJKjcc7O0Iw5c0aa2Y=
+
+Name: META-INF/androidx.viewpager_viewpager.version
+SHA1-Digest: Z6PEVwMu6dlOivFDm82mN1PA+/g=
+
+Name: META-INF/core-ktx_release.kotlin_module
+SHA1-Digest: WI+3U2X5CFM9YXeO5FU+Zrwg7vs=
+
+Name: META-INF/kotlin-android-extensions-runtime.kotlin_module
+SHA1-Digest: mT3k3kdtDSuIeqbeJsIEjHh32l4=
+
+Name: META-INF/kotlin-stdlib-common-coroutines.kotlin_module
+SHA1-Digest: 4/byuxy69qkBPaMD4qY3p66eX1Q=
+
+Name: META-INF/kotlin-stdlib-common.kotlin_module
+SHA1-Digest: 3GkQhOVefR/HaWY41zxSC8m91hY=
+
+Name: META-INF/kotlin-stdlib-coroutines.kotlin_module
+SHA1-Digest: NOmBfjF55jE13Y79E8SqkDgHW8w=
+
+Name: META-INF/kotlin-stdlib-jdk7.kotlin_module
+SHA1-Digest: hMafOf4WRV4wpo1Q8Rzhv6qNvjE=
+
+Name: META-INF/kotlin-stdlib.kotlin_module
+SHA1-Digest: ORFIBQcdrx/61QEDs3Jq0rc6WWQ=
+
+Name: META-INF/mopub-sdk-base_release.kotlin_module
+SHA1-Digest: 2h70b/5eCWcGGxh+48RyerghfrA=
+
+Name: META-INF/mopub-sdk-interstitial_release.kotlin_module
+SHA1-Digest: vWrbx7/hFg2SeTEXvIBX4XLIKXc=
+
+Name: META-INF/mopub-sdk-rewardedvideo_release.kotlin_module
+SHA1-Digest: 7lBad79/EYt0O3oj3fM042pVxns=
+
+Name: META-INF/services/com.smaato.sdk.core.analytics.ViewabilityPlugi
+ n
+SHA1-Digest: C8KzFe4SCCyQm8BDLX+CiUnYLrk=
+
+Name: META-INF/services/com.smaato.sdk.core.framework.AdPresenterModul
+ eInterface
+SHA1-Digest: oBrDemplRwJkgwES3OZgFUAKzfw=
+
+Name: META-INF/services/com.smaato.sdk.core.framework.ModuleInterface
+SHA1-Digest: ZkpNYpLkD3k7+VBmX29+IUkfeOw=
+
+Name: androidsupportmultidexversion.txt
+SHA1-Digest: Db3nZ/ZaRF3v2l511p417+Q6Jo8=
+
+Name: assets/File
+SHA1-Digest: MPVAVb4CpA5VmcMf7UR4eEUy1mM=
+
+Name: assets/ad.html
+SHA1-Digest: uEQhjtvBbFDWHuML3BsKXl154/w=
+
+Name: assets/android_bridge.js
+SHA1-Digest: f0Xcc+zI5oTSGg4KJ1G7imgGmcQ=
+
+Name: assets/aps-mraid.js
+SHA1-Digest: 65yhbawtrgWSD+p5qys2xvfoVHE=
+
+Name: assets/aps_mobile_client_config.json
+SHA1-Digest: sJ4LU5iW7D4C3AvWrEIIBn7FhhI=
+
+Name: assets/audience_network.dex
+SHA1-Digest: 5uk2JIVnvol20/ckXte3Eo2Aw0o=
+
+Name: assets/consentform.html
+SHA1-Digest: tETiWpnDnp/2bYZp81GgG7GX2AA=
+
+Name: assets/crashlytics-build.properties
+SHA1-Digest: QArqpZId1CMUkmoFt5yMZM0+g/U=
+
+Name: assets/data/Icon-29@3.png
+SHA1-Digest: kBKvkibT7tbH7/zEnCcWzBDY8g0=
+
+Name: assets/data/gameparams.json
+SHA1-Digest: pSAvKsnHcYpjpMwE5bRvecimJBI=
+
+Name: assets/dtb-m.js
+SHA1-Digest: A97fdMZBhD0hk/2HG5UiigQCAWk=
+
+Name: assets/font/bebas_neue.otf
+SHA1-Digest: SgHXCxsyfEDHNFLxirrpVKS6ZwI=
+
+Name: assets/fyb_iframe_endcard_tmpl.html
+SHA1-Digest: BsPNHfyl7L5kyWqRRjMLQDuHfPM=
+
+Name: assets/fyb_static_endcard_tmpl.html
+SHA1-Digest: vnY/jTUkMbGCOM65s+rPqO2JrT8=
+
+Name: assets/ia_js_load_monitor.txt
+SHA1-Digest: wfNv78ATfHpCxiwKqQGCuO6avWk=
+
+Name: assets/ia_mraid_bridge.txt
+SHA1-Digest: gLPayr0w/yMBjeO0tfj/LYr9oIM=
+
+Name: assets/ia_mraid_logged_bridge.txt
+SHA1-Digest: G6lscWv1PO+s7OY5S7n0M9dC524=
+
+Name: assets/levels/classic/1.json
+SHA1-Digest: o5VgpxP9wG0DtMVOTsrxgOzEh/Q=
+
+Name: assets/levels/classic/10.json
+SHA1-Digest: rCqh9RyE6v6XyXN9HL7mxFlhk6E=
+
+Name: assets/levels/classic/100.json
+SHA1-Digest: VYik6LPZPGnBSikE11IddSwTAZA=
+
+Name: assets/levels/classic/11.json
+SHA1-Digest: UxawvOe7Xk05Xv7Hw4/oAmSEK/M=
+
+Name: assets/levels/classic/12.json
+SHA1-Digest: Nw/K9t28rv6gjj+CWZBw4r/3mVM=
+
+Name: assets/levels/classic/13.json
+SHA1-Digest: 7xag5dfW74Jmrd5+D1/ApflW2Ow=
+
+Name: assets/levels/classic/14.json
+SHA1-Digest: 82wUBiOPJDYVMvlQLmi9Ix2FduE=
+
+Name: assets/levels/classic/15.json
+SHA1-Digest: B7pmB9oK0NGDdewIkyTM4DEHdDQ=
+
+Name: assets/levels/classic/16.json
+SHA1-Digest: CvAR/8jkCfSDKf9r1Wl/e9EpOnk=
+
+Name: assets/levels/classic/17.json
+SHA1-Digest: mAY+dnUizS16hN9x79sxShAcofE=
+
+Name: assets/levels/classic/18.json
+SHA1-Digest: 4Kb5dn8V6vd05c5F0V3vch1mX2Q=
+
+Name: assets/levels/classic/19.json
+SHA1-Digest: Wk9nBRowyAEFQFAH6zb1RjDyAu8=
+
+Name: assets/levels/classic/2.json
+SHA1-Digest: tW3hjMt46/uHF6HUw2i340E6V6M=
+
+Name: assets/levels/classic/20.json
+SHA1-Digest: +KGYL37SL/AaWOMwgBi5Q01UBhs=
+
+Name: assets/levels/classic/21.json
+SHA1-Digest: rMVAefh2b9Qh43US9DlYhIX0ohs=
+
+Name: assets/levels/classic/22.json
+SHA1-Digest: e0E8doydzJS5FodPWPOivzfPLBs=
+
+Name: assets/levels/classic/23.json
+SHA1-Digest: cU3IlaNJliq1DsCXJHemyKJZXRQ=
+
+Name: assets/levels/classic/24.json
+SHA1-Digest: FE16YL3vGhfaIe8cy1u/qTZu43s=
+
+Name: assets/levels/classic/25.json
+SHA1-Digest: e48fCQg/+q4CVn25C/q7yjKP+FE=
+
+Name: assets/levels/classic/26.json
+SHA1-Digest: ww5Y/Ob+S8yd3Q9E3N4EngCOyD0=
+
+Name: assets/levels/classic/27.json
+SHA1-Digest: V0DA9aFmvuJpIjHItzkO9GoAEog=
+
+Name: assets/levels/classic/28.json
+SHA1-Digest: Yb7kwFaR6cT/QKfqZdYQVRYprXo=
+
+Name: assets/levels/classic/29.json
+SHA1-Digest: UUjHv32Qu5CrGMiFFHXM3kHTges=
+
+Name: assets/levels/classic/3.json
+SHA1-Digest: isokqFnmBFnWaKTPTSD+fVxly8E=
+
+Name: assets/levels/classic/30.json
+SHA1-Digest: Mf9kqgnW93JEnITAXm/LxXkjTAg=
+
+Name: assets/levels/classic/31.json
+SHA1-Digest: o0epr6lNAt/SfNS60M4HX8fk4/k=
+
+Name: assets/levels/classic/32.json
+SHA1-Digest: Kg+9y4Hzb/o95UehQ6ZXd6RNgqg=
+
+Name: assets/levels/classic/33.json
+SHA1-Digest: 0YK2OgZpHF5w59ph73pof01j40w=
+
+Name: assets/levels/classic/34.json
+SHA1-Digest: aRfXnEUG6xK2zGqU4B2hIEJNxR4=
+
+Name: assets/levels/classic/35.json
+SHA1-Digest: lUPzBQhyP0KL012rHoFCl5nXYzo=
+
+Name: assets/levels/classic/36.json
+SHA1-Digest: OGzuT4JEsIgkjuo8jyReUmXwUaM=
+
+Name: assets/levels/classic/37.json
+SHA1-Digest: p+qlGbEoNlDvUzxxXpiRdnUwWXE=
+
+Name: assets/levels/classic/38.json
+SHA1-Digest: nYoX1Oi0KOZGSoFJ1Kf93comkCw=
+
+Name: assets/levels/classic/39.json
+SHA1-Digest: lIdyPOfkD5GX6lu2mFO/w86f4ZU=
+
+Name: assets/levels/classic/4.json
+SHA1-Digest: 2EoT2GSqxyvH4p4y0yXE/73eUGA=
+
+Name: assets/levels/classic/40.json
+SHA1-Digest: YgxotxNblNZCHSO0HeeI/Z8nVv0=
+
+Name: assets/levels/classic/41.json
+SHA1-Digest: MA+ddbsK3DUm6h79Y5bXjl+a3IQ=
+
+Name: assets/levels/classic/42.json
+SHA1-Digest: 0u3KeUmk4QfelEJfCwU8ytjFDGQ=
+
+Name: assets/levels/classic/43.json
+SHA1-Digest: y2p961n/G1eJJEmORXX1jOr6uOw=
+
+Name: assets/levels/classic/44.json
+SHA1-Digest: y29bOsHiwu+fUhDJjxu5gMpbhaw=
+
+Name: assets/levels/classic/45.json
+SHA1-Digest: uUnCT7JV3mjAwEsHtlwshnm5tYA=
+
+Name: assets/levels/classic/46.json
+SHA1-Digest: jXlIqL+/vFcnWXDTEhW8XroX+lg=
+
+Name: assets/levels/classic/47.json
+SHA1-Digest: XipkBBSbG0RupYXhbb0agisNhcI=
+
+Name: assets/levels/classic/48.json
+SHA1-Digest: SVdl9ttiAwL6rm7djW0kCD/K8OQ=
+
+Name: assets/levels/classic/49.json
+SHA1-Digest: AzcH25vdzGCjRGJ+0mFYO1xjk4Q=
+
+Name: assets/levels/classic/5.json
+SHA1-Digest: 9/HJiwLK9oDo0BPa8BrMwPb7pCA=
+
+Name: assets/levels/classic/50.json
+SHA1-Digest: dbVoFfnYB9kkb7SmlpDHXj57otY=
+
+Name: assets/levels/classic/51.json
+SHA1-Digest: MjTajfea6Bi0p7sUtwBlBYLN7Ig=
+
+Name: assets/levels/classic/52.json
+SHA1-Digest: FjsUhMXnGlBwQEdG2JgvBhEHofI=
+
+Name: assets/levels/classic/53.json
+SHA1-Digest: Ucih7Ze+MxtYZPgsVyXuWQZkO5k=
+
+Name: assets/levels/classic/54.json
+SHA1-Digest: L2mmwRCorYHuFlh3EfZNxEX3NLo=
+
+Name: assets/levels/classic/55.json
+SHA1-Digest: xaZNI5J6DHtEhojKIt1J613iHS0=
+
+Name: assets/levels/classic/56.json
+SHA1-Digest: Jcf9Wwz4O5H0eRsO7GvA1idPt14=
+
+Name: assets/levels/classic/57.json
+SHA1-Digest: nSFvxNaI3DH1pLqtTHyX4Ug6u/M=
+
+Name: assets/levels/classic/58.json
+SHA1-Digest: Ip6qOuR9Ug/89vVxD0SFq9Q0g94=
+
+Name: assets/levels/classic/59.json
+SHA1-Digest: XoAcZFoZdFsjnOmNkUnl8JfGuMA=
+
+Name: assets/levels/classic/6.json
+SHA1-Digest: bMP2fdkMcXX2fH0IMCuiZG2XtPY=
+
+Name: assets/levels/classic/60.json
+SHA1-Digest: NYv0FVvLmHWHweIOztC492iQdJc=
+
+Name: assets/levels/classic/61.json
+SHA1-Digest: I5KzGi3SUpVqOfvYc/3JcQ0Qn2g=
+
+Name: assets/levels/classic/62.json
+SHA1-Digest: YPC2+YVJMC2x4R3jJ8geFLKZeds=
+
+Name: assets/levels/classic/63.json
+SHA1-Digest: YUJvB6M6lR8gGAzGnG1Ad6T/OwY=
+
+Name: assets/levels/classic/64.json
+SHA1-Digest: NbsfpCIA/FzQCDL5/oYL7mo52bc=
+
+Name: assets/levels/classic/65.json
+SHA1-Digest: 3t3QWUnrlhDpmd9rYHGjIs5NTr4=
+
+Name: assets/levels/classic/66.json
+SHA1-Digest: EdxOCNJHkq8UudhWOBppqMXXaXM=
+
+Name: assets/levels/classic/67.json
+SHA1-Digest: FQvXpgpTnRtuffJtwQSKQVUN8oA=
+
+Name: assets/levels/classic/68.json
+SHA1-Digest: a18F2HrVGtojEyYDfIssOnhvRHI=
+
+Name: assets/levels/classic/69.json
+SHA1-Digest: n0YSwwBHx+3AF3Dcwed+1UWQmVk=
+
+Name: assets/levels/classic/7.json
+SHA1-Digest: CQHud/Qa6YAhgMnTKUHv8NAtJ6c=
+
+Name: assets/levels/classic/70.json
+SHA1-Digest: MOA3aAMiuc0A0N4aRSu2/6g9Ep0=
+
+Name: assets/levels/classic/71.json
+SHA1-Digest: g1LosXycK81hR/EV2HEWG0098mA=
+
+Name: assets/levels/classic/72.json
+SHA1-Digest: XOiDKB4JeKRyhJvLj26kpalpGCA=
+
+Name: assets/levels/classic/73.json
+SHA1-Digest: Tv2iYnlV2ZGzlWUqHi7zg1EzFl4=
+
+Name: assets/levels/classic/74.json
+SHA1-Digest: Rt6i7NAltmJD1T00wVTTRM6kgq4=
+
+Name: assets/levels/classic/75.json
+SHA1-Digest: xhr9wbVorSkMryPOZxGicBEcKzE=
+
+Name: assets/levels/classic/76.json
+SHA1-Digest: i1ZkGSqnKuwe/LcB/mwLByXF3cI=
+
+Name: assets/levels/classic/77.json
+SHA1-Digest: a7pdM1yvZR1z/Ak9wLem8Ni3An8=
+
+Name: assets/levels/classic/78.json
+SHA1-Digest: l7CL4nckRZ4JBifQw9K8X6W3nTc=
+
+Name: assets/levels/classic/79.json
+SHA1-Digest: UJPDnJE+hS4TgLyzybMd6v8ALl0=
+
+Name: assets/levels/classic/8.json
+SHA1-Digest: wqEDJ6RF2dy0dPg4bLWQkNxuugQ=
+
+Name: assets/levels/classic/80.json
+SHA1-Digest: SvwEoJ1nPsdwlHUrybwBS6ojgKA=
+
+Name: assets/levels/classic/81.json
+SHA1-Digest: I7jeB8VDqOkjHOlk2pM0GnUgAZA=
+
+Name: assets/levels/classic/82.json
+SHA1-Digest: TrFyR/9QuNQKCKvRulMqbAXxJow=
+
+Name: assets/levels/classic/83.json
+SHA1-Digest: E9GRxlSxhPZgYNfQDMdp0SfLt94=
+
+Name: assets/levels/classic/84.json
+SHA1-Digest: M/gMaDdOdB+xuHCT/5i1qjuMtOI=
+
+Name: assets/levels/classic/85.json
+SHA1-Digest: i7ci8wOwVXfvn1QCYOCRx+3RXuQ=
+
+Name: assets/levels/classic/86.json
+SHA1-Digest: Q/Q/UwGr36mQYofl00a2ty3jT/w=
+
+Name: assets/levels/classic/87.json
+SHA1-Digest: Uu+0QVK8YSIFs9XuYg75FUCwJvE=
+
+Name: assets/levels/classic/88.json
+SHA1-Digest: 96PC7T5jSRjNi7LjfHsJ0o7oGSM=
+
+Name: assets/levels/classic/89.json
+SHA1-Digest: gV9mxKFXARwOP9KU9wGFjGn3aJo=
+
+Name: assets/levels/classic/9.json
+SHA1-Digest: llluK8uObw1Fq/5iSf82PBd36jc=
+
+Name: assets/levels/classic/90.json
+SHA1-Digest: ApaXFTBhoLSIBHZzyPiubA/XeJE=
+
+Name: assets/levels/classic/91.json
+SHA1-Digest: 3bVvC/FJkQ//nMjkqW3cTIN16tE=
+
+Name: assets/levels/classic/92.json
+SHA1-Digest: bexnLEuGpfnISKRVQFXqCIYw9aY=
+
+Name: assets/levels/classic/93.json
+SHA1-Digest: JeQrwFBvAGUaHfy/Q5u5mt5bCaQ=
+
+Name: assets/levels/classic/94.json
+SHA1-Digest: BT06qAABzthqZfKH3+CFZIsBNqs=
+
+Name: assets/levels/classic/95.json
+SHA1-Digest: KZHTp/Siw777/LdCZN0U+LqPYAg=
+
+Name: assets/levels/classic/96.json
+SHA1-Digest: wJ12aNj6rjPsNUUPDhl3I+fqeKk=
+
+Name: assets/levels/classic/97.json
+SHA1-Digest: vrQQhEE+Acf3YigTd0T2kmYivJw=
+
+Name: assets/levels/classic/98.json
+SHA1-Digest: QRRa3ekFZ6Rz3KXWyP+1UMDzuRE=
+
+Name: assets/levels/classic/99.json
+SHA1-Digest: 9l+nZvUvwvNd9fqT61ZYWmr6hm4=
+
+Name: assets/levels/enemies/1.json
+SHA1-Digest: jLvY6GWqZXANH60v2lpWeUvHlVk=
+
+Name: assets/levels/enemies/10.json
+SHA1-Digest: xaHnzBpIRbrxL6HgunJu3M1t+bk=
+
+Name: assets/levels/enemies/100.json
+SHA1-Digest: r+HArX0Hu5K3+dXbH8zmJPLwvok=
+
+Name: assets/levels/enemies/11.json
+SHA1-Digest: X5JRonnKtMQIol5Atl/Yhk5s2Ok=
+
+Name: assets/levels/enemies/12.json
+SHA1-Digest: Vzs4hwKVGJn+Vq/qkYv6JP+Pzdo=
+
+Name: assets/levels/enemies/13.json
+SHA1-Digest: 5HRND2Yyt2Gq7fpNnc1bEqD90s4=
+
+Name: assets/levels/enemies/14.json
+SHA1-Digest: PbShR8917oWuV+VhwsZO40+osk4=
+
+Name: assets/levels/enemies/15.json
+SHA1-Digest: PWudn0OK01eDrUxKbsslGxbLFRw=
+
+Name: assets/levels/enemies/16.json
+SHA1-Digest: g0PhPXaywINSTYahsukOlJf/H80=
+
+Name: assets/levels/enemies/17.json
+SHA1-Digest: RMOyvK1WgMwDk6Gmwm2JjCNK7sE=
+
+Name: assets/levels/enemies/18.json
+SHA1-Digest: wxo4g/eY7CsSuApQFfHT9jdXAVA=
+
+Name: assets/levels/enemies/19.json
+SHA1-Digest: s1ZM9yz7bz+mAl1hNPCepVMQlhw=
+
+Name: assets/levels/enemies/2.json
+SHA1-Digest: tl45xnYRYqpctKoExWQSzZG49wM=
+
+Name: assets/levels/enemies/20.json
+SHA1-Digest: MS6b6VbqgOT0tMYgbUgBB7AqIaA=
+
+Name: assets/levels/enemies/21.json
+SHA1-Digest: VDAYNNElDznUETjk/et5m3vGae4=
+
+Name: assets/levels/enemies/22.json
+SHA1-Digest: sMtTsfOI5q/Hs3vs+Mrf6BE3ArM=
+
+Name: assets/levels/enemies/23.json
+SHA1-Digest: YqYqjWNFCOqK7CqMLvC9/f65kzE=
+
+Name: assets/levels/enemies/24.json
+SHA1-Digest: uifz8+XoOztxjmr593I0zdVuu6g=
+
+Name: assets/levels/enemies/25.json
+SHA1-Digest: zigR5zH8YEB4sNpqxeDog6E8Dr0=
+
+Name: assets/levels/enemies/26.json
+SHA1-Digest: E0r13wJPsEwBwDKkFVqb14irfD4=
+
+Name: assets/levels/enemies/27.json
+SHA1-Digest: QviotfAwnCRaP1GvUrvtEnZtxnQ=
+
+Name: assets/levels/enemies/28.json
+SHA1-Digest: ksmQEGT/9gfkrQ4wRewQXJ0Sy6g=
+
+Name: assets/levels/enemies/29.json
+SHA1-Digest: yKlU9J7Fm8dVST6GqtM9zkQYHxQ=
+
+Name: assets/levels/enemies/3.json
+SHA1-Digest: Tky2I9jDLLCsY4noiBSuhTzbuX0=
+
+Name: assets/levels/enemies/30.json
+SHA1-Digest: RXENraWcW0A29ZAyAl+Bs4Rgaas=
+
+Name: assets/levels/enemies/31.json
+SHA1-Digest: RmpsFA6fxiQ2qCc9YKt2vHpSN+4=
+
+Name: assets/levels/enemies/32.json
+SHA1-Digest: AZBvUSrwGpEiMKya/SuI49G5fDk=
+
+Name: assets/levels/enemies/33.json
+SHA1-Digest: tB4/aeVWXUUzNU+oZV/XrHhjKG0=
+
+Name: assets/levels/enemies/34.json
+SHA1-Digest: TvV2PtxwREbsTMuph7nmuivZx/w=
+
+Name: assets/levels/enemies/35.json
+SHA1-Digest: Pk+9GsKvPcEzlxooFVf+g4YtH1I=
+
+Name: assets/levels/enemies/36.json
+SHA1-Digest: SrMfbAOdgOm2kW5ik0PnPccVqkQ=
+
+Name: assets/levels/enemies/37.json
+SHA1-Digest: k0xf5NGmf14s2vLkA/ErWAwWFXA=
+
+Name: assets/levels/enemies/38.json
+SHA1-Digest: LJBcSoQmgnbjd0cY+JwhzCYF8Lk=
+
+Name: assets/levels/enemies/39.json
+SHA1-Digest: bwp6lbeD1nIUYHAmsS+lxBxdYNg=
+
+Name: assets/levels/enemies/4.json
+SHA1-Digest: na5DLOuB7Sulx4+J3ZyyTWAGUDo=
+
+Name: assets/levels/enemies/40.json
+SHA1-Digest: b3sQEKS9U/iAWrYjqCE++DG/tnI=
+
+Name: assets/levels/enemies/41.json
+SHA1-Digest: j2PG0dLNt5S0cYhY5koC+45vHQI=
+
+Name: assets/levels/enemies/42.json
+SHA1-Digest: 9qdUpqTMNa0AgD2I+KS3bRhaDtA=
+
+Name: assets/levels/enemies/43.json
+SHA1-Digest: 7gmZlBmFW/8ZT4NOJfS37+n2No0=
+
+Name: assets/levels/enemies/44.json
+SHA1-Digest: nsRRQUN0+2FfUQosNhexsaRAGeQ=
+
+Name: assets/levels/enemies/45.json
+SHA1-Digest: W8+ueKU947QxXQkexhGa3pShfEI=
+
+Name: assets/levels/enemies/46.json
+SHA1-Digest: ekQwPBmg7O+jREwsmbe6O0kVe1M=
+
+Name: assets/levels/enemies/47.json
+SHA1-Digest: J2L2Eb0sK0IMvdOy7O+3ZmYecOc=
+
+Name: assets/levels/enemies/48.json
+SHA1-Digest: ntFp6vMFXOmfoSj8Ysk92DaKroU=
+
+Name: assets/levels/enemies/49.json
+SHA1-Digest: gJCtpzn74MJSSR276LYsXPABqqU=
+
+Name: assets/levels/enemies/5.json
+SHA1-Digest: gdM39QHobpwBwUqpieYz729AS2E=
+
+Name: assets/levels/enemies/50.json
+SHA1-Digest: 2QgZePXLIWBpvCrdcxjfBRWHHaM=
+
+Name: assets/levels/enemies/51.json
+SHA1-Digest: M1IN3ddhmExQRIewQzfmgJXZxuI=
+
+Name: assets/levels/enemies/52.json
+SHA1-Digest: oamk+HYYQpLqcKnizoW/SizabvY=
+
+Name: assets/levels/enemies/53.json
+SHA1-Digest: d/8IV8gkfTmC49aCfk4Dp1Gq2QU=
+
+Name: assets/levels/enemies/54.json
+SHA1-Digest: WXlvnIfb+GcfmZPFKq2MIzFnHHs=
+
+Name: assets/levels/enemies/55.json
+SHA1-Digest: pNy+1A+YolSBNn8TaLAe75xOtk4=
+
+Name: assets/levels/enemies/56.json
+SHA1-Digest: HPi58AXgX2v4oqLoPPvypW7NsRk=
+
+Name: assets/levels/enemies/57.json
+SHA1-Digest: Cmcismenx9WX7QHATnGYxItGbBk=
+
+Name: assets/levels/enemies/58.json
+SHA1-Digest: 11J7XBWuUJ9rm3eeXbaQzTz+6NM=
+
+Name: assets/levels/enemies/59.json
+SHA1-Digest: sKfo5WNFSFuFj4wXUTpnUnhn86c=
+
+Name: assets/levels/enemies/6.json
+SHA1-Digest: VyAfQdMbqIxU9IyYMJykBU2REwo=
+
+Name: assets/levels/enemies/60.json
+SHA1-Digest: VUR1lFNYFg1bRpQGanxMxMuVnDU=
+
+Name: assets/levels/enemies/61.json
+SHA1-Digest: iIgxqZLId/GozXGv1Q63vf85nLY=
+
+Name: assets/levels/enemies/62.json
+SHA1-Digest: Hyh6Wmo4PqyEkZXAYRy27HDw/io=
+
+Name: assets/levels/enemies/63.json
+SHA1-Digest: k3jsW+MOWnGDIcnLW6UCPR5ORRo=
+
+Name: assets/levels/enemies/64.json
+SHA1-Digest: 7w8ZKzGWOQMBBfQ+f3yGBG8RNOI=
+
+Name: assets/levels/enemies/65.json
+SHA1-Digest: TWv7+Ho8Opz20xopmDBaO4P9Cvo=
+
+Name: assets/levels/enemies/66.json
+SHA1-Digest: u1u4qcFAoy/28r/5os+oebZzDe0=
+
+Name: assets/levels/enemies/67.json
+SHA1-Digest: mt7ZgNcgrXR8Ns1iNGMombRqmN4=
+
+Name: assets/levels/enemies/68.json
+SHA1-Digest: cNgebiuzZsBZioJcFeKWfg+hkw8=
+
+Name: assets/levels/enemies/69.json
+SHA1-Digest: XvuubABp36SJjtee8T9YB/FiR1w=
+
+Name: assets/levels/enemies/7.json
+SHA1-Digest: Croh7O2vuhM2vLkjaH4RMNykad0=
+
+Name: assets/levels/enemies/70.json
+SHA1-Digest: Q1tAPEhI4R8J1k0GP58GD/zsHEo=
+
+Name: assets/levels/enemies/71.json
+SHA1-Digest: DfJZFfm4YH+76rsH4bWwo6IA2tg=
+
+Name: assets/levels/enemies/72.json
+SHA1-Digest: 7KSvzpSLcFD/lTlEqSyR7bWRsPc=
+
+Name: assets/levels/enemies/73.json
+SHA1-Digest: Zxf81eEtSshjtrN3dqQKnTg6+GM=
+
+Name: assets/levels/enemies/74.json
+SHA1-Digest: +i2/1sdJPb2w4cln638dCbDpl1A=
+
+Name: assets/levels/enemies/75.json
+SHA1-Digest: GVTb88YQs5RGCuL54QM0QMFmyaQ=
+
+Name: assets/levels/enemies/76.json
+SHA1-Digest: zuDmGzs1uWvmuh0GgOipZjv0WNw=
+
+Name: assets/levels/enemies/77.json
+SHA1-Digest: yaVcJwEG3T55VQgR2f6LFuYag3Y=
+
+Name: assets/levels/enemies/78.json
+SHA1-Digest: YuWX5Q26eDTMjpH4iq/SZKln5g4=
+
+Name: assets/levels/enemies/79.json
+SHA1-Digest: mfxHfvXo/jXuJ7s4yENpfpjGziE=
+
+Name: assets/levels/enemies/8.json
+SHA1-Digest: avB03meO33XMBm2oE50EXplMpXo=
+
+Name: assets/levels/enemies/80.json
+SHA1-Digest: BpvyAYLRqPyezcdNCDhX30N//yk=
+
+Name: assets/levels/enemies/81.json
+SHA1-Digest: dY6DHjqBPOn+/cYybpmNeBXmOgc=
+
+Name: assets/levels/enemies/82.json
+SHA1-Digest: Mvw3byry0Q9lxjxMf4yu/sNoLAY=
+
+Name: assets/levels/enemies/83.json
+SHA1-Digest: ovZon8EZofCZRh5yUSq2mZUVjXs=
+
+Name: assets/levels/enemies/84.json
+SHA1-Digest: 8OHCcM8nQxbGnpBOgvNnx52Fdbg=
+
+Name: assets/levels/enemies/85.json
+SHA1-Digest: UAdTBX/z6KREXjYVSIKTkaUZvbc=
+
+Name: assets/levels/enemies/86.json
+SHA1-Digest: JlQqFoRvgsI2XsCgWoL/4FIatak=
+
+Name: assets/levels/enemies/87.json
+SHA1-Digest: 0lJI8hKnLTF1YvsPERjE20P70do=
+
+Name: assets/levels/enemies/88.json
+SHA1-Digest: ZMMk8sYys7xwxZ6hpewGa7nJ4M4=
+
+Name: assets/levels/enemies/89.json
+SHA1-Digest: TPdaeAu2ksUnPS2bLLc9eVHscQw=
+
+Name: assets/levels/enemies/9.json
+SHA1-Digest: sS35I2uHFrgsDvUIOaFttiSQ8wk=
+
+Name: assets/levels/enemies/90.json
+SHA1-Digest: gtjs55g0fFbrOAgvnF1EVCiPL7A=
+
+Name: assets/levels/enemies/91.json
+SHA1-Digest: RxiWtPU8HHdig7nfebahGFPXZi8=
+
+Name: assets/levels/enemies/92.json
+SHA1-Digest: E5DwmfW0MnSXgG7MCn8eJdeULEI=
+
+Name: assets/levels/enemies/93.json
+SHA1-Digest: x8xwx/bRIv6La4YdWBJJYTtyD74=
+
+Name: assets/levels/enemies/94.json
+SHA1-Digest: h/JCQyFFXfeertnCt0gtidR5UU8=
+
+Name: assets/levels/enemies/95.json
+SHA1-Digest: 7+BMR0enHCPW1myjQjdNvgPXkvY=
+
+Name: assets/levels/enemies/96.json
+SHA1-Digest: TsaHgIyNBhbAmXZLqxB3+R/xNcE=
+
+Name: assets/levels/enemies/97.json
+SHA1-Digest: 94+AQHW5s+artuC00rG/m5BZ0mE=
+
+Name: assets/levels/enemies/98.json
+SHA1-Digest: AbA7IhBUQ2qDDfg98fZtQ1P47hU=
+
+Name: assets/levels/enemies/99.json
+SHA1-Digest: T1H1BPejyy0YauuWxNuQ9F0k21A=
+
+Name: assets/levels/fog/1.json
+SHA1-Digest: kyKFJRbeeyc4NmYIGeoYib+14ps=
+
+Name: assets/levels/fog/10.json
+SHA1-Digest: yZ5Wk315tBsXCwBsS1lUVzgQuRE=
+
+Name: assets/levels/fog/100.json
+SHA1-Digest: 09WZC5c7cGBJ9hAIKcXMY8pSmJs=
+
+Name: assets/levels/fog/11.json
+SHA1-Digest: tACnQavOYnl1LrkwuEK60yrllas=
+
+Name: assets/levels/fog/12.json
+SHA1-Digest: W8Tb3rMsebYTPKzEPG07c9eOO58=
+
+Name: assets/levels/fog/13.json
+SHA1-Digest: 2vqKDS8O022L/B0THXzBtv076DE=
+
+Name: assets/levels/fog/14.json
+SHA1-Digest: jvZSPenMfOSj2tmDqgXCMRNGP+U=
+
+Name: assets/levels/fog/15.json
+SHA1-Digest: rTPA01lNiKSOH/gwJty1l9TWP8w=
+
+Name: assets/levels/fog/16.json
+SHA1-Digest: 6D5Gm6iaNL5XIYJiiczi6Zir/o8=
+
+Name: assets/levels/fog/17.json
+SHA1-Digest: T3VyJkR2+3tlseukCwX4xh0BgSA=
+
+Name: assets/levels/fog/18.json
+SHA1-Digest: J5LPm4z2rAZWLCyM/zsR3DLb6og=
+
+Name: assets/levels/fog/19.json
+SHA1-Digest: IlfUGPtMp2dAhINl/3EUlqUYl5U=
+
+Name: assets/levels/fog/2.json
+SHA1-Digest: rnBvrePEpioLkEaL8+FOytYybTQ=
+
+Name: assets/levels/fog/20.json
+SHA1-Digest: Qy27juF2Ottj7xL03xKmFl0MqMg=
+
+Name: assets/levels/fog/21.json
+SHA1-Digest: v2z4vsUY9spCl9/PQujslWzDdE4=
+
+Name: assets/levels/fog/22.json
+SHA1-Digest: GNnUoYg2cdaRtsejLgv31Jn7U94=
+
+Name: assets/levels/fog/23.json
+SHA1-Digest: c6/22NigyuB0nE/TbyT3wtcEMqk=
+
+Name: assets/levels/fog/24.json
+SHA1-Digest: bfsWzGIr1FLDg9YTLlNCPg86xrk=
+
+Name: assets/levels/fog/25.json
+SHA1-Digest: ozUYxtZ4eval6XSXLCA+LtPyojc=
+
+Name: assets/levels/fog/26.json
+SHA1-Digest: YVV9rY8j9HbrkyzYK0CBLAXGdDE=
+
+Name: assets/levels/fog/27.json
+SHA1-Digest: FfbQyiSVXoVYoQ9sqaQ73UEWKgU=
+
+Name: assets/levels/fog/28.json
+SHA1-Digest: IexjFbVxrVb4hCkaQABiJXpWmVU=
+
+Name: assets/levels/fog/29.json
+SHA1-Digest: bVf4RZHhIcsiSG01XdcQ/pCuEtU=
+
+Name: assets/levels/fog/3.json
+SHA1-Digest: +QZQjmmFvgNYSWw/aQo6kWU7N2w=
+
+Name: assets/levels/fog/30.json
+SHA1-Digest: l1k7WGOBM3/3tfy9feB6bYb57uA=
+
+Name: assets/levels/fog/31.json
+SHA1-Digest: 79s/1GxVlt31k9EsUAsiq114CMw=
+
+Name: assets/levels/fog/32.json
+SHA1-Digest: fU/AqFvCAcLllLOybfZEk3dhoO0=
+
+Name: assets/levels/fog/33.json
+SHA1-Digest: MI8tv+RsTalfiv+3uz4F3KazyWY=
+
+Name: assets/levels/fog/34.json
+SHA1-Digest: eqX53vWuqbX0ob/WFFmzdXVOUHc=
+
+Name: assets/levels/fog/35.json
+SHA1-Digest: 3J9AVvp4KR3HoV85fxgxcHBGk48=
+
+Name: assets/levels/fog/36.json
+SHA1-Digest: ipYLIc4fpDh7m+jktjdryOpigJU=
+
+Name: assets/levels/fog/37.json
+SHA1-Digest: 0CGfSzNnirrvL+1q4eewFAAC2iE=
+
+Name: assets/levels/fog/38.json
+SHA1-Digest: pwCcqz8IdibFFD+bPQ6jci1ND0o=
+
+Name: assets/levels/fog/39.json
+SHA1-Digest: zC+GCxVIYhphA6newOcvFYbSYss=
+
+Name: assets/levels/fog/4.json
+SHA1-Digest: P9u2mgb8/eh35D++9ngdsrK7D+8=
+
+Name: assets/levels/fog/40.json
+SHA1-Digest: wP/LhPcFXaQbSSO7zQZNQR94DLQ=
+
+Name: assets/levels/fog/41.json
+SHA1-Digest: MAxiTFY1pf1Uk9TxoElup4kufjM=
+
+Name: assets/levels/fog/42.json
+SHA1-Digest: 89UXgqGhOE5Y+LcR7VWgkYwOKGg=
+
+Name: assets/levels/fog/43.json
+SHA1-Digest: JE1c3WixRdie7Cgjhu3sG5p9xOk=
+
+Name: assets/levels/fog/44.json
+SHA1-Digest: SQH4/TEj8D563+jZDYofOn7HSAo=
+
+Name: assets/levels/fog/45.json
+SHA1-Digest: jHH437BLmy5wewMvBTnz+Sjg0L8=
+
+Name: assets/levels/fog/46.json
+SHA1-Digest: CiKdgGkexRzYfJqiwKZP/nWYAWg=
+
+Name: assets/levels/fog/47.json
+SHA1-Digest: cbR/+8a1VmkcIWj66rOJSo4CTNo=
+
+Name: assets/levels/fog/48.json
+SHA1-Digest: xN6QCp9DzbOeNsaSUQC8s9JxSmE=
+
+Name: assets/levels/fog/49.json
+SHA1-Digest: kzp1eQteB/Sy92RgGjFtzp+k2KM=
+
+Name: assets/levels/fog/5.json
+SHA1-Digest: MRNJzxKadadxgik+zgJA851Sx88=
+
+Name: assets/levels/fog/50.json
+SHA1-Digest: EzPKiVtM5dx4PKNeHLTJvNDYtDY=
+
+Name: assets/levels/fog/51.json
+SHA1-Digest: FXu+4ZeNmOdMTVDaygmJOqPpeds=
+
+Name: assets/levels/fog/52.json
+SHA1-Digest: 9nywz+xv8DjVdgbysymDdm0uOXM=
+
+Name: assets/levels/fog/53.json
+SHA1-Digest: JDiS2QdJ59L0PPSlTIxYcMsGHAs=
+
+Name: assets/levels/fog/54.json
+SHA1-Digest: ejt92nJyY1irbNmyDm8hYfdGvec=
+
+Name: assets/levels/fog/55.json
+SHA1-Digest: rfSZD4avuZi+kN/piw0NSjo2BnQ=
+
+Name: assets/levels/fog/56.json
+SHA1-Digest: 4623F93a7kSNVjnvjBHd07YnvEs=
+
+Name: assets/levels/fog/57.json
+SHA1-Digest: /MmN6k0ZiOpbOcCzD2AZFg3ab/g=
+
+Name: assets/levels/fog/58.json
+SHA1-Digest: A6BKpRjVdB7fQmUQMMNTWB9xqpk=
+
+Name: assets/levels/fog/59.json
+SHA1-Digest: rSH9+W2dFwurP/Kpf0O7SBz+iGI=
+
+Name: assets/levels/fog/6.json
+SHA1-Digest: mccdxWgaxoBZ8oRLjfdacmWStcQ=
+
+Name: assets/levels/fog/60.json
+SHA1-Digest: NCnSeI3Ce5jduYGr/q/diGw8Dkc=
+
+Name: assets/levels/fog/61.json
+SHA1-Digest: oPkjS+xsQTs9ErSqwb0QOJeqxu0=
+
+Name: assets/levels/fog/62.json
+SHA1-Digest: RtjnNYWDe1kTE/IBKOU/wJkgKX4=
+
+Name: assets/levels/fog/63.json
+SHA1-Digest: 8jVLEOnDLKCEzjtDIFYwDpPYyYY=
+
+Name: assets/levels/fog/64.json
+SHA1-Digest: VCYnWel9FhSxCtXN7tGByw7o+Os=
+
+Name: assets/levels/fog/65.json
+SHA1-Digest: 3VOHc2dQoHRSoUXspLmBkkBcufo=
+
+Name: assets/levels/fog/66.json
+SHA1-Digest: lZAEoByVyVt6qLEvubBFbxtPnyY=
+
+Name: assets/levels/fog/67.json
+SHA1-Digest: 8tQrhxwx8sBHdQHAys9XYqXc7I8=
+
+Name: assets/levels/fog/68.json
+SHA1-Digest: ML6CjaOBmBrxAn2fjGTnJL44EkI=
+
+Name: assets/levels/fog/69.json
+SHA1-Digest: /1s3DobIeVBQuiYmYbFe6u7kOg8=
+
+Name: assets/levels/fog/7.json
+SHA1-Digest: wPwVIKEzjV6cZYqLXgJ0H/vGE+4=
+
+Name: assets/levels/fog/70.json
+SHA1-Digest: xJf1TLYoXaowcvIfdn+6j/OTqMU=
+
+Name: assets/levels/fog/71.json
+SHA1-Digest: cRymyEkNPMOOVe9vVRsVnWQobVg=
+
+Name: assets/levels/fog/72.json
+SHA1-Digest: FgbkGtJDWewdwnPAk2wzf5i7v3c=
+
+Name: assets/levels/fog/73.json
+SHA1-Digest: GOMmZh6mBETtA2YmY+waFCuzCDU=
+
+Name: assets/levels/fog/74.json
+SHA1-Digest: gB0r6VhT2And07qx/RezY6z9ZyU=
+
+Name: assets/levels/fog/75.json
+SHA1-Digest: WMzQfJdOEbH9Rhnrn9i6otkuJsg=
+
+Name: assets/levels/fog/76.json
+SHA1-Digest: I9g19BLKV9LH51Eyo8dGei2UAcY=
+
+Name: assets/levels/fog/77.json
+SHA1-Digest: AspLuVgSnJUpPH6bEF1TxNQvACI=
+
+Name: assets/levels/fog/78.json
+SHA1-Digest: gPd7lRPThnOitOTuCwBCALLuf6g=
+
+Name: assets/levels/fog/79.json
+SHA1-Digest: 5lnDsJAS3mmISVad/CRp2BEuYA0=
+
+Name: assets/levels/fog/8.json
+SHA1-Digest: NFysJoe2v72Q03bGmzEr9kPM+CY=
+
+Name: assets/levels/fog/80.json
+SHA1-Digest: dXLH4aSMLNL8RjapknT2m9uk6EE=
+
+Name: assets/levels/fog/81.json
+SHA1-Digest: gsMruebF7FvwzSTXjULzOjd0oow=
+
+Name: assets/levels/fog/82.json
+SHA1-Digest: YgdylOA8+oAb3JjEk/xdEvlagMc=
+
+Name: assets/levels/fog/83.json
+SHA1-Digest: p75L+83y2Y3hmALJv2l69DZR81s=
+
+Name: assets/levels/fog/84.json
+SHA1-Digest: hJpW/gD1ElqJvwWu3U7/zUWgooM=
+
+Name: assets/levels/fog/85.json
+SHA1-Digest: oX1om7CkvjMbQzYwUGEZrQmVhlQ=
+
+Name: assets/levels/fog/86.json
+SHA1-Digest: Ixf7qKuUmDuboSgiHldcGCsqoU8=
+
+Name: assets/levels/fog/87.json
+SHA1-Digest: gTMj+JzONe/QicjEVcRdCdCiKz4=
+
+Name: assets/levels/fog/88.json
+SHA1-Digest: 8XbaMZxZTwLsUPJFFrhlpbwhpag=
+
+Name: assets/levels/fog/89.json
+SHA1-Digest: iCvnHLDgjK6lfAyI5b28m2a+P0c=
+
+Name: assets/levels/fog/9.json
+SHA1-Digest: xYQT06r3+yrtI5qEG6NpNxQEFLE=
+
+Name: assets/levels/fog/90.json
+SHA1-Digest: lT2oCozhdj26zO99e8jv6Dn27w4=
+
+Name: assets/levels/fog/91.json
+SHA1-Digest: 4Iua1CAcTfunRqH5kophYEQLnno=
+
+Name: assets/levels/fog/92.json
+SHA1-Digest: K8FQc3QwgBCPaUZD9CNPNwnv5Hg=
+
+Name: assets/levels/fog/93.json
+SHA1-Digest: kbF/r++d1YiN+JDk0Ze8ZbyiqA8=
+
+Name: assets/levels/fog/94.json
+SHA1-Digest: 1b/vX8LNQoGyEMPvI6T1THJlvxE=
+
+Name: assets/levels/fog/95.json
+SHA1-Digest: G4NGrOdxTcKTgG8bvzIyKzItiRU=
+
+Name: assets/levels/fog/96.json
+SHA1-Digest: nK327KZTu8BKuny/bwvsuT5cMpE=
+
+Name: assets/levels/fog/97.json
+SHA1-Digest: ImJlUbWfwceq4WDbLvMd4i+9HIw=
+
+Name: assets/levels/fog/98.json
+SHA1-Digest: DuRkGRXwj7LbNwkXr3LcHMpOKbU=
+
+Name: assets/levels/fog/99.json
+SHA1-Digest: Vp8Ee8r05Gz8GFs0fqReqUWFH1g=
+
+Name: assets/levels/ice_floor/1.json
+SHA1-Digest: uqRAWfRbUUJPztBy6odVchYt3PY=
+
+Name: assets/levels/ice_floor/10.json
+SHA1-Digest: 9dh8ARtOx2nIoHqEXGv2kx6r36g=
+
+Name: assets/levels/ice_floor/11.json
+SHA1-Digest: XZRrI+TqOuSm3xBSCPaftb0yk9o=
+
+Name: assets/levels/ice_floor/12.json
+SHA1-Digest: Jdcvr8F0Mb4yQ4PMlnzG/eemdgM=
+
+Name: assets/levels/ice_floor/13.json
+SHA1-Digest: 9o+4bxFJHELmtNPw48WSE0ylezc=
+
+Name: assets/levels/ice_floor/14.json
+SHA1-Digest: EVakDvtdFGCfxVNiawx41z5zV2U=
+
+Name: assets/levels/ice_floor/15.json
+SHA1-Digest: qSAvHy8KLAknMPznZqAyh5DhSD0=
+
+Name: assets/levels/ice_floor/16.json
+SHA1-Digest: M6kqeMb+8BwxiICRKaG7/fnV8V4=
+
+Name: assets/levels/ice_floor/17.json
+SHA1-Digest: 2NsW8LReglRHxLimfyQFBFc8fnk=
+
+Name: assets/levels/ice_floor/18.json
+SHA1-Digest: MDK1dFyHUpw7+99KoTZAryeD6JA=
+
+Name: assets/levels/ice_floor/19.json
+SHA1-Digest: /SvJhd3Rp88039eRS16F+WY9Cz8=
+
+Name: assets/levels/ice_floor/2.json
+SHA1-Digest: 6yPy8jexxBiNlvpNNz+RbDfY5oI=
+
+Name: assets/levels/ice_floor/20.json
+SHA1-Digest: OgxYdPmIUVcM5AuDc9ArUbt5W4s=
+
+Name: assets/levels/ice_floor/21.json
+SHA1-Digest: QnHPwo3SA77mbre8qxXvmS0Vohw=
+
+Name: assets/levels/ice_floor/22.json
+SHA1-Digest: tney/II5Qjq2FBq65u7zn+Ymw7E=
+
+Name: assets/levels/ice_floor/23.json
+SHA1-Digest: sqZuMGXiautof+vaytko7+mQxQQ=
+
+Name: assets/levels/ice_floor/24.json
+SHA1-Digest: R2l6SVhzfM0YB+ctk6YzB1Tvz7E=
+
+Name: assets/levels/ice_floor/25.json
+SHA1-Digest: +YWzxPQ4l3oI76vjP9OCQpkazjI=
+
+Name: assets/levels/ice_floor/26.json
+SHA1-Digest: DnLliOVX5yajGckaqjdjKFrAj/o=
+
+Name: assets/levels/ice_floor/27.json
+SHA1-Digest: pYaS4l7LPY+wVKGkzzJDcgkxdZY=
+
+Name: assets/levels/ice_floor/28.json
+SHA1-Digest: NBcmYuvAansE3CAOgt9LImvuSgc=
+
+Name: assets/levels/ice_floor/29.json
+SHA1-Digest: soEoG/TNF6oOXpcqHWfYsV9GrW4=
+
+Name: assets/levels/ice_floor/3.json
+SHA1-Digest: dinPqP6imbpRw9O3sNSgNRltx2E=
+
+Name: assets/levels/ice_floor/30.json
+SHA1-Digest: uXWEdFdKAX/TkPSreGrchp0eF00=
+
+Name: assets/levels/ice_floor/31.json
+SHA1-Digest: 3ozwQsf/k4cz5e5iW8gDDv6MA3c=
+
+Name: assets/levels/ice_floor/32.json
+SHA1-Digest: RdJiVDGPbcPKfjJQTCISUdY9U5Q=
+
+Name: assets/levels/ice_floor/33.json
+SHA1-Digest: cqFlXLMRlluLYgEW9ha5WSx5Kt0=
+
+Name: assets/levels/ice_floor/34.json
+SHA1-Digest: ZtfFjMGDJkNaJ0R/VgUWcfWWO9M=
+
+Name: assets/levels/ice_floor/35.json
+SHA1-Digest: 1Bzpz7l+uS3pkuWKG3mfmFRO5lQ=
+
+Name: assets/levels/ice_floor/36.json
+SHA1-Digest: 7GM0eCPP7aFUwhyDgn2he28f5Ic=
+
+Name: assets/levels/ice_floor/37.json
+SHA1-Digest: eIPditBZyektIZraw1qJY2wedDg=
+
+Name: assets/levels/ice_floor/38.json
+SHA1-Digest: nDYv8sFnfvoYqryGnUdxwvNY6ck=
+
+Name: assets/levels/ice_floor/39.json
+SHA1-Digest: fwqDxaFhr/01RLeu99vuZGYFKWM=
+
+Name: assets/levels/ice_floor/4.json
+SHA1-Digest: Cu53+zAFav9npD33EWs9R8Re8Fo=
+
+Name: assets/levels/ice_floor/40.json
+SHA1-Digest: GduYsA2d3dAS0mRrrbEMawzLQ1Y=
+
+Name: assets/levels/ice_floor/41.json
+SHA1-Digest: c3oZ3T9AvIOwRTF+gqKHQzibac8=
+
+Name: assets/levels/ice_floor/42.json
+SHA1-Digest: BdzT32D//Y1YHAZVssTm712lBqE=
+
+Name: assets/levels/ice_floor/43.json
+SHA1-Digest: ZC8+UL0ZGzTJSGfcRaLiD6lX804=
+
+Name: assets/levels/ice_floor/44.json
+SHA1-Digest: XyUJo95PXRepih60Uxc10WePRiY=
+
+Name: assets/levels/ice_floor/45.json
+SHA1-Digest: u1bZWuxpz/rjRhmxHZc2ltiG24g=
+
+Name: assets/levels/ice_floor/5.json
+SHA1-Digest: 7LcgZfec7wIeZq31d8nlSFTVWg0=
+
+Name: assets/levels/ice_floor/6.json
+SHA1-Digest: ZOcp7iN/V5BjhuWsGU8xUPwwSb0=
+
+Name: assets/levels/ice_floor/7.json
+SHA1-Digest: cfHFnTIzMNNZCCVLuK79A90idPg=
+
+Name: assets/levels/ice_floor/8.json
+SHA1-Digest: 0oOLqbyobx/UvIMjsfSuLrAaxCk=
+
+Name: assets/levels/ice_floor/9.json
+SHA1-Digest: bkh7VYkyISrbc+8TZ4iVKbjTrPk=
+
+Name: assets/levels/time_trial/1.json
+SHA1-Digest: J/8QikCyp1tdNZwfitc1nh7W2ZQ=
+
+Name: assets/levels/time_trial/10.json
+SHA1-Digest: pgy2eC1W1uk7fcsSd804G44VTa0=
+
+Name: assets/levels/time_trial/100.json
+SHA1-Digest: tMhapuurSuVMrrfQYM8u95Ws74Q=
+
+Name: assets/levels/time_trial/11.json
+SHA1-Digest: NCT6erIh7wZm/Db4Q20hk7++s+M=
+
+Name: assets/levels/time_trial/12.json
+SHA1-Digest: E8IvPn3gQUZMsGTI2DmdLdvZ+7s=
+
+Name: assets/levels/time_trial/13.json
+SHA1-Digest: V1U8B3teS7DLgRdNlI6iecRELcM=
+
+Name: assets/levels/time_trial/14.json
+SHA1-Digest: o+fG12pcFMAOMy7wjUKtsTIlV1U=
+
+Name: assets/levels/time_trial/15.json
+SHA1-Digest: WMKkOfcOIosZzO8SId8bwWonLlQ=
+
+Name: assets/levels/time_trial/16.json
+SHA1-Digest: 2sPOBcxkxi6wjgqJtpKLb3IjsC8=
+
+Name: assets/levels/time_trial/17.json
+SHA1-Digest: areiGE7iISuyFNNacRn1YdOdpZU=
+
+Name: assets/levels/time_trial/18.json
+SHA1-Digest: eHzTsp6sijHVHP5jSumUWi+9BDw=
+
+Name: assets/levels/time_trial/19.json
+SHA1-Digest: 0SwwHWBgr58BwwMukjjWdN8N7OE=
+
+Name: assets/levels/time_trial/2.json
+SHA1-Digest: r6Z+Ti0A8UrOUTiSrcyILx8ZbAw=
+
+Name: assets/levels/time_trial/20.json
+SHA1-Digest: l+Q/DaZjgePRrKs9WxrqfJspvEo=
+
+Name: assets/levels/time_trial/21.json
+SHA1-Digest: bxKvHGS4jI8MAjG+x4AiR1NGc9g=
+
+Name: assets/levels/time_trial/22.json
+SHA1-Digest: ZuOByuxnIp02EjGzS/M81D2Z82U=
+
+Name: assets/levels/time_trial/23.json
+SHA1-Digest: otU9GTU0Pkbtt7eDeHz2taPMDIA=
+
+Name: assets/levels/time_trial/24.json
+SHA1-Digest: 8Nz6g+RlEyrLTFPAqoKt7zTZKGY=
+
+Name: assets/levels/time_trial/25.json
+SHA1-Digest: 7HBF/6kkA/PWTcXqn2DVJsJMZPk=
+
+Name: assets/levels/time_trial/26.json
+SHA1-Digest: BdP4KgI6r7OcekE/e8t7E8C4kUw=
+
+Name: assets/levels/time_trial/27.json
+SHA1-Digest: dJ9tC6PtuZS883MIorYUmElFCm0=
+
+Name: assets/levels/time_trial/28.json
+SHA1-Digest: YuiahojLxvxGMGmZJ5qfaqFeKps=
+
+Name: assets/levels/time_trial/29.json
+SHA1-Digest: 4cZ4xDDuOMU9YSd33nHOl+cr6B4=
+
+Name: assets/levels/time_trial/3.json
+SHA1-Digest: Wdx+MWJF4de/85MkL1Y9p/W7dgE=
+
+Name: assets/levels/time_trial/30.json
+SHA1-Digest: 1y66h2i64eniwXolj3aIkuvoeNI=
+
+Name: assets/levels/time_trial/31.json
+SHA1-Digest: K5SV04D7ImCVIKFZ1Ebdyd1j/n4=
+
+Name: assets/levels/time_trial/32.json
+SHA1-Digest: FZ/8WUkGucOxvtCshnNNC6LqN/Y=
+
+Name: assets/levels/time_trial/33.json
+SHA1-Digest: so3bqqWyMQZ32n16B1TWHPNMYlk=
+
+Name: assets/levels/time_trial/34.json
+SHA1-Digest: YBOpUSmC3Fwp6xh7lfnWPTlzwNg=
+
+Name: assets/levels/time_trial/35.json
+SHA1-Digest: 2gSaQexDD63tQIiQDSDEeuSH0qI=
+
+Name: assets/levels/time_trial/36.json
+SHA1-Digest: HPAaR2jxdWVVO/1r8ls6zhabIzg=
+
+Name: assets/levels/time_trial/37.json
+SHA1-Digest: DPznfCUCoqe1TOBu41DtjEn5Q+Q=
+
+Name: assets/levels/time_trial/38.json
+SHA1-Digest: xQuKmZLIPjAb4D/ZZl0TK+VisMs=
+
+Name: assets/levels/time_trial/39.json
+SHA1-Digest: WfGY69NWPBKoDeUu3Fg2dM57AmI=
+
+Name: assets/levels/time_trial/4.json
+SHA1-Digest: /xXyMXNSHN/2N/vUT+mLOJajYv8=
+
+Name: assets/levels/time_trial/40.json
+SHA1-Digest: oRs5lMnxG+znZD1L32Mr89FDzpM=
+
+Name: assets/levels/time_trial/41.json
+SHA1-Digest: UhptQfV+XS508rHSCSejO3pu6kk=
+
+Name: assets/levels/time_trial/42.json
+SHA1-Digest: s8KI/SibyoMXt7Iq641zjSUM/hk=
+
+Name: assets/levels/time_trial/43.json
+SHA1-Digest: mMaT5QMaOtMzVHDu9AeAj550D18=
+
+Name: assets/levels/time_trial/44.json
+SHA1-Digest: 6SQH7hZ2JsE/xVqobVM8MG173k4=
+
+Name: assets/levels/time_trial/45.json
+SHA1-Digest: sOoVsDz7IEu7WdXqyvth/CrFLSs=
+
+Name: assets/levels/time_trial/46.json
+SHA1-Digest: 6yRb3XAX62gTGxQBIERv1Y8qEV8=
+
+Name: assets/levels/time_trial/47.json
+SHA1-Digest: 2os/hHE8+Ex8sATJTjB9jf+qnH8=
+
+Name: assets/levels/time_trial/48.json
+SHA1-Digest: B2MtSKsfd04qvb1zQc/QNxBvWGU=
+
+Name: assets/levels/time_trial/49.json
+SHA1-Digest: 6UYCWJDD6v+oVxhAz15ZzaZvikQ=
+
+Name: assets/levels/time_trial/5.json
+SHA1-Digest: 5YbKKE87TjRitLwWcrbvSsFBKC8=
+
+Name: assets/levels/time_trial/50.json
+SHA1-Digest: hqTFwW2BHgZi7hF3WgTCN3a6dg8=
+
+Name: assets/levels/time_trial/51.json
+SHA1-Digest: LqjMOejeZ2mEzq1lQg5cWIQQKzQ=
+
+Name: assets/levels/time_trial/52.json
+SHA1-Digest: MAiEKBKjMwGMSuzdmu8DRLLv+EM=
+
+Name: assets/levels/time_trial/53.json
+SHA1-Digest: 4N04BaRaOcMUg84cTqgKlMB6CNY=
+
+Name: assets/levels/time_trial/54.json
+SHA1-Digest: yBpIioUlSuieKjleBUh1NT4Otwo=
+
+Name: assets/levels/time_trial/55.json
+SHA1-Digest: U93DaBasngCUrJUSdddwhVzSe38=
+
+Name: assets/levels/time_trial/56.json
+SHA1-Digest: eRBvsjIDUJUKlNidnRqAdwL/JD8=
+
+Name: assets/levels/time_trial/57.json
+SHA1-Digest: pzGCx6IRGhRZNWUTA99gD70CHEs=
+
+Name: assets/levels/time_trial/58.json
+SHA1-Digest: Rhb+WxIJxTnI2mWHilhwDaeteNQ=
+
+Name: assets/levels/time_trial/59.json
+SHA1-Digest: eVcMrKcs4g8ChO0mptrp+U/27RA=
+
+Name: assets/levels/time_trial/6.json
+SHA1-Digest: D9oUtN9dxCXteuJugre0UIwdF1M=
+
+Name: assets/levels/time_trial/60.json
+SHA1-Digest: zTxolwnZi93D20ixiwVO5ofBWGc=
+
+Name: assets/levels/time_trial/61.json
+SHA1-Digest: 4tC94p294hm89FBqpcxzPKGi/vM=
+
+Name: assets/levels/time_trial/62.json
+SHA1-Digest: 0rKcTIE8hmQ3wk2U8yuLk6Z49nY=
+
+Name: assets/levels/time_trial/63.json
+SHA1-Digest: 8HhBHZ1OqscNRE3RrWP+lyhOZq0=
+
+Name: assets/levels/time_trial/64.json
+SHA1-Digest: ETSom7uDZ71SaJlErEvWocSkFSo=
+
+Name: assets/levels/time_trial/65.json
+SHA1-Digest: cG3kQvYG9IukVJ2OWoQLMzJiKmk=
+
+Name: assets/levels/time_trial/66.json
+SHA1-Digest: VuVmPhyUWls48E87N2aKmBrxyiA=
+
+Name: assets/levels/time_trial/67.json
+SHA1-Digest: fxy8vm/kMCcoUDztT7iCBo8gq3I=
+
+Name: assets/levels/time_trial/68.json
+SHA1-Digest: UwvZlS0HKjm8z+XBgTONdVLq6sk=
+
+Name: assets/levels/time_trial/69.json
+SHA1-Digest: p615C71glLf4O7xERP+sAPzIj80=
+
+Name: assets/levels/time_trial/7.json
+SHA1-Digest: aXPEKg3Hl1VdMhkTmFritZL5gS0=
+
+Name: assets/levels/time_trial/70.json
+SHA1-Digest: M3qF1gjfkZr4rbXPEwxyyqrwi7k=
+
+Name: assets/levels/time_trial/71.json
+SHA1-Digest: +eAR7nMBEO3X04jJvikVOfj2jM4=
+
+Name: assets/levels/time_trial/72.json
+SHA1-Digest: tf6dI6UolmrFNLrbTaatV8cvsW8=
+
+Name: assets/levels/time_trial/73.json
+SHA1-Digest: sdnnnoiW2FjSPq8fSHcRRcYaY2g=
+
+Name: assets/levels/time_trial/74.json
+SHA1-Digest: kQdWEGxu9Xd0UrkbTlafWySni1s=
+
+Name: assets/levels/time_trial/75.json
+SHA1-Digest: U+qeTzO5LqE/wT7i8a7wieg3lkw=
+
+Name: assets/levels/time_trial/76.json
+SHA1-Digest: MJHXchLspaF57c6L2dhHwa1Jcis=
+
+Name: assets/levels/time_trial/77.json
+SHA1-Digest: gsi3ejKpxbVx/cIVJ0WDnFYDDK8=
+
+Name: assets/levels/time_trial/78.json
+SHA1-Digest: FTBWh11O8P5IBqPfR7WVUF5Ogqw=
+
+Name: assets/levels/time_trial/79.json
+SHA1-Digest: wGM+8o72+TnL1Pk7QJs0iaggMSk=
+
+Name: assets/levels/time_trial/8.json
+SHA1-Digest: 5RRzIxK0xMNal35MCHpASvSnVHk=
+
+Name: assets/levels/time_trial/80.json
+SHA1-Digest: X061IWya6K+UfIskM5/Y1dIV/10=
+
+Name: assets/levels/time_trial/81.json
+SHA1-Digest: BAKMEL7kymeyu0tv/Mbg5W0Sick=
+
+Name: assets/levels/time_trial/82.json
+SHA1-Digest: gVBZcf6U6r03+I1wMZCji2AaJeI=
+
+Name: assets/levels/time_trial/83.json
+SHA1-Digest: dqePnL3g1h4yit60qdgbmEE2T8E=
+
+Name: assets/levels/time_trial/84.json
+SHA1-Digest: yYR7QDmpGGrfPjg2mXeMXrZ240o=
+
+Name: assets/levels/time_trial/85.json
+SHA1-Digest: sPTcL5dmDWwOem0zlvcbzfuzXEE=
+
+Name: assets/levels/time_trial/86.json
+SHA1-Digest: pTKneL23CPaIgNQZnqQS8TxHDoU=
+
+Name: assets/levels/time_trial/87.json
+SHA1-Digest: tSeySdipNwF7MoiMJb+cdKTuvhY=
+
+Name: assets/levels/time_trial/88.json
+SHA1-Digest: hmQyTXQb1LMkFBOEt1pm3Tv1qhU=
+
+Name: assets/levels/time_trial/89.json
+SHA1-Digest: fH3a5N1czOyW4yIsEt+F/gdMgPs=
+
+Name: assets/levels/time_trial/9.json
+SHA1-Digest: vsTWEiNhcWm/dER6KhR3Gr3UVr0=
+
+Name: assets/levels/time_trial/90.json
+SHA1-Digest: r+C1pfw8o/YVd0AmLg0Cnq30WbE=
+
+Name: assets/levels/time_trial/91.json
+SHA1-Digest: zBREs84MQznJr6gOfe4LIU40KJs=
+
+Name: assets/levels/time_trial/92.json
+SHA1-Digest: J6SJKFPdz4gt2+ILwmV9ogCMxlA=
+
+Name: assets/levels/time_trial/93.json
+SHA1-Digest: J+1dE9dMB6mRt2dhlVZUvo3OWJQ=
+
+Name: assets/levels/time_trial/94.json
+SHA1-Digest: xAB1cIuXi5LlMjCKIgO4fbjOE28=
+
+Name: assets/levels/time_trial/95.json
+SHA1-Digest: 0T5nXPyXrm4RR/h+D2J7JULDY0s=
+
+Name: assets/levels/time_trial/96.json
+SHA1-Digest: CoY1+Hg4SBBgolH+diPZBrfnAkY=
+
+Name: assets/levels/time_trial/97.json
+SHA1-Digest: uiarNWasBX3fknq4rZclegqMZsM=
+
+Name: assets/levels/time_trial/98.json
+SHA1-Digest: PMe0lQrfvfWBd4pNGxVn/ag58JY=
+
+Name: assets/levels/time_trial/99.json
+SHA1-Digest: f45+tKq+5jjJXn2D6An+BEpv8KE=
+
+Name: assets/levels/traps/1.json
+SHA1-Digest: 9tDblGuNLkqFm9WyjAY9auXf2hY=
+
+Name: assets/levels/traps/10.json
+SHA1-Digest: bxgiMF5xMJa2ibAJuRo6FqPY47U=
+
+Name: assets/levels/traps/100.json
+SHA1-Digest: 0WYDmtFCnpgHF9611bIebeRJWVg=
+
+Name: assets/levels/traps/11.json
+SHA1-Digest: gv2DjOsCsE4u6kPwrTCLkEkQ6ok=
+
+Name: assets/levels/traps/12.json
+SHA1-Digest: 1CSLeI8K0z0ErOwPryfLOpRSozM=
+
+Name: assets/levels/traps/13.json
+SHA1-Digest: wAHBI+S6d9CigdV1OWNG1YfFFtY=
+
+Name: assets/levels/traps/14.json
+SHA1-Digest: Oou2iIJPhZT0lpoMKPAiyHMPLZU=
+
+Name: assets/levels/traps/15.json
+SHA1-Digest: 94QgkgPWL7yVcLBtPxzX9Kg3mQw=
+
+Name: assets/levels/traps/16.json
+SHA1-Digest: D5qbXezGXev3FTLzG94Eb4DOrhs=
+
+Name: assets/levels/traps/17.json
+SHA1-Digest: AKOF6cwGu0EFINkQlqj+MuG6kLY=
+
+Name: assets/levels/traps/18.json
+SHA1-Digest: WihnCLv36CU2mJ06YlgggP8NH00=
+
+Name: assets/levels/traps/19.json
+SHA1-Digest: kBNxJdYK4UYDyEL9JxN4BPnxQkw=
+
+Name: assets/levels/traps/2.json
+SHA1-Digest: 4cZ564P6e2g8RiHGihh1J9jJc24=
+
+Name: assets/levels/traps/20.json
+SHA1-Digest: ehpVrIJmbogmgLGqA+fNscUWEBE=
+
+Name: assets/levels/traps/21.json
+SHA1-Digest: qZ6biViDfB4Fba3FRE+WNtQ3Z5M=
+
+Name: assets/levels/traps/22.json
+SHA1-Digest: 6dZGbbAo/cC9L0+nztdZ1X0HC2Y=
+
+Name: assets/levels/traps/23.json
+SHA1-Digest: UcSQg64PTQ50HfZK1CrBKCBr4CQ=
+
+Name: assets/levels/traps/24.json
+SHA1-Digest: 7oWYoBwc4zbZtxRsCOK0pGqaBCg=
+
+Name: assets/levels/traps/25.json
+SHA1-Digest: 4tN84w6hlvxowuUGEOtWqtmb3B8=
+
+Name: assets/levels/traps/26.json
+SHA1-Digest: E95NpFlDwz2BCMILDayeUmgrkoE=
+
+Name: assets/levels/traps/27.json
+SHA1-Digest: K2Fg96RRb48OR9F0lX5Wfzc5RW4=
+
+Name: assets/levels/traps/28.json
+SHA1-Digest: LEDmd6DCP4sJ0SGo0CO1aHXov1E=
+
+Name: assets/levels/traps/29.json
+SHA1-Digest: Q41/UIoWA+9pb3ES2JK2S17+B0w=
+
+Name: assets/levels/traps/3.json
+SHA1-Digest: v0ej6C+A02WnEV3ZkRsve6nPUFU=
+
+Name: assets/levels/traps/30.json
+SHA1-Digest: Dnt80pAKoqR7w2T/mNV4SEcOuXw=
+
+Name: assets/levels/traps/31.json
+SHA1-Digest: PVP4u4HS0pPJJ7MOVNpp5wukZMY=
+
+Name: assets/levels/traps/32.json
+SHA1-Digest: 54+N1t0ncfYWzldG2xrAP++A+9Q=
+
+Name: assets/levels/traps/33.json
+SHA1-Digest: hJhFE9YWZcL3xwb2MWAhybBvlow=
+
+Name: assets/levels/traps/34.json
+SHA1-Digest: O4jWZCBNjSiihpLZyeEFNtCbcjw=
+
+Name: assets/levels/traps/35.json
+SHA1-Digest: +28cabE65+/RYb9BNZgelyuaJPY=
+
+Name: assets/levels/traps/36.json
+SHA1-Digest: 05PpN6b7PNVLUAhVvA+z8jRmf4U=
+
+Name: assets/levels/traps/37.json
+SHA1-Digest: TbZn0Sx/iDoh8hDD/8dWyp9lhWk=
+
+Name: assets/levels/traps/38.json
+SHA1-Digest: NGbYsNIkeOenKMgm2iXKRTLoi6g=
+
+Name: assets/levels/traps/39.json
+SHA1-Digest: xIDN4HpGbmnSKeK0eO525Q6fESU=
+
+Name: assets/levels/traps/4.json
+SHA1-Digest: mw3KO7gu+0RFvwP/JxFwfZnfq+E=
+
+Name: assets/levels/traps/40.json
+SHA1-Digest: +s/NuLUwwKZtkd8jDk0WvPW0E9U=
+
+Name: assets/levels/traps/41.json
+SHA1-Digest: QHFv+lk4x2D7hG6byq00BZM+CzI=
+
+Name: assets/levels/traps/42.json
+SHA1-Digest: 2GnkXajFGwrNhV6X5CtSPU7tb5k=
+
+Name: assets/levels/traps/43.json
+SHA1-Digest: ZJRIj8EdaydRAVVsCQBP1orFA+8=
+
+Name: assets/levels/traps/44.json
+SHA1-Digest: 00XiM0s7AyvPBu7R7IVdzBZI+1o=
+
+Name: assets/levels/traps/45.json
+SHA1-Digest: 0K6NFnwBfEUDJfSsnslCBn3MqRg=
+
+Name: assets/levels/traps/46.json
+SHA1-Digest: ufYEKS5YXITsvYht2EPJLD+u23A=
+
+Name: assets/levels/traps/47.json
+SHA1-Digest: LJHNHB14+bou1TYc3p1URhMZmCo=
+
+Name: assets/levels/traps/48.json
+SHA1-Digest: otCPg1lOYXPRzOYni9ZGlNRp6jA=
+
+Name: assets/levels/traps/49.json
+SHA1-Digest: sQC+pUlc2Lm5Bv1gvGZVEmPv29M=
+
+Name: assets/levels/traps/5.json
+SHA1-Digest: WSZDWmsL/CLaWRinXeaSQx6aOSk=
+
+Name: assets/levels/traps/50.json
+SHA1-Digest: bAYmOog0MZtGcCCtwTnDARAw3Zw=
+
+Name: assets/levels/traps/51.json
+SHA1-Digest: nSIz61+c4ViRIukBimn2gno2FSY=
+
+Name: assets/levels/traps/52.json
+SHA1-Digest: dMZgnDNysG0xEo1KfPbX4Ei6MrA=
+
+Name: assets/levels/traps/53.json
+SHA1-Digest: /Z+PmoOmjXlo5/tacnIPHgU3eJo=
+
+Name: assets/levels/traps/54.json
+SHA1-Digest: a2kqa7diFcKPL8cpQ5bU8Nc9P54=
+
+Name: assets/levels/traps/55.json
+SHA1-Digest: CUrkT+ULBNNAtcdRBu7h7YRpfmI=
+
+Name: assets/levels/traps/56.json
+SHA1-Digest: KijXvTuJjXutRzYkleqJ6YOFjRY=
+
+Name: assets/levels/traps/57.json
+SHA1-Digest: SyO38btVnDGIWKT+TWcHJ+dm//s=
+
+Name: assets/levels/traps/58.json
+SHA1-Digest: SKSv65s4hsqtCtBsdl+1trKYRIE=
+
+Name: assets/levels/traps/59.json
+SHA1-Digest: qMVWx+cR5gdgABxcA2BA6vLFiE8=
+
+Name: assets/levels/traps/6.json
+SHA1-Digest: 3X8sxU0BJpVUglqlANoQ2UpBMyM=
+
+Name: assets/levels/traps/60.json
+SHA1-Digest: qgf4Brseow9LgjNszZkWuRDvFg0=
+
+Name: assets/levels/traps/61.json
+SHA1-Digest: QMoqxCckh19SKWnoN11c/buNHXk=
+
+Name: assets/levels/traps/62.json
+SHA1-Digest: 3Tnhymf3WBDFeqr8SfRWtGci21M=
+
+Name: assets/levels/traps/63.json
+SHA1-Digest: p7RjdTbN/XHF9euVZ6615/sRMnI=
+
+Name: assets/levels/traps/64.json
+SHA1-Digest: es7DrOy1NbeUcoczxQWUCeG4s98=
+
+Name: assets/levels/traps/65.json
+SHA1-Digest: Z+4Hdqir8AsOWMQfDFZSKcOrAUo=
+
+Name: assets/levels/traps/66.json
+SHA1-Digest: VYKJMn2tBxj4c03yxN6EdaPU50Q=
+
+Name: assets/levels/traps/67.json
+SHA1-Digest: ISIa/A2CQAaDxoV5I/tnzO5zPdM=
+
+Name: assets/levels/traps/68.json
+SHA1-Digest: /pS74Uq3GLb1d7uHMyW9CJ4+TEc=
+
+Name: assets/levels/traps/69.json
+SHA1-Digest: olTtyHFaUh/4H40BE/RXvUVYd1U=
+
+Name: assets/levels/traps/7.json
+SHA1-Digest: cFzVUEoVY+sFnRHUok1bGcpnrRA=
+
+Name: assets/levels/traps/70.json
+SHA1-Digest: Rqesme80K5VkCynhNH1I2FXL5eU=
+
+Name: assets/levels/traps/71.json
+SHA1-Digest: A2pB9othrpCoXz4Bl80gkpjEbqA=
+
+Name: assets/levels/traps/72.json
+SHA1-Digest: zXVjpNSOYx/CkfgNCndJVctge98=
+
+Name: assets/levels/traps/73.json
+SHA1-Digest: Qsg85IlMUA4DmHV/oveoG2f6i5c=
+
+Name: assets/levels/traps/74.json
+SHA1-Digest: V1/9PxwhsMsWPVqvy1KAgVJmvF8=
+
+Name: assets/levels/traps/75.json
+SHA1-Digest: 1jy351Y5yS62aDGNjRazM1z5uzg=
+
+Name: assets/levels/traps/76.json
+SHA1-Digest: ITe/CpVUQ6hrkN30RnlNbWDmUlw=
+
+Name: assets/levels/traps/77.json
+SHA1-Digest: E+/iYEujY2g3TuuJ0UpETDPmM9U=
+
+Name: assets/levels/traps/78.json
+SHA1-Digest: gSWOG5pQ3IPEaCSJ1XeCzygKOIg=
+
+Name: assets/levels/traps/79.json
+SHA1-Digest: +6KbXGrOv2N6Bn7SpOlaTOurUIo=
+
+Name: assets/levels/traps/8.json
+SHA1-Digest: +WOb8/lc8Rym03PUv2R5DVEV2FM=
+
+Name: assets/levels/traps/80.json
+SHA1-Digest: wA4jeYM1XF6gerP27M7t9GG/n84=
+
+Name: assets/levels/traps/81.json
+SHA1-Digest: aYhLdZzp6hzL8oiKNY4f8TEFUW8=
+
+Name: assets/levels/traps/82.json
+SHA1-Digest: WrwXWw1xOmszakcgirLgC1Ywmfw=
+
+Name: assets/levels/traps/83.json
+SHA1-Digest: kjT3tY5+dm/AqZ0IHuZPDpa7ams=
+
+Name: assets/levels/traps/84.json
+SHA1-Digest: OuytMjz5i0+Ok5OCHbQq5C6wRIE=
+
+Name: assets/levels/traps/85.json
+SHA1-Digest: jAjJAk6WZzwMhUBTD7TvyIXWWgk=
+
+Name: assets/levels/traps/86.json
+SHA1-Digest: rSHA8oBS1ydNQ2/q+0b1DDBVBkE=
+
+Name: assets/levels/traps/87.json
+SHA1-Digest: 4RaC7D/Kyx4KYUBh7SDxPui2uqM=
+
+Name: assets/levels/traps/88.json
+SHA1-Digest: Mqu7tJT8GJaWzaw5Ncfb6fvl+cQ=
+
+Name: assets/levels/traps/89.json
+SHA1-Digest: 79ISy/i1j62sKn8HC8+/6iAaAC4=
+
+Name: assets/levels/traps/9.json
+SHA1-Digest: aFsKJ0oVoMqbsdaMDYnU6wP/Jo4=
+
+Name: assets/levels/traps/90.json
+SHA1-Digest: G62DlcqV/b4iLBuMl8NHW/qUs30=
+
+Name: assets/levels/traps/91.json
+SHA1-Digest: 959AIriDdti2LL7vB99q0YHA9a8=
+
+Name: assets/levels/traps/92.json
+SHA1-Digest: vUlBOAPKTjpK5qSuhx/6nh3bykE=
+
+Name: assets/levels/traps/93.json
+SHA1-Digest: /inVnT55Ucm2baoqKZSQiBRgSXg=
+
+Name: assets/levels/traps/94.json
+SHA1-Digest: xiE9oSPFF2Hd99AqpzLtW0sQoB0=
+
+Name: assets/levels/traps/95.json
+SHA1-Digest: VMcLyL3gYM49xKZgqcxvZHZfqi4=
+
+Name: assets/levels/traps/96.json
+SHA1-Digest: qEzDvDT6h4iL9C3eYOKQFrpOKVw=
+
+Name: assets/levels/traps/97.json
+SHA1-Digest: 4ZBvD3JytnmzkarsUUMR7G1mw78=
+
+Name: assets/levels/traps/98.json
+SHA1-Digest: 2bgEqKncKm7D2Zm0RUAFw+P4Hkw=
+
+Name: assets/levels/traps/99.json
+SHA1-Digest: 19G5edrNdsSNJSlg68hVg/g9s1U=
+
+Name: assets/mraid.js
+SHA1-Digest: UIoauQsaX2xbuLImpNfb83Qi9As=
+
+Name: assets/ninepatch/character_trace.png
+SHA1-Digest: OLkbKQHRFD2LYKDqUeIKO0TquRs=
+
+Name: assets/ninepatch/maze_wall.png
+SHA1-Digest: a7t8+mh5DhVxk47TONa0YaBC0Qw=
+
+Name: assets/omsdk-v1.js
+SHA1-Digest: OcusOu7NEx+Wanb9k8QyXOjbjXE=
+
+Name: assets/particle/bullet_destroy.p
+SHA1-Digest: wBt0RCLYjUUgTOGwM9Xd9TpqVCk=
+
+Name: assets/particle/particle_triangle.png
+SHA1-Digest: nGemQAlyhsjps9dbEnwjVQvOjJ8=
+
+Name: assets/sound/bullet_destroy.ogg
+SHA1-Digest: sSRmA0Fyd3vn5Ri2Y+bBVGmXcq8=
+
+Name: assets/sound/bullet_shoot.ogg
+SHA1-Digest: 7jKumT22JaZbcABKQUB3fBFppFk=
+
+Name: assets/sound/button.mp3
+SHA1-Digest: 9/h+P0R6S/HDpVERv+xJLj3EajI=
+
+Name: assets/sound/button.ogg
+SHA1-Digest: ukGJnGZQfgh1ZaTZu0KE0WeXXIE=
+
+Name: assets/sound/clock_ticking.mp3
+SHA1-Digest: kRVRq2d8nGSuhnMD5U2v+Eh2ca0=
+
+Name: assets/sound/clock_ticking.ogg
+SHA1-Digest: ce1jBU7eN0Yv1XoCAb/2UoQtRcI=
+
+Name: assets/sound/corner.mp3
+SHA1-Digest: vxe5hxqCLjLBEqyTYHeg7VFz/0Y=
+
+Name: assets/sound/corner.ogg
+SHA1-Digest: wrpHyKNRa/1akct0yK87cHcmfYk=
+
+Name: assets/sound/eaten_by_enemy.mp3
+SHA1-Digest: hFpM5f/eeDtDT4eMPUanQv0pEJQ=
+
+Name: assets/sound/eaten_by_enemy.ogg
+SHA1-Digest: lVtU2iN553tM0nyqaHABtYS2hFs=
+
+Name: assets/sound/experience_bar.mp3
+SHA1-Digest: PByiS3oIyOKrdSKcWrfOZdophAc=
+
+Name: assets/sound/experience_bar.ogg
+SHA1-Digest: xt1GcRd/SiAHgfS+LBQ5HisiVa4=
+
+Name: assets/sound/hint.mp3
+SHA1-Digest: E1nd6vVSM/QPrDSEg3tSkozDsas=
+
+Name: assets/sound/hint.ogg
+SHA1-Digest: n4Wqih/Bq5Ytw0nipE9LMRMGNA8=
+
+Name: assets/sound/level_complete.mp3
+SHA1-Digest: T0OYga/IkparWErOd39LLg7ytRk=
+
+Name: assets/sound/level_complete.ogg
+SHA1-Digest: 2xSa58Qlj4J26ZkybkfKl4wxOwQ=
+
+Name: assets/sound/level_creation.mp3
+SHA1-Digest: hQgM87npvuTDWUo0gr31D/cLuaw=
+
+Name: assets/sound/level_creation.ogg
+SHA1-Digest: /Q2ynKtPfGdTmwj67FsYUNZPuNc=
+
+Name: assets/sound/level_up.mp3
+SHA1-Digest: Qgip2NyNCACTBOCFGX7OLXqCVOg=
+
+Name: assets/sound/level_up.ogg
+SHA1-Digest: HWiCP1cTy//iMGvtQm6nv1259rE=
+
+Name: assets/sound/time_trial_level_swap.mp3
+SHA1-Digest: eboZm4rNHskf6g9/EjvcNTRX/Jk=
+
+Name: assets/sound/time_trial_level_swap.ogg
+SHA1-Digest: PDA1pm8ADP0w/8SQaoRO0M/zr98=
+
+Name: assets/sound/time_up.mp3
+SHA1-Digest: XEAnUwIBUAK5B+BbMstDxh++3fg=
+
+Name: assets/sound/time_up.ogg
+SHA1-Digest: M9kbSstZnraaOVom28mcEuk9y/o=
+
+Name: assets/text/text.properties
+SHA1-Digest: igL0Y65cHTaeUj8A6E1hGsfv28w=
+
+Name: assets/text/text_en.properties
+SHA1-Digest: jRr3l0WJUI419Fucw9eFqOA9SEg=
+
+Name: assets/text/text_es.properties
+SHA1-Digest: hpePaBzb0enc7a0EI/xb5Pmdosk=
+
+Name: assets/texture/logo_hd.atlas
+SHA1-Digest: hXukM9pckBW/9yyMxq8tyTwcjyM=
+
+Name: assets/texture/logo_hd.png
+SHA1-Digest: ars/dYrD3CWleAUVQOZEYA3Qbr0=
+
+Name: assets/texture/logo_ld.atlas
+SHA1-Digest: A25bqEbcZMJCbVGKtnVVfqFVC2s=
+
+Name: assets/texture/logo_ld.png
+SHA1-Digest: 8l+on3krERsivHc9z6V4O1CcuSY=
+
+Name: assets/texture/logo_md.atlas
+SHA1-Digest: bz6TY97v1cvqtkchtCnBGqjtjJs=
+
+Name: assets/texture/logo_md.png
+SHA1-Digest: Kx8Po3YddXNoFWDOZd9VWtpUon0=
+
+Name: assets/texture/maple_hd.atlas
+SHA1-Digest: A4MODuYxGMv5XdDn3/FtF8vUCr8=
+
+Name: assets/texture/maple_hd.png
+SHA1-Digest: qy4Nbn0GmlMDaL2HMbUobDPcNLY=
+
+Name: assets/texture/maple_ld.atlas
+SHA1-Digest: +GzgWiCwEAE41IuaEXTmioMx1Uw=
+
+Name: assets/texture/maple_ld.png
+SHA1-Digest: SMzBh/TSu5XCbI3u7s+rypCHa/w=
+
+Name: assets/texture/maple_md.atlas
+SHA1-Digest: FH4swXMxhz1WxgtJ65F9CIrUH9w=
+
+Name: assets/texture/maple_md.png
+SHA1-Digest: T2l3XuYIfZgQCHGVT26Mw8KoD+s=
+
+Name: assets/texture/texture_hd.atlas
+SHA1-Digest: UTtd0+tlHjP1BfssSn9D3BWJA38=
+
+Name: assets/texture/texture_hd.png
+SHA1-Digest: stNKAxHOM35zms8tf9LooX10J7o=
+
+Name: assets/texture/texture_hd2.png
+SHA1-Digest: e6TuS7WB9eY9y06U9GY4jMD1Kz4=
+
+Name: assets/texture/texture_hd3.png
+SHA1-Digest: PI4h35q+dDXIDFQnr12h5WoFPnk=
+
+Name: assets/texture/texture_hd4.png
+SHA1-Digest: JG2zPIa6G6RQiLSNcPTDvkL72Hg=
+
+Name: assets/texture/texture_hd5.png
+SHA1-Digest: MAoUNiUGujPxpOX1vVR8OZupgmM=
+
+Name: assets/texture/texture_ld.atlas
+SHA1-Digest: Q2UYQKm9zqJTah54ik6RVJ4qGqw=
+
+Name: assets/texture/texture_ld.png
+SHA1-Digest: Bw4Tye5JHlt03QwhhH7rmDxPcmo=
+
+Name: assets/texture/texture_md.atlas
+SHA1-Digest: OHVTbB6AwFqs/NEytdJRPqf9xXg=
+
+Name: assets/texture/texture_md.png
+SHA1-Digest: Hga/2bvVEAH5aJ+HPXJ1zQOMJ8U=
+
+Name: assets/texture/texture_md2.png
+SHA1-Digest: RPAgVLq2vAE4ES5HfHIDxBo3QK4=
+
+Name: assets/texture/texture_md3.png
+SHA1-Digest: 6WIuApl5SG6rhpeaInV3+Tzk+vY=
+
+Name: assets/ui.js
+SHA1-Digest: 7TVt28AkA8vn9aDa1vkcJAcH31Y=
+
+Name: assets/vpaid_html_template.html
+SHA1-Digest: 3wGNH5DZXAviixxm8zo7UFyf4eA=
+
+Name: classes.dex
+SHA1-Digest: V8igc7J+KysuyZVAvFdiF2pix1s=
+
+Name: classes2.dex
+SHA1-Digest: QYc4X9gplcpJ2b00SGb78012azE=
+
+Name: classes3.dex
+SHA1-Digest: 7/eVQ/gKAes8ZBSKnJ1nM94fwEs=
+
+Name: com/badlogic/gdx.gwt.xml
+SHA1-Digest: AK0fzC79XDRfqJfInvQ2JHAndqQ=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl
+SHA1-Digest: eeeSc+tc5QCSKuV0hFWg9phhius=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl
+SHA1-Digest: +uJlsJtNlSTIfFmXNXibKWc66+8=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl
+SHA1-Digest: KjoDrCKo9k0Miwwm9ylZskwVZqA=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl
+SHA1-Digest: hgf4TGztEO4PJLPqelMJTPc4Y/k=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl
+SHA1-Digest: 7R6DroOh8Rsg1NQSAhrBTPsyWes=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl
+SHA1-Digest: r5/qYIiCWmdkmfHc0adWAVKwjQI=
+
+Name: com/badlogic/gdx/utils/JsonReader.rl
+SHA1-Digest: tVe4vaIvaltUaQoI5DCKjbaW5MQ=
+
+Name: com/badlogic/gdx/utils/XmlReader.rl
+SHA1-Digest: X9iq9o1f5Iv1cOxZP8SIOM6JLgM=
+
+Name: com/badlogic/gdx/utils/arial-15.fnt
+SHA1-Digest: h1kLe7EvHfziUMbjLZoi18Hi4UI=
+
+Name: com/badlogic/gdx/utils/arial-15.png
+SHA1-Digest: zcxc3DgP9Ynv4SOhoUV2qAKs6oo=
+
+Name: fabric/com.crashlytics.sdk.android.answers.properties
+SHA1-Digest: CCYpWv22o+TfTPJ7hw2IjjzfglU=
+
+Name: fabric/com.crashlytics.sdk.android.beta.properties
+SHA1-Digest: SpPhcpDzWovEzq6WYEp9kloJ3Ok=
+
+Name: fabric/com.crashlytics.sdk.android.crashlytics-core.properties
+SHA1-Digest: lk6zyJcaLjJvO7Lq6WGDGAMwGVc=
+
+Name: fabric/com.crashlytics.sdk.android.crashlytics-ndk.properties
+SHA1-Digest: ebVURK3LnIAiJbQ3zefDlI+triU=
+
+Name: fabric/com.crashlytics.sdk.android.crashlytics.properties
+SHA1-Digest: GGlbRTyVh9tzQdjEEUeBzHMwuGs=
+
+Name: fabric/io.fabric.sdk.android.fabric.properties
+SHA1-Digest: gfl/t9ULUw6ZPuI61uou3tQUfbg=
+
+Name: firebase-abt.properties
+SHA1-Digest: p3YRHeG0EqmCiPlIAoxMCbI0jzs=
+
+Name: firebase-analytics.properties
+SHA1-Digest: I6EBxl/OkgkSIUHjT2WfDYThYsw=
+
+Name: firebase-common.properties
+SHA1-Digest: VMxmYX4DGYEhfnGMMTrlKMiusIM=
+
+Name: firebase-components.properties
+SHA1-Digest: 7nJZu/LQX5U2bBDAyc/clgxQ1W8=
+
+Name: firebase-config.properties
+SHA1-Digest: T50d8LneRxclAsXcCcnLuKKu4pw=
+
+Name: firebase-core.properties
+SHA1-Digest: v+cjc9+/1P/ggcz3AE9UTJDu/O8=
+
+Name: firebase-dynamic-links.properties
+SHA1-Digest: gPhhNDYmeG0s3hotT2djrJgiGsE=
+
+Name: firebase-iid-interop.properties
+SHA1-Digest: EG/NEOnrgZ0SQjjc64Xu8L+hd+o=
+
+Name: firebase-iid.properties
+SHA1-Digest: PUqFJcDpulAFeZQpNsbLiX/2Ukg=
+
+Name: firebase-installations-interop.properties
+SHA1-Digest: 3Es+p6gO/fWYGiKinOPROdQ3lXY=
+
+Name: firebase-installations.properties
+SHA1-Digest: HNqOTWKaac3XsMWEAS/hFssZgCs=
+
+Name: firebase-measurement-connector.properties
+SHA1-Digest: xGhmL53frvnh03/p4k58xibaXVQ=
+
+Name: kotlin/annotation/annotation.kotlin_builtins
+SHA1-Digest: u2/Z7uzWXgLQ8saGO/SXitO0nP8=
+
+Name: kotlin/collections/collections.kotlin_builtins
+SHA1-Digest: hGzyGYoe+Vc1UOnD9Mg4kY4ZXxY=
+
+Name: kotlin/coroutines/coroutines.kotlin_builtins
+SHA1-Digest: cmy3peJy1Zdf5inD2qNB1hpYdmY=
+
+Name: kotlin/internal/internal.kotlin_builtins
+SHA1-Digest: xHkmsKALMthsenNnYsDOMtKVPLI=
+
+Name: kotlin/kotlin.kotlin_builtins
+SHA1-Digest: 2Q6Aue+9/0dhm1mRV8BfOzgnERc=
+
+Name: kotlin/ranges/ranges.kotlin_builtins
+SHA1-Digest: uoCNOLWWTnndGkVv7n8CcVcUxTY=
+
+Name: kotlin/reflect/reflect.kotlin_builtins
+SHA1-Digest: pfNambiw1Ih0IOACTjphhI4MvRw=
+
+Name: lib/arm64-v8a/libcrashlytics.so
+SHA1-Digest: 1pCdCpJ5X4C/1sfw2eiOOIDFb0M=
+
+Name: lib/arm64-v8a/libgdx-freetype.so
+SHA1-Digest: THRanR1WtbIgvnu7A8n+F/0U6Ec=
+
+Name: lib/arm64-v8a/libgdx.so
+SHA1-Digest: QUUdxvau9hnk5Tj1EdKs0DWFCxQ=
+
+Name: play-services-ads-base.properties
+SHA1-Digest: ByH04zH+T0OgdYE5E0pgjy3PRts=
+
+Name: play-services-ads-identifier.properties
+SHA1-Digest: EPL8QGiaK1U3lXAffxD4VQ7gRSs=
+
+Name: play-services-ads-lite.properties
+SHA1-Digest: 48g48md7RCsKAkqz1n8L624KZWM=
+
+Name: play-services-ads.properties
+SHA1-Digest: sSQuxpABVRKN2XhSa/DGEXIP8Lw=
+
+Name: play-services-auth-api-phone.properties
+SHA1-Digest: 4xRXfC5wD7cP7zkWXYe1OQH2mf8=
+
+Name: play-services-auth-base.properties
+SHA1-Digest: QntZi3AeElzLNKqS+drQH1CLpGU=
+
+Name: play-services-auth.properties
+SHA1-Digest: T9dPqREllaquVP/2K+a5acFhSG8=
+
+Name: play-services-base.properties
+SHA1-Digest: orFpNTaGUkD8+66cHkyZDb0SXGg=
+
+Name: play-services-basement.properties
+SHA1-Digest: DkjIX2cp6t6ZIQKoFW5y4J+/n9Q=
+
+Name: play-services-drive.properties
+SHA1-Digest: 5LvKPEv8lfJVhDLICl5vznhIcls=
+
+Name: play-services-games.properties
+SHA1-Digest: 4N8OIvsGXeaJiSSJ2P/FZokufes=
+
+Name: play-services-gass.properties
+SHA1-Digest: PbaYzQ6m2SYKZBL2GexXLbLcC2k=
+
+Name: play-services-measurement-api.properties
+SHA1-Digest: R8HftNY2vPS1R2FHGk7ADLQXQ+0=
+
+Name: play-services-measurement-base.properties
+SHA1-Digest: qusGHZwx+HTgV7gQBNtOBk0+jms=
+
+Name: play-services-measurement-impl.properties
+SHA1-Digest: Lhpq4xV5uVXvucsNLJt3sGWDx6A=
+
+Name: play-services-measurement-sdk-api.properties
+SHA1-Digest: oaXFhAuHrdc+78x62gW1PIxXOr4=
+
+Name: play-services-measurement-sdk.properties
+SHA1-Digest: on623uZkGf2AAo1MYf0L4TJKo9g=
+
+Name: play-services-measurement.properties
+SHA1-Digest: 1RJBhQgzu4lJTtL0+Bw8rQis00I=
+
+Name: play-services-stats.properties
+SHA1-Digest: OEj3Sr+QRrnSWPsT/xj5GUwIQUs=
+
+Name: play-services-tasks.properties
+SHA1-Digest: KQEOX5k/FMyrOeoBl1Md+ZTtgjo=
+
+Name: res/anim/abc_fade_in.xml
+SHA1-Digest: XXaSktKiWqcfhbVCAylwxGU9L2s=
+
+Name: res/anim/abc_fade_out.xml
+SHA1-Digest: HNkTD1ZsYPPlkTleReGHUq8jOYA=
+
+Name: res/anim/abc_grow_fade_in_from_bottom.xml
+SHA1-Digest: 6nWe3lvkLJrDBEKPS4zHhFLFR+k=
+
+Name: res/anim/abc_popup_enter.xml
+SHA1-Digest: 9pbxLw+3VSKE0z3BWNoFyn/1P0s=
+
+Name: res/anim/abc_popup_exit.xml
+SHA1-Digest: B6IwCAuZ5H4awOWOQLchY/LR74I=
+
+Name: res/anim/abc_shrink_fade_out_from_bottom.xml
+SHA1-Digest: crhMKz1ZCPaunJoor/ESNYZevXU=
+
+Name: res/anim/abc_slide_in_bottom.xml
+SHA1-Digest: oduM31Yrbc26CpuUVmsFQ5XvTKc=
+
+Name: res/anim/abc_slide_in_top.xml
+SHA1-Digest: sDtQRoTzN2g2tIYb5Tk6xgl0a00=
+
+Name: res/anim/abc_slide_out_bottom.xml
+SHA1-Digest: DoVHJya5z+ccANIXRJRVzQae1IE=
+
+Name: res/anim/abc_slide_out_top.xml
+SHA1-Digest: mTWhSdlOnFJ70sDDZo9HwZbmOhU=
+
+Name: res/anim/abc_tooltip_enter.xml
+SHA1-Digest: ZWOADqFQH288fg8v4SAoCKpnRzI=
+
+Name: res/anim/abc_tooltip_exit.xml
+SHA1-Digest: RZYV2maqceqsBMOsINxScsRnCNw=
+
+Name: res/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml
+SHA1-Digest: DBM1XEEpqLOZABLKrbeM+Wy0cIw=
+
+Name: res/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml
+SHA1-Digest: p+8sX4erEPqgnh/i8Jv22c6yvCY=
+
+Name: res/anim/btn_checkbox_to_checked_icon_null_animation.xml
+SHA1-Digest: lZGUDx7C9AX5icdNk3eeQkhCb7w=
+
+Name: res/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xm
+ l
+SHA1-Digest: wGSQWIY6Kj211gzYThNBsfEQcJU=
+
+Name: res/anim/btn_checkbox_to_unchecked_check_path_merged_animation.x
+ ml
+SHA1-Digest: mNU/iHpsgw3c2v+SIwpOEO1tUOk=
+
+Name: res/anim/btn_checkbox_to_unchecked_icon_null_animation.xml
+SHA1-Digest: OTThPKQAC1x1SObVYfQSTyYiHgk=
+
+Name: res/anim/btn_radio_to_off_mtrl_dot_group_animation.xml
+SHA1-Digest: mLyJgJRlqSRqUFGMFBtOmEgxEjc=
+
+Name: res/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml
+SHA1-Digest: cp5u3mFDnLPlnYCTbQ273T/t+dA=
+
+Name: res/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml
+SHA1-Digest: Y8pGEal2fcVvMF2CpfHzx7wf+DE=
+
+Name: res/anim/btn_radio_to_on_mtrl_dot_group_animation.xml
+SHA1-Digest: VlIo21MN++n+5Ziuvt4I4sAGcgE=
+
+Name: res/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml
+SHA1-Digest: nZABYEEUOiXwV8vJbAh/Yr0hcg8=
+
+Name: res/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml
+SHA1-Digest: JT1715IV+dqAxPD8xjK1BEl66OM=
+
+Name: res/anim/onesignal_fade_in.xml
+SHA1-Digest: b6EwRlgWs7DiwRwkXIQlm7gdWdI=
+
+Name: res/anim/onesignal_fade_out.xml
+SHA1-Digest: xTONhDhFpOKGakCpn0OxdazVXdg=
+
+Name: res/color-v21/abc_btn_colored_borderless_text_material.xml
+SHA1-Digest: huEo+I03z8i5WnnOxtxhMRjblmE=
+
+Name: res/color-v23/abc_btn_colored_borderless_text_material.xml
+SHA1-Digest: D5wESvBoR6o9ZN+4xf0WQU7rs0M=
+
+Name: res/color-v23/abc_btn_colored_text_material.xml
+SHA1-Digest: 7osQaoYgPQ/al8sd/RianB1V1a0=
+
+Name: res/color-v23/abc_color_highlight_material.xml
+SHA1-Digest: 8aLgHM4NSD9iPDCcGAD5htzin34=
+
+Name: res/color-v23/abc_tint_btn_checkable.xml
+SHA1-Digest: m1VYXkhuQxpSFbrCQXaxPojibZQ=
+
+Name: res/color-v23/abc_tint_default.xml
+SHA1-Digest: ndhj9a33qZx1TnUUYTD+lL+Ur2Q=
+
+Name: res/color-v23/abc_tint_edittext.xml
+SHA1-Digest: GMB4hIxxy1KIqWpfz/JR99py7Bo=
+
+Name: res/color-v23/abc_tint_seek_thumb.xml
+SHA1-Digest: tw3U7XSkCV2M8SILRBxSd/r2XWY=
+
+Name: res/color-v23/abc_tint_spinner.xml
+SHA1-Digest: jTQWqVFeIJvUTqPMHuLS2fpHkZA=
+
+Name: res/color-v23/abc_tint_switch_track.xml
+SHA1-Digest: 1R5Gl8e0uuiwwxnhPJhpuOU2xxI=
+
+Name: res/color/abc_background_cache_hint_selector_material_dark.xml
+SHA1-Digest: zCoWIQKN8/JB9jVo6pPqO22/Hho=
+
+Name: res/color/abc_background_cache_hint_selector_material_light.xml
+SHA1-Digest: G39TbQdBRvy2SC9DXTetyrwLOdQ=
+
+Name: res/color/abc_btn_colored_borderless_text_material.xml
+SHA1-Digest: BgqFJfVTuaGGvI5kWLJTq0bXchY=
+
+Name: res/color/abc_btn_colored_text_material.xml
+SHA1-Digest: 8zQsn++Tx2i9Edh+mPFhzO+k1W8=
+
+Name: res/color/abc_hint_foreground_material_dark.xml
+SHA1-Digest: cAcEBK2xAPdXuu0vc+oGIzupcYk=
+
+Name: res/color/abc_hint_foreground_material_light.xml
+SHA1-Digest: HnNwes+uHhw01Iw9wgsvLRaJbIE=
+
+Name: res/color/abc_primary_text_disable_only_material_dark.xml
+SHA1-Digest: ihGk/u6heX1XncPPMfLrUlj/mx8=
+
+Name: res/color/abc_primary_text_disable_only_material_light.xml
+SHA1-Digest: 4lb2Q6h+4ShPPOzxiOHFHfQbUHg=
+
+Name: res/color/abc_primary_text_material_dark.xml
+SHA1-Digest: TTkhH/Rkjc3kJhXWQ55LbOqQqGI=
+
+Name: res/color/abc_primary_text_material_light.xml
+SHA1-Digest: 1nvCln0x5zxcQ8ZSgKsNGRxkrVY=
+
+Name: res/color/abc_search_url_text.xml
+SHA1-Digest: Cq2aSMuGwfof3XDID2hBCuoE0+Y=
+
+Name: res/color/abc_secondary_text_material_dark.xml
+SHA1-Digest: AVPI3jFtZ0oNuC26kX6ljwP+AhA=
+
+Name: res/color/abc_secondary_text_material_light.xml
+SHA1-Digest: oP0LU0i8rY5Xq8Lx4DmlB2Nj6+s=
+
+Name: res/color/abc_tint_btn_checkable.xml
+SHA1-Digest: zSwzabngMLZb5sdr0lYtOb5G3bQ=
+
+Name: res/color/abc_tint_default.xml
+SHA1-Digest: xdOr7nuQvvDfPtLkKQNNkyFXaeE=
+
+Name: res/color/abc_tint_edittext.xml
+SHA1-Digest: Pw7n5vsxa4G6yV/q7huew0XNYqo=
+
+Name: res/color/abc_tint_seek_thumb.xml
+SHA1-Digest: 1POpupuQ277vK3bA8KGFcivVuAE=
+
+Name: res/color/abc_tint_spinner.xml
+SHA1-Digest: 5GIxioKnPiRQeAon2Rqoxs2sspw=
+
+Name: res/color/abc_tint_switch_track.xml
+SHA1-Digest: DBMN/vTS7UstWlFu2NvnMM5jJD0=
+
+Name: res/color/common_google_signin_btn_text_dark.xml
+SHA1-Digest: j0i7XGQFZY/H5vKwSgKXezD2tVY=
+
+Name: res/color/common_google_signin_btn_text_light.xml
+SHA1-Digest: Xr6GVoAm8q8fG2CEYnm+VdYxmds=
+
+Name: res/color/common_google_signin_btn_tint.xml
+SHA1-Digest: /BS7iGgQdMB19Q9MM2defDYWYQc=
+
+Name: res/color/switch_thumb_material_dark.xml
+SHA1-Digest: zWQ+z3epiHn5OWeGGHAZ6mlPfI8=
+
+Name: res/color/switch_thumb_material_light.xml
+SHA1-Digest: Xzc5apwATTpB1BIwVWZqFD2lTFw=
+
+Name: res/drawable-anydpi-v21/applovin_ic_check_mark.xml
+SHA1-Digest: txZvkAFr+B6ENxW4vw8oxWVo/tU=
+
+Name: res/drawable-anydpi-v21/applovin_ic_disclosure_arrow.xml
+SHA1-Digest: q6WkGzjevhCtGD1G6d3xijmGexo=
+
+Name: res/drawable-anydpi-v21/applovin_ic_x_mark.xml
+SHA1-Digest: 6O5ZdAhdxXj4DGkex7Lyqoen9QM=
+
+Name: res/drawable-anydpi-v21/exo_edit_mode_logo.xml
+SHA1-Digest: D3/oIDXQNcvujRzXIHNfS9zaOfU=
+
+Name: res/drawable-anydpi-v21/exo_icon_fastforward.xml
+SHA1-Digest: dlCU7EOWV7s7Vb4Ru/N2HSu8waQ=
+
+Name: res/drawable-anydpi-v21/exo_icon_fullscreen_enter.xml
+SHA1-Digest: mSFFXMooOy5K+AO2PqJmr9U7XTY=
+
+Name: res/drawable-anydpi-v21/exo_icon_fullscreen_exit.xml
+SHA1-Digest: 7d4UU6qrBPzzCAL3VIlcEBUR1eA=
+
+Name: res/drawable-anydpi-v21/exo_icon_next.xml
+SHA1-Digest: CSZDDnMqR+Tr+eRndqmtyVEaCIY=
+
+Name: res/drawable-anydpi-v21/exo_icon_pause.xml
+SHA1-Digest: xV+ouMX20gwucRPl6vtpoRrh580=
+
+Name: res/drawable-anydpi-v21/exo_icon_play.xml
+SHA1-Digest: N29/dEyAiecMcV6VstIOPOBsraA=
+
+Name: res/drawable-anydpi-v21/exo_icon_previous.xml
+SHA1-Digest: ZDOYab4BZBAgs2ucvPXCazz/xbE=
+
+Name: res/drawable-anydpi-v21/exo_icon_repeat_all.xml
+SHA1-Digest: VGaZ/DjT8Vr39xxA2xApWOytrP4=
+
+Name: res/drawable-anydpi-v21/exo_icon_repeat_off.xml
+SHA1-Digest: swDLQs3INIsJehXSKoh2LGQ0qXQ=
+
+Name: res/drawable-anydpi-v21/exo_icon_repeat_one.xml
+SHA1-Digest: T8Q4Pyl1HQJF0K30S4r5cCSSfz4=
+
+Name: res/drawable-anydpi-v21/exo_icon_rewind.xml
+SHA1-Digest: hk5anSQ/HgMvnvrhltHBeaXxFUQ=
+
+Name: res/drawable-anydpi-v21/exo_icon_shuffle_off.xml
+SHA1-Digest: U+bVkvgu4rMJQNmi+p2KSt2weMo=
+
+Name: res/drawable-anydpi-v21/exo_icon_shuffle_on.xml
+SHA1-Digest: pYilIIape3VYx1O/26bpaRs/ENw=
+
+Name: res/drawable-anydpi-v21/exo_icon_stop.xml
+SHA1-Digest: C5kzwoToHiMTYpCzgJZY4n/SM6o=
+
+Name: res/drawable-anydpi-v21/ic_aspect_ratio.xml
+SHA1-Digest: uaT0VfOJyc7PF8GsvY/JeGmNZV8=
+
+Name: res/drawable-anydpi-v21/ic_audiotrack.xml
+SHA1-Digest: 3NklSV+4zBOTv45XaHzDTI8UfMs=
+
+Name: res/drawable-anydpi-v21/ic_check.xml
+SHA1-Digest: Vq7vN2D3ytK2E9UWbmKvuc83vUQ=
+
+Name: res/drawable-anydpi-v21/ic_chevron_left.xml
+SHA1-Digest: xr0PmHTkUeCXMGwA16o/3olHIFE=
+
+Name: res/drawable-anydpi-v21/ic_chevron_right.xml
+SHA1-Digest: oEq7Ts6VI2jI1rwqZvnBSqgFRsY=
+
+Name: res/drawable-anydpi-v21/ic_default_album_image.xml
+SHA1-Digest: wLhyDNqbmP7H2gmyyby0JUZR6mI=
+
+Name: res/drawable-anydpi-v21/ic_forward_30.xml
+SHA1-Digest: h1O8S5D5E1+HeA5oW00EbvsF2y0=
+
+Name: res/drawable-anydpi-v21/ic_fullscreen.xml
+SHA1-Digest: nbmdasqpoT4iLtF/+l7PDZUallo=
+
+Name: res/drawable-anydpi-v21/ic_fullscreen_exit.xml
+SHA1-Digest: kFqa1q4/24QM9It3AUyXR+N2Q0k=
+
+Name: res/drawable-anydpi-v21/ic_help.xml
+SHA1-Digest: 8G4+MOtR4AshGBcV6jSDnOUO15o=
+
+Name: res/drawable-anydpi-v21/ic_launch.xml
+SHA1-Digest: e84ZIFtrqyhPzniNyf5nbZYYkHo=
+
+Name: res/drawable-anydpi-v21/ic_pause_circle_filled.xml
+SHA1-Digest: rngjauM9Senu8iTPgSpToj62I30=
+
+Name: res/drawable-anydpi-v21/ic_play_circle_filled.xml
+SHA1-Digest: 3rALpyH+E5J94yR/tS1PfLHBCvQ=
+
+Name: res/drawable-anydpi-v21/ic_rewind_10.xml
+SHA1-Digest: JEhsy56Z/rREQSn+im1YohkGelY=
+
+Name: res/drawable-anydpi-v21/ic_sd.xml
+SHA1-Digest: 09V1SDiHWWCsWW0cZY6cWTxDgUk=
+
+Name: res/drawable-anydpi-v21/ic_settings.xml
+SHA1-Digest: 3Klf4DUBDdLRU+EU8pap8Hvc8Vc=
+
+Name: res/drawable-anydpi-v21/ic_skip_next.xml
+SHA1-Digest: 4xYHRtnfWHZKLFUAZ61UW4/GAhs=
+
+Name: res/drawable-anydpi-v21/ic_skip_previous.xml
+SHA1-Digest: 6L7ezAwuQj56JbbeXIv/v/7QcaM=
+
+Name: res/drawable-anydpi-v21/ic_speed.xml
+SHA1-Digest: lTGCJqswzN+4XcS+xfK+18hNbzQ=
+
+Name: res/drawable-anydpi-v21/ic_subtitle_off.xml
+SHA1-Digest: cC/I87V8HfYs1xVEJvU1kseNfYE=
+
+Name: res/drawable-anydpi-v21/ic_subtitle_on.xml
+SHA1-Digest: YpBqba6NpFmjH+V38u4FKwdsd1Q=
+
+Name: res/drawable-anydpi-v21/ic_unmute.xml
+SHA1-Digest: TqIsC7HYPSpdCDiwOUoneXgehpc=
+
+Name: res/drawable-anydpi-v21/media_session_service_notification_ic_mu
+ sic_note.xml
+SHA1-Digest: zA+cdCZtztYuoaEfb+XS1qe4Zoc=
+
+Name: res/drawable-anydpi-v21/media_session_service_notification_ic_pa
+ use.xml
+SHA1-Digest: tnzbj+viqyBQjPiBO1hyMzq7Rlk=
+
+Name: res/drawable-anydpi-v21/media_session_service_notification_ic_pl
+ ay.xml
+SHA1-Digest: PMg/j1dk8Vtmr5HlBiJw+Y6C/6s=
+
+Name: res/drawable-anydpi-v21/media_session_service_notification_ic_sk
+ ip_to_next.xml
+SHA1-Digest: fldaWLd8JbWZQF+ytd7Mio7IVRE=
+
+Name: res/drawable-anydpi-v21/media_session_service_notification_ic_sk
+ ip_to_previous.xml
+SHA1-Digest: EpMM+UqhRs8N1FlGdWiGDvgIetc=
+
+Name: res/drawable-anydpi-v24/ic_replay_circle_filled.xml
+SHA1-Digest: dP6XTVBX/fWrLcSjQEu6tFQAcdk=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png
+SHA1-Digest: UcEHcms2r2N9yOnGvBk/CGupFMw=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png
+SHA1-Digest: KzIuknZAyLH6woubBE32LAuZqFM=
+
+Name: res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+SHA1-Digest: 4ujcSC4Blk4sOy0+A2+f9R5ecyE=
+
+Name: res/drawable-nodpi-v4/ia_ib_background.png
+SHA1-Digest: 3pMFP4aCwWB8ZtYQqqePXc5/yuw=
+
+Name: res/drawable-nodpi-v4/ia_ib_close.png
+SHA1-Digest: 14+FlioN2kD5x9W+88UCefn+TEU=
+
+Name: res/drawable-nodpi-v4/ia_ib_left_arrow.png
+SHA1-Digest: 2Smp/REeL4RKzqDGMG2dd8NDL1w=
+
+Name: res/drawable-nodpi-v4/ia_ib_refresh.png
+SHA1-Digest: gudopaFGEaOnghkgd8tgG0whIY4=
+
+Name: res/drawable-nodpi-v4/ia_ib_right_arrow.png
+SHA1-Digest: YFAtgimgZQ44rEQe1cwo9SHlFs8=
+
+Name: res/drawable-nodpi-v4/ia_ib_unleft_arrow.png
+SHA1-Digest: ZmzigeQdmaZ67NAp7yXQ4Il/Tc8=
+
+Name: res/drawable-nodpi-v4/ia_ib_unright_arrow.png
+SHA1-Digest: rebuAAAu95ZU1bZiVJKyudYs8ag=
+
+Name: res/drawable-v21/abc_action_bar_item_background_material.xml
+SHA1-Digest: XAaplDFYjiFhNH1pNWE1wwGVlQM=
+
+Name: res/drawable-v21/abc_btn_colored_material.xml
+SHA1-Digest: oq7JZ6of71tO6OzRCJ+/u4coPO0=
+
+Name: res/drawable-v21/abc_dialog_material_background.xml
+SHA1-Digest: sXOHWBQMxafNQxQjpo0Xgi9J84k=
+
+Name: res/drawable-v21/abc_edit_text_material.xml
+SHA1-Digest: /22bzOmiK8HBee8rU0PXxc9ESgs=
+
+Name: res/drawable-v21/abc_list_divider_material.xml
+SHA1-Digest: p1h+FM9B/zf0IwcFDoo+bZvJ7JM=
+
+Name: res/drawable-v21/abc_ratingbar_indicator_material.xml
+SHA1-Digest: 8tNrGbg38JMiftYD2mY4RryAhC4=
+
+Name: res/drawable-v21/abc_ratingbar_material.xml
+SHA1-Digest: Ik2YKtVq8UTGKMrXMxhLNzFl1TI=
+
+Name: res/drawable-v21/abc_ratingbar_small_material.xml
+SHA1-Digest: l5nogrli9qUgOlTDXJhrJY9wmRk=
+
+Name: res/drawable-v21/notification_action_background.xml
+SHA1-Digest: obi2XJtaxsy+MT2Tlzusd0mCdNQ=
+
+Name: res/drawable-v22/custom_progress_thumb.xml
+SHA1-Digest: x1yTRoSwySvNedvbLdPVuCzHwmI=
+
+Name: res/drawable-v23/abc_control_background_material.xml
+SHA1-Digest: sUscZBtxIFyVbEGABH0M7CdChA8=
+
+Name: res/drawable-watch-v20/abc_dialog_material_background.xml
+SHA1-Digest: fs3RlRFZ5TTucRxnziRCF1mvEg0=
+
+Name: res/drawable-watch-v20/common_google_signin_btn_text_dark_normal
+ .xml
+SHA1-Digest: wfIQCYiFnqS3eDaHjUFewWcabfw=
+
+Name: res/drawable-watch-v20/common_google_signin_btn_text_disabled.xm
+ l
+SHA1-Digest: pfEvzWDXlvN0FW8kE0tW/Sq6y0k=
+
+Name: res/drawable-watch-v20/common_google_signin_btn_text_light_norma
+ l.xml
+SHA1-Digest: 4/ZKXCcQvoL+pIp7pPH5Dqr/o2A=
+
+Name: res/drawable-xhdpi-v4/common_full_open_on_phone.png
+SHA1-Digest: ZJ/oYlTIErS2TxMFPSw7UGRmRS0=
+
+Name: res/drawable-xhdpi-v4/mraid_close.png
+SHA1-Digest: 8eBfF/+AhR9bxjDWzj1a5kx9LyA=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+SHA1-Digest: skfmh8AKXvj2Y90RQYRWGn6cYvs=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+SHA1-Digest: OOefFpggagskOSa29mfgruzOhPQ=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal.9.png
+SHA1-Digest: VLNXFzqJn8hvw7NJ233yGma3RqA=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+SHA1-Digest: oXhMxqCdTU9FU0k6ZW87SKaXIv4=
+
+Name: res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
+SHA1-Digest: e3LBNjD7qx/P2ADJrhGYMpZZVrw=
+
+Name: res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png
+SHA1-Digest: bxuVxel7I0O1oiPfkBQG73fOOm8=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_000.png
+SHA1-Digest: Syjf1WOGXYnoSy9XVDy49z2PpVc=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png
+SHA1-Digest: HgH+EY9WJEVfAXnClDsismo2FSs=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png
+SHA1-Digest: ycXiJ7g1XDwZNYF8OiLagssfXOA=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png
+SHA1-Digest: kOF2VzVE6Z/WMHMU96aVNFLvUgk=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png
+SHA1-Digest: XtffKegXktC8WRHXZ9OqKfrgGpk=
+
+Name: res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png
+SHA1-Digest: fezVxa8Z79AMhE7DWj2Dvk2oKQ4=
+
+Name: res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png
+SHA1-Digest: uloisq/JS/FK6l1uYyh76zQtVgw=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png
+SHA1-Digest: am9o4CCMkLbqK7tqn2d7aY98YtM=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png
+SHA1-Digest: KU5BEai+yKGXvI7Yk2+h3Ehn27Y=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png
+SHA1-Digest: MMbSz4/uGhdnvziZg4e9XLvFodM=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png
+SHA1-Digest: UscVpd7V3jMjLzVpfsG2IbdRqvY=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png
+SHA1-Digest: 3cGsKipfgybfWKKMdG932/zCITU=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png
+SHA1-Digest: k2FhN6sjfE6Vf2vHkeQqYXKKIVw=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png
+SHA1-Digest: n+HinWLESEjbz+LSJ3hFDhs1hsI=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_36dp.png
+SHA1-Digest: 4JsTvfBdbaRSqVTy3mD7njRhb4s=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png
+SHA1-Digest: 50lQ01X/2aI5rh53asY/AX4Fkhw=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png
+SHA1-Digest: pj+V2r2pJOgJwGGNpeqxnykl0Nc=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png
+SHA1-Digest: /qTnweOfRMZPcyM1eqEsdwUZTD4=
+
+Name: res/drawable-xxhdpi-v4/abc_ic_star_half_black_48dp.png
+SHA1-Digest: LOaqUgdDJCkzcFxWg8tmL0IBRoQ=
+
+Name: res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+SHA1-Digest: L4kldLqb9NR6DgoipZDWi2jQHbs=
+
+Name: res/drawable-xxhdpi-v4/abc_list_focused_holo.9.png
+SHA1-Digest: qCddjZI8yABkWFvWCWlg+bQVD7M=
+
+Name: res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png
+SHA1-Digest: 2lRuxodMxnuWn+IclaJShuAV5+Y=
+
+Name: res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png
+SHA1-Digest: 4bXMku1QFYy4RChpA0fFOithCJ8=
+
+Name: res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png
+SHA1-Digest: 7vnDoqfrLtqERp/sMVEYSh4t0IM=
+
+Name: res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.pn
+ g
+SHA1-Digest: b3HlP2GAutY9dnIn+zaoqFbw9L4=
+
+Name: res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.p
+ ng
+SHA1-Digest: SVxifOPXPr0Z8FAPKSA6tPhqrjc=
+
+Name: res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png
+SHA1-Digest: Jrc7Wnxi6R1ydjCdOBfCkiBqY5s=
+
+Name: res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png
+SHA1-Digest: m422YztLJrO2NLTVifJeL568oAY=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png
+SHA1-Digest: 0Pl9UW/jK8MjxYht0b46LIt5W8w=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.
+ png
+SHA1-Digest: Eve5+sY3kLylSmhDHmYnvjkZAps=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.
+ png
+SHA1-Digest: ZV+bRJxAcgFQ6LcFfSQS0pjmxiI=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png
+SHA1-Digest: ooDf4aCwXRgAwl7wkOESmoAbzZ0=
+
+Name: res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png
+SHA1-Digest: lFmm16azupytB0dhehhyta6gxbc=
+
+Name: res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png
+SHA1-Digest: h8xv8FRtF8IoxHfz1h3F0O+qv7Y=
+
+Name: res/drawable-xxhdpi-v4/abc_switch_track_mtrl_alpha.9.png
+SHA1-Digest: o8PDapEHi9ySDY8++YbNTr1N4yU=
+
+Name: res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png
+SHA1-Digest: 2iTW6Q+N7MSpFwmb6gOvt2Ch6tI=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png
+SHA1-Digest: lqY9vuhB2Y6PNyO4cqhGHU3U5oE=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_left_mtrl_light.pn
+ g
+SHA1-Digest: o3UnPa5xQWf+9sW1xzSf4Z35vmk=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_dark.p
+ ng
+SHA1-Digest: hzjpkT1X7DDbbnWVWCVeingW0Rs=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_light.
+ png
+SHA1-Digest: YwrO8vgjHUmvObRSq+AnITPZC2E=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_dark.pn
+ g
+SHA1-Digest: MUn5sC0GfdFC4B7Ip1/TmztPQtg=
+
+Name: res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_light.p
+ ng
+SHA1-Digest: xmNf1ImJ9zRw/jShIY6T+TQEFiI=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png
+SHA1-Digest: VfwUUXX6IwrW930TYyG8Zmx5yM0=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.png
+SHA1-Digest: 3j+3IE1u1WhAXSyrAicO4ruaaAU=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha
+ .9.png
+SHA1-Digest: M4eB+ZFxnge0Ww+K2BV/FqmDy78=
+
+Name: res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9
+ .png
+SHA1-Digest: SNxOqMMq0ve77832zPwwzGkRPlE=
+
+Name: res/drawable-xxhdpi-v4/applovin_ic_check_mark.png
+SHA1-Digest: Z4uW4mJqmnDX6Uh45pWkoYeG2+E=
+
+Name: res/drawable-xxhdpi-v4/applovin_ic_disclosure_arrow.png
+SHA1-Digest: LwN5iYATwfIoWO1fods+4+tz7OI=
+
+Name: res/drawable-xxhdpi-v4/applovin_ic_x_mark.png
+SHA1-Digest: TAnhy4SvlRk9aZJSWcqE/pSUukc=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal
+ _background.9.png
+SHA1-Digest: E3b8zCKS17GRMez6fcytwmsN4LA=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_norma
+ l_background.9.png
+SHA1-Digest: 81UFBFWRhIAFzlz7E4Dq3TLKdK0=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal
+ _background.9.png
+SHA1-Digest: r/qImtNld0slEkSpWzHHH6Q+t30=
+
+Name: res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_norma
+ l_background.9.png
+SHA1-Digest: qAdyQ219E8/ps2Er5WJveMTTuIY=
+
+Name: res/drawable-xxhdpi-v4/exo_edit_mode_logo.png
+SHA1-Digest: dMrRbd4r49f+/y7PcTpapgVVnLM=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_circular_play.png
+SHA1-Digest: MysaPkK4EsMLu6qz3ldJ9BqAP/c=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_fastforward.png
+SHA1-Digest: Kd3Nn2VtOGUgWKnwH+ygRtjvJuI=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_fullscreen_enter.png
+SHA1-Digest: Aq18K9eDy84He7cFZB5GoQVst+Q=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_fullscreen_exit.png
+SHA1-Digest: mwkoQwzQXjPhxIORZ5AeF0dCvvQ=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_next.png
+SHA1-Digest: Ah3TEeF7mbe1OGztq1RvhjWJMVs=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_pause.png
+SHA1-Digest: yPLhbEv70dRDl7DDC2swzTaNego=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_play.png
+SHA1-Digest: 4HquEAz0tdGpWB9atdNjZYndXJA=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_previous.png
+SHA1-Digest: /K3NA0Y+uhUKYtXcmGdVcyFYWaE=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_repeat_all.png
+SHA1-Digest: yOU8S5nOSvK9ZGgar2CC+FDdwDo=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_repeat_off.png
+SHA1-Digest: IvLJ1M7fGow3oEDI9VieWPrjfDM=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_repeat_one.png
+SHA1-Digest: iZj6fPfCkdeN9bEuwWfSGkkKxRw=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_rewind.png
+SHA1-Digest: NDiVCAbQC43FD0FjYwvuZFiLkW0=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_shuffle_off.png
+SHA1-Digest: FC057hTCfZGMOx2YeerX4HLRxnc=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_shuffle_on.png
+SHA1-Digest: y+Qfh72PKWRZ3el4UV4SFwxVI9E=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_stop.png
+SHA1-Digest: mxfuDY/+BCqn5cd+H5iVxSFUo1I=
+
+Name: res/drawable-xxhdpi-v4/exo_icon_vr.png
+SHA1-Digest: 5VqoEhRTeWjMU2nOaTJjxp2wy2A=
+
+Name: res/drawable-xxhdpi-v4/googleg_disabled_color_18.png
+SHA1-Digest: YRor3DEc2DeqEMKvPf/RsvvmiCY=
+
+Name: res/drawable-xxhdpi-v4/googleg_standard_color_18.png
+SHA1-Digest: MVD4CdmOqJNUvpTIKqDZ1Vgd5pg=
+
+Name: res/drawable-xxhdpi-v4/ia_close.png
+SHA1-Digest: 5wv1eIyogFIPxQLzE05WAS+4a0Q=
+
+Name: res/drawable-xxhdpi-v4/ia_collapse.png
+SHA1-Digest: BQFtSR5Jf1crhJ5VxZy3tqp209Q=
+
+Name: res/drawable-xxhdpi-v4/ia_expand.png
+SHA1-Digest: NOClUeESnBLXczBb0jydy/f9wkc=
+
+Name: res/drawable-xxhdpi-v4/ia_heart.png
+SHA1-Digest: UtOUxpzZ9ww8M21XMwBS9LyRKxU=
+
+Name: res/drawable-xxhdpi-v4/ia_ic_error.png
+SHA1-Digest: ZwWdUx61YRlJNXhrknvokE2HVec=
+
+Name: res/drawable-xxhdpi-v4/ia_mute.png
+SHA1-Digest: QVAQ4T/sbNEPk3dtdHuyxAlkELQ=
+
+Name: res/drawable-xxhdpi-v4/ia_play.png
+SHA1-Digest: wjYw6hj6QhGGtGGna6x4fPmDU34=
+
+Name: res/drawable-xxhdpi-v4/ia_unmute.png
+SHA1-Digest: R6hCISRyC+VhxHeoadkYMz/4lxA=
+
+Name: res/drawable-xxhdpi-v4/ic_aspect_ratio.png
+SHA1-Digest: i3slZhmr07MkoBxZz6I3p8VDN5A=
+
+Name: res/drawable-xxhdpi-v4/ic_audiotrack.png
+SHA1-Digest: 5zX8BbL4oyB1BENuii/elIJ9JpM=
+
+Name: res/drawable-xxhdpi-v4/ic_check.png
+SHA1-Digest: zmH/u53qBpi79SW0pzFqY8iF+SI=
+
+Name: res/drawable-xxhdpi-v4/ic_chevron_left.png
+SHA1-Digest: waZbIbAfUx4srOYbrAvRkvY6DiY=
+
+Name: res/drawable-xxhdpi-v4/ic_chevron_right.png
+SHA1-Digest: iFVfY0aqlezIN2NNgDMwjDTgAEg=
+
+Name: res/drawable-xxhdpi-v4/ic_default_album_image.png
+SHA1-Digest: YAWNenPKfopLZ9Xd6IwikJZDVxk=
+
+Name: res/drawable-xxhdpi-v4/ic_forward_30.png
+SHA1-Digest: S9HW2fZYvl0EoNjQtFtGYpgPqdk=
+
+Name: res/drawable-xxhdpi-v4/ic_fullscreen.png
+SHA1-Digest: MT/EVNpvngNJHUJGkLqBOvyCqVs=
+
+Name: res/drawable-xxhdpi-v4/ic_fullscreen_exit.png
+SHA1-Digest: kU4WqrIP3zKT5wOoq7KPtKzTWdI=
+
+Name: res/drawable-xxhdpi-v4/ic_help.png
+SHA1-Digest: bEgbT1asdyn1NFfzm6Gfi9nNr2g=
+
+Name: res/drawable-xxhdpi-v4/ic_launch.png
+SHA1-Digest: VFEZthildDCeQedtX1EKGfIaSJ0=
+
+Name: res/drawable-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: h8d2RiQfDCr5z4bVlMMSs4WCwxU=
+
+Name: res/drawable-xxhdpi-v4/ic_os_notification_fallback_white_24dp.pn
+ g
+SHA1-Digest: iDesngbAZBxpcvRZ3vb17Xvp5R4=
+
+Name: res/drawable-xxhdpi-v4/ic_pause_circle_filled.png
+SHA1-Digest: gWrmL/KqUJeoZtasMGUAfcSMni8=
+
+Name: res/drawable-xxhdpi-v4/ic_play_circle_filled.png
+SHA1-Digest: FWeavlVqlHC87J0xOxgT+lpxndM=
+
+Name: res/drawable-xxhdpi-v4/ic_replay_circle_filled.png
+SHA1-Digest: 3/1Wsi6FK4HD/Bjw/cUX+H4mw64=
+
+Name: res/drawable-xxhdpi-v4/ic_rewind_10.png
+SHA1-Digest: 5fqL0/tMxzGpoeOcDn4hiWTZ05A=
+
+Name: res/drawable-xxhdpi-v4/ic_sd.png
+SHA1-Digest: pxNU7lzXv62m5FEtC99eCSVVhgQ=
+
+Name: res/drawable-xxhdpi-v4/ic_settings.png
+SHA1-Digest: XsyJEzZXwopkpznj3fOXZbrLIDQ=
+
+Name: res/drawable-xxhdpi-v4/ic_skip_next.png
+SHA1-Digest: c+Z3loDDhj7khJwy2RknlnormC4=
+
+Name: res/drawable-xxhdpi-v4/ic_skip_previous.png
+SHA1-Digest: 3hXhd3Q/DliKMcl47CPl1YpCgSM=
+
+Name: res/drawable-xxhdpi-v4/ic_speed.png
+SHA1-Digest: MUXkbTWuoAAjC8HIdUXJh67HcMY=
+
+Name: res/drawable-xxhdpi-v4/ic_subtitle_off.png
+SHA1-Digest: xg2TA0tFPka3bYMH50wcJ+bRLqc=
+
+Name: res/drawable-xxhdpi-v4/ic_subtitle_on.png
+SHA1-Digest: pKr/uo0bQfVzR8mTaXuti24gupg=
+
+Name: res/drawable-xxhdpi-v4/ic_unmute.png
+SHA1-Digest: wUtpm1zuMoY6x72NsySPc8cL86Y=
+
+Name: res/drawable-xxhdpi-v4/media_session_service_notification_ic_mus
+ ic_note.png
+SHA1-Digest: 2immbr+kh39uJrooieIpPI21bW0=
+
+Name: res/drawable-xxhdpi-v4/media_session_service_notification_ic_pau
+ se.png
+SHA1-Digest: WyXpNwgb80copcwC+5FXFo9XotY=
+
+Name: res/drawable-xxhdpi-v4/media_session_service_notification_ic_pla
+ y.png
+SHA1-Digest: lfKj/qgQ09Vbg0wc5V1FYUDVO88=
+
+Name: res/drawable-xxhdpi-v4/media_session_service_notification_ic_ski
+ p_to_next.png
+SHA1-Digest: 5hMK6zZpB0Uoo20Cefc5gqoQOY0=
+
+Name: res/drawable-xxhdpi-v4/media_session_service_notification_ic_ski
+ p_to_previous.png
+SHA1-Digest: BbgGeoEeX/dV/3TRKnYKdeQMSy4=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_back.png
+SHA1-Digest: 5Lb+5sePHP+CQ4CWRKCaPi7bfZg=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_back_disabled.png
+SHA1-Digest: PR/Uj/NQbMQZGNrTwpssrRVcSCY=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_background.png
+SHA1-Digest: gIc+bruEOm70XVb5TC67spKNkAo=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_circle_close.png
+SHA1-Digest: 6DBYR17RE3bUHbzvwz8sbS2q6WQ=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_close.png
+SHA1-Digest: p1UMz8YKfFF6CwckatKeK3f1ymw=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_forward.png
+SHA1-Digest: sdfJgFHFXalOdSTAtNetBX4bK9s=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_forward_disabled.png
+SHA1-Digest: fzc7JgFIi/0jfUDxUdhMOoLF9nk=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_lock.png
+SHA1-Digest: ycNlCGELmL1Zxi2WSr4bbpoESeU=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_open_in_browser.png
+SHA1-Digest: dEycOhcOScDuaz3AU9kjZxTcv/M=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_refresh.png
+SHA1-Digest: fWxyoJFxTb8qQqyLHcySYXWyG9w=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_core_watermark.png
+SHA1-Digest: vJQSUJTfSvMau0fDFqhBO3uWjC4=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_video_muted.png
+SHA1-Digest: ON6afhuf+tWQcNA9CEayLAkrX1s=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_video_skip.png
+SHA1-Digest: rPWKZBHTwgwSXNGZAkTacdyx8PM=
+
+Name: res/drawable-xxhdpi-v4/smaato_sdk_video_unmuted.png
+SHA1-Digest: ZMX+9LWGuPBkWmL8q/ysTgaRpA8=
+
+Name: res/drawable/$mute_to_unmute__0.xml
+SHA1-Digest: YpZpuGMH6dvc0i80kzR3yc9XBas=
+
+Name: res/drawable/$mute_to_unmute__1.xml
+SHA1-Digest: 11aHifz6e+laVf+xO7UPVDx0Sq0=
+
+Name: res/drawable/$mute_to_unmute__2.xml
+SHA1-Digest: RsiFMubAMowAGogrNt/P4/+93Aw=
+
+Name: res/drawable/$mute_to_unmute__3.xml
+SHA1-Digest: NKdN3ygrGKF9xJo0osolj2ZuMHg=
+
+Name: res/drawable/$mute_to_unmute__4.xml
+SHA1-Digest: Y172UE32QuC+rTj9BxrMbdy2Q8E=
+
+Name: res/drawable/$unmute_to_mute__0.xml
+SHA1-Digest: uhCtc0/OudcLbTyHj+jGomWZUkY=
+
+Name: res/drawable/$unmute_to_mute__1.xml
+SHA1-Digest: OfZfc+e4Rmur7KOb/DULD6oGYGU=
+
+Name: res/drawable/$unmute_to_mute__2.xml
+SHA1-Digest: R06jcd2U3Vr2T3obPxGs9/i0V3Q=
+
+Name: res/drawable/$unmute_to_mute__3.xml
+SHA1-Digest: 8OAVTvT90pk/atKyjw/zlzzHB6M=
+
+Name: res/drawable/$unmute_to_mute__4.xml
+SHA1-Digest: Qjz0ApCq9zTezpt287t/gaFC4dQ=
+
+Name: res/drawable/abc_btn_borderless_material.xml
+SHA1-Digest: wkK7tU36Qqr1xwGDgsMgX3ESTqk=
+
+Name: res/drawable/abc_btn_check_material.xml
+SHA1-Digest: xBNQ9mIblNBVR/4b++2fuA5mArY=
+
+Name: res/drawable/abc_btn_check_material_anim.xml
+SHA1-Digest: SqFJoJgfJtZCPmRrtGehFRpRW7I=
+
+Name: res/drawable/abc_btn_colored_material.xml
+SHA1-Digest: 1CX8G+d3gTfRuDIWd3K1EZ13GII=
+
+Name: res/drawable/abc_btn_default_mtrl_shape.xml
+SHA1-Digest: ZogKONLK61j8khPSK0udsi+/01Y=
+
+Name: res/drawable/abc_btn_radio_material.xml
+SHA1-Digest: /JOEohoIdDWXt5oET5T24Qh4loI=
+
+Name: res/drawable/abc_btn_radio_material_anim.xml
+SHA1-Digest: MflO8hvWeCar/B7ImeHd54cw2ms=
+
+Name: res/drawable/abc_cab_background_internal_bg.xml
+SHA1-Digest: NNqHldL/+iojgzs0WKkdAl9t2F4=
+
+Name: res/drawable/abc_cab_background_top_material.xml
+SHA1-Digest: RSVQqe3rNkgdJEzWbqPCKYwERuQ=
+
+Name: res/drawable/abc_dialog_material_background.xml
+SHA1-Digest: s8A/fv4AeQhSrFK+WghkqjumviQ=
+
+Name: res/drawable/abc_edit_text_material.xml
+SHA1-Digest: YYJqCFAMRyDsFrb+0aaTEmpb+6o=
+
+Name: res/drawable/abc_ic_ab_back_material.xml
+SHA1-Digest: DtW1m4JutNTVqx9nOI/YhgV1IPo=
+
+Name: res/drawable/abc_ic_arrow_drop_right_black_24dp.xml
+SHA1-Digest: m63Z6VqrdmXe+QFlvRot4eg3Zag=
+
+Name: res/drawable/abc_ic_clear_material.xml
+SHA1-Digest: 8NWdOHfQc59VacnZiTe6c7QoM2k=
+
+Name: res/drawable/abc_ic_go_search_api_material.xml
+SHA1-Digest: kEotPNfQAfuV1pE12jq72vA5pBY=
+
+Name: res/drawable/abc_ic_menu_overflow_material.xml
+SHA1-Digest: /InYH1HEpin9ResnWGjrXEocwWw=
+
+Name: res/drawable/abc_ic_search_api_material.xml
+SHA1-Digest: zU94wAefYuNusN4bDxdvTUpkv6Q=
+
+Name: res/drawable/abc_ic_voice_search_api_material.xml
+SHA1-Digest: n/5D8FLHd3feUaWrAS0OYmJabrY=
+
+Name: res/drawable/abc_item_background_holo_dark.xml
+SHA1-Digest: Ql3TTE7ZYGI742r76Z0UfTqaHDs=
+
+Name: res/drawable/abc_item_background_holo_light.xml
+SHA1-Digest: y/KtsrJVeuRjx+vE3U3mHcoi3LI=
+
+Name: res/drawable/abc_list_divider_material.xml
+SHA1-Digest: N2II2or3Fyfp3Q90Zjif6w82sK8=
+
+Name: res/drawable/abc_list_selector_background_transition_holo_dark.x
+ ml
+SHA1-Digest: jbFaNI9ef0J8Eapeh3bJauK6TQw=
+
+Name: res/drawable/abc_list_selector_background_transition_holo_light.
+ xml
+SHA1-Digest: nIxsgcHlqLNQzABK1Po2fFtHves=
+
+Name: res/drawable/abc_list_selector_holo_dark.xml
+SHA1-Digest: q9fEMZIkLmPE0dzou0/MXUxnUOw=
+
+Name: res/drawable/abc_list_selector_holo_light.xml
+SHA1-Digest: aMAuCmbmZc7WaZgEqXYwkfXwJmU=
+
+Name: res/drawable/abc_ratingbar_indicator_material.xml
+SHA1-Digest: Q/uixlXICyntgljB8eF0xVNwRpY=
+
+Name: res/drawable/abc_ratingbar_material.xml
+SHA1-Digest: ccdH2sl1bj2x+1x3whDT/VGflqE=
+
+Name: res/drawable/abc_ratingbar_small_material.xml
+SHA1-Digest: sOc0V+d9lNJnSwLEeyEbM7WGVi0=
+
+Name: res/drawable/abc_seekbar_thumb_material.xml
+SHA1-Digest: HWAgwT/jZjRGJFk7wXk1LZ7hoYo=
+
+Name: res/drawable/abc_seekbar_tick_mark_material.xml
+SHA1-Digest: oymJyhifS4rRlXGemyrkpD418TY=
+
+Name: res/drawable/abc_seekbar_track_material.xml
+SHA1-Digest: kbtdIakrwrqiKyAI4rd1oK9UiAM=
+
+Name: res/drawable/abc_spinner_textfield_background_material.xml
+SHA1-Digest: INSfivvX5Y3tSxmzlaswTssOqhg=
+
+Name: res/drawable/abc_switch_thumb_material.xml
+SHA1-Digest: VQPYa8WQINNgza0NucVe71A8lOU=
+
+Name: res/drawable/abc_tab_indicator_material.xml
+SHA1-Digest: j346n4AIVs4Wouw1K9R8Y63uz1g=
+
+Name: res/drawable/abc_text_cursor_material.xml
+SHA1-Digest: qyd6Lafmf2lCdzJDDr8HUp42BC4=
+
+Name: res/drawable/abc_textfield_search_material.xml
+SHA1-Digest: EnU2QiMGxT/WVzuq2elc2tOCBLk=
+
+Name: res/drawable/abc_vector_test.xml
+SHA1-Digest: rilHkOIYCEEKkq39+hdBK7RQQyM=
+
+Name: res/drawable/bg_circle_overlay.xml
+SHA1-Digest: vwr+xGBvsqBB6ThypT65CeKAkr4=
+
+Name: res/drawable/bg_gray.xml
+SHA1-Digest: mbklEqfWAmLd4GX7hUGtmCf1zH8=
+
+Name: res/drawable/bg_green.xml
+SHA1-Digest: 5kaCBobx6yWoBB7JulQk8Ez5q2o=
+
+Name: res/drawable/bg_green_medium.xml
+SHA1-Digest: ur1FvO+rKUCBcvQS9WhdSw32KN0=
+
+Name: res/drawable/bg_text_overlay.xml
+SHA1-Digest: CpewVkOC7Mk7xVDIhzz2/H7fEaI=
+
+Name: res/drawable/btn_checkbox_checked_mtrl.xml
+SHA1-Digest: SvY3pinFyq6oXo65IGBovF6ZzvY=
+
+Name: res/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xm
+ l
+SHA1-Digest: klctag7xYcKn4U0IgUBRq0iFmC4=
+
+Name: res/drawable/btn_checkbox_unchecked_mtrl.xml
+SHA1-Digest: 2B20Ike5T3Rp2M2vvU0fLbwOoCM=
+
+Name: res/drawable/btn_checkbox_unchecked_to_checked_mtrl_animation.xm
+ l
+SHA1-Digest: IYubabvZrWsfP/UnzD2p6qn9uAo=
+
+Name: res/drawable/btn_radio_off_mtrl.xml
+SHA1-Digest: /nEWqbxjgWwiukVclpLbBwUw3ck=
+
+Name: res/drawable/btn_radio_off_to_on_mtrl_animation.xml
+SHA1-Digest: k8lwrUyBS65CGQIxA0D7PCVQf7A=
+
+Name: res/drawable/btn_radio_on_mtrl.xml
+SHA1-Digest: 3JBv/It0UMnnV6ucgTDD38Xb568=
+
+Name: res/drawable/btn_radio_on_to_off_mtrl_animation.xml
+SHA1-Digest: Q8GAH+fzZBvQBIFJXAOSfBF/q14=
+
+Name: res/drawable/circular_shape.xml
+SHA1-Digest: NNXn5HDGJEzEiG+XryQKvp+pSlo=
+
+Name: res/drawable/close.png
+SHA1-Digest: v+GOd2CeyZqDvB0dm/Hp2p0qDt8=
+
+Name: res/drawable/common_google_signin_btn_icon_dark.xml
+SHA1-Digest: i4OLHsTn+I0gRUZFdalCR5CslZg=
+
+Name: res/drawable/common_google_signin_btn_icon_dark_focused.xml
+SHA1-Digest: 72aP+MT38zBaG9IPDLOPb60b2ho=
+
+Name: res/drawable/common_google_signin_btn_icon_dark_normal.xml
+SHA1-Digest: BKGKfrmEEVe6Z+KY+xp/Wzcn6gQ=
+
+Name: res/drawable/common_google_signin_btn_icon_disabled.xml
+SHA1-Digest: 3+0PkM76hnzCJgJ9MoIKX/ICkdc=
+
+Name: res/drawable/common_google_signin_btn_icon_light.xml
+SHA1-Digest: DDQOVfvJpUnLuoJa9TUpUYZnRGk=
+
+Name: res/drawable/common_google_signin_btn_icon_light_focused.xml
+SHA1-Digest: 0Plntac9m9ob7GdT2lJZh0EQ0Io=
+
+Name: res/drawable/common_google_signin_btn_icon_light_normal.xml
+SHA1-Digest: StZClFwuwlyvxgYFhuXKn9A8hko=
+
+Name: res/drawable/common_google_signin_btn_text_dark.xml
+SHA1-Digest: DJ+u7zwmt+qzoie3zQPTDYQVEtI=
+
+Name: res/drawable/common_google_signin_btn_text_dark_focused.xml
+SHA1-Digest: IaAFgUF70MdBfrm8AakivMd+lRc=
+
+Name: res/drawable/common_google_signin_btn_text_dark_normal.xml
+SHA1-Digest: ENhjYvK9N3SGjwCeWQbMXQ8HEZE=
+
+Name: res/drawable/common_google_signin_btn_text_disabled.xml
+SHA1-Digest: bDYeolMe9q8N2DVjICC9rNvn9/g=
+
+Name: res/drawable/common_google_signin_btn_text_light.xml
+SHA1-Digest: aFX+/VbobzqQ8c5vEJhLZc9qfZE=
+
+Name: res/drawable/common_google_signin_btn_text_light_focused.xml
+SHA1-Digest: tvlfhd1xZMKQ33vseZynDU2vv3w=
+
+Name: res/drawable/common_google_signin_btn_text_light_normal.xml
+SHA1-Digest: 9n39l36DYa6mnKDlK7EcTcexWLI=
+
+Name: res/drawable/custom_progress.xml
+SHA1-Digest: RScOqoSNFDGahxzeipgcHLZXY9A=
+
+Name: res/drawable/custom_progress_thumb.xml
+SHA1-Digest: 6PA+Q9jud0m91SaJXSRSkYtQ15w=
+
+Name: res/drawable/ia_progress_bar_drawable.xml
+SHA1-Digest: Ug2V0Gq8dJEQRfzFM1miOXnhky0=
+
+Name: res/drawable/ia_round_overlay_bg.xml
+SHA1-Digest: PaPkX5S7aKCnxyINhEWx2kAnzU8=
+
+Name: res/drawable/ia_sel_expand_collapse.xml
+SHA1-Digest: J7zUEwXWjtoeRVB8OxI1ZCcuJA8=
+
+Name: res/drawable/ia_sel_mute.xml
+SHA1-Digest: Vp7EmBrkzeJJz7pHwg8/riE6uSo=
+
+Name: res/drawable/mute.png
+SHA1-Digest: 7sdl22z+ssDR08RhJZq5Ld+lNJA=
+
+Name: res/drawable/mute_to_unmute.xml
+SHA1-Digest: 5wM1vL8qukSIiaQFFNQPjH6cKeE=
+
+Name: res/drawable/notification_bg.xml
+SHA1-Digest: DrX63OrlFSiz/sScXI2Y2dt1VQQ=
+
+Name: res/drawable/notification_bg_low.xml
+SHA1-Digest: lX2sRqiBToVpzJkJ69gKbmmIEDA=
+
+Name: res/drawable/notification_icon_background.xml
+SHA1-Digest: LzIxywVa4ZNspeblK+hC/L6/BEM=
+
+Name: res/drawable/notification_tile_bg.xml
+SHA1-Digest: T8sCeMbb46LE3OJPhTr4I8/wDSo=
+
+Name: res/drawable/pn_btn_learn_more.png
+SHA1-Digest: mx3GrZVrQ0epSMxLh+LDZKAizfI=
+
+Name: res/drawable/pn_btn_mute.png
+SHA1-Digest: Po9LvxxBU9u5Ks6zlVcDxNnU7pY=
+
+Name: res/drawable/pn_btn_unmute.png
+SHA1-Digest: SEMj0A/vB4whe58STelGanS/PAk=
+
+Name: res/drawable/pn_circular_progress.xml
+SHA1-Digest: ojnmBiH/rtSboYoaJpcu3fy2vFU=
+
+Name: res/drawable/pn_rounded_shape.xml
+SHA1-Digest: ujSoaSFYTSYd07YckzCw8LsjE6o=
+
+Name: res/drawable/pn_rounded_shape_gray.xml
+SHA1-Digest: 2a+8aFfNn9UKvadX0fQFtXfkYP8=
+
+Name: res/drawable/replay.png
+SHA1-Digest: N29U3t2mTGtioiV5ttjqMQ6TiS8=
+
+Name: res/drawable/skip.png
+SHA1-Digest: h0OgYvDTkXtcvdr8kLAJ1g+bj1A=
+
+Name: res/drawable/smaato_sdk_core_browser_bottom_button_layout_bg.xml
+SHA1-Digest: oZYc2qHPVt7BcEApMxHPMFt1dBs=
+
+Name: res/drawable/smaato_sdk_core_browser_progress_bar.xml
+SHA1-Digest: ZJJ+8fWjjeoDm66U121V59ReKoo=
+
+Name: res/drawable/smaato_sdk_core_browser_top_button_layout_bg.xml
+SHA1-Digest: EaWYX26U+6mLt2kUlTc5vTIbpsc=
+
+Name: res/drawable/smaato_sdk_core_ic_browser_background_selector.xml
+SHA1-Digest: 7u5ejuIvLf8iDQgcxOQ6ZGz9AqU=
+
+Name: res/drawable/smaato_sdk_core_ic_browser_backward_selector.xml
+SHA1-Digest: BjDp67oq8nZ+kbWnSYcU2ScGEEc=
+
+Name: res/drawable/smaato_sdk_core_ic_browser_forward_selector.xml
+SHA1-Digest: lap8Quf4ylqMQkRcVASf8bWr+Yk=
+
+Name: res/drawable/smaato_sdk_core_ic_browser_secure_connection.xml
+SHA1-Digest: XXE/Kjh0r+xG6CbSC9iXRqwXRfA=
+
+Name: res/drawable/smaato_sdk_core_progress_bar.xml
+SHA1-Digest: 8y6CpOUwg+baDDMG51sNalm2Q98=
+
+Name: res/drawable/title_bar_gradient.xml
+SHA1-Digest: 4kCeD8Cq7tDHq7nHSQoTVgzNhF4=
+
+Name: res/drawable/tooltip_frame_dark.xml
+SHA1-Digest: ZJKjZ0p/bnE66e80raA7AmT5nGc=
+
+Name: res/drawable/tooltip_frame_light.xml
+SHA1-Digest: yc/Do3+92URxWWIjcNyZILnfy9I=
+
+Name: res/drawable/unmute.png
+SHA1-Digest: 8MxKQ4+UyZy3A+gU8YgX6Q27id8=
+
+Name: res/drawable/unmute_to_mute.xml
+SHA1-Digest: qJpVLR0OMQmmMaDGffz8XUe5AzM=
+
+Name: res/interpolator/btn_checkbox_checked_mtrl_animation_interpolato
+ r_0.xml
+SHA1-Digest: qlhLAP4NskMIib7LhZenptmBn4o=
+
+Name: res/interpolator/btn_checkbox_checked_mtrl_animation_interpolato
+ r_1.xml
+SHA1-Digest: Nx7T6jyKeismYV6Ql6+clInJH0I=
+
+Name: res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpola
+ tor_0.xml
+SHA1-Digest: EVg2JHgvb+xs7VMeK+PVpVD5TGM=
+
+Name: res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpola
+ tor_1.xml
+SHA1-Digest: WlIulhyaTTi4AXeM0TKdhbWkb0I=
+
+Name: res/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.
+ xml
+SHA1-Digest: +9bijckEL0sed9RquKUM5JDwoZU=
+
+Name: res/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.x
+ ml
+SHA1-Digest: 5grclXYSM2wEehsN+9KcA0OKBvc=
+
+Name: res/interpolator/fast_out_slow_in.xml
+SHA1-Digest: v8Bf9aBmaYVnSTQ+Qe8uS1JtOj0=
+
+Name: res/layout-v16/notification_template_custom_big.xml
+SHA1-Digest: KhxtniTH8zde4mZgXvhpiYv58ls=
+
+Name: res/layout-v17/abc_action_mode_close_item_material.xml
+SHA1-Digest: 2jRBLdvot6TSAAor1IQMj4InIBU=
+
+Name: res/layout-v17/abc_alert_dialog_button_bar_material.xml
+SHA1-Digest: cU9eRcp/tSQP1/U21lhCXgIX8b0=
+
+Name: res/layout-v17/abc_alert_dialog_title_material.xml
+SHA1-Digest: Z22e4Cnb43k1DN7I6DxQ0wtm7IU=
+
+Name: res/layout-v17/abc_dialog_title_material.xml
+SHA1-Digest: TBrflipnoBj4S9k5fVpj81CX2kc=
+
+Name: res/layout-v17/abc_popup_menu_header_item_layout.xml
+SHA1-Digest: kM2x5/OS+w2CEggZUBZvQ9Mx5w8=
+
+Name: res/layout-v17/abc_search_view.xml
+SHA1-Digest: o8cd8Ilw7xGU0P8o7TcYPLFv1vU=
+
+Name: res/layout-v17/abc_select_dialog_material.xml
+SHA1-Digest: hj3gAg31Jl83sRXA4V9PtmWgReE=
+
+Name: res/layout-v17/abc_tooltip.xml
+SHA1-Digest: bTNZKn3L7kaRBCxHEJYWAxouNDU=
+
+Name: res/layout-v17/browser_actions_context_menu_page.xml
+SHA1-Digest: anYHNn1YZQzvKaAtYnioJiwjFYM=
+
+Name: res/layout-v17/browser_actions_context_menu_row.xml
+SHA1-Digest: iXhwCgJXPwDX4Uc0jqGGLUtah9A=
+
+Name: res/layout-v17/exo_playback_control_view.xml
+SHA1-Digest: 2/baXHRbJcklpbD4hMGrQ836Hck=
+
+Name: res/layout-v17/ia_fullscreen_activity.xml
+SHA1-Digest: zkgLR1TtqPVnahZWs3ermWXJbs8=
+
+Name: res/layout-v17/ia_video_view.xml
+SHA1-Digest: a1qmzJGlWrAiZTSoKAroa9/wyq0=
+
+Name: res/layout-v17/list_item_detail.xml
+SHA1-Digest: 8Dss8WnNFENuATeN9k0lQMlxjl4=
+
+Name: res/layout-v17/list_item_right_detail.xml
+SHA1-Digest: w0IBW+8HL1L2LrT8D1xJlBOtzE4=
+
+Name: res/layout-v17/list_section.xml
+SHA1-Digest: GKblRu2QvgBtWtWWOcPeFmOfISs=
+
+Name: res/layout-v17/media_controller.xml
+SHA1-Digest: TYVgvovlDUvU57UFh+JAh+lb3R8=
+
+Name: res/layout-v17/music_with_title_landscape.xml
+SHA1-Digest: ZufEGylUgz/UR61g3776bw65P08=
+
+Name: res/layout-v17/notification_action.xml
+SHA1-Digest: rKr1lmpyqS/vSOsIEdDxoamhPok=
+
+Name: res/layout-v17/notification_action_tombstone.xml
+SHA1-Digest: DmxAwGxpoQ+S16qB9EwPUDT7SD8=
+
+Name: res/layout-v17/notification_template_big_media.xml
+SHA1-Digest: 39psIyvkmbVDAGR9+cwtOUvcLJU=
+
+Name: res/layout-v17/notification_template_big_media_custom.xml
+SHA1-Digest: QAOImlPmP1BgUUHXiFByTAUlm+A=
+
+Name: res/layout-v17/notification_template_big_media_narrow.xml
+SHA1-Digest: htGQxzdi0/3Z/PyXJYDjTV7emrk=
+
+Name: res/layout-v17/notification_template_big_media_narrow_custom.xml
+SHA1-Digest: PGT6wClM1ShL8XI8xkGTS2Cdxis=
+
+Name: res/layout-v17/notification_template_custom_big.xml
+SHA1-Digest: 3NI8TWU7yiNj9jcj2UBv1e3/SEg=
+
+Name: res/layout-v17/notification_template_lines_media.xml
+SHA1-Digest: iehva+UcndvesnPIrZ8A+jd2fws=
+
+Name: res/layout-v17/notification_template_media.xml
+SHA1-Digest: ZQd5b7W27tnVpSNFef+n3RURoWQ=
+
+Name: res/layout-v17/notification_template_media_custom.xml
+SHA1-Digest: FMVdY/Cd4qoDfGuSAsipVBrL2aM=
+
+Name: res/layout-v17/onesignal_bgimage_notif_layout.xml
+SHA1-Digest: OXIG9MP7Bz3CgEachKuyWKzXa9M=
+
+Name: res/layout-v17/select_dialog_multichoice_material.xml
+SHA1-Digest: 5Uj7Y+Fuhb80HdO7HyoapiZMLVI=
+
+Name: res/layout-v17/select_dialog_singlechoice_material.xml
+SHA1-Digest: yvhG+WMezIbxC6Uo2eqg5x6lbiw=
+
+Name: res/layout-v17/settings_list_item.xml
+SHA1-Digest: 7YTLpkejgOR2XPtVP/mK+HXNPEY=
+
+Name: res/layout-v17/smaato_sdk_core_activity_internal_browser.xml
+SHA1-Digest: 2/nxMXIaSRKzu97NcgVGEG5CtSs=
+
+Name: res/layout-v17/smaato_sdk_video_player_view.xml
+SHA1-Digest: UAlcuSarxWKIAFUBjxc+zER3UKI=
+
+Name: res/layout-v17/smaato_sdk_video_vast_video_player_view.xml
+SHA1-Digest: GPAgja4q7kZx72l7CZtrZxaMPso=
+
+Name: res/layout-v17/sub_settings_list_item.xml
+SHA1-Digest: ufUdhw70RmIXNPU/Pe0icqedhSc=
+
+Name: res/layout-v21/abc_screen_toolbar.xml
+SHA1-Digest: a0rjj669rLYwaCqC9OGrN9AAmPM=
+
+Name: res/layout-v21/ia_default_video_end_card.xml
+SHA1-Digest: SKB2TJldnxL2M+FLpe9+OkN4/UE=
+
+Name: res/layout-v21/media_controller.xml
+SHA1-Digest: 7+w4zwen/YTPh+7ODNEOrO1S8ro=
+
+Name: res/layout-v21/notification_action.xml
+SHA1-Digest: YeRhTS/z/C/FqP7i/lPalc/rp2E=
+
+Name: res/layout-v21/notification_action_tombstone.xml
+SHA1-Digest: db9MBLLviHuT410MEVMRNGTeBVA=
+
+Name: res/layout-v21/notification_template_custom_big.xml
+SHA1-Digest: MqUJfgMkS17FqJj7i5xl+/+5G3s=
+
+Name: res/layout-v21/notification_template_icon_group.xml
+SHA1-Digest: XJ1NH77f/lSdKVhJWamjHFdV54E=
+
+Name: res/layout-v22/abc_alert_dialog_button_bar_material.xml
+SHA1-Digest: bjZDob2axcrfLjvC6mSnlHYeGXw=
+
+Name: res/layout-v22/list_item_detail.xml
+SHA1-Digest: nw93fsr6kaQTKOgLc4lh6VA/8hQ=
+
+Name: res/layout-v22/list_item_right_detail.xml
+SHA1-Digest: CsvdE9GFlVNt30y5YMFvL5iFjjo=
+
+Name: res/layout-v26/abc_screen_toolbar.xml
+SHA1-Digest: Ah7Hk1889bsFJIpYWX5BtdRJU4w=
+
+Name: res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml
+SHA1-Digest: tyLYuH/BwhiInYjndiRCmf0dWyM=
+
+Name: res/layout-watch-v20/abc_alert_dialog_title_material.xml
+SHA1-Digest: m6OA+dhuFZHJOV0Fw8g460o4/b0=
+
+Name: res/layout/abc_action_bar_title_item.xml
+SHA1-Digest: t3MZTCOxgmln1Twu/PmT6XQu1OI=
+
+Name: res/layout/abc_action_bar_up_container.xml
+SHA1-Digest: ixfWUqT0RvhqjOCwJZY/XS/ZuKg=
+
+Name: res/layout/abc_action_menu_item_layout.xml
+SHA1-Digest: X047ukOynUqZAQnt4aDexoRTt28=
+
+Name: res/layout/abc_action_menu_layout.xml
+SHA1-Digest: j0/V3+kmLe5Zg3cEMxkxHDJHwFw=
+
+Name: res/layout/abc_action_mode_bar.xml
+SHA1-Digest: mobhIdydMISCj5iJuNJd+E1Enu4=
+
+Name: res/layout/abc_action_mode_close_item_material.xml
+SHA1-Digest: KuuASkz2UU1WB9DgTp0TwpaGJlw=
+
+Name: res/layout/abc_activity_chooser_view.xml
+SHA1-Digest: NsMzR9XvpbvK1VcrFJuf/X9hWRo=
+
+Name: res/layout/abc_activity_chooser_view_list_item.xml
+SHA1-Digest: qFdPs0xCZtYCN9e5brsYCU95uKw=
+
+Name: res/layout/abc_alert_dialog_button_bar_material.xml
+SHA1-Digest: ylQVBqmGuthR0xUFw8AoUlXwoGk=
+
+Name: res/layout/abc_alert_dialog_material.xml
+SHA1-Digest: BwfeBqw0NXz4S3BHA1dSxO3Oj4o=
+
+Name: res/layout/abc_alert_dialog_title_material.xml
+SHA1-Digest: TUlV4/978r7yQv7tuJmoOXrfDfw=
+
+Name: res/layout/abc_cascading_menu_item_layout.xml
+SHA1-Digest: cJQlbK258affrznr2O1N0hrdA40=
+
+Name: res/layout/abc_dialog_title_material.xml
+SHA1-Digest: RQGJuO2krU0QgjNZkP4pVOno5zE=
+
+Name: res/layout/abc_expanded_menu_layout.xml
+SHA1-Digest: 0qUlUlYnmYsOrukS5e8ZXvTrSLw=
+
+Name: res/layout/abc_list_menu_item_checkbox.xml
+SHA1-Digest: YB9Pak6CtqbPyGob400af/INAKU=
+
+Name: res/layout/abc_list_menu_item_icon.xml
+SHA1-Digest: RdWwnVLxYJWq6kNAUwI5pmG7fF0=
+
+Name: res/layout/abc_list_menu_item_layout.xml
+SHA1-Digest: N6R6FZH58UdT9opuC1akmjn+RWM=
+
+Name: res/layout/abc_list_menu_item_radio.xml
+SHA1-Digest: G4F78BQvhhx1XMPfrvQe8w+/LhE=
+
+Name: res/layout/abc_popup_menu_header_item_layout.xml
+SHA1-Digest: lv5TffLZtY5U1tDS4yJfzkq0kd0=
+
+Name: res/layout/abc_popup_menu_item_layout.xml
+SHA1-Digest: FmoZ95OYG7qfZ8BJ5CjrqWGqiOI=
+
+Name: res/layout/abc_screen_content_include.xml
+SHA1-Digest: LaG9HEXrOi3xBZ+hTsEbVEQvFGk=
+
+Name: res/layout/abc_screen_simple.xml
+SHA1-Digest: dB6/qI+Dq4LWJm9Oc0SmefswTz8=
+
+Name: res/layout/abc_screen_simple_overlay_action_mode.xml
+SHA1-Digest: 0UHMNAU6BcDEqs8HfzcKw7FyXB0=
+
+Name: res/layout/abc_screen_toolbar.xml
+SHA1-Digest: ug+yrmodh7/Rhxa2Vlh8AgPO010=
+
+Name: res/layout/abc_search_dropdown_item_icons_2line.xml
+SHA1-Digest: exKVUuG+/xinl3TouSllIBU0PR8=
+
+Name: res/layout/abc_search_view.xml
+SHA1-Digest: TJgpE9IXJVTtMDTeJ2xHGWq7I0k=
+
+Name: res/layout/abc_select_dialog_material.xml
+SHA1-Digest: 4oTXREGm49ksaY/HAuvYQEIiKLk=
+
+Name: res/layout/abc_tooltip.xml
+SHA1-Digest: RvctSWepTz7uuvM0DSA/Mu1tG/w=
+
+Name: res/layout/browser_actions_context_menu_page.xml
+SHA1-Digest: Q+JDxEdZlJ/sfU3PwLUI02oTLtw=
+
+Name: res/layout/browser_actions_context_menu_row.xml
+SHA1-Digest: wChxcKkFrfHAVHODPjvUm0GITfU=
+
+Name: res/layout/content_info_layout.xml
+SHA1-Digest: g1QEVBireWJfOQASDQuKoDzP+ks=
+
+Name: res/layout/controls.xml
+SHA1-Digest: mjX7WiW3S4drKT7ALr+0JcuMKEk=
+
+Name: res/layout/custom_dialog.xml
+SHA1-Digest: fREf5J2bQskw3mU2v4ri18pZQ9E=
+
+Name: res/layout/embedded_transport_controls.xml
+SHA1-Digest: nRTDKD15e1iH5OrGzLHB8v9ZMbs=
+
+Name: res/layout/end_card.xml
+SHA1-Digest: SrDrH0g4/oKTL3D+i8bEqSZln6I=
+
+Name: res/layout/exo_list_divider.xml
+SHA1-Digest: NCBBemoR/Hi4INikncr5Xptp1RM=
+
+Name: res/layout/exo_playback_control_view.xml
+SHA1-Digest: /staVNWhIL8x9LDEiHy+ywNuzQ4=
+
+Name: res/layout/exo_player_control_view.xml
+SHA1-Digest: 7Ecs3afh78Q8uEFV72hLFFuqyek=
+
+Name: res/layout/exo_player_view.xml
+SHA1-Digest: DMUgmu4HARmciD6foaztuSCn9Fw=
+
+Name: res/layout/exo_simple_player_view.xml
+SHA1-Digest: tbA6OBv6bh5l+6tlXpSNIDbV/iI=
+
+Name: res/layout/exo_track_selection_dialog.xml
+SHA1-Digest: iqfpqSz/NAusCxnXelnYXvxIJro=
+
+Name: res/layout/full_transport_controls.xml
+SHA1-Digest: Gu+i0ptzCWVXp3mZSiKJiG+Idnk=
+
+Name: res/layout/ia_buffering_overlay.xml
+SHA1-Digest: rxeZ893/DOej4tSJC81zW0c/JV4=
+
+Name: res/layout/ia_default_video_end_card.xml
+SHA1-Digest: S+e0QDvKwhw7CdVlccOXOg0swlA=
+
+Name: res/layout/ia_error_overlay.xml
+SHA1-Digest: tNenTaOJrAcDtmKBiDtRakHNvpk=
+
+Name: res/layout/ia_fullscreen_activity.xml
+SHA1-Digest: eyUPgEg/z8fJ1t4oQJRfiJp5t5k=
+
+Name: res/layout/ia_video_view.xml
+SHA1-Digest: lmXFSFRLs9B4ZuWdRGXb5fD9iqU=
+
+Name: res/layout/list_item_detail.xml
+SHA1-Digest: scVks9o98yzOKh8vQXBsTm0IJoc=
+
+Name: res/layout/list_item_right_detail.xml
+SHA1-Digest: 5BVmYckLswrPtX693nkbvsAgBHY=
+
+Name: res/layout/list_section.xml
+SHA1-Digest: 4Bqh1uJ9FNxqGpGQWuKINEHFkx4=
+
+Name: res/layout/mdtb_interstitial_ad.xml
+SHA1-Digest: x7Sr3DaYazfUX/+JLriodeAzHZo=
+
+Name: res/layout/media_controller.xml
+SHA1-Digest: Q3eji9LjJQ8Akkm2+G8nblgk1D8=
+
+Name: res/layout/mediation_debugger_activity.xml
+SHA1-Digest: MNyIj3AJviNH4KcauQQN+kly0kk=
+
+Name: res/layout/mediation_debugger_detail_activity.xml
+SHA1-Digest: e8ysqFrc4ctObk/8xwcxotBv5rY=
+
+Name: res/layout/minimal_transport_controls.xml
+SHA1-Digest: nKt8g9XZ0nKFRAPkqJucgmsMYUY=
+
+Name: res/layout/music_with_title_landscape.xml
+SHA1-Digest: EyITqJWS6hjdHm+qSvXvuKUWuAw=
+
+Name: res/layout/music_with_title_portrait.xml
+SHA1-Digest: E1tFTU4i3GONvZh1qxzUdSFc/hc=
+
+Name: res/layout/music_without_title.xml
+SHA1-Digest: kQPtA/BUZEouxHYniCSg9DSpqwQ=
+
+Name: res/layout/notification_action.xml
+SHA1-Digest: 3/EJDrHmR3MiOP0AoQAbWMhfKpE=
+
+Name: res/layout/notification_action_tombstone.xml
+SHA1-Digest: BTZojOk8Ds0HMqFf+6QehRSZRi4=
+
+Name: res/layout/notification_media_action.xml
+SHA1-Digest: r3gyqD9fteJ2OAstDJfPW9ncOVg=
+
+Name: res/layout/notification_media_cancel_action.xml
+SHA1-Digest: J9w8O7oHS7pabamcIehxrTSvDBA=
+
+Name: res/layout/notification_template_big_media.xml
+SHA1-Digest: JsKtFsbqAtJgwNNXZFaIptnpHuY=
+
+Name: res/layout/notification_template_big_media_custom.xml
+SHA1-Digest: uvwEmQ6VliKugW0I1q6tJy8wetQ=
+
+Name: res/layout/notification_template_big_media_narrow.xml
+SHA1-Digest: o+OObFsTC/zm06j0waR2guKgxu8=
+
+Name: res/layout/notification_template_big_media_narrow_custom.xml
+SHA1-Digest: OPfjAJQB6CXJX5ZKr5YQZRYcIpY=
+
+Name: res/layout/notification_template_custom_big.xml
+SHA1-Digest: c3nIu3AnrMiUh1gEGVL4FmE+eXI=
+
+Name: res/layout/notification_template_icon_group.xml
+SHA1-Digest: zg07PCfqaSgox0W0xG9qDAoR/sE=
+
+Name: res/layout/notification_template_lines_media.xml
+SHA1-Digest: jt6YwoQswYo+cNQulXMUC0yA5Xw=
+
+Name: res/layout/notification_template_media.xml
+SHA1-Digest: zOLcTkmFInmNDRBhYaz+Szs5X7A=
+
+Name: res/layout/notification_template_media_custom.xml
+SHA1-Digest: Hr3xvYh/a6BEgFmZJYL8iNDVKVo=
+
+Name: res/layout/notification_template_part_chronometer.xml
+SHA1-Digest: nfoimr7Bbzz4z9odkaHZPodt2W4=
+
+Name: res/layout/notification_template_part_time.xml
+SHA1-Digest: Sps2QPKtTOULChT5Cj28By6zfwY=
+
+Name: res/layout/onesignal_bgimage_notif_layout.xml
+SHA1-Digest: jM+RVIqDMsmV0t/kTP2cZ4q9PE4=
+
+Name: res/layout/player_count_down.xml
+SHA1-Digest: 8YQQArHDgxac8ugx6R4ri04nyQ4=
+
+Name: res/layout/select_dialog_item_material.xml
+SHA1-Digest: CbpqL6DNas5uiu9gq7abAF2U55M=
+
+Name: res/layout/select_dialog_multichoice_material.xml
+SHA1-Digest: 0d3Ya6/dNr+asL4gninl5MledhQ=
+
+Name: res/layout/select_dialog_singlechoice_material.xml
+SHA1-Digest: +UEix3+XUgZEjVjOJH+nde+NRB4=
+
+Name: res/layout/settings_list.xml
+SHA1-Digest: u2ADrb5mZ/MAkr9ax8ymOl4OJG0=
+
+Name: res/layout/settings_list_item.xml
+SHA1-Digest: zUNSBw5hepDS61U22dLYpnuNlOk=
+
+Name: res/layout/smaato_sdk_core_activity_internal_browser.xml
+SHA1-Digest: Y9Kvw8+djySF4QF4OlSPHTSqESY=
+
+Name: res/layout/smaato_sdk_interstitial_activity.xml
+SHA1-Digest: fVVcKtR5lgr33gk9xDwLw7EfO0A=
+
+Name: res/layout/smaato_sdk_richmedia_layout_closable.xml
+SHA1-Digest: LMo+jyUstFGPIzS08NernCkJTDY=
+
+Name: res/layout/smaato_sdk_video_player_view.xml
+SHA1-Digest: gAOy3+rAH9VSC2vT4TKplnKbsDY=
+
+Name: res/layout/smaato_sdk_video_vast_video_player_view.xml
+SHA1-Digest: dikAbWs+V0D/pLtUltWxFriU9Yg=
+
+Name: res/layout/sub_settings_list_item.xml
+SHA1-Digest: dtx11CAyeKourwCezQTPQvYpXb0=
+
+Name: res/layout/support_simple_spinner_dropdown_item.xml
+SHA1-Digest: 5Lw8dDTE6qNuV0q4eHz7vrMUpQ8=
+
+Name: res/raw/consumer_onesignal_keep.xml
+SHA1-Digest: yGtPepxCg7Qh+HdZSkOsM9E8lrc=
+
+Name: res/xml/global_tracker.xml
+SHA1-Digest: a0pDd5alK74vFoDQn+ndFEQNOg0=
+
+Name: res/xml/network_security_config.xml
+SHA1-Digest: Sh/uL0krOW7HJRVERXpTh+mYwYc=
+
+Name: res/xml/remote_config_defaults.xml
+SHA1-Digest: StbC+QoZIf7Z3RiW6K7VcvPXahs=
+
+Name: res/xml/splits0.xml
+SHA1-Digest: X1q70yPKNwzt748eCbiVAZatvo8=
+
+Name: resources.arsc
+SHA1-Digest: Bw+JtcSnAM6zAfdZQ9X51bGsUBg=
+

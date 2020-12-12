@@ -1,0 +1,3 @@
+com.smaato.sdk.richmedia.framework.RichMediaModuleInterface
+com.smaato.sdk.video.framework.VideoModuleInterface
+com.smaato.sdk.image.framework.ImageModuleInterface

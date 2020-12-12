@@ -1,0 +1,20 @@
+
+maple_ld.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+maple
+  rotate: false
+  xy: 2, 2
+  size: 210, 116
+  orig: 210, 116
+  offset: 0, 0
+  index: -1
+maple_logo
+  rotate: false
+  xy: 2, 2
+  size: 210, 116
+  orig: 210, 116
+  offset: 0, 0
+  index: -1

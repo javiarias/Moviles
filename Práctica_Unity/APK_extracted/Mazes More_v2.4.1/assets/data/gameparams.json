@@ -1,0 +1,215 @@
+{
+  "colors":
+  [
+    {"id": "white", "color": { "r": 0.95, "g": 0.95, "b": 0.95, "a": 1 }},
+    {"id": "black", "color": { "r": 0.16, "g": 0.15, "b": 0.14, "a": 1 }},
+    {"id": "blue", "color": { "r": 0.16, "g": 0.15, "b": 0.95, "a": 1 }},
+    {"id": "gray", "color": { "r": 0.74, "g": 0.74, "b": 0.74, "a": 1 }},
+    {"id": "dark_blue", "color": { "r": 0.039, "g": 0.058 , "b": 0.25, "a": 1 }},
+    {"id": "light_blue", "color": { "r": 0.47, "g": 0.65 , "b": 1, "a": 1 }},
+    {"id": "yellow", "color": { "r": 0.255, "g": 0.255, "b": 0.77, "a": 1 }},
+    {"id": "icon_pressed", "color": { "r": 0.78, "g": 0.78, "b": 0.78, "a": 1 }},
+    {"id": "dark_gray", "color": { "r": 0.62, "g": 0.62, "b": 0.62, "a": 1 }},
+    {"id": "cat_classic", "color": { "r": 0.3, "g": 0.69, "b": 0.31, "a": 1 }},
+    {"id": "cat_enemies", "color": { "r": 0.4, "g": 0.23, "b": 0.72, "a": 1 }},
+    {"id": "cat_fog", "color": { "r": 0.62, "g": 0.62, "b": 0.62, "a": 1 }},
+    {"id": "cat_ice_floor", "color": { "r": 0.012, "g": 0.66, "b": 0.96, "a": 1 }},
+    {"id": "cat_fire_trace", "color": { "r": 0.99, "g": 0.22, "b": 0.27, "a": 1 }},
+    {"id": "cat_time_trial", "color": { "r": 1, "g": 0.6, "b": 0, "a": 1 }},
+    {"id": "cat_traps", "color": { "r": 0.38, "g": 0.49, "b": 0.55, "a": 1 }},
+    {"id": "help_cat_classic", "color": { "r": 0.78, "g": 0.9, "b": 0.79, "a": 1 }},
+    {"id": "help_cat_enemies", "color": { "r": 0.82, "g": 0.77, "b": 0.91, "a": 1 }},
+    {"id": "help_cat_fog", "color": { "r": 0.96, "g": 0.96, "b": 0.96, "a": 1 }},
+    {"id": "help_cat_ice_floor", "color": { "r": 0.7, "g": 0.9, "b": 0.99, "a": 1 }},
+    {"id": "help_cat_fire_trace", "color": { "r": 1, "g": 0.8, "b": 0.82, "a": 1 }},
+    {"id": "help_cat_time_trial", "color": { "r": 1, "g": 0.88, "b": 0.7, "a": 1 }},
+    {"id": "help_cat_traps", "color": { "r": 0.38, "g": 0.49, "b": 0.55, "a": 1 }},
+    {"id": "level_label", "color": { "r": 1, "g": 0.76, "b": 0.03, "a": 1 }},
+    {"id": "sound_button", "color": { "r": 0.01, "g": 0.66, "b": 0.96, "a": 1 }},
+    {"id": "leaderboard_button", "color": { "r": 0.29, "g": 0.69, "b": 0.31, "a": 1 }},
+    {"id": "facebook_button", "color": { "r": 0.25, "g": 0.32, "b": 0.71, "a": 1 }},
+    {"id": "rate_us_button", "color": { "r": 0.96, "g": 0.26, "b": 0.21, "a": 1 }},
+    {"id": "no_ads_button", "color": { "r": 0.4, "g": 0.23, "b": 0.72, "a": 1 }},
+    {"id": "home_button", "color": { "r": 1, "g": 0.76, "b": 0.03, "a": 1 }},
+    {"id": "next_level_button", "color": { "r": 0.3, "g": 0.69, "b": 0.31, "a": 1 }},
+    {"id": "shop_button", "color": { "r": 0.4, "g": 0.23, "b": 0.72, "a": 1 }},
+    {"id": "level_bar", "color": { "r": 1, "g": 0.92, "b": 0.37, "a": 1 }},
+    {"id": "ice", "color": { "r": 0.56, "g": 0.79, "b": 0.98, "a": 1 }},
+    {"id": "ok_button", "color": { "r": 0.3, "g": 0.69, "b": 0.31, "a": 1 }},
+    {"id": "privacy_button", "color": { "r": 0.91, "g": 0.18, "b": 0.39, "a": 1 }},
+    {"id": "personalized_ads_button", "color": { "r": 1.00, "g": 0.60, "b": 0.00, "a": 1 }},
+    {"id": "cancel_button", "color": { "r": 0.96, "g": 0.26, "b": 0.21, "a": 1 }},
+    {"id": "purchase_hint_button", "color": { "r": 1, "g": 0.6, "b": 0, "a": 1 }},
+    {"id": "gray_button", "color": { "r": 0.62, "g": 0.62, "b": 0.62, "a": 1 }},
+    {"id": "trap", "color": { "r": 0.91, "g": 0.12, "b": 0.39, "a": 1 }},
+    {"id": "setting_button_color", "color": { "r": 0.47, "g": 0.65, "b": 1, "a": 1 }}
+  ],
+  "categories": [
+    {
+      "id": "classic",
+      "color": "cat_classic",
+      "helpColor": "help_cat_classic",
+      "levels": 100,
+      "requiredLevel": 0,
+      "board1Experience": 5,
+      "board2Experience": 6,
+      "board3Experience": 7,
+      "board4Experience": 8,
+      "board5Experience": 9
+
+    },
+    {
+      "id": "enemies",
+      "color": "cat_enemies",
+      "helpColor": "help_cat_enemies",
+      "levels": 100,
+      "requiredLevel": 0,
+      "board1Experience": 8,
+      "board2Experience": 9,
+      "board3Experience": 10,
+      "board4Experience": 11,
+      "board5Experience": 12
+    },
+    {
+      "id": "ice_floor",
+      "color": "cat_ice_floor",
+      "helpColor": "help_cat_ice_floor",
+      "levels": 45,
+      "requiredLevel": 0,
+      "board1Experience": 11,
+      "board2Experience": 12,
+      "board3Experience": 13,
+      "board4Experience": 14,
+      "board5Experience": 15
+    },
+    {
+      "id": "fog",
+      "color": "cat_fog",
+      "helpColor": "help_cat_fog",
+      "levels": 100,
+      "requiredLevel": 0,
+      "board1Experience": 11,
+      "board2Experience": 12,
+      "board3Experience": 13,
+      "board4Experience": 14,
+      "board5Experience": 15
+    },
+    {
+      "id": "traps",
+      "color": "cat_traps",
+      "helpColor": "help_cat_traps",
+      "levels": 100,
+      "requiredLevel": 0,
+      "board1Experience": 11,
+      "board2Experience": 12,
+      "board3Experience": 13,
+      "board4Experience": 14,
+      "board5Experience": 15
+    },
+    {
+      "id": "time_trial",
+      "color": "cat_time_trial",
+      "helpColor": "help_cat_time_trial",
+      "levels": 100,
+      "requiredLevel": 35,
+      "board1Experience": 11,
+      "board2Experience": 12,
+      "board3Experience": 13,
+      "board4Experience": 14,
+      "board5Experience": 15,
+      "timeParams":
+      [
+        { "initLevel": 1, "endLevel": 5, "time": 12 },
+        { "initLevel": 6, "endLevel": 20, "time": 15 },
+        { "initLevel": 21, "endLevel": 45, "time": 20 },
+        { "initLevel": 46, "endLevel": 75, "time": 25 },
+        { "initLevel": 76, "endLevel": 100, "time": 30 }
+      ]
+    }
+  ],
+  "titleScreen":
+  {
+    "background": "dark_blue",
+    "playButton": "white",
+    "playIcon": "black",
+    "playIconNew": "yellow",
+    "levelLabel": "level_label",
+    "levelFont": "black",
+    "soundButton": "sound_button",
+    "soundIcon": "white",
+    "leaderboardButton": "leaderboard_button",
+    "leaderboardIcon": "white",
+    "facebookButton": "facebook_button",
+    "privacyButton": "privacy_button",
+    "personalizedAdsButton": "personalized_ads_button",
+    "rateUsButton": "rate_us_button",
+    "rateUsIcon": "white",
+    "noAdsButton": "no_ads_button",
+    "noAdsFont": "white",
+    "noAdsFontPressed": "gray"
+  },
+  "categoryScreen":
+  {
+    "background": "dark_blue",
+    "fontColor": "white"
+  },
+  "levelSelectScreen":
+  {
+    "background": "dark_blue",
+    "fontColor": "white",
+    "secondaryFontColor": "black"
+  },
+  "gameScreen":
+  {
+    "background": "dark_blue",
+    "fontColor": "white"
+  },
+  "levelCompletePopup":
+  {
+    "background": "white",
+    "fontColor": "white",
+    "homeButton": "home_button",
+    "homeIcon": "white",
+    "nextLevelButton": "next_level_button",
+    "nextLevelIcon": "white",
+    "minimizeButton": "dark_gray",
+    "maximizeButton": "dark_gray",
+    "maximizeIcon": "white"
+  },
+  "experienceParams":
+  {
+    "baseExperience": 10,
+    "experienceGrowt": 3
+  },
+  "hintsParams":
+  {
+    "initialHints": 2,
+    "fogHint1Percent": 2,
+    "fogHint2Percent": 4,
+    "fogHint3Percent": 8,
+    "timeTrialAdditionalTime": 10
+  },
+  "settingsParams":
+  [
+    {
+      "id":"privacyPolicy",
+      "color":"setting_button_color"
+    },
+    {
+      "id":"termsOfService",
+      "color":"setting_button_color"
+    },
+    /*{
+      "id":"restorePurchase",
+      "color":"setting_button_color"
+    },*/
+    {
+      "id":"support",
+      "color":"setting_button_color"
+    },
+    {
+      "id":"moreGames",
+      "color":"setting_button_color"
+    }
+  ]
+}

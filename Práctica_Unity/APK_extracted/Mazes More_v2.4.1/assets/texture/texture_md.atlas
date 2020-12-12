@@ -1,0 +1,1285 @@
+
+texture_md.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arrow_down
+  rotate: false
+  xy: 2009, 465
+  size: 24, 21
+  orig: 24, 21
+  offset: 0, 0
+  index: -1
+arrow_left
+  rotate: false
+  xy: 1664, 885
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+arrow_right
+  rotate: false
+  xy: 818, 786
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+arrow_up
+  rotate: false
+  xy: 1029, 10
+  size: 24, 21
+  orig: 24, 21
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 2, 766
+  size: 720, 1280
+  orig: 720, 1280
+  offset: 0, 0
+  index: -1
+bullet
+  rotate: false
+  xy: 1503, 835
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+buy_five
+  rotate: false
+  xy: 1490, 1593
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_five_pressed
+  rotate: false
+  xy: 1490, 1423
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_four
+  rotate: false
+  xy: 1490, 1253
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_four_pressed
+  rotate: false
+  xy: 1490, 1083
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_one
+  rotate: false
+  xy: 1450, 913
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+cart_icon
+  rotate: false
+  xy: 1832, 4
+  size: 72, 55
+  orig: 72, 55
+  offset: 0, 0
+  index: -1
+cart_icon_pressed
+  rotate: false
+  xy: 1755, 4
+  size: 73, 55
+  orig: 73, 55
+  offset: 0, 0
+  index: -1
+check
+  rotate: false
+  xy: 1474, 830
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+close_button
+  rotate: false
+  xy: 2000, 963
+  size: 27, 24
+  orig: 27, 24
+  offset: 0, 0
+  index: -1
+hint
+  rotate: false
+  xy: 1943, 62
+  size: 96, 104
+  orig: 96, 104
+  offset: 0, 0
+  index: -1
+hint_icon_big
+  rotate: false
+  xy: 1606, 34
+  size: 73, 100
+  orig: 73, 100
+  offset: 0, 0
+  index: -1
+leaderboard_active
+  rotate: false
+  xy: 958, 2
+  size: 34, 29
+  orig: 34, 29
+  offset: 0, 0
+  index: -1
+level_complete_window
+  rotate: false
+  xy: 2, 103
+  size: 960, 659
+  orig: 960, 659
+  offset: 0, 0
+  index: -1
+logo
+  rotate: false
+  xy: 2, 19
+  size: 800, 80
+  orig: 800, 80
+  offset: 0, 0
+  index: -1
+maple_logo
+  rotate: false
+  xy: 1690, 391
+  size: 315, 173
+  orig: 315, 173
+  offset: 0, 0
+  index: -1
+menu_icon
+  rotate: false
+  xy: 1980, 13
+  size: 49, 45
+  orig: 49, 45
+  offset: 0, 0
+  index: -1
+minimize_icon_old
+  rotate: false
+  xy: 726, 775
+  size: 60, 35
+  orig: 60, 35
+  offset: 0, 0
+  index: -1
+next_level
+  rotate: false
+  xy: 1690, 166
+  size: 195, 221
+  orig: 195, 221
+  offset: 0, 0
+  index: -1
+particle_triangle
+  rotate: false
+  xy: 1450, 1089
+  size: 28, 23
+  orig: 28, 23
+  offset: 0, 0
+  index: -1
+pause_window_bg
+  rotate: false
+  xy: 1490, 1763
+  size: 555, 283
+  orig: 555, 283
+  offset: 0, 0
+  index: -1
+personalized_ads_off_icon
+  rotate: false
+  xy: 2000, 1037
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+personalized_ads_on_icon
+  rotate: false
+  xy: 2000, 991
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+play
+  rotate: false
+  xy: 1889, 222
+  size: 143, 165
+  orig: 143, 165
+  offset: 0, 0
+  index: -1
+popup_bg
+  rotate: false
+  xy: 2000, 938
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+popup_button
+  rotate: false
+  xy: 1690, 63
+  size: 249, 99
+  orig: 249, 99
+  offset: 0, 0
+  index: -1
+privacy_icon
+  rotate: false
+  xy: 2009, 490
+  size: 24, 33
+  orig: 24, 33
+  offset: 0, 0
+  index: -1
+privacy_icon_pressed
+  rotate: false
+  xy: 790, 777
+  size: 24, 33
+  orig: 24, 33
+  offset: 0, 0
+  index: -1
+progress_knob
+  rotate: false
+  xy: 1450, 859
+  size: 210, 50
+  orig: 210, 50
+  offset: 0, 0
+  index: -1
+rate_active
+  rotate: false
+  xy: 996, 5
+  size: 29, 26
+  orig: 29, 26
+  offset: 0, 0
+  index: -1
+rectangle_button
+  rotate: false
+  xy: 1889, 170
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: -1
+rectangle_transparent_button
+  rotate: false
+  xy: 806, 17
+  size: 148, 82
+  orig: 148, 82
+  offset: 0, 0
+  index: -1
+reward_video_active
+  rotate: false
+  xy: 1993, 171
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+settings_active
+  rotate: false
+  xy: 1450, 1116
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+sound
+  rotate: false
+  xy: 1683, 2
+  size: 68, 56
+  orig: 68, 56
+  offset: 0, 0
+  index: -1
+sound_pressed
+  rotate: false
+  xy: 1908, 2
+  size: 68, 56
+  orig: 68, 56
+  offset: 0, 0
+  index: -1
+store_active
+  rotate: false
+  xy: 2009, 527
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1
+store_window_bg
+  rotate: false
+  xy: 726, 1152
+  size: 760, 894
+  orig: 760, 894
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 966, 35
+  size: 636, 99
+  orig: 636, 99
+  offset: 0, 0
+  index: -1
+trace_corner
+  rotate: false
+  xy: 818, 766
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+trace_line
+  rotate: false
+  xy: 838, 766
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+trap
+  rotate: false
+  xy: 1450, 815
+  size: 20, 40
+  orig: 20, 40
+  offset: 0, 0
+  index: -1
+unlock_classic_window_bg
+  rotate: false
+  xy: 726, 814
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+unlock_enemies_window_bg
+  rotate: false
+  xy: 966, 476
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+unlock_fog_window_bg
+  rotate: false
+  xy: 966, 138
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+window
+  rotate: false
+  xy: 1690, 568
+  size: 341, 341
+  orig: 341, 341
+  offset: 0, 0
+  index: -1
+
+texture_md2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+assisted_icon
+  rotate: false
+  xy: 1884, 809
+  size: 117, 100
+  orig: 117, 100
+  offset: 0, 0
+  index: -1
+assisted_icon_pressed
+  rotate: false
+  xy: 1646, 570
+  size: 117, 100
+  orig: 117, 100
+  offset: 0, 0
+  index: -1
+back_button
+  rotate: false
+  xy: 1903, 1516
+  size: 141, 99
+  orig: 141, 99
+  offset: 0, 0
+  index: -1
+back_button_pressed
+  rotate: false
+  xy: 1893, 1288
+  size: 141, 99
+  orig: 141, 99
+  offset: 0, 0
+  index: -1
+button_big
+  rotate: false
+  xy: 1722, 1531
+  size: 177, 177
+  orig: 177, 177
+  offset: 0, 0
+  index: -1
+button_big_pressed
+  rotate: false
+  xy: 1694, 1125
+  size: 177, 177
+  orig: 177, 177
+  offset: 0, 0
+  index: -1
+button_medium
+  rotate: false
+  xy: 1064, 1502
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+button_medium_pressed
+  rotate: false
+  xy: 1767, 579
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+button_small
+  rotate: false
+  xy: 320, 2
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+button_small_pressed
+  rotate: false
+  xy: 401, 2
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+buy_one_pressed
+  rotate: false
+  xy: 2, 253
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_three
+  rotate: false
+  xy: 2, 83
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_three_pressed
+  rotate: false
+  xy: 1172, 1542
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_two
+  rotate: false
+  xy: 552, 253
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+buy_two_pressed
+  rotate: false
+  xy: 552, 83
+  size: 546, 166
+  orig: 546, 166
+  offset: 0, 0
+  index: -1
+categories_button
+  rotate: false
+  xy: 726, 1347
+  size: 504, 151
+  orig: 504, 151
+  offset: 0, 0
+  index: -1
+categories_button_pressed
+  rotate: false
+  xy: 726, 1192
+  size: 504, 151
+  orig: 504, 151
+  offset: 0, 0
+  index: -1
+check_button
+  rotate: false
+  xy: 1896, 1897
+  size: 149, 149
+  orig: 149, 149
+  offset: 0, 0
+  index: -1
+check_button_pressed
+  rotate: false
+  xy: 1896, 1744
+  size: 149, 149
+  orig: 149, 149
+  offset: 0, 0
+  index: -1
+classic
+  rotate: false
+  xy: 726, 1050
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+classic_pressed
+  rotate: false
+  xy: 726, 908
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+clock
+  rotate: false
+  xy: 1877, 621
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+close_button_white_circled_pressed
+  rotate: false
+  xy: 1801, 405
+  size: 66, 66
+  orig: 66, 66
+  offset: 0, 0
+  index: -1
+enemies
+  rotate: false
+  xy: 726, 766
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+enemies_pressed
+  rotate: false
+  xy: 726, 624
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+fog
+  rotate: false
+  xy: 1234, 1400
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+fog_pressed
+  rotate: false
+  xy: 1234, 1258
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+hint_small
+  rotate: false
+  xy: 1875, 1171
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+hint_small_pressed
+  rotate: false
+  xy: 1646, 913
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+ice_floor_new
+  rotate: false
+  xy: 1234, 1116
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+ice_floor_pressed
+  rotate: false
+  xy: 1186, 974
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+leaderboard
+  rotate: false
+  xy: 882, 6
+  size: 75, 73
+  orig: 75, 73
+  offset: 0, 0
+  index: -1
+leaderboard_icon
+  rotate: false
+  xy: 969, 428
+  size: 75, 59
+  orig: 75, 59
+  offset: 0, 0
+  index: -1
+leaderboard_pressed
+  rotate: false
+  xy: 482, 6
+  size: 76, 73
+  orig: 76, 73
+  offset: 0, 0
+  index: -1
+level_bar
+  rotate: false
+  xy: 2, 1828
+  size: 1166, 218
+  orig: 1166, 218
+  offset: 0, 0
+  index: -1
+level_bar_bg
+  rotate: false
+  xy: 2, 1606
+  size: 1166, 218
+  orig: 1166, 218
+  offset: 0, 0
+  index: -1
+level_button
+  rotate: false
+  xy: 1903, 1619
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: -1
+level_button_pressed
+  rotate: false
+  xy: 1893, 1391
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: -1
+level_lock
+  rotate: false
+  xy: 1040, 6
+  size: 51, 73
+  orig: 51, 73
+  offset: 0, 0
+  index: -1
+level_lock_pressed
+  rotate: false
+  xy: 1994, 1211
+  size: 51, 73
+  orig: 51, 73
+  offset: 0, 0
+  index: -1
+lock
+  rotate: false
+  xy: 1871, 517
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+lock_category
+  rotate: false
+  xy: 1994, 1139
+  size: 50, 68
+  orig: 50, 68
+  offset: 0, 0
+  index: -1
+maximize_icon
+  rotate: false
+  xy: 1981, 656
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+maximize_icon_pressed
+  rotate: false
+  xy: 1981, 587
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+maze_more_logo
+  rotate: false
+  xy: 2, 423
+  size: 883, 165
+  orig: 883, 165
+  offset: 0, 0
+  index: -1
+memorygames
+  rotate: false
+  xy: 1186, 832
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+memorygames_pressed
+  rotate: false
+  xy: 1186, 690
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+menu_icon_pressed
+  rotate: false
+  xy: 1048, 442
+  size: 49, 45
+  orig: 49, 45
+  offset: 0, 0
+  index: -1
+minimize_icon
+  rotate: false
+  xy: 1884, 725
+  size: 136, 80
+  orig: 136, 80
+  offset: 0, 0
+  index: -1
+next_level_pressed
+  rotate: false
+  xy: 1694, 1306
+  size: 195, 221
+  orig: 195, 221
+  offset: 0, 0
+  index: -1
+pause
+  rotate: false
+  xy: 1646, 796
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+pause_pressed
+  rotate: false
+  xy: 1765, 913
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+play_active
+  rotate: false
+  xy: 1975, 500
+  size: 71, 83
+  orig: 71, 83
+  offset: 0, 0
+  index: -1
+play_icon
+  rotate: false
+  xy: 1727, 391
+  size: 70, 80
+  orig: 70, 80
+  offset: 0, 0
+  index: -1
+popup_button_pressed
+  rotate: false
+  xy: 1440, 2
+  size: 249, 99
+  orig: 249, 99
+  offset: 0, 0
+  index: -1
+progress_bg
+  rotate: false
+  xy: 2, 21
+  size: 314, 58
+  orig: 314, 58
+  offset: 0, 0
+  index: -1
+purchase_5_bubble
+  rotate: false
+  xy: 1646, 674
+  size: 110, 118
+  orig: 110, 118
+  offset: 0, 0
+  index: -1
+puzzlerama
+  rotate: false
+  xy: 1186, 548
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+puzzlerama_pressed
+  rotate: false
+  xy: 1102, 406
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+rate
+  rotate: false
+  xy: 961, 6
+  size: 75, 73
+  orig: 75, 73
+  offset: 0, 0
+  index: -1
+rate_pressed
+  rotate: false
+  xy: 562, 6
+  size: 76, 73
+  orig: 76, 73
+  offset: 0, 0
+  index: -1
+restore
+  rotate: false
+  xy: 1765, 796
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+restore_pressed
+  rotate: false
+  xy: 1884, 913
+  size: 115, 113
+  orig: 115, 113
+  offset: 0, 0
+  index: -1
+reward_video_inactive
+  rotate: false
+  xy: 1095, 548
+  size: 70, 72
+  orig: 70, 72
+  offset: 0, 0
+  index: -1
+rewarded_video_reverse_colors
+  rotate: false
+  xy: 1871, 423
+  size: 90, 90
+  orig: 90, 90
+  offset: 0, 0
+  index: -1
+setting_menu_button
+  rotate: false
+  xy: 1694, 1030
+  size: 312, 91
+  orig: 312, 91
+  offset: 0, 0
+  index: -1
+setting_menu_button_pressed
+  rotate: false
+  xy: 1693, 9
+  size: 312, 92
+  orig: 312, 92
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 1965, 423
+  size: 75, 73
+  orig: 75, 73
+  offset: 0, 0
+  index: -1
+settings_pressed
+  rotate: false
+  xy: 642, 6
+  size: 76, 73
+  orig: 76, 73
+  offset: 0, 0
+  index: -1
+star_big
+  rotate: false
+  xy: 1562, 389
+  size: 161, 155
+  orig: 161, 155
+  offset: 0, 0
+  index: -1
+star_medium
+  rotate: false
+  xy: 1760, 683
+  size: 113, 109
+  orig: 113, 109
+  offset: 0, 0
+  index: -1
+store
+  rotate: false
+  xy: 722, 6
+  size: 76, 73
+  orig: 76, 73
+  offset: 0, 0
+  index: -1
+store_button
+  rotate: false
+  xy: 726, 1502
+  size: 334, 100
+  orig: 334, 100
+  offset: 0, 0
+  index: -1
+store_button_pressed
+  rotate: false
+  xy: 1102, 18
+  size: 334, 100
+  orig: 334, 100
+  offset: 0, 0
+  index: -1
+store_pressed
+  rotate: false
+  xy: 802, 6
+  size: 76, 73
+  orig: 76, 73
+  offset: 0, 0
+  index: -1
+store_white
+  rotate: false
+  xy: 889, 423
+  size: 76, 64
+  orig: 76, 64
+  offset: 0, 0
+  index: -1
+time_trial
+  rotate: false
+  xy: 1102, 264
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+time_trial_locked
+  rotate: false
+  xy: 1102, 122
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+time_trial_pressed
+  rotate: false
+  xy: 1562, 247
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+traps
+  rotate: false
+  xy: 1562, 105
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+unlock
+  rotate: false
+  xy: 1767, 475
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+unlock_ice_floor_window_bg
+  rotate: false
+  xy: 1172, 1712
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+unlock_level_window_bg
+  rotate: false
+  xy: 2, 1268
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+unlock_time_trial_window_bg
+  rotate: false
+  xy: 2, 930
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+unlock_traps_window_bg
+  rotate: false
+  xy: 2, 592
+  size: 720, 334
+  orig: 720, 334
+  offset: 0, 0
+  index: -1
+white_bg
+  rotate: false
+  xy: 889, 491
+  size: 202, 129
+  orig: 202, 129
+  offset: 0, 0
+  index: -1
+
+texture_md3.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cancel_icon
+  rotate: false
+  xy: 611, 201
+  size: 66, 63
+  orig: 66, 63
+  offset: 0, 0
+  index: -1
+cancel_icon_pressed
+  rotate: false
+  xy: 681, 205
+  size: 66, 63
+  orig: 66, 63
+  offset: 0, 0
+  index: -1
+categories_lock
+  rotate: false
+  xy: 632, 272
+  size: 67, 96
+  orig: 67, 96
+  offset: 0, 0
+  index: -1
+categories_lock_pressed
+  rotate: false
+  xy: 703, 272
+  size: 67, 96
+  orig: 67, 96
+  offset: 0, 0
+  index: -1
+character
+  rotate: false
+  xy: 822, 174
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+close_button_white_circled
+  rotate: false
+  xy: 2, 138
+  size: 88, 88
+  orig: 88, 88
+  offset: 0, 0
+  index: -1
+enemy1
+  rotate: false
+  xy: 390, 40
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 1
+enemy1
+  rotate: false
+  xy: 681, 141
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 2
+enemy2
+  rotate: false
+  xy: 745, 111
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 1
+enemy2
+  rotate: false
+  xy: 809, 110
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 2
+enemy3
+  rotate: false
+  xy: 873, 110
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 1
+enemy3
+  rotate: false
+  xy: 410, 154
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: 2
+goal
+  rotate: false
+  xy: 185, 79
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+hint_icon_big_pressed
+  rotate: false
+  xy: 922, 410
+  size: 73, 100
+  orig: 73, 100
+  offset: 0, 0
+  index: -1
+hint_icon_small
+  rotate: false
+  xy: 79, 67
+  size: 49, 67
+  orig: 49, 67
+  offset: 0, 0
+  index: -1
+hint_icon_small_pressed
+  rotate: false
+  xy: 132, 70
+  size: 49, 67
+  orig: 49, 67
+  offset: 0, 0
+  index: -1
+home_icon
+  rotate: false
+  xy: 462, 218
+  size: 73, 60
+  orig: 73, 60
+  offset: 0, 0
+  index: -1
+home_icon_pressed
+  rotate: false
+  xy: 922, 346
+  size: 73, 60
+  orig: 73, 60
+  offset: 0, 0
+  index: -1
+home_white
+  rotate: false
+  xy: 205, 9
+  size: 56, 66
+  orig: 56, 66
+  offset: 0, 0
+  index: -1
+home_white_pressed
+  rotate: false
+  xy: 265, 22
+  size: 56, 66
+  orig: 56, 66
+  offset: 0, 0
+  index: -1
+ice_floor
+  rotate: false
+  xy: 94, 141
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+leaderboard_icon_pressed
+  rotate: false
+  xy: 331, 167
+  size: 75, 59
+  orig: 75, 59
+  offset: 0, 0
+  index: -1
+like_icon
+  rotate: false
+  xy: 848, 301
+  size: 69, 67
+  orig: 69, 67
+  offset: 0, 0
+  index: -1
+manual_icon
+  rotate: false
+  xy: 2, 34
+  size: 73, 100
+  orig: 73, 100
+  offset: 0, 0
+  index: -1
+manual_icon_pressed
+  rotate: false
+  xy: 555, 268
+  size: 73, 100
+  orig: 73, 100
+  offset: 0, 0
+  index: -1
+ok_button_white_circled
+  rotate: false
+  xy: 774, 298
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ok_button_white_circled_pressed
+  rotate: false
+  xy: 257, 156
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+ok_icon
+  rotate: false
+  xy: 921, 279
+  size: 68, 63
+  orig: 68, 63
+  offset: 0, 0
+  index: -1
+ok_icon_pressed
+  rotate: false
+  xy: 539, 201
+  size: 68, 63
+  orig: 68, 63
+  offset: 0, 0
+  index: -1
+play_icon_pressed
+  rotate: false
+  xy: 183, 146
+  size: 70, 80
+  orig: 70, 80
+  offset: 0, 0
+  index: -1
+rate_us_icon
+  rotate: false
+  xy: 331, 104
+  size: 67, 59
+  orig: 67, 59
+  offset: 0, 0
+  index: -1
+rate_us_icon_pressed
+  rotate: false
+  xy: 751, 175
+  size: 67, 59
+  orig: 67, 59
+  offset: 0, 0
+  index: -1
+reset_icon
+  rotate: false
+  xy: 79, 2
+  size: 59, 61
+  orig: 59, 61
+  offset: 0, 0
+  index: -1
+reset_icon_pressed
+  rotate: false
+  xy: 142, 5
+  size: 59, 61
+  orig: 59, 61
+  offset: 0, 0
+  index: -1
+setting_white
+  rotate: false
+  xy: 474, 154
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+sound_off_icon
+  rotate: false
+  xy: 538, 137
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+sound_off_icon_pressed
+  rotate: false
+  xy: 602, 137
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+sound_on_icon
+  rotate: false
+  xy: 257, 92
+  size: 61, 60
+  orig: 61, 60
+  offset: 0, 0
+  index: -1
+sound_on_icon_pressed
+  rotate: false
+  xy: 325, 40
+  size: 61, 60
+  orig: 61, 60
+  offset: 0, 0
+  index: -1
+sound_white
+  rotate: false
+  xy: 774, 238
+  size: 68, 56
+  orig: 68, 56
+  offset: 0, 0
+  index: -1
+star_small
+  rotate: false
+  xy: 462, 282
+  size: 89, 86
+  orig: 89, 86
+  offset: 0, 0
+  index: -1
+traps_pressed
+  rotate: false
+  xy: 2, 372
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+wordsearch
+  rotate: false
+  xy: 2, 230
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
+wordsearch_pressed
+  rotate: false
+  xy: 462, 372
+  size: 456, 138
+  orig: 456, 138
+  offset: 0, 0
+  index: -1
