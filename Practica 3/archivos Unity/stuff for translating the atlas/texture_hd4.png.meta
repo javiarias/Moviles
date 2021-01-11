@@ -1,0 +1,280 @@
+    - serializedVersion: 2
+      name: back_button
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1056
+        width: 211
+        height: 148
+    - serializedVersion: 2
+      name: back_button_pressed
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1208
+        width: 211
+        height: 148
+    - serializedVersion: 2
+      name: button_medium_pressed
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1873
+        width: 150
+        height: 150
+    - serializedVersion: 2
+      name: categories_button_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 4
+        width: 756
+        height: 227
+    - serializedVersion: 2
+      name: character
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1360
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: check_button
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 602
+        width: 223
+        height: 223
+    - serializedVersion: 2
+      name: check_button_pressed
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 829
+        width: 223
+        height: 223
+    - serializedVersion: 2
+      name: classic
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 235
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: classic_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 446
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: enemies
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 657
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: enemies_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 868
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: enemy1
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1454
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: enemy1
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1548
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: enemy2
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1642
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: fog
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1079
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: fog_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1290
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: ice_floor_new
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1501
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: ice_floor_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1712
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: leaderboard_icon
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1940
+        width: 112
+        height: 88
+    - serializedVersion: 2
+      name: maximize_icon
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1736
+        width: 97
+        height: 98
+    - serializedVersion: 2
+      name: maximize_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1838
+        width: 97
+        height: 98
+    - serializedVersion: 2
+      name: minimize_icon
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1923
+        width: 204
+        height: 120
+    - serializedVersion: 2
+      name: pause
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 4
+        width: 172
+        height: 169
+    - serializedVersion: 2
+      name: pause_pressed
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 177
+        width: 172
+        height: 169
+    - serializedVersion: 2
+      name: play
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 350
+        width: 214
+        height: 248
+    - serializedVersion: 2
+      name: play_icon
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1923
+        width: 105
+        height: 120
+    - serializedVersion: 2
+      name: play_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1923
+        width: 105
+        height: 120
+    - serializedVersion: 2
+      name: rectangle_transparent_button
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1923
+        width: 222
+        height: 123
+    - serializedVersion: 2
+      name: restore
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1360
+        width: 172
+        height: 169
+    - serializedVersion: 2
+      name: restore_pressed
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1533
+        width: 172
+        height: 169
+    - serializedVersion: 2
+      name: star_medium
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1706
+        width: 169
+        height: 163
+    - serializedVersion: 2
+      name: unlock_fog_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 1080
+        height: 501
+    - serializedVersion: 2
+      name: unlock_ice_floor_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 509
+        width: 1080
+        height: 501
+    - serializedVersion: 2
+      name: unlock_level_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1014
+        width: 1080
+        height: 501
+    - serializedVersion: 2
+      name: unlock_time_trial_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1519
+        width: 1080
+        height: 501

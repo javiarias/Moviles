@@ -1,0 +1,280 @@
+    - serializedVersion: 2
+      name: arrow_down
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 2010
+        width: 36
+        height: 31
+    - serializedVersion: 2
+      name: arrow_left
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2010
+        width: 31
+        height: 36
+    - serializedVersion: 2
+      name: arrow_right
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 2010
+        width: 31
+        height: 36
+    - serializedVersion: 2
+      name: arrow_up
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 2010
+        width: 36
+        height: 31
+    - serializedVersion: 2
+      name: bullet
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 2010
+        width: 30
+        height: 30
+    - serializedVersion: 2
+      name: button_big
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 3
+        width: 265
+        height: 265
+    - serializedVersion: 2
+      name: button_big_pressed
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 272
+        width: 265
+        height: 265
+    - serializedVersion: 2
+      name: buy_one_pressed
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 777
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_three
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1030
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_three_pressed
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1283
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_two
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1536
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_two_pressed
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1789
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: close_button_white_circled_pressed
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 665
+        width: 99
+        height: 99
+    - serializedVersion: 2
+      name: hint_icon_small
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1183
+        width: 73
+        height: 100
+    - serializedVersion: 2
+      name: hint_icon_small_pressed
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1287
+        width: 73
+        height: 100
+    - serializedVersion: 2
+      name: leaderboard_active
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1518
+        width: 51
+        height: 44
+    - serializedVersion: 2
+      name: level_bar
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 1749
+        height: 327
+    - serializedVersion: 2
+      name: level_bar_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 334
+        width: 1749
+        height: 327
+    - serializedVersion: 2
+      name: level_lock
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 777
+        width: 77
+        height: 110
+    - serializedVersion: 2
+      name: level_lock_pressed
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 891
+        width: 77
+        height: 110
+    - serializedVersion: 2
+      name: like_icon
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 665
+        width: 104
+        height: 100
+    - serializedVersion: 2
+      name: lock_category
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1005
+        width: 75
+        height: 102
+    - serializedVersion: 2
+      name: menu_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1111
+        width: 74
+        height: 68
+    - serializedVersion: 2
+      name: ok_button_white_circled
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 665
+        width: 105
+        height: 105
+    - serializedVersion: 2
+      name: ok_button_white_circled_pressed
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 665
+        width: 105
+        height: 105
+    - serializedVersion: 2
+      name: personalized_ads_off_icon
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 665
+        width: 64
+        height: 63
+    - serializedVersion: 2
+      name: personalized_ads_on_icon
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1391
+        width: 64
+        height: 63
+    - serializedVersion: 2
+      name: privacy_icon
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 541
+        width: 36
+        height: 50
+    - serializedVersion: 2
+      name: privacy_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 595
+        width: 36
+        height: 50
+    - serializedVersion: 2
+      name: reward_video_inactive
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 665
+        width: 105
+        height: 108
+    - serializedVersion: 2
+      name: star_big
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 541
+        width: 241
+        height: 232
+    - serializedVersion: 2
+      name: store_active
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1458
+        width: 55
+        height: 56
+    - serializedVersion: 2
+      name: store_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 665
+        width: 1140
+        height: 1341
+    - serializedVersion: 2
+      name: trace_line
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 2010
+        width: 24
+        height: 24
+    - serializedVersion: 2
+      name: trap
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 649
+        width: 30
+        height: 60

@@ -1,0 +1,352 @@
+    - serializedVersion: 2
+      name: cancel_icon
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1417
+        width: 99
+        height: 95
+    - serializedVersion: 2
+      name: cancel_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 335
+        width: 99
+        height: 95
+    - serializedVersion: 2
+      name: cart_icon
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 1531
+        width: 108
+        height: 82
+    - serializedVersion: 2
+      name: cart_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1531
+        width: 109
+        height: 82
+    - serializedVersion: 2
+      name: categories_lock
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1417
+        width: 101
+        height: 144
+    - serializedVersion: 2
+      name: categories_lock_pressed
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 181
+        width: 101
+        height: 144
+    - serializedVersion: 2
+      name: clock
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 27
+        width: 150
+        height: 150
+    - serializedVersion: 2
+      name: enemy2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1571
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: enemy3
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1665
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: enemy3
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1705
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: hint
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1417
+        width: 144
+        height: 156
+    - serializedVersion: 2
+      name: leaderboard
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 335
+        width: 113
+        height: 110
+    - serializedVersion: 2
+      name: leaderboard_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1731
+        width: 112
+        height: 88
+    - serializedVersion: 2
+      name: lock
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 181
+        width: 150
+        height: 150
+    - serializedVersion: 2
+      name: manual_icon
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 27
+        width: 110
+        height: 150
+    - serializedVersion: 2
+      name: manual_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1577
+        width: 110
+        height: 150
+    - serializedVersion: 2
+      name: maze_more_logo
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 532
+        width: 1324
+        height: 248
+    - serializedVersion: 2
+      name: memorygames
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 784
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: memorygames_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 27
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: ok_icon
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1823
+        width: 102
+        height: 94
+    - serializedVersion: 2
+      name: ok_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1921
+        width: 102
+        height: 94
+    - serializedVersion: 2
+      name: puzzlerama
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 995
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: puzzlerama_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 238
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: rate
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1417
+        width: 113
+        height: 110
+    - serializedVersion: 2
+      name: rate_us_icon
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1565
+        width: 101
+        height: 88
+    - serializedVersion: 2
+      name: rate_us_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1657
+        width: 101
+        height: 88
+    - serializedVersion: 2
+      name: reset_icon
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1577
+        width: 88
+        height: 91
+    - serializedVersion: 2
+      name: reset_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1672
+        width: 88
+        height: 91
+    - serializedVersion: 2
+      name: setting_white
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1767
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: settings
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 1417
+        width: 113
+        height: 110
+    - serializedVersion: 2
+      name: sound
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1617
+        width: 102
+        height: 84
+    - serializedVersion: 2
+      name: sound_off_icon
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1861
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: sound_off_icon_pressed
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1759
+        width: 90
+        height: 90
+    - serializedVersion: 2
+      name: sound_pressed
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1617
+        width: 102
+        height: 84
+    - serializedVersion: 2
+      name: sound_white
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1705
+        width: 102
+        height: 84
+    - serializedVersion: 2
+      name: time_trial
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1206
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: time_trial_locked
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1417
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: time_trial_pressed
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1628
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: traps
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1839
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: traps_pressed
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 784
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: unlock
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1417
+        width: 150
+        height: 150
+    - serializedVersion: 2
+      name: unlock_traps_window_bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 27
+        width: 1080
+        height: 501
+    - serializedVersion: 2
+      name: wordsearch
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 995
+        width: 684
+        height: 207
+    - serializedVersion: 2
+      name: wordsearch_pressed
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1206
+        width: 684
+        height: 207

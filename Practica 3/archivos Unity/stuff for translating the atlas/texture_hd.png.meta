@@ -1,0 +1,280 @@
+    - serializedVersion: 2
+      name: bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 1080
+        height: 1920
+    - serializedVersion: 2
+      name: button_medium
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 1849
+        width: 150
+        height: 150
+    - serializedVersion: 2
+      name: button_small
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 155
+        width: 115
+        height: 115
+    - serializedVersion: 2
+      name: button_small_pressed
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 274
+        width: 115
+        height: 115
+    - serializedVersion: 2
+      name: buy_five
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 584
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_five_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 837
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_four
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1090
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_four_pressed
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1343
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: buy_one
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1596
+        width: 819
+        height: 249
+    - serializedVersion: 2
+      name: check
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 2003
+        width: 38
+        height: 38
+    - serializedVersion: 2
+      name: close_button
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 2003
+        width: 40
+        height: 36
+    - serializedVersion: 2
+      name: close_button_white_circled
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 856
+        width: 132
+        height: 132
+    - serializedVersion: 2
+      name: hint_icon_big
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1680
+        width: 110
+        height: 150
+    - serializedVersion: 2
+      name: ice_floor
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 992
+        width: 128
+        height: 128
+    - serializedVersion: 2
+      name: leaderboard_pressed
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 393
+        width: 114
+        height: 110
+    - serializedVersion: 2
+      name: level_button
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 1849
+        width: 182
+        height: 181
+    - serializedVersion: 2
+      name: level_button_pressed
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 1849
+        width: 182
+        height: 181
+    - serializedVersion: 2
+      name: logo
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1926
+        width: 1200
+        height: 120
+    - serializedVersion: 2
+      name: menu_icon
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 507
+        width: 74
+        height: 68
+    - serializedVersion: 2
+      name: particle_triangle
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1849
+        width: 42
+        height: 34
+    - serializedVersion: 2
+      name: pause_window_bg
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 155
+        width: 832
+        height: 425
+    - serializedVersion: 2
+      name: popup_bg
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1887
+        width: 32
+        height: 32
+    - serializedVersion: 2
+      name: rate_active
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 2003
+        width: 44
+        height: 39
+    - serializedVersion: 2
+      name: rate_pressed
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1124
+        width: 114
+        height: 110
+    - serializedVersion: 2
+      name: reward_video_active
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1849
+        width: 70
+        height: 70
+    - serializedVersion: 2
+      name: rewarded_video_reverse_colors
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 584
+        width: 135
+        height: 135
+    - serializedVersion: 2
+      name: settings_active
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 507
+        width: 45
+        height: 48
+    - serializedVersion: 2
+      name: settings_pressed
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1238
+        width: 114
+        height: 110
+    - serializedVersion: 2
+      name: star_small
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 723
+        width: 134
+        height: 129
+    - serializedVersion: 2
+      name: store
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1352
+        width: 114
+        height: 110
+    - serializedVersion: 2
+      name: store_pressed
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1466
+        width: 114
+        height: 110
+    - serializedVersion: 2
+      name: store_white
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1580
+        width: 114
+        height: 96
+    - serializedVersion: 2
+      name: title
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 2
+        width: 954
+        height: 149
+    - serializedVersion: 2
+      name: trace_corner
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 2003
+        width: 24
+        height: 24
+    - serializedVersion: 2
+      name: white_bg
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1849
+        width: 303
+        height: 193

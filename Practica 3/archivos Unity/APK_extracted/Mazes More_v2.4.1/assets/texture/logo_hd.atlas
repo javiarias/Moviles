@@ -1,0 +1,13 @@
+
+logo_hd.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+logo
+  rotate: false
+  xy: 2, 2
+  size: 1200, 120
+  orig: 1200, 120
+  offset: 0, 0
+  index: -1
