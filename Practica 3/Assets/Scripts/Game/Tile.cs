@@ -148,6 +148,38 @@ public class Tile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Función que devuelve la cantidad de paredes en una tile
+    /// </summary>
+    /// <returns>El número de paredes en un tile</returns>
+    public int GetWalls()
+    {
+        int w = 0;
+
+        w += _wallUp ? 1 : 0;
+        w += _wallDown ? 1 : 0;
+        w += _wallLeft ? 1 : 0;
+        w += _wallRight ? 1 : 0;
+
+        return w;
+    }
+
+    public List<GameUtils.Direction> GetDirections()
+    {
+        List<GameUtils.Direction> dirs = new List<GameUtils.Direction>();
+
+        if (!_wallUp)
+            dirs.Add(GameUtils.Direction.UP);
+        if (!_wallDown)
+            dirs.Add(GameUtils.Direction.DOWN);
+        if (!_wallLeft)
+            dirs.Add(GameUtils.Direction.LEFT);
+        if (!_wallRight)
+            dirs.Add(GameUtils.Direction.RIGHT);
+
+        return dirs;
+    }
+
     private void Start()
     {
 #if UNITY_EDITOR

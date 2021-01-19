@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : ScriptableObject
+[CreateAssetMenu(fileName = "LevelPackage", menuName = "ScriptableObjects/LevelPackage", order = 2)]
+public class LevelPackage : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public TextAsset[] _levels;
+
+    public Sprite _button;
+    public Sprite _pressedButton;
+
 }

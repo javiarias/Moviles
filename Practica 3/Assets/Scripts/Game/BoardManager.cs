@@ -145,4 +145,9 @@ public class BoardManager : MonoBehaviour
     {
         return (x + y * _rows);
     }
+
+    public void LoadLevel()//JsonUtility json)
+    {
+
+    }
 }
