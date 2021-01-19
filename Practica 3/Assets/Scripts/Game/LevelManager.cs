@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public BoardManager _boardManager;    
+    private static LevelManager _instance;
+
+    public static LevelManager Instance()
+    {
+        return _instance;
+    }
+
+    public BoardManager _boardManager;
 
     Map _map;
 
     public void Start()
     {
+        if (!_instance)
+            _instance = this;
+
         _boardManager = BoardManager.Instance();
     }
 

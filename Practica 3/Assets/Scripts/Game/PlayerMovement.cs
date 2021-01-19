@@ -13,6 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     Stack<GameUtils.Direction> _movementQueue;
 
+    public SpriteRenderer _playerUp;
+
+    public SpriteRenderer _playerDown;
+
+    public SpriteRenderer _playerLeft;
+
+    public SpriteRenderer _playerRight;
+
     /// <summary>
     /// Límite que determina cuánto has de deslizar el dedo para que se reconozca como movimiento
     /// </summary>
@@ -42,6 +50,45 @@ public class PlayerMovement : MonoBehaviour
         {
             HandleMovement();
         }
+    }
+
+    void ShowDirections(List<GameUtils.Direction> dirs)
+    {
+        foreach(GameUtils.Direction d in dirs)
+        {
+            switch(d)
+            {
+                case GameUtils.Direction.UP:
+                    _playerUp.enabled = true;
+                    break;
+
+                case GameUtils.Direction.DOWN:
+                    _playerDown.enabled = true;
+                    break;
+
+                case GameUtils.Direction.LEFT:
+                    _playerLeft.enabled = true;
+                    break;
+
+                case GameUtils.Direction.RIGHT:
+                    _playerRight.enabled = true;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    void HideDirections()
+    {
+        _playerUp.enabled = false;
+
+        _playerDown.enabled = false;
+
+        _playerLeft.enabled = false;
+
+        _playerRight.enabled = false;
     }
 
     void HandleMovement()
@@ -76,6 +123,10 @@ public class PlayerMovement : MonoBehaviour
         //Si no, es que o ha alcanzado un callejón sin salida o es que ha alcanzado un cruce
         else
         {
+            List<GameUtils.Direction> dirs = t.GetDirections();
+
+            ShowDirections(dirs);
+
             _isMoving = false;
             _isReturning = false;
         }
@@ -174,6 +225,8 @@ public class PlayerMovement : MonoBehaviour
                     _isMoving = true;
 
                     HandleDir(dir);
+
+                    HideDirections();
                 }
             }
         }
