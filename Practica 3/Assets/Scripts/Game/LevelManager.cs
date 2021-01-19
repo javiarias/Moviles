@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [Tooltip("pog")]
-    public BoardManager _boardManager;
+    public BoardManager _boardManager;    
 
-    public TextAsset _level;
+    Map _map;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        if(_level && _boardManager)
-        {
-
-        }
+        _boardManager = BoardManager.Instance();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(!_boardManager)
+            _boardManager = BoardManager.Instance();
+    }
+
+    public void LoadLevel(string json)
+    {
+        _map = Map.JSON_To_Map(json);
+
+        if (_boardManager)
+        {
+            _boardManager.LoadLevel(_map);
+        }
     }
 }

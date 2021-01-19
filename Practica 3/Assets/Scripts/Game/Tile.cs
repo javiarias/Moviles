@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public int _upCounter = 0;
+    public int _downCounter = 0;
+    public int _leftCounter = 0;
+    public int _rightCounter = 0;
 
-    bool _isIce = false;
-    bool _isGoal = false;
-    bool _isStart = false;
+    public bool _isIce { get; private set; } = false;
+    public bool _isGoal { get; private set; } = false;
+    public bool _isStart { get; private set; } = false;
 
     [Tooltip("Sprite de hielo")]
     public SpriteRenderer _ice;
@@ -98,24 +102,85 @@ public class Tile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activa o desactiva el sprite de camino del jugador, teniendo en cuenta cuántas veces se ha pasado en una dirección por ese tile
+    /// </summary>
+    /// <param name="dir"></param>
+    /// <param name="path"></param>
     public void SetPlayerPath(GameUtils.Direction dir, bool path)
     {
         switch (dir)
         {
             case GameUtils.Direction.UP:
-                _playerUp.enabled = path;
+                if (!path)
+                {
+                    _upCounter--;
+
+                    if (_upCounter < 0)
+                        _upCounter = 0;
+                }
+
+                if (_upCounter == 0)
+                    _playerUp.enabled = path;
+
+                if (path)
+                {
+                    _upCounter++;
+                }
                 break;
 
             case GameUtils.Direction.DOWN:
-                _playerDown.enabled = path;
+                if (!path)
+                {
+                    _downCounter--;
+
+                    if (_downCounter < 0)
+                        _downCounter = 0;
+                }
+
+                if (_downCounter == 0)
+                    _playerDown.enabled = path;
+
+                if (path)
+                {
+                    _downCounter++;
+                }
                 break;
 
             case GameUtils.Direction.LEFT:
-                _playerLeft.enabled = path;
+                if (!path)
+                {
+                    _leftCounter--;
+
+                    if (_leftCounter < 0)
+                        _leftCounter = 0;
+                }
+
+                if (_leftCounter == 0)
+                    _playerLeft.enabled = path;
+
+                if (path)
+                {
+                    _leftCounter++;
+                }
                 break;
 
             case GameUtils.Direction.RIGHT:
-                _playerRight.enabled = path;
+                if (!path)
+                {
+                    _rightCounter--;
+
+                    if(_rightCounter < 0)
+                        _rightCounter = 0;
+                }
+
+                if (_rightCounter == 0)
+                    _playerRight.enabled = path;
+
+                if (path)
+                {
+                    _rightCounter++;
+                }
                 break;
 
             default:
@@ -156,10 +221,10 @@ public class Tile : MonoBehaviour
     {
         int w = 0;
 
-        w += _wallUp ? 1 : 0;
-        w += _wallDown ? 1 : 0;
-        w += _wallLeft ? 1 : 0;
-        w += _wallRight ? 1 : 0;
+        w += _wallUp.enabled ? 1 : 0;
+        w += _wallDown.enabled ? 1 : 0;
+        w += _wallLeft.enabled ? 1 : 0;
+        w += _wallRight.enabled ? 1 : 0;
 
         return w;
     }
@@ -168,16 +233,50 @@ public class Tile : MonoBehaviour
     {
         List<GameUtils.Direction> dirs = new List<GameUtils.Direction>();
 
-        if (!_wallUp)
+        if (!_wallUp.enabled)
             dirs.Add(GameUtils.Direction.UP);
-        if (!_wallDown)
+        if (!_wallDown.enabled)
             dirs.Add(GameUtils.Direction.DOWN);
-        if (!_wallLeft)
+        if (!_wallLeft.enabled)
             dirs.Add(GameUtils.Direction.LEFT);
-        if (!_wallRight)
+        if (!_wallRight.enabled)
             dirs.Add(GameUtils.Direction.RIGHT);
 
         return dirs;
+    }
+
+    /// <summary>
+    /// Comprueba si puedes moverte dentro de una Tile en la dirección dada.
+    /// </summary>
+    /// <param name="dir">Dirección en la cual se desea moverse</param>
+    /// <returns></returns>
+    public bool CheckDirectionMovement(GameUtils.Direction dir)
+    {
+        bool ret = false;
+
+        switch(dir)
+        {
+            case GameUtils.Direction.UP:
+                ret = !_wallUp.enabled;
+                break;
+
+            case GameUtils.Direction.DOWN:
+                ret = !_wallDown.enabled;
+                break;
+
+            case GameUtils.Direction.LEFT:
+                ret = !_wallLeft.enabled;
+                break;
+
+            case GameUtils.Direction.RIGHT:
+                ret = !_wallRight.enabled;
+                break;
+
+            default:
+                break;
+        }
+
+        return ret;
     }
 
     private void Start()

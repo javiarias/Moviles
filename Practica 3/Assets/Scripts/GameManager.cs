@@ -6,19 +6,25 @@ public class GameManager : MonoBehaviour
 {
     public LevelManager _levelManager;
 
-#if UNITY_EDITOR
     public int packToPlay;
     public int levelToPlay;
+
+#if UNITY_EDITOR
+    public bool activateRestart = false;
 #endif
+    
+    private static GameManager _instance;
 
-    static GameManager _instance;
-
+    public static GameManager Instance()
+    {
+        return _instance;
+    }
 
     public LevelPackage[] _levelPacks;
 
     void Start()
     {
-        if(_instance != null)
+        if (_instance != null)
         {
             _instance._levelManager = _levelManager;
             DestroyImmediate(gameObject);
@@ -27,19 +33,30 @@ public class GameManager : MonoBehaviour
 
             return;
         }
+        else
+            _instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (activateRestart)
+        {
+            activateRestart = !activateRestart;
+            StartNewScene();
+        }
     }
 
     private void StartNewScene()
     {
         if(_levelManager)
         {
-            //in-game
+            _levelManager.LoadLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
         }
+    }
+
+    public Color GetPackColor()
+    {
+        return _levelPacks[packToPlay]._colorScheme;
     }
 }
