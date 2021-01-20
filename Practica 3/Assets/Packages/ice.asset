@@ -63,3 +63,4 @@ MonoBehaviour:
     type: 3}
   _colorScheme: {r: 0.17647058, g: 0.53688574, b: 0.7647059, a: 1}
   _hintColorScheme: {r: 0.7647059, g: 0.4444625, b: 0.18039215, a: 1}
+  _packName: ice

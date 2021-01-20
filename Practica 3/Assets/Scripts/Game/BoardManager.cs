@@ -55,9 +55,17 @@ public class BoardManager : MonoBehaviour
         
         if (Screen.width > Screen.height)
         {
-            float unitsPerPixel = (float)_columns / (float)Screen.height;
+            float unitsPerPixel = (float)_rows / (float)Screen.height;
 
             float desiredHalfHeight = unitsPerPixel * Screen.width * _camAdjustment;
+
+            _cam.orthographicSize = desiredHalfHeight;
+        }
+        else if (Screen.width < Screen.height)
+        {
+            float unitsPerPixel = (float)_rows / (float)Screen.width;
+
+            float desiredHalfHeight = unitsPerPixel * Screen.height * _camAdjustment;
 
             _cam.orthographicSize = desiredHalfHeight;
         }
@@ -65,7 +73,7 @@ public class BoardManager : MonoBehaviour
         {
             float unitsPerPixel = (float)_rows / (float)Screen.width;
 
-            float desiredHalfHeight = unitsPerPixel * Screen.height * _camAdjustment;
+            float desiredHalfHeight = unitsPerPixel * Screen.height * _camAdjustment * 1.25f;
 
             _cam.orthographicSize = desiredHalfHeight;
         }

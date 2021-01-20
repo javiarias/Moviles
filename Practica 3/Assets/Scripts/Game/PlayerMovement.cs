@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (_won)
+        if (GameManager.Instance().IsPaused() || _won)
             return;
 
         if (!_isMoving)

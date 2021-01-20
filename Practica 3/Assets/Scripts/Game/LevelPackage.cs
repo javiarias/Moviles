@@ -13,4 +13,6 @@ public class LevelPackage : ScriptableObject
 
     public Color _colorScheme;
     public Color _hintColorScheme;
+
+    public string _packName = "";
 }

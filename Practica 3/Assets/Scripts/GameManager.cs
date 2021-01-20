@@ -9,15 +9,24 @@ public class GameManager : MonoBehaviour
     public int packToPlay;
     public int levelToPlay;
 
+    int _hints = 0;
+
 #if UNITY_EDITOR
     public bool activateRestart = true;
 #endif
+
+    bool _isPaused = false;
     
     private static GameManager _instance;
 
     public static GameManager Instance()
     {
         return _instance;
+    }
+
+    public bool IsPaused()
+    {
+        return _isPaused;
     }
 
     public LevelPackage[] _levelPacks;
@@ -47,7 +56,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StartNewScene()
+    public void Pause()
+    {
+        _isPaused = !_isPaused;
+
+        if (_isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void StartNewScene()
     {
         if(_levelManager)
         {
@@ -63,6 +86,21 @@ public class GameManager : MonoBehaviour
     public Color GetPackHintColor()
     {
         return _levelPacks[packToPlay]._hintColorScheme;
+    }
+
+    public string GetPackName()
+    {
+        return _levelPacks[packToPlay]._packName;
+    }
+
+    public int GetLevel()
+    {
+        return levelToPlay;
+    }
+
+    public int GetHints()
+    {
+        return _hints;
     }
 
     public void LevelFinished()

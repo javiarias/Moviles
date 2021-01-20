@@ -118,3 +118,4 @@ MonoBehaviour:
     type: 3}
   _colorScheme: {r: 0.2901961, g: 0.68235296, b: 0.29411766, a: 1}
   _hintColorScheme: {r: 0.68235296, g: 0.2901961, b: 0.5876475, a: 1}
+  _packName: classic
