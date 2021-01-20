@@ -59,4 +59,9 @@ public class GameManager : MonoBehaviour
     {
         return _levelPacks[packToPlay]._colorScheme;
     }
+
+    public Color GetPackHintColor()
+    {
+        return _levelPacks[packToPlay]._hintColorScheme;
+    }
 }

@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
 
     bool _isMoving = false;
     bool _isReturning = false;
+    bool _isOnIce = false;
+    GameUtils.Direction _iceDir = GameUtils.Direction.NONE;
+
+    bool _isLerping = false;
+    Vector2 _initLerp;
+    Vector2 _endLerp;
+    float _lerpTime = 0;
+    public float _lerpTotal = 0.1f;
 
     Stack<GameUtils.Direction> _movementQueue;
 
@@ -21,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer _playerRight;
 
+    public SpriteRenderer _player;
+
     /// <summary>
     /// Límite que determina cuánto has de deslizar el dedo para que se reconozca como movimiento
     /// </summary>
@@ -29,6 +39,22 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _movementQueue = new Stack<GameUtils.Direction>();
+
+
+        Color c = GameManager.Instance().GetPackColor();
+
+        _playerUp.color = c;
+        _playerDown.color = c;
+        _playerLeft.color = c;
+        _playerRight.color = c;
+
+        _player.color = c;
+
+        Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+
+        List<GameUtils.Direction> dirs = t.GetDirections();
+
+        ShowDirections(dirs);
     }
 
     void Update()
@@ -46,9 +72,25 @@ public class PlayerMovement : MonoBehaviour
                 _swipeEnd = false;
             }
         }
-        else
+        else if(!_isLerping)
         {
             HandleMovement();
+        }
+        else
+        {
+            if (_lerpTime < _lerpTotal)
+            {
+                transform.localPosition = Vector2.Lerp(_initLerp, _endLerp, _lerpTime / _lerpTotal);
+
+                _lerpTime += Time.deltaTime;
+            }
+            else
+            {
+                _lerpTime = 0;
+                _isLerping = false;
+                transform.localPosition = _endLerp;
+            }
+            
         }
     }
 
@@ -93,42 +135,84 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
+
         Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
-        int walls = t.GetWalls();
-
-        //Si la tile en la que se halla tiene 2 paredes, significa que debe seguir avanzando
-        if (walls == 2)
+        if (_isOnIce)
         {
             if (_isReturning)
             {
                 GameUtils.Direction dir = _movementQueue.Peek();
 
-                HandleDir((GameUtils.Direction)(-(int)dir));
+                if((int)_iceDir + (int)_movementQueue.Peek() == 0)
+                    HandleDir(_iceDir);
+                else
+                {
+                    _isReturning = false;
+                    _isMoving = false;
+                    _isOnIce = false;
+
+                    List<GameUtils.Direction> dirs = t.GetDirections();
+
+                    ShowDirections(dirs);
+                }
             }
+            else
+            {
+                HandleDir(_iceDir);
+            }
+        }
+        else
+        {
+
+            int walls = t.GetWalls();
+
+            //Si la tile en la que se halla tiene 2 paredes, significa que debe seguir avanzando
+            if (walls == 2)
+            {
+                if (_isReturning)
+                {
+                    if (_movementQueue.Count > 0)
+                    {
+                        GameUtils.Direction dir = _movementQueue.Peek();
+
+                        HandleDir((GameUtils.Direction)(-(int)dir));
+                    }
+                    else
+                    {
+                        _isReturning = false;
+                        _isMoving = false;
+                        _isOnIce = false;
+
+                        List<GameUtils.Direction> dirs = t.GetDirections();
+
+                        ShowDirections(dirs);
+                    }
+                }
+                else
+                {
+                    List<GameUtils.Direction> dirs = t.GetDirections();
+
+                    GameUtils.Direction dir = GameUtils.Direction.NONE;
+
+                    if ((int)dirs[0] + (int)_movementQueue.Peek() == 0)
+                        dir = dirs[1];
+                    else
+                        dir = dirs[0];
+
+                    HandleDir(dir);
+                }
+            }
+            //Si no, es que o ha alcanzado un callejón sin salida o es que ha alcanzado un cruce
             else
             {
                 List<GameUtils.Direction> dirs = t.GetDirections();
 
-                GameUtils.Direction dir = GameUtils.Direction.NONE;
+                ShowDirections(dirs);
 
-                if ((int)dirs[0] + (int)_movementQueue.Peek() == 0)
-                    dir = dirs[1];
-                else
-                    dir = dirs[0];
-
-                HandleDir(dir);
+                _isMoving = false;
+                _isReturning = false;
             }
-        }
-        //Si no, es que o ha alcanzado un callejón sin salida o es que ha alcanzado un cruce
-        else
-        {
-            List<GameUtils.Direction> dirs = t.GetDirections();
-
-            ShowDirections(dirs);
-
-            _isMoving = false;
-            _isReturning = false;
         }
     }
 
@@ -177,9 +261,13 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
 
-            transform.Translate(translate);
+            _isLerping = true;
+            _lerpTime = 0;
+            _initLerp = transform.localPosition;
+            _endLerp = _initLerp + translate;
+            //transform.Translate(translate);
 
-            t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+            t = BoardManager.Instance().GetTile((int)_endLerp.x, (int)_endLerp.y);
 
             if (_isReturning)
                 t.SetPlayerPath((GameUtils.Direction)(-(int)dir), false);
@@ -188,10 +276,26 @@ public class PlayerMovement : MonoBehaviour
             { 
                 Debug.Log("GANASTE");
                 _isMoving = false;
+                _isLerping = false;
+                return;
             }
+
+            _isOnIce = t._isIce;
+
+            if (_isOnIce)
+                _iceDir = dir;
         }
         else
-            Debug.Log("MIERDA");
+        {
+            _isReturning = false;
+            _isMoving = false;
+            _isOnIce = false;
+            _iceDir = GameUtils.Direction.NONE;
+
+            List<GameUtils.Direction> dirs = t.GetDirections();
+
+            ShowDirections(dirs);
+        }
     }
 
 

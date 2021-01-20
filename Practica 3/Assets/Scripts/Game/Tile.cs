@@ -281,7 +281,19 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-#if UNITY_EDITOR
-#endif
+        Color c = GameManager.Instance().GetPackColor();
+
+        _playerUp.color = c;
+        _playerDown.color = c;
+        _playerLeft.color = c;
+        _playerRight.color = c;
+        _goal.color = c;
+
+        c = GameManager.Instance().GetPackHintColor();
+
+        _hintUp.color = c;
+        _hintDown.color = c;
+        _hintLeft.color = c;
+        _hintRight.color = c;
     }
 }

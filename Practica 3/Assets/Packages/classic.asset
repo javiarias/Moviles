@@ -116,3 +116,5 @@ MonoBehaviour:
   _button: {fileID: 5807286064229907439, guid: e2f9c7236c08e93448685d287e4c7e01, type: 3}
   _pressedButton: {fileID: 2807315191410355828, guid: e2f9c7236c08e93448685d287e4c7e01,
     type: 3}
+  _colorScheme: {r: 0.2901961, g: 0.68235296, b: 0.29411766, a: 1}
+  _hintColorScheme: {r: 0.68235296, g: 0.2901961, b: 0.5876475, a: 1}

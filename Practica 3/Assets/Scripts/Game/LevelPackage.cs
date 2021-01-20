@@ -12,4 +12,5 @@ public class LevelPackage : ScriptableObject
     public Sprite _pressedButton;
 
     public Color _colorScheme;
+    public Color _hintColorScheme;
 }
