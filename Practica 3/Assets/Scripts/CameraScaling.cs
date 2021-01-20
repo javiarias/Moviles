@@ -40,22 +40,6 @@ public class CameraScaling : MonoBehaviour
     {
         if (_camera)
         {
-            if (Screen.width > Screen.height)
-            {
-                float unitsPerPixel = sceneSize / Screen.height;
-
-                float desiredHalfHeight = 0.5f * unitsPerPixel * Screen.width;
-
-                _camera.orthographicSize = desiredHalfHeight;
-            }
-            else
-            {
-                float unitsPerPixel = sceneSize / Screen.width;
-
-                float desiredHalfHeight = 0.5f * unitsPerPixel * Screen.height;
-
-                _camera.orthographicSize = desiredHalfHeight;
-            }
         }
     }
 }

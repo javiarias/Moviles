@@ -18,7 +18,13 @@ public class BoardManager : MonoBehaviour
         return _instance;
     }
 
+    public Camera _cam;
+    
+    public float _camAdjustment = 0.5f;
+
+    [HideInInspector]
     public int _rows = 0;
+    [HideInInspector]
     public int _columns = 0;
 
     /// <summary>
@@ -40,6 +46,30 @@ public class BoardManager : MonoBehaviour
     /// Array de tiles. El array no es multidimensional, porque (al parecer) son menos eficientes
     /// </summary>
     Tile[] _tiles = null;
+
+    void FixPosition()
+    {
+        //Esto centra el tablero en la cámara
+        Vector2 nuPos = new Vector2((_columns - 1) / -2.0f, (_rows - 1) / 2.0f);
+        transform.position = nuPos;
+        
+        if (Screen.width > Screen.height)
+        {
+            float unitsPerPixel = (float)_columns / (float)Screen.height;
+
+            float desiredHalfHeight = unitsPerPixel * Screen.width * _camAdjustment;
+
+            _cam.orthographicSize = desiredHalfHeight;
+        }
+        else
+        {
+            float unitsPerPixel = (float)_rows / (float)Screen.width;
+
+            float desiredHalfHeight = unitsPerPixel * Screen.height * _camAdjustment;
+
+            _cam.orthographicSize = desiredHalfHeight;
+        }
+    }
 
     /// <summary>
     /// Método para obtener el array de Tiles
@@ -87,10 +117,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-
-        //Esto centra el tablero en la cámara
-        Vector2 nuPos = new Vector2((_columns - 1) / -2.0f, (_rows - 1) / 2.0f);
-        transform.position = nuPos;
+        FixPosition();
     }
 
     /// <summary>
@@ -168,13 +195,6 @@ public class BoardManager : MonoBehaviour
         int y_start = Mathf.Min(w.o.y, w.d.y);
         int x_end = Mathf.Max(w.o.x, w.d.x);
         int y_end = Mathf.Max(w.o.y, w.d.y);
-
-        //ESTO ES NECESARIO!
-        //En el JSON, las tiles se miran desde abajo hacia arriba, mientras que en UNITY va al revés
-        //Por comodidad, se hace ahora la transformación en vez de aplicarla constantemente
-        //int y_aux = y_end;
-        //y_end = _rows - y_start;
-        //y_start = _rows - y_aux;
 
         if (x_start == x_end)
         {

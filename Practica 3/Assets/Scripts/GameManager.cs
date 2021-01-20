@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int levelToPlay;
 
 #if UNITY_EDITOR
-    public bool activateRestart = false;
+    public bool activateRestart = true;
 #endif
     
     private static GameManager _instance;
@@ -63,5 +63,24 @@ public class GameManager : MonoBehaviour
     public Color GetPackHintColor()
     {
         return _levelPacks[packToPlay]._hintColorScheme;
+    }
+
+    public void LevelFinished()
+    {
+        levelToPlay++;
+        if(levelToPlay >= _levelPacks[packToPlay]._levels.Length)
+        {
+            levelToPlay = 0;
+            packToPlay = (packToPlay + 1) % _levelPacks.Length;
+        }
+
+        IEnumerator coroutine = Wait(0.5f);
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        StartNewScene();
     }
 }

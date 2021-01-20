@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     bool _swipeEnd = false;
     Vector2 _lastPos;
 
+    bool _won = false;
     bool _isMoving = false;
     bool _isReturning = false;
     bool _isOnIce = false;
@@ -59,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (_won)
+            return;
+
         if (!_isMoving)
         {
             //Queremos que el movimiento solo se registre una vez por cada desliz del dedo, por lo que empleamos _swipeEnd para comprobar si ya se ha realizado un movimiento
@@ -89,8 +93,16 @@ public class PlayerMovement : MonoBehaviour
                 _lerpTime = 0;
                 _isLerping = false;
                 transform.localPosition = _endLerp;
-            }
-            
+
+                Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+
+                if (t._isGoal)
+                {
+                    GameManager.Instance().LevelFinished();
+                    _won = true;
+                }
+
+            }            
         }
     }
 
@@ -269,16 +281,9 @@ public class PlayerMovement : MonoBehaviour
 
             t = BoardManager.Instance().GetTile((int)_endLerp.x, (int)_endLerp.y);
 
+
             if (_isReturning)
                 t.SetPlayerPath((GameUtils.Direction)(-(int)dir), false);
-
-            if (t._isGoal)
-            { 
-                Debug.Log("GANASTE");
-                _isMoving = false;
-                _isLerping = false;
-                return;
-            }
 
             _isOnIce = t._isIce;
 
