@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     int _hints = 0;
 
+    private int[] levelsCompleted;
+
 #if UNITY_EDITOR
     public bool activateRestart = true;
 #endif
@@ -38,12 +40,22 @@ public class GameManager : MonoBehaviour
             _instance._levelManager = _levelManager;
             DestroyImmediate(gameObject);
 
-            LoadNewLevel();
+            LoadNewLevel();//Esto igual no tiene que ir aqui ???
 
             return;
         }
         else
+        {
             _instance = this;
+            DontDestroyOnLoad(gameObject); //Persistente entre escenas
+
+            levelsCompleted = new int[_levelPacks.Length];
+
+            for (int i = 0; i < _levelPacks.Length; i++)
+            {
+                levelsCompleted[i] = 0;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +66,11 @@ public class GameManager : MonoBehaviour
             activateRestart = !activateRestart;
             LoadNewLevel();
         }
+    }
+
+    public int getLevelCompleted(int pack)
+    {
+        return levelsCompleted[pack];
     }
 
     public void Pause()
@@ -134,6 +151,9 @@ public class GameManager : MonoBehaviour
         }
 
         IEnumerator coroutine = Wait(0.5f);
+
+        AdsManager.ShowInterstitialAd(); //No se si va antes o despues, pero eso
+
         StartCoroutine(coroutine);
     }
 
