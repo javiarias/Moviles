@@ -75,7 +75,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public static void ShowVideo()
     {
-        if (Advertisement.IsReady(video_ID) && noAds)
+        if (Advertisement.IsReady(video_ID) && !noAds)
         {
             Advertisement.Show(video_ID);
         }
@@ -87,7 +87,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public static void ShowInterstitialAd()
     {
-        if (Advertisement.IsReady() && noAds)
+        if (Advertisement.IsReady() && !noAds)
         {
             Advertisement.Show();
         }
