@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
             _instance._levelManager = _levelManager;
             DestroyImmediate(gameObject);
 
-            StartNewScene();
+            LoadNewLevel();
 
             return;
         }
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         if (activateRestart)
         {
             activateRestart = !activateRestart;
-            StartNewScene();
+            LoadNewLevel();
         }
     }
 
@@ -68,13 +68,34 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+        if (_levelManager)
+            _levelManager.Pause(_isPaused);
     }
 
-    public void StartNewScene()
+    public void LoadNewLevel()
     {
-        if(_levelManager)
+        if (_levelManager)
         {
             _levelManager.LoadLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
+        }
+    }
+
+    public void RestartLevel()
+    {
+        if (_levelManager)
+        {
+            _levelManager.RestartLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
+        }
+    }
+
+    public void UseHint()
+    {
+        _hints--;
+
+        if(_levelManager)
+        {
+            _levelManager.UseHint();
         }
     }
 
@@ -119,6 +140,6 @@ public class GameManager : MonoBehaviour
     IEnumerator Wait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        StartNewScene();
+        LoadNewLevel();
     }
 }

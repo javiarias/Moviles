@@ -333,9 +333,9 @@ public class PlayerMovement : MonoBehaviour
                     _swipeEnd = true;
                     _isMoving = true;
 
-                    HandleDir(dir);
-
                     HideDirections();
+
+                    HandleDir(dir);
                 }
             }
         }

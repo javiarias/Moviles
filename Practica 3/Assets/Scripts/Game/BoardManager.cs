@@ -47,6 +47,22 @@ public class BoardManager : MonoBehaviour
     /// </summary>
     Tile[] _tiles = null;
 
+    /// <summary>
+    /// Array de direcciones de hints, comenzando desde el inicio. Como es mucho menor que el de tiles, no nos importa que sea multidimensional
+    /// La primera dimensión determina qué tercio de la solución se muestra
+    /// </summary>
+    GameUtils.Direction[,] _hints;
+
+    /// <summary>
+    /// Vector de posición de inicio
+    /// </summary>
+    Vector2 _startPos;
+
+    /// <summary>
+    /// Vector de posición de la última hint activada, se asume startPos como el inicial
+    /// </summary>
+    Vector2 _lastHintPos;
+
     void FixPosition()
     {
         //Esto centra el tablero en la cámara
@@ -143,8 +159,7 @@ public class BoardManager : MonoBehaviour
 
             _tiles = null;
         }
-    }
-    
+    }    
 
     /// <summary>
     /// Devuelve el índice de un array unidimensional (por filas) en función de las posiciones X e Y
@@ -172,6 +187,10 @@ public class BoardManager : MonoBehaviour
         return ret;
     }
 
+    /// <summary>
+    /// Función de cargado de nivel
+    /// </summary>
+    /// <param name="map">Objeto Map del nivel</param>
     public void LoadLevel(Map map)
     {
         _rows = map.r;
@@ -193,9 +212,90 @@ public class BoardManager : MonoBehaviour
         foreach (JSONTile t in map.t) { }
 
         _player = Instantiate(_playerPrefab, gameObject.transform);
-        _player.transform.Translate(new Vector2(map.s.x, -(_rows - map.s.y - 1)));
+        _startPos = new Vector2(map.s.x, -(_rows - map.s.y - 1));
+        _lastHintPos = _startPos;
+        _player.transform.Translate(_startPos);
+
+        PrepareHints(map.h, map.f);
     }
 
+    /// <summary>
+    /// Para reiniciar el nivel, pero no rehacerlo. Mantiene las hints y eso
+    /// </summary>
+    /// <param name="s">El tile en el que empieza el jugador</param>
+    public void RestartLevel()
+    {
+        if (_player)
+            Destroy(_player);
+
+        _player = Instantiate(_playerPrefab, gameObject.transform);
+        _player.transform.Translate(_startPos);
+
+        foreach (Tile t in _tiles)
+            t.Reset();
+    }
+
+    /// <summary>
+    /// Función para transformar el array pista que viene en Map a direcciones para poder generar mejor las pistas
+    /// </summary>
+    /// <param name="h">El array pista en cuestión</param>
+    /// <param name="f">El tile donde se encuentra la meta, dado que no lo incluye el array</param>
+    void PrepareHints(JSONTile[] h, JSONTile f)
+    {
+        int hintDiv = (int)Mathf.Ceil(h.Length / 3.0f);
+        _hints = new GameUtils.Direction[3, hintDiv];
+
+        Vector2 prevTile = _startPos;
+
+        int i;
+
+        for(i = 0; i < h.Length; i++)
+        {
+            Vector2 dirVec = new Vector2(h[i].x, h[i].y) - prevTile;
+
+            GameUtils.Direction dir = GameUtils.Direction.NONE;
+
+            if (dirVec.x < 0)
+                dir = GameUtils.Direction.LEFT;
+            else if (dirVec.x > 0)
+                dir = GameUtils.Direction.RIGHT;
+            else if (dirVec.y < 0)
+                dir = GameUtils.Direction.DOWN;
+            else if (dirVec.y > 0)
+                dir = GameUtils.Direction.UP;
+
+            prevTile = new Vector2(h[i].x, h[i].y);
+
+            int which = i / (hintDiv);
+            int id = i % (hintDiv);
+
+            _hints[which, id] = dir;
+        }
+
+        //se genera también la dirección a la meta, para que quede completo
+        Vector2 dirVec_ = new Vector2(f.x, f.y) - prevTile;
+
+        GameUtils.Direction dir_ = GameUtils.Direction.NONE;
+
+        if (dirVec_.x < 0)
+            dir_ = GameUtils.Direction.LEFT;
+        else if (dirVec_.x > 0)
+            dir_ = GameUtils.Direction.RIGHT;
+        else if (dirVec_.y < 0)
+            dir_ = GameUtils.Direction.DOWN;
+        else if (dirVec_.y > 0)
+            dir_ = GameUtils.Direction.UP;
+
+        int which_ = i / (hintDiv);
+        int id_ = i % (hintDiv);
+
+        _hints[which_, id_] = dir_;
+    }
+
+    /// <summary>
+    /// Función que simplifica la generación de paredes
+    /// </summary>
+    /// <param name="w">Pared a generar</param>
     void MakeWall(JSONWall w)
     {
         //al parecer algunos niveles invierten o y d, por lo que nos aseguramos de que start siempre tenga el de menor valor y end el de mayor
@@ -228,27 +328,40 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-
-
-    void DebugBoard()
+    public void ActivateHint(int h)
     {
-        int x = UnityEngine.Random.Range(0, _rows);
-        int y = UnityEngine.Random.Range(0, _columns);
-
-        int id_ = XY_To_Index(x, y);
-
-        Debug.Log("Goal should be at: " + new Vector2(x, y));
-
-        _tiles[id_].SetGoal(true);
-
-        foreach (Tile obj in _tiles)
+        if(h <= 3)
         {
-            System.Array A = System.Enum.GetValues(typeof(GameUtils.Direction));
-            GameUtils.Direction V = (GameUtils.Direction)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+            for(int i = 0; i < _hints.GetLength(1); i++)
+            {
+                Tile t = GetTile((int)_lastHintPos.x, (int)_lastHintPos.y);
 
-            obj.SetWall(V, true);
+                GameUtils.Direction dir = _hints[h, i];
 
-            obj.SetIce(true);
+                t.SetHintPath(dir, true);
+
+                switch(dir)
+                {
+                    case GameUtils.Direction.UP:
+                        _lastHintPos += Vector2.up;
+                        break;
+
+                    case GameUtils.Direction.DOWN:
+                        _lastHintPos += Vector2.down;
+                        break;
+
+                    case GameUtils.Direction.LEFT:
+                        _lastHintPos += Vector2.left;
+                        break;
+
+                    case GameUtils.Direction.RIGHT:
+                        _lastHintPos += Vector2.right;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

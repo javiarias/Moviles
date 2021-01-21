@@ -12,7 +12,6 @@ public class Tile : MonoBehaviour
 
     public bool _isIce { get; private set; } = false;
     public bool _isGoal { get; private set; } = false;
-    public bool _isStart { get; private set; } = false;
 
     [Tooltip("Sprite de hielo")]
     public SpriteRenderer _ice;
@@ -69,12 +68,6 @@ public class Tile : MonoBehaviour
     {
         _isGoal = goal;
         _goal.enabled = goal;
-    }
-
-    public void SetStart(bool start)
-    {
-        _isStart = start;
-        _start.enabled = start;
     }
 
     public void SetWall(GameUtils.Direction dir, bool wall)
@@ -295,5 +288,18 @@ public class Tile : MonoBehaviour
         _hintDown.color = c;
         _hintLeft.color = c;
         _hintRight.color = c;
+    }
+
+    public void Reset()
+    {
+        _upCounter = 0;
+        _downCounter = 0;
+        _leftCounter = 0;
+        _rightCounter = 0;
+
+        _playerUp.enabled = false;
+        _playerDown.enabled = false;
+        _playerLeft.enabled = false;
+        _playerRight.enabled = false;
     }
 }
