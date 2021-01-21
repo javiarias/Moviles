@@ -62,7 +62,7 @@ public class GroupScript : MonoBehaviour
 
         for (int j = 0; j < levelButtons.Length; j++)
         {
-            levelButtons[j] = CreateLevelButton(j + 1, levelPackages[i]._colorScheme, i);
+            levelButtons[j] = CreateLevelButton(j, levelPackages[i]._colorScheme, i);
         }
     }
 
@@ -70,10 +70,12 @@ public class GroupScript : MonoBehaviour
     {
         LevelButton butt = Instantiate(levelButton, levelContainer);
 
-        bool done = number < GameManager.Instance().getLevelCompleted(pack);
-        bool available = number > GameManager.Instance().getLevelCompleted(pack);
+        int levelComp = GameManager.Instance().getLevelCompleted(pack);
 
-        butt.setUp(available, number, colorScheme, pack, done);
+        bool done = number < levelComp;
+        bool available = number <= levelComp;
+
+        butt.setUp(available, number + 1, colorScheme, pack, done);
         return butt;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     int _hints = 0;
 
-    private int[] levelsCompleted;
+    private int[] _completedLevel;
 
 #if UNITY_EDITOR
     public bool activateRestart = true;
@@ -38,9 +39,10 @@ public class GameManager : MonoBehaviour
         if (_instance != null)
         {
             _instance._levelManager = _levelManager;
-            DestroyImmediate(gameObject);
 
-            LoadNewLevel();//Esto igual no tiene que ir aqui ???
+            _instance.LoadNewLevel();
+
+            DestroyImmediate(gameObject);
 
             return;
         }
@@ -49,11 +51,11 @@ public class GameManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject); //Persistente entre escenas
 
-            levelsCompleted = new int[_levelPacks.Length];
+            _completedLevel = new int[_levelPacks.Length];
 
             for (int i = 0; i < _levelPacks.Length; i++)
             {
-                levelsCompleted[i] = 0;
+                _completedLevel[i] = 0;
             }
         }
     }
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public int getLevelCompleted(int pack)
     {
-        return levelsCompleted[pack];
+        return _completedLevel[pack];
     }
 
     public void Pause()
@@ -88,6 +90,22 @@ public class GameManager : MonoBehaviour
 
         if (_levelManager)
             _levelManager.Pause(_isPaused);
+    }
+
+    public void StartGame(int pack, int level)
+    {
+        packToPlay = pack;
+        levelToPlay = level;
+
+        SceneManager.LoadSceneAsync("GameScene");
+    }
+
+    public void BackToMenu()
+    {
+        if (_isPaused)
+            Pause();
+
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void LoadNewLevel()
@@ -108,11 +126,18 @@ public class GameManager : MonoBehaviour
 
     public void UseHint()
     {
-        _hints--;
-
-        if(_levelManager)
+        if (_hints <= 0)
         {
-            _levelManager.UseHint();
+
+        }
+        else
+        {
+            _hints--;
+
+            if (_levelManager)
+            {
+                _levelManager.UseHint();
+            }
         }
     }
 
@@ -143,6 +168,9 @@ public class GameManager : MonoBehaviour
 
     public void LevelFinished()
     {
+        if (levelToPlay > _completedLevel[packToPlay])
+            _completedLevel[packToPlay] = levelToPlay;
+
         levelToPlay++;
         if(levelToPlay >= _levelPacks[packToPlay]._levels.Length)
         {

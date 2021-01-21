@@ -278,7 +278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6429508969500012700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5187790180288881361}
+        m_TargetAssemblyTypeName: LevelButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5187790180288881361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76db4d1959d8ab2498dcabf97220993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 6429508969500012700}
-  lockImage: {fileID: 5810905698621628686}
-  button: {fileID: 1741568566047577334}
-  text: {fileID: 9139154844386254869}
+  _image: {fileID: 6429508969500012700}
+  _lockImage: {fileID: 5810905698621628686}
+  _button: {fileID: 1741568566047577334}
+  _text: {fileID: 9139154844386254869}

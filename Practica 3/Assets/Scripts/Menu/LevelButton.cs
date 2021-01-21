@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class LevelButton : MonoBehaviour
 {
     // Componentes del botón como tal
-    public Image image;
-    public Image lockImage;
-    public Button button;
-    public Text text;
+    public Image _image;
+    public Image _lockImage;
+    public Button _button;
+    public Text _text;
 
-    int levelNumber;
-    int pack;
+    int _levelNumber;
+    int _pack;
 
     //Color
     private Color notCompletedColor = new Color(255, 255, 255);
@@ -22,40 +22,45 @@ public class LevelButton : MonoBehaviour
     private Color blockedColor = new Color(255, 255, 255);
     private Color blockedLockColor = new Color(0,0,0);
 
-    public void setUp(bool blocked, int i, Color color, int pack_, bool done)
+    private bool _available;
+
+    public void setUp(bool available, int i, Color color, int pack_, bool done)
     {
-        pack = pack_;
-        levelNumber = i;
+        _pack = pack_;
+        _levelNumber = i;
+        _available = available;
 
-        image.gameObject.SetActive(true);
+        _image.gameObject.SetActive(true);
 
-        if (blocked)
+        if (!_available)
         {
-            image.color = blockedColor;
-            lockImage.color = blockedLockColor;
-            lockImage.gameObject.SetActive(true);
+            _image.color = blockedColor;
+            _lockImage.color = blockedLockColor;
+            _lockImage.gameObject.SetActive(true);
         }
         else
         {
-            text.text = i.ToString();
-            text.gameObject.SetActive(true);
+            _text.text = i.ToString();
+            _text.gameObject.SetActive(true);
 
             if (done)
             {
-                text.color = completedTextColor;
-                image.color = color;
+                _text.color = completedTextColor;
+                _image.color = color;
             }
             else
             {
-                text.color = notCompletedTextColor;
-                image.color = notCompletedColor;
+                _text.color = notCompletedTextColor;
+                _image.color = notCompletedColor;
             }
         }
     }
 
     public void OnClick()
     {
-        GameManager.Instance().levelToPlay = levelNumber - 1;
-        GameManager.Instance().LoadNewLevel();
+        if (_available)
+        {
+            GameManager.Instance().StartGame(_pack, _levelNumber - 1);
+        }
     }
 }

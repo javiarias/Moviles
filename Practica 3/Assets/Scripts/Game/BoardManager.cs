@@ -4,19 +4,7 @@ using UnityEngine;
 
 
 public class BoardManager : MonoBehaviour
-{
-    private static BoardManager _instance;
-
-    private void Start()
-    {
-        if (!_instance)
-            _instance = this;
-    }
-
-    public static BoardManager Instance()
-    {
-        return _instance;
-    }
+{  
 
     public Camera _cam;
     
@@ -30,17 +18,17 @@ public class BoardManager : MonoBehaviour
     /// <summary>
     /// Prefab de las tiles
     /// </summary>
-    public GameObject _tilePrefab;
+    public Tile _tilePrefab;
 
     /// <summary>
     /// Prefab del jugador
     /// </summary>
-    public GameObject _playerPrefab;
+    public PlayerMovement _playerPrefab;
 
     /// <summary>
     /// Instancia del jugador
     /// </summary>
-    GameObject _player;
+    PlayerMovement _player;
 
     /// <summary>
     /// Array de tiles. El array no es multidimensional, porque (al parecer) son menos eficientes
@@ -129,7 +117,7 @@ public class BoardManager : MonoBehaviour
         {
             for (int j = 0; j < _rows; j++)
             {
-                Tile obj = Instantiate(_tilePrefab, transform).GetComponent<Tile>();
+                Tile obj = Instantiate<Tile>(_tilePrefab, transform);
 
                 obj.gameObject.transform.localPosition = new Vector2(i, -j);
 
@@ -150,7 +138,7 @@ public class BoardManager : MonoBehaviour
     void Clean()
     {
         if (_player)
-            Destroy(_player);
+            Destroy(_player.gameObject);
 
         if (_tiles != null)
         {
@@ -211,10 +199,11 @@ public class BoardManager : MonoBehaviour
         foreach (JSONTile t in map.e) { }
         foreach (JSONTile t in map.t) { }
 
-        _player = Instantiate(_playerPrefab, gameObject.transform);
+        _player = Instantiate<PlayerMovement>(_playerPrefab, gameObject.transform);
         _startPos = new Vector2(map.s.x, -(_rows - map.s.y - 1));
         _lastHintPos = _startPos;
         _player.transform.Translate(_startPos);
+        _player._boardManager = this;
 
         PrepareHints(map.h, map.f);
     }
@@ -226,10 +215,11 @@ public class BoardManager : MonoBehaviour
     public void RestartLevel()
     {
         if (_player)
-            Destroy(_player);
+            Destroy(_player.gameObject);
 
         _player = Instantiate(_playerPrefab, gameObject.transform);
         _player.transform.Translate(_startPos);
+        _player._boardManager = this;
 
         foreach (Tile t in _tiles)
             t.Reset();

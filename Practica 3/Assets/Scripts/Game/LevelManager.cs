@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static LevelManager _instance;
-
-    public static LevelManager Instance()
-    {
-        return _instance;
-    }
 
     public Text _levelText;
     public Text _hintText;
@@ -24,20 +18,6 @@ public class LevelManager : MonoBehaviour
     Map _map;
 
     int _hintsUsed = 0;
-
-    public void Start()
-    {
-        if (!_instance)
-            _instance = this;
-
-        _boardManager = BoardManager.Instance();
-    }
-
-    private void Update()
-    {
-        if(!_boardManager)
-            _boardManager = BoardManager.Instance();
-    }
 
     public void LoadLevel(string json)
     {

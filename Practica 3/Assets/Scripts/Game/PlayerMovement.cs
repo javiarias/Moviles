@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public BoardManager _boardManager;
+
     bool _swiping = false;
     bool _swipeEnd = false;
     Vector2 _lastPos;
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         _player.color = c;
 
-        Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+        Tile t = _boardManager.GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
         List<GameUtils.Direction> dirs = t.GetDirections();
 
@@ -94,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                 _isLerping = false;
                 transform.localPosition = _endLerp;
 
-                Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+                Tile t = _boardManager.GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
                 if (t._isGoal)
                 {
@@ -148,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
     void HandleMovement()
     {
 
-        Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+        Tile t = _boardManager.GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
         if (_isOnIce)
         {
@@ -236,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 translate = Vector2.zero;
 
-        Tile t = BoardManager.Instance().GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
+        Tile t = _boardManager.GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
         if (t.CheckDirectionMovement(dir))
         {
@@ -279,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
             _endLerp = _initLerp + translate;
             //transform.Translate(translate);
 
-            t = BoardManager.Instance().GetTile((int)_endLerp.x, (int)_endLerp.y);
+            t = _boardManager.GetTile((int)_endLerp.x, (int)_endLerp.y);
 
 
             if (_isReturning)
