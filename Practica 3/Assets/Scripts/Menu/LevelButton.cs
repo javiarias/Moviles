@@ -32,7 +32,7 @@ public class LevelButton : MonoBehaviour
 
         _image.gameObject.SetActive(true);
 
-        if (!_available)
+        if (!_available) //Si no está disponible (porque no se ha superado el nivel precio
         {
             _image.color = blockedColor;
             _lockImage.color = blockedLockColor;
@@ -40,23 +40,23 @@ public class LevelButton : MonoBehaviour
         }
         else
         {
-            _text.text = i.ToString();
-            _text.gameObject.SetActive(true);
+            _text.text = i.ToString(); //Esto se hace igualmente
+            _text.gameObject.SetActive(true); //Si no, no hace falta activar el texto
 
-            if (done)
+            if (done) //Si se ha completado
             {
-                _text.color = completedTextColor;
+                _text.color = completedTextColor; //Cambio de color
                 _image.color = color;
             }
-            else
+            else //Y si no
             {
-                _text.color = notCompletedTextColor;
+                _text.color = notCompletedTextColor; //Cambio de color
                 _image.color = notCompletedColor;
             }
         }
     }
 
-    public void OnClick()
+    public void OnClick() //Funcion al pinchar
     {
         if (_available)
         {

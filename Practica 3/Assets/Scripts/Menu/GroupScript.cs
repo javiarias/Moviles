@@ -30,7 +30,7 @@ public class GroupScript : MonoBehaviour
         levelPackages = GameManager.Instance()._levelPacks;
         groupButtons = new MenuButton[levelPackages.Length];
 
-        for (int i = 0; i < groupButtons.Length; i++)
+        for (int i = 0; i < groupButtons.Length; i++) //Asi no depende de valores, por si se añaden más packs
         {
             groupButtons[i] = CreateGroupButton(levelPackages[i], i);
         }
@@ -38,12 +38,12 @@ public class GroupScript : MonoBehaviour
 
     public MenuButton CreateGroupButton(LevelPackage levelPackage, int i)
     {
-        MenuButton butt = Instantiate(groupButton, groupContainer);
+        MenuButton butt = Instantiate(groupButton, groupContainer); //A base de prefabs
 
         SpriteState spriteState = new SpriteState();
-        spriteState.pressedSprite = levelPackage._pressedButton;
+        spriteState.pressedSprite = levelPackage._pressedButton; //Para poner animacion bonita de presionado
 
-        butt.setUp(levelPackage._button, spriteState, levelPackage._packName, this, i);
+        butt.setUp(levelPackage._button, spriteState, levelPackage._packName, this, i); //Configuración del boton
         return butt;
     }
 
@@ -60,7 +60,7 @@ public class GroupScript : MonoBehaviour
         int totalLevels = levelPackages[i]._levels.Length;
         levelButtons = new LevelButton[totalLevels];
 
-        for (int j = 0; j < levelButtons.Length; j++)
+        for (int j = 0; j < levelButtons.Length; j++) //Asi no depende de valores, por si se añaden más packs
         {
             levelButtons[j] = CreateLevelButton(j, levelPackages[i]._colorScheme, i);
         }
@@ -68,14 +68,15 @@ public class GroupScript : MonoBehaviour
 
     public LevelButton CreateLevelButton(int number, Color colorScheme, int pack)
     {
-        LevelButton butt = Instantiate(levelButton, levelContainer);
+        LevelButton butt = Instantiate(levelButton, levelContainer); //A base de prefabs
 
         int levelComp = GameManager.Instance().GetLevelCompleted(pack);
 
+        //Comprobacion de valores
         bool done = number < levelComp;
         bool available = number <= levelComp;
 
-        butt.setUp(available, number + 1, colorScheme, pack, done);
+        butt.setUp(available, number + 1, colorScheme, pack, done); //Configuración del boton
         return butt;
     }
 }

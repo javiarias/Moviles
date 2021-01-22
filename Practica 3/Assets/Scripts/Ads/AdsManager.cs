@@ -58,6 +58,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    //Video sin recompensa
     public static void ShowVideo(ShowOptions opt)
     {
         if (Advertisement.IsReady(video_ID) && !noAds)
@@ -69,6 +70,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             Debug.Log("Video ad not ready at the moment! Please try again later!");
         }
     }
+
+    //Anuncio intersticial (aunque visualmente es igual que el video normal)
 
     public static void ShowInterstitialAd(ShowOptions opt)
     {
@@ -82,6 +85,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    //Mostrar banner
+
     public static void ShowBanner()
     {
         if (noAds)
@@ -94,11 +99,14 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    //Ocultar banner
+
     public static void HideBanner()
     {
         Advertisement.Banner.Hide();
     }
 
+    //Para activar el banner internamente
     private static void ShowBannerInternally()
     {
         if (noAds)
@@ -112,6 +120,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    //Video con recompensa
     public static void ShowRewardedAd(ShowOptions opt)
     {
         if (Advertisement.IsReady(rewarded_ID))
@@ -124,10 +133,9 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    //Esto al final no se usa porque no hemos metido la compra, pero tampoco molesta
     public static void DisableAds()
     {
         noAds = true;
-
-        //Stuff de gameManager para desactivar anuncios
     }
 }
