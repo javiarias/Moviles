@@ -47,7 +47,7 @@ public class BoardManager : MonoBehaviour
     Vector2 _startPos;
 
     /// <summary>
-    /// Vector de posición de la última hint activada, se asume startPos como el inicial
+    /// Vector de posición de la última hint activada, se asume map.s como el inicial
     /// </summary>
     Vector2 _lastHintPos;
 
@@ -201,7 +201,7 @@ public class BoardManager : MonoBehaviour
 
         _player = Instantiate<PlayerMovement>(_playerPrefab, gameObject.transform);
         _startPos = new Vector2(map.s.x, -(_rows - map.s.y - 1));
-        _lastHintPos = _startPos;
+        _lastHintPos = new Vector2(map.s.x, map.s.y);
         _player.transform.Translate(_startPos);
         _player._boardManager = this;
 
@@ -232,10 +232,10 @@ public class BoardManager : MonoBehaviour
     /// <param name="f">El tile donde se encuentra la meta, dado que no lo incluye el array</param>
     void PrepareHints(JSONTile[] h, JSONTile f)
     {
-        int hintDiv = (int)Mathf.Ceil(h.Length / 3.0f);
-        _hints = new GameUtils.Direction[3, hintDiv + 1];
+        int hintDiv = (int)Mathf.Ceil(h.Length / 3.0f) + 1;
+        _hints = new GameUtils.Direction[3, hintDiv];
 
-        Vector2 prevTile = _startPos;
+        Vector2 prevTile = _lastHintPos;
 
         int i;
 
@@ -280,6 +280,8 @@ public class BoardManager : MonoBehaviour
         int id_ = i % (hintDiv);
 
         _hints[which_, id_] = dir_;
+
+        _lastHintPos = _startPos;
     }
 
     /// <summary>

@@ -2491,7 +2491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 519420031}
-  _camAdjustment: 0.65
+  _camAdjustment: 0.5
   _rows: 4
   _columns: 4
   _tilePrefab: {fileID: 6071121595284206094, guid: d4fa1ee356401354c8f1b8755adf5d94,
