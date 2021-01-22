@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;   // Deshabilitamos el vSync
-        Application.targetFrameRate = 15; // Forzamos un máximo de 15 fps.
+        Application.targetFrameRate = 60; // Forzamos un máximo de 60 fps.
     }
 
     public LevelPackage[] _levelPacks;
