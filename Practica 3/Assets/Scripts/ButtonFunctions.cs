@@ -23,4 +23,19 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.Instance().BackToMenu();
     }
+
+    public static void NextLevel()
+    {
+        GameManager.Instance().NextLevel();
+    }
+
+    public static void RewardedVideo()
+    {
+        AdsManager.ShowRewardedAd(new UnityEngine.Advertisements.ShowOptions { resultCallback = GameManager.Instance().AddHintAd });
+    }
+
+    public static void FreeHint()
+    {
+        AdsManager.ShowRewardedAd(new UnityEngine.Advertisements.ShowOptions { resultCallback = GameManager.Instance().FreeHint });
+    }
 }

@@ -2207,6 +2207,7 @@ GameObject:
   - component: {fileID: 676609375}
   - component: {fileID: 676609374}
   - component: {fileID: 676609373}
+  - component: {fileID: 676609376}
   m_Layer: 5
   m_Name: Icon_RewaredVideo
   m_TagString: Untagged
@@ -2277,9 +2278,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734355875}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowRewardedAd
+      - m_Target: {fileID: 676609376}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: RewardedVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2328,6 +2329,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676609371}
   m_CullTransparentMesh: 0
+--- !u!114 &676609376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676609371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f95edb19088de844bb92c181c40cb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &853906921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,7 +4604,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1734355875}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowVideo
+        m_MethodName: ShowBanner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4755,6 +4768,7 @@ GameObject:
   - component: {fileID: 1584728428}
   - component: {fileID: 1584728427}
   - component: {fileID: 1584728429}
+  - component: {fileID: 1584728430}
   m_Layer: 5
   m_Name: Icon_RewaredVideo
   m_TagString: Untagged
@@ -4864,9 +4878,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734355875}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowRewardedAd
+      - m_Target: {fileID: 1584728430}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: RewardedVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4876,6 +4890,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1584728430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584728425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f95edb19088de844bb92c181c40cb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623566584
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,6 +5527,7 @@ GameObject:
   - component: {fileID: 1847132121}
   - component: {fileID: 1847132120}
   - component: {fileID: 1847132119}
+  - component: {fileID: 1847132122}
   m_Layer: 5
   m_Name: Icon_RewaredVideo
   m_TagString: Untagged
@@ -5571,9 +5598,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734355875}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowRewardedAd
+      - m_Target: {fileID: 1847132122}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: RewardedVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5622,6 +5649,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847132117}
   m_CullTransparentMesh: 0
+--- !u!114 &1847132122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847132117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f95edb19088de844bb92c181c40cb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867866380
 GameObject:
   m_ObjectHideFlags: 0

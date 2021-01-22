@@ -11,7 +11,9 @@ public class LevelManager : MonoBehaviour
 
     public BoardManager _boardManager;
 
-    public GameObject pauseMenu;
+    public GameObject _pauseMenu;
+    public GameObject _winMenu;
+    public GameObject _hintMenu;
 
     public Button[] _buttons;
 
@@ -21,6 +23,9 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(string json)
     {
+        if (_winMenu)
+            _winMenu.SetActive(false);
+
         _map = Map.JSON_To_Map(json);
 
         if (_boardManager)
@@ -31,8 +36,8 @@ public class LevelManager : MonoBehaviour
 
             if (_levelText)
                 _levelText.text = GameManager.Instance().GetPackName() + " - " + (1 + GameManager.Instance().GetLevel()).ToString();
-            if (_hintText)
-                _hintText.text = GameManager.Instance().GetHints().ToString();
+
+            UpdateHintTxt();
         }
     }
 
@@ -45,8 +50,24 @@ public class LevelManager : MonoBehaviour
 
             _hintsUsed++;
 
-            if (_hintText)
-                _hintText.text = GameManager.Instance().GetHints().ToString();
+            UpdateHintTxt();
+        }
+    }
+
+    public void UpdateHintTxt()
+    {
+        if (_hintText)
+            _hintText.text = GameManager.Instance().GetHints().ToString();
+    }
+
+    public void ToggleHintMenu()
+    {
+        if (_hintsUsed < 3)
+        {
+            GameManager.Instance().Pause();
+
+            if (_hintMenu)
+                _hintMenu.SetActive(!_hintMenu.activeSelf);
         }
     }
 
@@ -62,11 +83,17 @@ public class LevelManager : MonoBehaviour
 
     public void Pause(bool pause)
     {
-        if (pauseMenu)
-            pauseMenu.SetActive(pause);
+        if (_pauseMenu)
+            _pauseMenu.SetActive(pause);
 
         if (_buttons != null)
             foreach (Button b in _buttons)
                 b.enabled = !pause;
+    }
+
+    public void LevelFinished()
+    {
+        if (_winMenu)
+            _winMenu.SetActive(true);
     }
 }

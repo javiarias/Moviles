@@ -36,21 +36,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
-        if (placementId == rewarded_ID)
-        {
-            switch (showResult)
-            {
-                case ShowResult.Finished:
-                    //Cosa de GameManager
-                    break;
-                case ShowResult.Skipped:
-                    Debug.Log("Rewarded video ad skipped!");
-                    break;
-                case ShowResult.Failed:
-                    Debug.Log("Rewarded video ad not ready at the moment! Please try again later!");
-                    break;
-            }
-        }
     }
 
     //Métodos generales
@@ -73,11 +58,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    public static void ShowVideo()
+    public static void ShowVideo(ShowOptions opt)
     {
         if (Advertisement.IsReady(video_ID) && !noAds)
         {
-            Advertisement.Show(video_ID);
+            Advertisement.Show(video_ID, opt);
         }
         else
         {
@@ -85,11 +70,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    public static void ShowInterstitialAd()
+    public static void ShowInterstitialAd(ShowOptions opt)
     {
         if (Advertisement.IsReady() && !noAds)
         {
-            Advertisement.Show();
+            Advertisement.Show(opt);
         }
         else
         {
@@ -127,11 +112,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    public static void ShowRewardedAd()
+    public static void ShowRewardedAd(ShowOptions opt)
     {
         if (Advertisement.IsReady(rewarded_ID))
         {
-            Advertisement.Show(rewarded_ID);
+            Advertisement.Show(rewarded_ID, opt);
         }
         else
         {

@@ -10,13 +10,9 @@ public class GameManager : MonoBehaviour
     public int packToPlay;
     public int levelToPlay;
 
-    int _hints = 0;
+    public int _hints = 0;
 
     private int[] _completedLevel;
-
-#if UNITY_EDITOR
-    public bool activateRestart = true;
-#endif
 
     bool _isPaused = false;
     
@@ -32,19 +28,28 @@ public class GameManager : MonoBehaviour
         return _isPaused;
     }
 
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;   // Deshabilitamos el vSync
+        Application.targetFrameRate = 15; // Forzamos un máximo de 15 fps.
+    }
+
     public LevelPackage[] _levelPacks;
 
     void Start()
     {
         if (_instance != null)
         {
-            _instance._levelManager = _levelManager;
+            if (_levelManager)
+            {
+                _instance._levelManager = _levelManager;
 
-            _instance.LoadNewLevel();
+                _instance.LoadNewLevel();
 
-            DestroyImmediate(gameObject);
+                DestroyImmediate(gameObject);
 
-            return;
+                return;
+            }
         }
         else
         {
@@ -57,16 +62,6 @@ public class GameManager : MonoBehaviour
             {
                 _completedLevel[i] = 0;
             }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (activateRestart)
-        {
-            activateRestart = !activateRestart;
-            LoadNewLevel();
         }
     }
 
@@ -110,6 +105,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadNewLevel()
     {
+        if (_isPaused)
+            Pause();
+
         if (_levelManager)
         {
             _levelManager.LoadLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
@@ -128,7 +126,10 @@ public class GameManager : MonoBehaviour
     {
         if (_hints <= 0)
         {
-
+            if (_levelManager)
+            {
+                _levelManager.ToggleHintMenu();
+            }
         }
         else
         {
@@ -168,26 +169,47 @@ public class GameManager : MonoBehaviour
 
     public void LevelFinished()
     {
+        levelToPlay++;
+
         if (levelToPlay > _completedLevel[packToPlay])
             _completedLevel[packToPlay] = levelToPlay;
 
-        levelToPlay++;
-        if(levelToPlay >= _levelPacks[packToPlay]._levels.Length)
+        if (levelToPlay >= _levelPacks[packToPlay]._levels.Length)
         {
-            levelToPlay = 0;
-            packToPlay = (packToPlay + 1) % _levelPacks.Length;
+            BackToMenu();
         }
+        else
+        {
+            Pause();
 
-        IEnumerator coroutine = Wait(0.5f);
-
-        AdsManager.ShowInterstitialAd(); //No se si va antes o despues, pero eso
-
-        StartCoroutine(coroutine);
+            _levelManager.LevelFinished();
+        }
     }
 
-    IEnumerator Wait(float waitTime)
+    public void NextLevel()
     {
-        yield return new WaitForSeconds(waitTime);
+        AdsManager.ShowInterstitialAd(new UnityEngine.Advertisements.ShowOptions { resultCallback = LoadNewLevelAd }); //No se si va antes o despues, pero eso
+    }
+
+    public void LoadNewLevelAd(UnityEngine.Advertisements.ShowResult show)
+    {
         LoadNewLevel();
+    }
+
+    public void AddHintAd(UnityEngine.Advertisements.ShowResult show)
+    {
+        AddHint();
+    }
+
+    public void FreeHint(UnityEngine.Advertisements.ShowResult show)
+    {
+        UseHint();
+        AddHint();
+        UseHint();
+    }
+
+    public void AddHint()
+    {
+        _hints++;
     }
 }

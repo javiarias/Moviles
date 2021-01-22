@@ -233,7 +233,7 @@ public class BoardManager : MonoBehaviour
     void PrepareHints(JSONTile[] h, JSONTile f)
     {
         int hintDiv = (int)Mathf.Ceil(h.Length / 3.0f);
-        _hints = new GameUtils.Direction[3, hintDiv];
+        _hints = new GameUtils.Direction[3, hintDiv + 1];
 
         Vector2 prevTile = _startPos;
 
