@@ -70,7 +70,7 @@ public class GroupScript : MonoBehaviour
     {
         LevelButton butt = Instantiate(levelButton, levelContainer);
 
-        int levelComp = GameManager.Instance().getLevelCompleted(pack);
+        int levelComp = GameManager.Instance().GetLevelCompleted(pack);
 
         bool done = number < levelComp;
         bool available = number <= levelComp;

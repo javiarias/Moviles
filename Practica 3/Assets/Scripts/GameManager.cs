@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     
     private static GameManager _instance;
 
-    private gameSaveData gameSaveData_;
+    private SaveDataFull _gameSave;
 
     public static GameManager Instance()
     {
@@ -32,14 +32,6 @@ public class GameManager : MonoBehaviour
     }
 
     private void Awake()
-    {
-        QualitySettings.vSyncCount = 0;   // Deshabilitamos el vSync
-        Application.targetFrameRate = 60; // Forzamos un máximo de 60 fps.
-    }
-
-    public LevelPackage[] _levelPacks;
-
-    void Start()
     {
         if (_instance != null)
         {
@@ -67,13 +59,27 @@ public class GameManager : MonoBehaviour
             }
             */
 
-            loadData();
+            LoadData();
+
+            QualitySettings.vSyncCount = 0;   // Deshabilitamos el vSync
+            Application.targetFrameRate = 60; // Forzamos un máximo de 60 fps.
         }
     }
 
-    public int getLevelCompleted(int pack)
+    public LevelPackage[] _levelPacks;
+
+    void Start()
+    {
+    }
+
+    public int GetLevelCompleted(int pack)
     {
         return _completedLevel[pack];
+    }
+
+    public int GetLevelTotal(int pack)
+    {
+        return _levelPacks[pack]._levels.Length;
     }
 
     public void Pause()
@@ -188,7 +194,7 @@ public class GameManager : MonoBehaviour
         {
             Pause();
 
-            saveData(); //Tampoco se si va aqui
+            SaveData(); //Tampoco se si va aqui
 
             _levelManager.LevelFinished();
         }
@@ -207,7 +213,7 @@ public class GameManager : MonoBehaviour
     public void AddHintAd(UnityEngine.Advertisements.ShowResult show)
     {
         AddHint();
-        saveData();
+        SaveData();
     }
 
     public void FreeHint(UnityEngine.Advertisements.ShowResult show)
@@ -224,25 +230,25 @@ public class GameManager : MonoBehaviour
 
     //SAVE DATA STUFF
     [Serializable]
-    protected class gameSaveData
+    protected class SaveDataFull
     {
         public int hints;
         public int[] packs = new int[50]; //Es un valor arbitrario, pero siendo packs, no se qué valor poner para no quedarnos cortos
     }
 
-    protected class gameSaveDataHASH
+    protected class SaveDataHASH
     {
         public int hashCode;
         public string json;
     }
 
-    public void saveData()
+    public void SaveData()
     {
-        gameSaveData_.hints = GameManager._instance._hints;
-        gameSaveData_.packs = GameManager._instance._completedLevel;
+        _gameSave.hints = GameManager._instance._hints;
+        _gameSave.packs = GameManager._instance._completedLevel;
 
-        string stringSaveData = JsonUtility.ToJson(gameSaveData_);
-        gameSaveDataHASH hashData = new gameSaveDataHASH();
+        string stringSaveData = JsonUtility.ToJson(_gameSave);
+        SaveDataHASH hashData = new SaveDataHASH();
         hashData.json = stringSaveData;
         hashData.hashCode = stringSaveData.GetHashCode();
 
@@ -250,19 +256,16 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("SaveData", aux);
     }
 
-    public void loadData()
+    public void LoadData()
     {
         string codeToVerify = PlayerPrefs.GetString("SaveData");
-        gameSaveDataHASH hashData = JsonUtility.FromJson<gameSaveDataHASH>(codeToVerify);
+        SaveDataHASH hashData = JsonUtility.FromJson<SaveDataHASH>(codeToVerify);
 
-        if (hashData != null)
+        if (hashData != null && hashData.hashCode == hashData.json.GetHashCode())
         {
-            if (hashData.hashCode == hashData.json.GetHashCode())
-            {
-                gameSaveData gameSaveData = JsonUtility.FromJson<gameSaveData>(hashData.json);
-                GameManager._instance._hints = gameSaveData.hints;
-                GameManager._instance._completedLevel = gameSaveData.packs;
-            }
+            _gameSave = JsonUtility.FromJson<SaveDataFull>(hashData.json);
+            GameManager._instance._hints = _gameSave.hints;
+            GameManager._instance._completedLevel = _gameSave.packs;
         }
         else //Si haces trampas o no hay nada
         {
@@ -270,8 +273,10 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < GameManager._instance._completedLevel.Length; i++)
             {
-                GameManager._instance._completedLevel[i] = 1; //No se que valor es por defecto, si 1 o 0
+                GameManager._instance._completedLevel[i] = 0;
             }
+
+            _gameSave = new SaveDataFull();
         }
     }
 }

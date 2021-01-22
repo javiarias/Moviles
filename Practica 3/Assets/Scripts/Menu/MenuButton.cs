@@ -25,7 +25,7 @@ public class MenuButton : MonoBehaviour
         text.text = packName_;
         i = i_;
 
-        //percentageText = 
+        percentageText.text = ((GameManager.Instance().GetLevelCompleted(i_) / (float)GameManager.Instance().GetLevelTotal(i_) * 100.0f)).ToString("F2") + "%";
 
         menu = groupScript_;
     }
