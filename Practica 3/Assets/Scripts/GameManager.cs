@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Clase GameManager
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public LevelManager _levelManager;
 
-    public int packToPlay;
-    public int levelToPlay;
+    public int _currentPack;
+    public int _currentLevel;
 
     public int _hints = 0;
 
@@ -31,6 +34,9 @@ public class GameManager : MonoBehaviour
         return _isPaused;
     }
 
+    /// <summary>
+    /// Aquí se realiza toda la gestión de instancias, cargado de partida y puesta a punto de las opciones de rendimiento. Se realiza en Awake para anteponerse a todo
+    /// </summary>
     private void Awake()
     {
         if (_instance != null)
@@ -52,12 +58,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); //Persistente entre escenas
 
             _completedLevel = new int[_levelPacks.Length];
-            /*
-            for (int i = 0; i < _levelPacks.Length; i++)
-            {
-                _completedLevel[i] = 0;
-            }
-            */
 
             LoadData();
 
@@ -67,10 +67,6 @@ public class GameManager : MonoBehaviour
     }
 
     public LevelPackage[] _levelPacks;
-
-    void Start()
-    {
-    }
 
     public int GetLevelCompleted(int pack)
     {
@@ -101,8 +97,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(int pack, int level)
     {
-        packToPlay = pack;
-        levelToPlay = level;
+        _currentPack = pack;
+        _currentLevel = level;
 
         SceneManager.LoadSceneAsync("GameScene");
     }
@@ -122,7 +118,7 @@ public class GameManager : MonoBehaviour
 
         if (_levelManager)
         {
-            _levelManager.LoadLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
+            _levelManager.LoadLevel(_levelPacks[_currentPack]._levels[_currentLevel].text);
         }
     }
 
@@ -130,10 +126,13 @@ public class GameManager : MonoBehaviour
     {
         if (_levelManager)
         {
-            _levelManager.RestartLevel(_levelPacks[packToPlay]._levels[levelToPlay].text);
+            _levelManager.RestartLevel();
         }
     }
 
+    /// <summary>
+    /// Función que usa una hint, empleado solo durante el juego. Si no hay hints, se activa un menú que permite ver un anuncio
+    /// </summary>
     public void UseHint()
     {
         if (_hints <= 0)
@@ -156,22 +155,22 @@ public class GameManager : MonoBehaviour
 
     public Color GetPackColor()
     {
-        return _levelPacks[packToPlay]._colorScheme;
+        return _levelPacks[_currentPack]._colorScheme;
     }
 
     public Color GetPackHintColor()
     {
-        return _levelPacks[packToPlay]._hintColorScheme;
+        return _levelPacks[_currentPack]._hintColorScheme;
     }
 
     public string GetPackName()
     {
-        return _levelPacks[packToPlay]._packName;
+        return _levelPacks[_currentPack]._packName;
     }
 
     public int GetLevel()
     {
-        return levelToPlay;
+        return _currentLevel;
     }
 
     public int GetHints()
@@ -179,14 +178,20 @@ public class GameManager : MonoBehaviour
         return _hints;
     }
 
+    /// <summary>
+    /// Función que se llama al acabar un nivel. Si es el último, te envía al menú principal. Si tiene que actualizar el último nivel completado, también guarda los datos
+    /// </summary>
     public void LevelFinished()
     {
-        levelToPlay++;
+        _currentLevel++;
 
-        if (levelToPlay > _completedLevel[packToPlay])
-            _completedLevel[packToPlay] = levelToPlay;
+        if (_currentLevel > _completedLevel[_currentPack])
+        {
+            _completedLevel[_currentPack] = _currentLevel;
+            SaveData();
+        }
 
-        if (levelToPlay >= _levelPacks[packToPlay]._levels.Length)
+        if (_currentLevel >= _levelPacks[_currentPack]._levels.Length)
         {
             BackToMenu();
         }
@@ -194,28 +199,42 @@ public class GameManager : MonoBehaviour
         {
             Pause();
 
-            SaveData(); //Tampoco se si va aqui
-
             _levelManager.LevelFinished();
         }
     }
 
+    /// <summary>
+    /// Función que genera el anuncio entre niveles, empleando un callback para cargar el siguiente al acabar el anuncio
+    /// </summary>
     public void NextLevel()
     {
         AdsManager.ShowInterstitialAd(new UnityEngine.Advertisements.ShowOptions { resultCallback = LoadNewLevelAd }); //No se si va antes o despues, pero eso
     }
 
+    /// <summary>
+    /// Función callback que se llama cuando acaba el anuncio que hay tras completar un nivel
+    /// </summary>
+    /// <param name="show">Enum con el resultado del anuncio, necesario para el callback</param>
     public void LoadNewLevelAd(UnityEngine.Advertisements.ShowResult show)
     {
         LoadNewLevel();
     }
 
+    /// <summary>
+    /// Función callback que se llama cuando acaba el anuncio con premio del menú principal, guarda los datos para que se guarde la hint.
+    /// </summary>
+    /// <param name="show">Enum con el resultado del anuncio, necesario para el callback</param>
     public void AddHintAd(UnityEngine.Advertisements.ShowResult show)
     {
         AddHint();
         SaveData();
     }
 
+    /// <summary>
+    /// Función callback que se llama cuando acaba el anuncio con premio al tratar de usar una hint sin tener más hints.
+    /// Se realiza UseHint() dos veces para ocultar el menú
+    /// </summary>
+    /// <param name="show">Enum con el resultado del anuncio, necesario para el callback</param>
     public void FreeHint(UnityEngine.Advertisements.ShowResult show)
     {
         UseHint();
@@ -228,7 +247,9 @@ public class GameManager : MonoBehaviour
         _hints++;
     }
 
-    //SAVE DATA STUFF
+    /// <summary>
+    /// Clase que contiene los datos de guardado
+    /// </summary>
     [Serializable]
     protected class SaveDataFull
     {
@@ -236,36 +257,45 @@ public class GameManager : MonoBehaviour
         public int[] packs = new int[50]; //Es un valor arbitrario, pero siendo packs, no se qué valor poner para no quedarnos cortos
     }
 
-    protected class SaveDataHASH
+    /// <summary>
+    /// Clase que contiene los datos de guardado, pero serializados
+    /// </summary>
+    protected class SaveDataHash
     {
         public int hashCode;
         public string json;
     }
 
+    /// <summary>
+    /// Función de guardado de datos
+    /// </summary>
     public void SaveData()
     {
         _gameSave.hints = GameManager._instance._hints;
         _gameSave.packs = GameManager._instance._completedLevel;
 
-        string stringSaveData = JsonUtility.ToJson(_gameSave);
-        SaveDataHASH hashData = new SaveDataHASH();
-        hashData.json = stringSaveData;
-        hashData.hashCode = stringSaveData.GetHashCode();
+        string jsonified = JsonUtility.ToJson(_gameSave);
+        SaveDataHash hash = new SaveDataHash();
+        hash.json = jsonified;
+        hash.hashCode = jsonified.GetHashCode();
 
-        string aux = JsonUtility.ToJson(hashData);
+        string aux = JsonUtility.ToJson(hash);
         PlayerPrefs.SetString("SaveData", aux);
     }
 
+    /// <summary>
+    /// Función de cargado de datos
+    /// </summary>
     public void LoadData()
     {
-        string codeToVerify = PlayerPrefs.GetString("SaveData");
-        SaveDataHASH hashData = JsonUtility.FromJson<SaveDataHASH>(codeToVerify);
+        string verification = PlayerPrefs.GetString("SaveData");
+        SaveDataHash hash = JsonUtility.FromJson<SaveDataHash>(verification);
 
-        if (hashData != null && hashData.hashCode == hashData.json.GetHashCode())
+        if (hash != null && hash.hashCode == hash.json.GetHashCode())
         {
-            _gameSave = JsonUtility.FromJson<SaveDataFull>(hashData.json);
-            GameManager._instance._hints = _gameSave.hints;
-            GameManager._instance._completedLevel = _gameSave.packs;
+            _gameSave = JsonUtility.FromJson<SaveDataFull>(hash.json);
+            GameManager.Instance()._hints = _gameSave.hints;
+            GameManager.Instance()._completedLevel = _gameSave.packs;
         }
         else //Si haces trampas o no hay nada
         {
@@ -273,7 +303,7 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < GameManager._instance._completedLevel.Length; i++)
             {
-                GameManager._instance._completedLevel[i] = 0;
+                GameManager.Instance()._completedLevel[i] = 0;
             }
 
             _gameSave = new SaveDataFull();

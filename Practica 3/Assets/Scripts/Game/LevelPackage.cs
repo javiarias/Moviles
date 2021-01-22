@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Objeto que contiene los datos importantes a un paquete de niveles
+/// </summary>
 [CreateAssetMenu(fileName = "LevelPackage", menuName = "ScriptableObjects/LevelPackage", order = 2)]
 public class LevelPackage : ScriptableObject
 {

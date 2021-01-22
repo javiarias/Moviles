@@ -62,9 +62,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //Para que no se haga update mientras se esté pausado o se haya ganado
         if (GameManager.Instance().IsPaused() || _won)
             return;
 
+        //si no se está moviendo, entonces se procesa el input
         if (!_isMoving)
         {
             //Queremos que el movimiento solo se registre una vez por cada desliz del dedo, por lo que empleamos _swipeEnd para comprobar si ya se ha realizado un movimiento
@@ -78,10 +80,12 @@ public class PlayerMovement : MonoBehaviour
                 _swipeEnd = false;
             }
         }
+        //Si se está moviendo pero ha acabado de hacer lerp, se busca la siguiente casilla a la que avanzar
         else if(!_isLerping)
         {
             HandleMovement();
         }
+        //y si se está moviendo y está en medio del lerp, se hace el lerp
         else
         {
             if (_lerpTime < _lerpTotal)
@@ -108,6 +112,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activa las flechas que aparecen alrededor del personaje
+    /// </summary>
+    /// <param name="dirs">Direcciones en las que se activarán las flechas</param>
     void ShowDirections(List<GameUtils.Direction> dirs)
     {
         foreach(GameUtils.Direction d in dirs)
@@ -136,6 +144,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Oculta las flechas que aparecen alrededor del personaje
+    /// </summary>
     void HideDirections()
     {
         _playerUp.enabled = false;
@@ -147,6 +158,9 @@ public class PlayerMovement : MonoBehaviour
         _playerRight.enabled = false;
     }
 
+    /// <summary>
+    /// Función que se encarga de automatizar el movimiento, avanzando hasta un callejón sin salida o un cruce, o deslizándose en hielo.
+    /// </summary>
     void HandleMovement()
     {
 
@@ -240,8 +254,10 @@ public class PlayerMovement : MonoBehaviour
 
         Tile t = _boardManager.GetTile((int)transform.localPosition.x, (int)transform.localPosition.y);
 
+        //si se puede mover en esa dirección (o sea, no está moviéndose contra una pared)
         if (t.CheckDirectionMovement(dir))
         {
+            //si está volviendo por su mismo camino o la dirección de movimiento es opuesta a la última realizada
             if (_isReturning || (_movementQueue.Count > 0 && (int)dir + (int)_movementQueue.Peek() == 0))
             {
                 _movementQueue.Pop();
@@ -275,18 +291,19 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
 
+            //se inicia el lerp
             _isLerping = true;
             _lerpTime = 0;
             _initLerp = transform.localPosition;
             _endLerp = _initLerp + translate;
-            //transform.Translate(translate);
 
             t = _boardManager.GetTile((int)_endLerp.x, (int)_endLerp.y);
 
-
+            //se desactiva el camino si se está regresando
             if (_isReturning)
                 t.SetPlayerPath((GameUtils.Direction)(-(int)dir), false);
 
+            //si has pisado hielo, se activa y guarda la dirección
             _isOnIce = t._isIce;
 
             if (_isOnIce)

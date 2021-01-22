@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Clase que gestiona una casilla, con todo su contenido
+/// </summary>
 public class Tile : MonoBehaviour
 {
     public int _upCounter = 0;
@@ -98,8 +100,8 @@ public class Tile : MonoBehaviour
     /// <summary>
     /// Activa o desactiva el sprite de camino del jugador, teniendo en cuenta cuántas veces se ha pasado en una dirección por ese tile
     /// </summary>
-    /// <param name="dir"></param>
-    /// <param name="path"></param>
+    /// <param name="dir">Dirección del camino</param>
+    /// <param name="path">Booleano que determina si se activa o desactiva</param>
     public void SetPlayerPath(GameUtils.Direction dir, bool path)
     {
         switch (dir)
@@ -222,6 +224,10 @@ public class Tile : MonoBehaviour
         return w;
     }
 
+    /// <summary>
+    /// Función que devuelve todas las direcciones en las que no hay un muro
+    /// </summary>
+    /// <returns>Array de direcciones sin muro</returns>
     public List<GameUtils.Direction> GetDirections()
     {
         List<GameUtils.Direction> dirs = new List<GameUtils.Direction>();

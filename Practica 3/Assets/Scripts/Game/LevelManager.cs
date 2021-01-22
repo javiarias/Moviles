@@ -21,6 +21,10 @@ public class LevelManager : MonoBehaviour
 
     int _hintsUsed = 0;
 
+    /// <summary>
+    /// Cargado de nivel
+    /// </summary>
+    /// <param name="json"></param>
     public void LoadLevel(string json)
     {
         if (_winMenu)
@@ -41,6 +45,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Empleo de hints, tiene en cuenta las hints usadas en un mismo nivel
+    /// </summary>
     public void UseHint()
     {
         if (_hintsUsed < 3)
@@ -54,12 +61,18 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Actualizado del texto del icono de pista
+    /// </summary>
     public void UpdateHintTxt()
     {
         if (_hintText)
             _hintText.text = GameManager.Instance().GetHints().ToString();
     }
-
+    
+    /// <summary>
+    /// Activa/Desactiva el menú que permite ver un anuncio a cambio de usar una pista, solo si se pueden usar aún
+    /// </summary>
     public void ToggleHintMenu()
     {
         if (_hintsUsed < 3)
@@ -71,16 +84,21 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel(string json)
+    /// <summary>
+    /// Reinicio de un nivel
+    /// </summary>
+    public void RestartLevel()
     {
-        _map = Map.JSON_To_Map(json);
-
         if (_boardManager)
         {
             _boardManager.RestartLevel();
         }
     }
 
+    /// <summary>
+    /// Pausado del juego
+    /// </summary>
+    /// <param name="pause">Bool que indica si se ha de pausar o no</param>
     public void Pause(bool pause)
     {
         if (_pauseMenu)

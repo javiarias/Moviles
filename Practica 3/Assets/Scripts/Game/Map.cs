@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Clase serializable para cargar un mapa de json
+/// </summary>
 [System.Serializable]
 public class Map
 {

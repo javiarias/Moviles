@@ -51,6 +51,9 @@ public class BoardManager : MonoBehaviour
     /// </summary>
     Vector2 _lastHintPos;
 
+    /// <summary>
+    /// Función que arregla la posición del nivel en función de su tamaño y el tamaño de pantalla
+    /// </summary>
     void FixPosition()
     {
         //Esto centra el tablero en la cámara
@@ -320,6 +323,10 @@ public class BoardManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Función que activa las pistas
+    /// </summary>
+    /// <param name="h">Número de pista a activar</param>
     public void ActivateHint(int h)
     {
         if(h <= 3)
